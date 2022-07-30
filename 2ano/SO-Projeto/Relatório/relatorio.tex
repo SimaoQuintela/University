@@ -1,0 +1,195 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[portuges]{babel}
+\usepackage[utf8]{inputenc} % define o encoding usado texto fonte (input)--usual "utf8" ou "latin1
+\usepackage{graphicx} %permite incluir graficos, tabelas, figuras
+\usepackage{subcaption}
+\usepackage[title]{appendix}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+
+
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=black,
+    }
+    
+    
+    
+\usepackage{bera}% optional: just to have a nice mono-spaced font
+
+\definecolor{eclipseStrings}{RGB}{42,0.0,255}
+\definecolor{eclipseKeywords}{RGB}{127,0,85}
+    
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color
+  basicstyle=\footnotesize,        % size of fonts used for the code
+  breaklines=true,                 % automatic line breaking only at whitespace
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  keywordstyle=\color{blue},       % keyword style
+  stringstyle=\color{mymauve},     % string literal style
+}
+
+
+
+\title{SO - Trabalho Prático\\
+	\large Grupo nº37}
+
+\author{Simão Pedro Batista Caridade Quintela \\ (A97444) 
+             \and Pedro Alexandre Silva Gomes \\ (A91647)
+             \and Hugo Filipe de Sá Rocha \\ (A96463)
+       } %autores do documento
+       
+\date{\today} %data
+
+\begin{document}
+	\begin{minipage}{0.9\linewidth}
+        \centering
+		\includegraphics[width=0.4\textwidth]{um.jpg}\par\vspace{1 cm}
+		\href{https://www.uminho.pt/PT}
+		{\scshape\LARGE Universidade do Minho} \par
+		\vspace{0.6cm}
+		\href{https://lcc.di.uminho.pt}
+		{\scshape\Large Licenciatura em Ciências da Computação} \par
+		\maketitle
+		\begin{figure}[H]
+			\includegraphics[width=0.3352\linewidth]{placaUni.jpeg}
+			\includegraphics[width=0.31\linewidth]{pedro.jpg}
+    		\includegraphics[width=0.34\linewidth]{hugo.png}
+		\end{figure}
+	\end{minipage}
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	\chapter{Introdução}
+%	
+	Este relatório descreve o desenvolvimento do projeto prático da Unidade Currícular de Sistemas Operativos, inserida no 2ºano da Licenciatura em Ciências da Computação da Universidade do Minho.
+	
+	Este trabalho consiste no desenvolver de um serviço que permite aos utilizadores armazenar uma cópia dos seus ficheiros de forma segura e eficiente, tendo como objetivo também a poupança de espaço de disco. O serviço possui funcionalidades de compressão e cifragem dos ficheiros a serem armazenados. Permite também a submissão de pedidos para processar e armazenar novos ficheiros, bem como para recuperar o conteúdo original de ficheiros guardados previamente. É possível consultar as tarefas de processamento de ficheiros a serem efetuadas num dado momento e as estatistícas sobre as mesmas. Para que a realização do referido fosse possível, utilizamos os conhecimentos da linguagem \textit{C}, e todos os lecionados e adquiridos ao longo do semestre nesta UC. O trabalho foi realizado em ambiente \textbf{Linux}, tal como pedido.  
+	
+	\pagebreak
+	
+	\chapter{Estrututa do projeto}
+	
+    Desenvolvemos um cliente (programa \textit{sdstore}) que dispõe de uma interface com o utilizador via linha de comando. O utilizador age sobre o 	servidor através dos argumentos especificados na linha de comando deste cliente. Desenvolvemos também um servidor (programa 			\textit{sdstored}), mantendo em memória a informação relevante para suportar as funcionalidades pedidas.
+    O \textit{standard output} é usado pelo cliente para apresentar o estado do serviço ou o estado de processamento do pedido
+    \textbf{ (“pending”, “processing”, "concluded")}, e pelo servidor para apresentar a informação de \textit{debug}  necessária.
+    Tanto o cliente como o servidor foram escritos em \textit{C} e comunicam entre si via \textit{pipes com nome}. Na realização deste 		projecto não usamos funções da biblioteca de \textit{C} para operações sobre ficheiros, como pedido, salvo para impressão no \textit{standard output}. 	 Não executamos, em nenhum caso, comandos directa ou indirectamente através do interpretador de comandos .
+
+    \section{Estruturas de dados utilizadas}
+    Neste projeto sentimos a necessidade de utilizar estruturas de dados para guardar a informação dos diferentes pedidos feitos por clientes, bem como para guardar informação acerca da configuração do servidor. Tais estruturas são:
+    \begin{lstlisting}[language=C,firstnumber=1]
+    typedef struct config_file {
+	    char* transformation;
+	    int current_num_transf;
+	    int max_exec_transf;
+    } config_file;
+    
+    config_file conf_file[7];
+    \end{lstlisting}
+    Esta estrutura de dados foi criada para guardar informação acerca da configuração do servidor, nomeadamente da informação presente no \textbf{ficheiro de configuração}. Conseguimos ver na estrutura que temos o campo \textbf{transformation} que representa uma transformação, o campo \textbf{current\_num\_transformation} que representa o número de transformações que estão a correr no servidor do tipo \textbf{transformation} e, por fim, o campo \textbf{max\_exec\_transf} que representa o número máximo de transformações que podem estar a correr, do respetivo tipo. Por fim, como se pode ver abaixo da estrutura, a inicialização da mesma é feita na forma de um array de 7 posições(dado que temos 7 transformações) em que cada elemento do array é do tipo \textbf{config\_file}.
+    \\
+    \begin{lstlisting}[language=C,firstnumber=1]
+    typedef struct tasks_running {
+	    int task_num;
+	    char pid[10];
+	    int pid_fork;
+	    char line[128];	
+	    char* line_splitted[20];	
+	    int in_process;	
+	    int fixed_args;
+	    int num_args;
+	    int priority;
+	    struct tasks_running *prox_task;
+    } *tasks_running;
+    tasks_running tasks = NULL;
+    \end{lstlisting}
+    A nossa segunda, e última, estrutura de dados utilizada foi pensada para resolver o problema de armazenamento de tarefas vindas de diferentes clientes. A solução encontrada foi representar todas as tarefas numa lista ligada, em que cada bloco tem informação acerca de \textbf{número da tarefa}, \textbf{pid do cliente que enviou a task}, \textbf{pid do processo que manda executar a task}, \textbf{prioridade} da mesma, \textbf{estado de processamento}, etc..
+
+	\section{Transformações}
+	Neste projeto foram apresentadas 7 transformações a serem utilizadas:
+	
+    \begin{itemize}
+    \item \textbf{bcompress} - Comprime dados com o formato bzip.
+    \item \textbf{bdecompress} - Descomprime dados com o formato bzip.
+    \item \textbf{gcompress} - Comprime dados com o formato gzip.
+    \item \textbf{gdecompress} - Descomprime dados com o formato bzip.
+    \item \textbf{encrypt} - Cifra dados
+    \item \textbf{decrypt} - Decifra dados
+    \item \textbf{nop} - Copia dados sem realizar qualquer transformação
+    \end{itemize}
+    
+    \chapter{Arquitetura do Programa}
+    \section{Comunicação Cliente-Servidor}
+    A comunicação entre cliente e servidor é feita através de pipes com nome em que são usados, por cliente, 2 pipes. O primeiro é comum a todos os clientes e tem o nome de \textbf{main\_pipe}. Este serve para os clientes enviarem a tarefa que querem ver realizada. O segundo pipe tem o nome diferente para todo o cliente, no entanto, apresenta o mesmo propósito, receção de informação aquando do fim da execução da tarefa. O nome associado a estes pipes é o \textbf{pid do processo} do respetivo cliente.
+    \paragraph{}
+    O cliente quando submete o seu pedido escreve no \textbf{main\_pipe} a linha que quer ser executada e o pid do seu processo, para posteriormente, o servidor dar parse a essa linha recebida através do pipe e guardar toda a informação na estrutura de tasks apresentada previamente. 
+    \paragraph{}
+    O servidor, após receber e guardar a tarefa, escreve no pipe com o nome do pid do cliente \textbf{Pending...}, quando começa a execução da task escreve, no mesmo pipe, \textbf{Processing...} e, por fim, quando termina a execução da mesma escreve \textbf{Concluded}, acrescentando ainda informação acerca do tamanho inicial e final do ficheiro de input e output.
+    
+    \section{Pipeline}
+    Para executar os diferentes tipos de transformações, tivemos a necessidade de criar uma \textit{pipeline} para conseguirmos redirecionar inputs e outputs. Este processo foi realizado através de \textit{pipes anónimos}, \textit{dups} e \textit{execs}. Os \textit{pipes anónimos} foram úteis na medida em que, quando temos uma sequência de transformações, através destes conseguimos enviar informação para a transformação seguinte a executar. Os \textit{dups} foram úteis na cópia de descritores de ficheiros para podermos, por exemplo, colocar o \textit{stdin} a apontar para um ficheiro de texto. Para finalizar, os \textit{execs} serviram para podermos mandar executar as diferentes transformações solicitadas em qualquer task.
+    
+    \section{Signals}
+    Usamos também \textit{signals}, nomeadamente o \textit{SIGCHLD}. Este \textit{signal} é utilizado sempre que um processo filho termina, mais especificamente quando o processo que criamos para executar uma determinada task termina. Quando isso acontece, a função por nós definida \textbf{child\_handler} trata de dar update à estrutura que contém o número de transformações que está a correr no momento, bem como da remoção da task da lista de tasks.
+	   
+	\chapter{Funcionalidades}
+    
+    \section{Funcionalidades Básicas}	
+    No que toca a funcionalidades básicas implementamos tudo o que foi pedido.
+	\subsection{Ficheiro de Configuração}
+	A leitura do ficheiro de configuração é feita utilizando a função \textbf{fill\_struct\_conf\_file} que coloca na estrutura destinada ao ficheiro de configuração a informação presente no mesmo.
+	
+	\subsection{Processamento e armazenamento de um ficheiro}
+	Como já foi descrito anteriormente, esta funcionalidade foi implementada usando \textit{pipes com nome} e uma estrutura de listas ligadas.
+	
+	\subsection{Concorrência}
+	Esta funcionalidade foi implementada através da criação de processos filhos, que tratam de executar tasks, enquanto que o processo pai continua a ler informação vinda de clientes.
+	
+	\subsection{Status}
+	Para finalizar as funcionalidades básicas, o \textbf{status} foi implementado usando comunicação cliente-servidor via \textit{pipes com nome}.
+	
+    \section{Funcionalidades avançadas}
+    	
+	\subsection{Prioridades}
+	As \textbf{prioridades} foram implementadas considerando as duas formas aceites para o input da mesma tais como:
+	
+    \begin{lstlisting}[language=C,firstnumber=1]
+$ ./sdstore proc-file -p <priority> samples/file-a outputs/file-a-output transf1 ...
+    \end{lstlisting}
+    \begin{lstlisting}[language=C,firstnumber=1]
+$ ./sdstore proc-file samples/file-a outputs/file-a-output transf1 ...
+    \end{lstlisting}
+    sendo que, no 1º caso a prioridade será a que está no argumento <priority> e, no 2º caso, a prioridade, por \textit{default}, será 0.
+    A implementação das \textbf{prioridades} foi feita usando a estrutura de armazenamento de \textbf{tasks}, visto que a inserção de novas tasks está a ser feita tomando por ordem a prioridade da tarefa a ser inserida, da maior para a menor.
+    
+    \subsection{Tamanho do ficheiro inicial e final}
+    Para resolver o problema de calcular o tamanho de um ficheiro implementamos uma função que recorre à função \textbf{lseek}, posicionando o apontador de escrita/leitura no fim do ficheiro. Como a função \textbf{lseek} devolve o número de bytes que percorreu, tornou-se trivial a implementação desta funcionalidade.
+
+\pagebreak
+	\chapter{Conclusão}
+    
+    Em conclusão, a nível geral, e tendo em conta o panorama apresentado nos capítulos anteriores e os objetivos pedidos para este trabalho, como grupo, achamos que todos os objetivos foram cumpridos, conseguindo superar com sucesso, todas as dificuldades que fomos encontrando,  sempre com um olhar crítico e criterioso. Temos a certeza que aprendemos os conteúdos e objetivos desta Unidade Curricular conseguindo, por isso, realizar com sucesso este projeto.
+	
+
+\end{document}

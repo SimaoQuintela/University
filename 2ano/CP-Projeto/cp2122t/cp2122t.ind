@@ -1,0 +1,71 @@
+\begin{theindex}
+
+  \item \LaTeX , \hyperpage{8}
+    \subitem \texttt  {bibtex}, \hyperpage{8}
+    \subitem \texttt  {lhs2TeX}, \hyperpage{8}
+    \subitem \texttt  {makeindex}, \hyperpage{8}
+
+  \indexspace
+
+  \item Combinador ``pointfree''
+    \subitem \emph  {cata}
+      \subsubitem Listas, \hyperpage{12}
+      \subsubitem Naturais, \hyperpage{9}
+    \subitem \emph  {either}, \hyperpage{12, 13}
+  \item Cálculo de Programas, \hyperpage{2}, \hyperpage{8, 9}
+    \subitem Material Pedagógico, \hyperpage{8}
+      \subsubitem BTree.hs, \hyperpage{5}
+      \subsubitem LTree.hs, \hyperpage{3}, \hyperpage{5}, 
+		\hyperpage{12}
+
+  \indexspace
+
+  \item Fractal, \hyperpage{4}
+    \subitem Tri\^angulo de Sierpinski, \hyperpage{4, 5}
+  \item Functor, \hyperpage{6}, \hyperpage{9--11}, \hyperpage{13}
+  \item Função
+    \subitem \emph  {for}, \hyperpage{3}, \hyperpage{9}
+    \subitem \emph  {length}, \hyperpage{11}
+    \subitem \emph  {map}, \hyperpage{11}
+    \subitem Isomorfismo
+      \subsubitem \emph  {uncurry}, \hyperpage{12}
+    \subitem Projecção
+      \subsubitem $\pi _1$, \hyperpage{2}, \hyperpage{8, 9}, 
+		\hyperpage{12}
+      \subsubitem $\pi _2$, \hyperpage{8}, \hyperpage{12}
+
+  \indexspace
+
+  \item Haskell, \hyperpage{2}, \hyperpage{6}, \hyperpage{8}
+    \subitem Biblioteca
+      \subsubitem PFP, \hyperpage{10}
+      \subsubitem Probability, \hyperpage{10}
+    \subitem interpretador
+      \subsubitem GHCi, \hyperpage{8}, \hyperpage{10}
+    \subitem Literate Haskell, \hyperpage{8}
+
+  \indexspace
+
+  \item Números naturais ($I\mskip -\thinmuskip \mskip -\thinmuskip N$), 
+		\hyperpage{9}
+
+  \indexspace
+
+  \item Programação
+    \subitem dinâmica, \hyperpage{9}
+    \subitem literária, \hyperpage{7, 8}
+
+  \indexspace
+
+  \item SVG (Scalable Vector Graphics), \hyperpage{6}, \hyperpage{11}
+
+  \indexspace
+
+  \item U.Minho
+    \subitem Departamento de Informática, \hyperpage{2}
+
+  \indexspace
+
+  \item XML (Extensible Markup Language), \hyperpage{6}
+
+\end{theindex}

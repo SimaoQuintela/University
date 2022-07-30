@@ -1,0 +1,49 @@
+Imposto:23
+ValorBase:2
+Fornecedor:EDP Comercial,10
+Fornecedor:Galp Energia,20
+Fornecedor:Iberdrola,25
+Fornecedor:Endesa,15
+Casa:Vicente de Carvalho Castro,365597405,Iberdrola
+Divisao:Sala de Jantar
+SmartBulb:Warm,11,4.57
+SmartBulb:Neutral,12,4.73
+Divisao:Sala de Jantar 1
+SmartBulb:Neutral,7,9.35
+SmartCamera:(1280x720),65,3.84
+SmartSpeaker:2,Radio Renascenca,LG,5.54
+SmartBulb:Neutral,5,6.36
+SmartBulb:Neutral,20,5.87
+SmartBulb:Neutral,10,6.10
+SmartCamera:(1024x768),67,4.00
+SmartBulb:Neutral,8,0.28
+Divisao:Quarto
+SmartBulb:Warm,9,0.19
+SmartSpeaker:35,MEGA HITS,Sony,5.54
+SmartCamera:(1920x1080),69,6.58
+SmartCamera:(1024x768),54,6.41
+SmartCamera:(1024x768),95,4.36
+SmartBulb:Warm,19,0.11
+SmartBulb:Neutral,19,1.54
+SmartBulb:Warm,5,3.46
+Divisao:Garagem
+SmartCamera:(1366x768),79,4.41
+SmartCamera:(1024x768),28,5.57
+SmartBulb:Warm,8,4.24
+SmartBulb:Neutral,5,0.12
+Divisao:Escritorio
+SmartSpeaker:40,RFM,Philips,4.20
+SmartSpeaker:65,M80 Radio,Marshall,5.21
+SmartBulb:Neutral,8,0.12
+SmartBulb:Neutral,12,3.78
+SmartCamera:(2160x1440),71,3.97
+SmartBulb:Neutral,7,0.24
+SmartCamera:(1366x768),63,4.74
+SmartBulb:Neutral,5,4.14
+Divisao:Sala de Jantar 2
+SmartBulb:Neutral,9,0.22
+SmartBulb:Neutral,9,0.14
+SmartSpeaker:30,RTP Antena 1 98.3 FM,JBL,5.53
+SmartBulb:Neutral,9,0.11
+SmartBulb:Neutral,13,1.09
+SmartBulb:Neutral,17,2.76

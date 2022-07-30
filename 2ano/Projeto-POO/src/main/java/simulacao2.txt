@@ -1,0 +1,8 @@
+2022.05.26,Vicente de Carvalho Castro,3,turnOff
+2022.05.26,Vicente de Carvalho Castro,6,turnOff
+2022.05.26,Vicente de Carvalho Castro,5,turnOff
+2022.05.26,Vicente de Carvalho Castro,4,turnOff
+2022.05.28,Vicente de Carvalho Castro,Energia Simples,mudar
+2022.05.28,EDP Comercial,50,mudarNumDisp
+2022.05.30,Vicente de Carvalho Castro,21,novaLoc,Garagem
+2022.05.30,Vicente de Carvalho Castro,20,remover
