@@ -1,4 +1,4 @@
-### In this repository, you can find a big part of my journey on this long road which is Computer Science, at the University of Minho :globe_with_meridians:
+### In this repository, you can find a big part of my journey on this long road which is Computer Science, at the University of Minho :mortar_board:
 
 | 1<sup>st</sup> year - 1<sup>st</sup> semester | | |
 | --- | :---: | :---: |
