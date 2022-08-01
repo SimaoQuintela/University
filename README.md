@@ -1,4 +1,3 @@
-# University
 ### In this repository, you can find a big part of my journey on this long road which is Computer Science, at the University of Minho :globe_with_meridians:
 
 | 1<sup>st</sup> year - 1<sup>st</sup> semester | | |
