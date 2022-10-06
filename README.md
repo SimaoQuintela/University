@@ -26,6 +26,6 @@
 
 ## I also have been involved in the following projects and activities
 - [JOIN'22](https://github.com/joinum/parzival) - Frontend developer
-- [NECC](https://github.com/NECC) - Developer
+- [NECC](https://github.com/NECC) - Developer / Director of Dev. Department
 - [CoderDojo](https://github.com/coderdojobraga) - Mentor
 - [Hackathon SEI'22](https://github.com/SimaoQuintela/hackathon-sei22)
