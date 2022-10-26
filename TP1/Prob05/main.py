@@ -61,5 +61,3 @@ with open("res.json", "w") as f:
     f.write(re.sub("'", '"', str(json)))
 
 print(cols)
-
-
