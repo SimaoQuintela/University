@@ -1,52 +1,63 @@
-import csv
+from math import prod
 import re
-from json_write import write_on_json_file
 
-lines = []
-with open('./examples/alunos.csv', newline='') as csvfile:
-    spamreader = csv.reader(csvfile, delimiter='\n', quotechar='|')
-    for row in spamreader:
-        lines.append(row[0])
+def rangeToTuple(range):
+    res = re.findall("(?:[0-9])+", range)
+    nums = [int(num) for num in res]
 
-line_with_header = lines[0]
-lines.pop(0)
+    if len(nums) == 0:
+        return [1, 1]
+    if len(nums) == 1:
+        return [1, nums[0]]
+    return nums
+
+aggregators = {
+    "sum": sum,
+    "media": lambda x : sum(x)/len(x),
+    "prod": prod
+}
+
+with open("input.csv", "r") as f:
+    lines = f.readlines()
 
 
-headers = re.findall("([A-Za-z0-9úãóíáõé]+)+({((?:[0-9]+,?)+)})?", line_with_header)
-json_headers = {}
-i = 0
-print(headers)
-for header in headers:
-    if "{" in header[1] and "}" in header[1]:
-        min_max_array = re.split(",", header[2])
-        if len(min_max_array) == 2:
-            min_array = int(min_max_array[0])
-            max_array = int(min_max_array[1])
+headers = re.findall("([A-Za-z0-9úãóíáõé]+)+({(?:[0-9]+,?)+})?(::[A-Za-z]+)?", lines[0])
+body = lines[1:] if len(lines) > 1 else []
+
+cols = []
+padding = 0
+for i, (nome, range, func) in enumerate(headers):
+    min, max = rangeToTuple(range)
+    entry = {
+        "nome":  nome,
+        "min":   min,
+        "start": padding+i,
+        "end":   padding+i+max,
+        "aggregate_func": func[2:]
+    }
+    padding += max - 1
+    cols.append(entry)
+
+json = []
+for row in body:
+    res = re.split(",", re.sub("\n", "", row))
+    ret = dict()
+
+    for entry in cols:
+        range = res[entry["start"]:entry["end"]]
+
+        if len(range) > 1:
+            converted = [int(n) for n in range if n != ""]
+            if entry["aggregate_func"] == "":
+                ret[entry["nome"]] = converted
+            else:
+                ret[f'{entry["nome"]}_{entry["aggregate_func"]}'] = aggregators[entry["aggregate_func"]](converted)
         else:
-            min_array = 1
-            max_array = int(min_max_array[0])
-        json_headers[i] = {}
-        json_headers[i][header[0]+header[1]] = (min_array,max_array)  
-         
-    else:
-        json_headers[i] = header[0]
-    i+=1
+            ret[entry["nome"]] = range[0]
+        
+    json.append(ret)
 
-print(json_headers)
+with open("res.json", "w") as f:
+    f.write(re.sub("'", '"', str(json)))
 
-#print(headers)
-json_file_name = input("Nome do ficheiro JSON sem terminação: ") + ".json"
-f = open(json_file_name, "w")
-f.write("[\n")
-f.close()
-for (i,line) in enumerate(lines):
-    f = open(json_file_name, "a")
-    write_on_json_file(line, json_headers, f)
-    if i != len(lines)-1:
-        f.write("    },\n")
-    else:
-        f.write("    }")
-
-f = open(json_file_name, "a")
-f.write("\n]")
-f.close()
+print(cols)
