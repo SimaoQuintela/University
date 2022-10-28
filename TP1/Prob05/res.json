@@ -1,1 +1,20 @@
-[{"Número": "3162", "Nome": "Cândido Faísca", "Curso": "Teatro", "Notas_media": 13.0, "Soma_prod": 2184}, {"Número": "7777", "Nome": "Cristiano Ronaldo", "Curso": "Desporto", "Notas_media": 14.4, "Soma_prod": 2340}, {"Número": "264", "Nome": "Marcelo Sousa", "Curso": "Ciência Política", "Notas_media": 19.0, "Soma_prod": 2496}]
+[
+    {
+        "Número": "3162",
+        "Nome": "Cândido Faísca",
+        "Curso": "Teatro",
+        "Notas": [10, 20]
+    },
+    {
+        "Número": "7777",
+        "Nome": "Cristiano Ronaldo",
+        "Curso": "Desporto",
+        "Notas": [20, 12, 17, 15, 16]
+    },
+    {
+        "Número": "264",
+        "Nome": "Marcelo Sousa",
+        "Curso": "Ciência Política",
+        "Notas": [20, 16, 13]
+    }
+]
