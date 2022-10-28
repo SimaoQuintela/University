@@ -1,6 +1,6 @@
 from main import lines, re
 
-f#requency = {}
+
 years = {}
 
 for line in lines:
@@ -22,21 +22,9 @@ for line in lines:
             years[year][process] = 0
 
 
-        #if year not in frequency:
-         #   frequency[year] = 1
-
         
         years[year][process] += 1
-        #frequency[year] += 1
-'''
-suma = 0
-for freq in frequency:
-    suma += frequency[freq]
 
-print(frequency)
-print(suma)
-
-'''
 
 for year in years:
     print(f'Ano {year}:')
