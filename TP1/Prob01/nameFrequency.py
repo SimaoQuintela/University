@@ -1,3 +1,5 @@
+# 1. b)
+
 from main import lines, re
 
 def year_to_century(year):
@@ -5,24 +7,6 @@ def year_to_century(year):
 
 
 name_frequency = {}
-
-# Caso 1 - ::nome::nome::nome::
-# :([A-Za-z| ]+):     - coloca nos grupos de índice ímpar o nome da pessoa
-
-# Caso 2 - nome, relação parentesco, Proc.x
-# ([A-Z][A-Za-z ]+),([A-Za-z ]+). ?(?i:(Proc.[0-9]+))
-# grupo 0 - nome da pessoa
-# grupo 1 - relação de parentesco
-# grupo 2 - número de processo
-
-names_in_dots = re.findall(':([A-Za-z| ]+)(:)', lines[0])
-names_with_procs = re.findall('([A-Z][A-Za-z ]+),([A-Za-z ]+). ?(?i:(Proc.[0-9]+))', lines[1])
-#print(names_in_dots)
-#print(names_with_procs)
-
-
-names_with_procs = re.findall('([A-Z][A-Za-z ]+),([A-Za-z ]+). ?(?i:(Proc.[0-9]+))', lines[3])
-#print(names_with_procs)
 
 # centurys = {19: {"First": {"Ana": 10, "Joana": 40},
 #                  "Last":  {"Quintela": 5, "Silva: 2000"}
