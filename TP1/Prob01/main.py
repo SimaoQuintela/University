@@ -57,7 +57,7 @@ def nameFrequency():
             person_name = name[0] 
             name_splitted = re.split(" ", person_name)
             first_name = name_splitted[0]
-            last_name = name_splitted[0]
+            last_name = name_splitted[-1]
             if first_name not in centurys[century]["First"]:
                 centurys[century]["First"][first_name] = 1
             else:
@@ -161,9 +161,6 @@ def write_on_json():
         data = json_info[entry]
         for (j, key) in enumerate(data):
             f.write(f'       \"{key}\": \"{data[key]}\"')
-            
-
-                # acabar aqui a lista de pais
 
             if j == len(data)-1:
                 f.write('\n')
@@ -184,7 +181,6 @@ def write_on_json():
 # Menu de visualização de resultados
 choose = input("Escolha um número:\n1-Frequência de Processos\n2-Frequência de nomes por século\n3-Frequência de relações\n4-Escrever num json\n5-Sair\nOpção: ")
 while(choose != '5'):
-    print('bla')
 
     if choose == '1':
         year = str(input("Insira o ano(0 - print a tudo): "))
@@ -200,8 +196,7 @@ while(choose != '5'):
             print(name_freq[century])
         else:
             print(name_freq)
-        print(nameFrequency())
-
+        
     elif choose == '3':
         rels = relationFrequency()
         relation = str(input('Relação(0 - print a tudo): '))
