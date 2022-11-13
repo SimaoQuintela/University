@@ -3,7 +3,6 @@
 % Language setting
 % Replace `english' with e.g. `spanish' to change the document language
 \usepackage[portuges]{babel}
-\inputencoding{utf8}
 % Set page size and margins
 % Replace `letterpaper' with `a4paper' for UK/EU standard size
 \usepackage[utf8]{inputenc}
@@ -477,7 +476,7 @@ Para finalizar esse array é convertido em texto no formato JSON.\\
 
 \item\textbf{Estrutura de dados}
 \paragraph{}
-As estruturas de dados são um array de cabeçalhos,  um array de linhas e um dicionário funções agregadoras. \\
+As estruturas de dados são um array de cabeçalhos, um array de linhas e um dicionário funções agregadoras.  \\
 O array de cabeçalhos é um array de dicionários que vai guardar toda a informação dos cabeçalhos do  
 ficheiro CSV e organizá-la da seguinte forma: \\
 \begin{lstlisting}[language=Python]
@@ -513,7 +512,9 @@ O dicionário de funções agregadoras contém entradas em que a chave é o nome
 
 \item\textbf{Processamento de cabeçalhos}
 \paragraph{}
-Para processar os cabeçalhos executamos um \textbf{findall} que nos permite tornar a linha num array de tuplos que tem a seguinte forma (nome, intervalo de colunas, função agregadora). De seguida percorremos esse array e convertemo-lo na primeira estrutura mencionada anteriormente.
+Para processar os cabeçalhos executamos um \textbf{findall} que nos permite tornar a linha num array de tuplos  
+que tem a seguinte forma (nome, intervalo de colunas, função agregadora). De seguida percorremos esse  
+array e convertemo-lo na primeira estrutura mencionada anteriormente.
 
 \begin{lstlisting}[language=Python]
 def rangeToTuple(range):
@@ -583,7 +584,8 @@ json = [rowToDict(row, cols) for row in body]
 
 \item \textbf{Escrita do resultado em formato JSON}
 \paragraph{}
-Na escrita do resultado temos tabulação parametrizável e aquilo que é feito é a conversão para texto, utilizando \textbf{fstrings} para converter cada par do dicionário num par de JSON e o dicionário em si num objeto, depois todo esse texto é concatenado para apresentar o resultado correctamente.
+Na escrita do resultado temos tabulação parametrizável e aquilo que é feito é a conversão para texto,  
+utilizando \textbf{fstrings} para converter cada par do dicionário num par de JSON e o dicionário em si num objeto, depois todo esse texto é concatenado de forma a apresentar o resultado final correctamente.
 
 \begin{lstlisting}[language=Python]
 json = [rowToDict(row, cols) for row in body]
@@ -632,7 +634,7 @@ with open("res.json", "w") as f:
     \includegraphics[width=0.8\linewidth]{alinea_c2.png}
 
     \paragraph{}
-    Como podemos ver, o programa faz a contagem do número de relações.
+    Como podemos, ver o programa faz a contagem do número de relações.
 
     \subsection{Escrever as 20 primeiras linhas num JSON}
     \includegraphics[width=0.8\linewidth]{alinea_d1.png} \\
@@ -688,7 +690,7 @@ Obtemos o seguinte output: \\
 \paragraph{}
 Fazendo uma retrospetiva referente ao trabalho prático, todos os objetivos foram cumpridos com certeza e clareza. A aposta em realizar 2 dos 5 problemas propostos fez com que todo o grupo conseguisse estar dentro do trabalho prático e adquirir todos os conhecimentos inerentes ao mesmo.
 \paragraph{}
-A realização deste trabalho prático fez com que entendêssemos melhor certas funções do módulo \textbf{re}, como, por exemplo, \textbf{search}, \textbf{split}, \textbf{findall} e \textbf{sub}. Também nos deu sensibilidade no que toca a lidar com ficheiros de grandes dimensões, visto que nem sempre sabíamos de que forma a informação presente nos mesmos estava formatada.  
+A realização deste trabalho prático fez com que entedêssemos melhor certas funções do módulo \textbf{re}, como, por exemplo, \textbf{search}, \textbf{split}, \textbf{findall} e \textbf{sub}. Também nos deu sensibilidade no que toca a lidar com ficheiros de grandes dimensões, visto que nem sempre sabíamos de que forma a informação presente nos mesmos estava formatada. 
 \paragraph{}
 Em suma, todos os objetivos foram concluídos sem grande dificuldade pelo grupo e consideramos que este trabalho foi uma boa preparação para o resto do semestre, no qual teremos certamente desafios nos quais utilizaremos o conhecimento aqui adquirido. 
 
