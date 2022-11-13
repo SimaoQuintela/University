@@ -76,13 +76,13 @@
 	\chapter{Introdução}
 % 
     \paragraph{}
-    No âmbito da disciplina de Processamento de Linguagens e Compiladores foi-nos proposto pelo docente Pedro Rangel Henriques a realização de um trabalho prático com o objetivo de colocar em prática a utilização de expressões regulares para a análise de ficheiros de texto.
+    No âmbito da disciplina de Processamento de Linguagens e Compiladores foi-nos proposto pelo docente Pedro Rangel Henriques a realização de um trabalho prático visando colocar em prática a utilização de expressões regulares para a análise de ficheiros de texto.
 
     \paragraph{}
     O trabalho prático consiste na resolução de, pelo menos, um problema em cinco propostos. Analisados os problemas acabamos por resolver o problema 1 (Processador de Pessoas listadas nos Róis de Confessados) e o problema 5 (Ficheiros CSV com listas e funções de agregação).
 
     \paragraph{}
-    Neste documento estão apresentadas as soluções utilizadas para a resolução dos problemas abordados bem como a correspondente demonstração do funcionamento dos programas. 
+    Neste documento estão apresentadas as soluções utilizadas para a resolução dos problemas abordados, bem como a correspondente demonstração do funcionamento dos programas. 
 
     \chapter{Enunciados e Resoluções}
     \section{Processador de Pessoas listadas nos Róis de Confessados}
@@ -91,14 +91,14 @@
 
     \begin{enumerate}[label=\alph*)]
         \item Calcula a frequência de processos por ano (primeiro elemento da data);
-        \item Calcula a frequência de nomes próprios (o primeiro em cada nome) e apelidos (o ultimo em cada nome) por séculos;
+        \item Calcula a frequência de nomes próprios (o primeiro em cada nome) e apelidos (o último em cada nome) por séculos;
         \item Calcula a frequência dos vários tipos de relação: irmão, sobrinho, etc.
-        \item Imprimir os 20 primeiros registos num novo ficheiro de output mas em formato JSON.
+        \item Imprimir os 20 primeiros registos num novo ficheiro de output, mas em formato JSON.
     \end{enumerate}
 
     \subsection{Resolução do problema}
     \paragraph{}
-    Neste trabalho decidimos utilizar uma estratégia inicial semelhante em todas as alíneas que consiste em ler todas as linhas do ficheiro \textit{processos.txt} e guarda-las num array para depois poderem ser lidas na resolução das diferentes alíneas.
+    Neste trabalho decidimos utilizar uma estratégia inicial semelhante em todas as alíneas que consiste em ler todas as linhas do ficheiro \textit{processos.txt} e guardá-las num array para depois poderem ser lidas na resolução das diferentes alíneas.
 
     \begin{enumerate}[label=\alph*.]
         \item Na resolução da alínea a. utilizamos um dicionário \textit{years} para guardar a frequência de processos por ano associando cada ano à frequência de processos. Para obtermos o ano e processo correspondente a cada linha do ficheiro utilizamos as funções \textbf{search} e \textbf{split}, e a seguinte expressão regular ([0-9]+)[:]{2}([0-9]{4}\-[0-9]{2}\-[0-9]{2}) \\
@@ -142,7 +142,7 @@ centurys = {
         \end{lstlisting}
 
         \paragraph{}
-        Utilizamos a expressão regular \texttt{([0-9]{4})\-([0-9]{2})\-([0-9]{2})} com a função \textbf{search} para saber qual a data da linha lida.\\ Com a expressão regular \texttt{:([A-Za-z| ]+)(:)} e com a função \textbf{findall} conseguimos identificar o nome da pessoa processada, do pai e da mãe.\\Por fim, utilizando de novo a função \textbf{findall} e a expressão regular \texttt{([A-Z][A-Za-z ]+),([A-Za-z ]+). ?(?i:(Proc.[0-9]+))} conseguimos  identificar os nomes de pessoas que tiveram envolvidas noutros processos.
+        Utilizamos a expressão regular \texttt{([0-9]{4})\-([0-9]{2})\-([0-9]{2})} com a função \textbf{search} para determinar a data da linha lida.\\ Com a expressão regular \texttt{:([A-Za-z| ]+)(:)} e com a função \textbf{findall} conseguimos identificar o nome da pessoa processada, do pai e da mãe.\\Por fim, utilizando de novo a função \textbf{findall} e a expressão regular \texttt{([A-Z][A-Za-z ]+),([A-Za-z ]+). ?(?i:(Proc.[0-9]+))} conseguimos  identificar os nomes de pessoas que tiveram envolvidas noutros processos.
 
         \begin{lstlisting}[language=Python]
 def year_to_century(year):
@@ -186,11 +186,11 @@ def nameFrequency():
         
         Ao analisar o ficheiro reparamos que estes dois padrões que se repetiam:\\
         \begin{enumerate}
-            \item \texttt{::Filho::Pai(opcional)::Mãe(Opcioal)::}\\
-            \item \texttt{nome, relação parentesco, Proc.x} \\
+            \item \texttt{::Filho::Pai(opcional)::Mãe(Opcional)::}\\
+            \item \texttt{nome, relação de parentesco, Proc.x} \\
         \end{enumerate}
 
-        Para identificar o padrão \texttt{(a)} usamos a função \textbf{findall} e a expressão regular \texttt{:([A-Za-z| ]+):} . De notar que, no dicionário, o \textbf{Pai} e a \textbf{Mãe} são ambos contabilizados na entrada \textbf{Progenitor} visto que em várias linhas, por vezes a ordem pela qual aparece o nome dos mesmos é trocada. Para o efeito, e para não correr o risco de recolher informação errada optamos por coloca-los na mesma entrada. \\
+        Para identificar o padrão \texttt{(a)} usamos a função \textbf{findall} e a expressão regular \texttt{:([A-Za-z| ]+):} . De notar que, no dicionário, o \textbf{Pai} e a \textbf{Mãe} são ambos contabilizados na entrada \textbf{Progenitor} visto que em várias linhas, por vezes a ordem pela qual aparece o nome dos mesmos é trocada. Para o efeito, e para não arriscar recolher informação errada, optamos por colocá-los na mesma entrada. \\
         \\
         Para identificar o padrão \texttt{(b)}, utilizamos a função \textbf{findall} e a expressão regular \texttt{([A-Z][A-Za-z ]+),([A-Za-z ]+). ?(?i:(Proc.[0-9]+))} para identificar as restantes relações de parentesco com o processado.
     
@@ -224,7 +224,7 @@ def relationFrequency():
     
     Para a resolução desta alínea utilizamos duas funções, uma para recolher informação, e outra para escrever informação no ficheiro JSON pretendido.
 
-    A função \textbf{info\_to\_json} tem como objetivo recolher informação linha a linha (assegurando-se que não está a ler duas vezes a mesma linha), utilizando expresões regulares mostradas anteriormente, na seguinte forma:
+    A função \textbf{info\_to\_json} tem como objetivo recolher informação linha a linha (assegurando-se que não lê duas vezes a mesma linha), utilizando expresões regulares mostradas anteriormente, na seguinte forma:
 
         \begin{lstlisting}[language=Python]
 # dada a seguinte linha tem-se
@@ -471,15 +471,15 @@ Numero,Nome,Curso,Notas{3,5}::media,,,,,
 
     \item\textbf{Estrutura do programa}
 \paragraph{}
-Após analisar o problema e exemplos fornecidos pelo professor, decidímos criar este conversor da seguinte forma. \\
-Primeiramente vai ser lido o ficheiro, depois vão ser processados os cabeçalhos através da criação de uma estrutura em código que espelha a estrutura do ficheiro. De seguida, a estrutura referida anteriormente vai utilizada para processar as linhas do ficheiro, transformando-as e guardando-as num array.\\
+Após analisar o problema e exemplos fornecidos pelo professor, decidimos criar este conversor da seguinte forma. \\
+Primeiramente vai ser lido o ficheiro, depois vão ser processados os cabeçalhos através da criação de uma estrutura em código que espelha a estrutura do ficheiro. A seguir, a estrutura referida anteriormente vai ser utilizada para processar as linhas do ficheiro, transformando-as e guardando-as num array.\\
 Para finalizar esse array é convertido em texto no formato JSON.\\
 
 \item\textbf{Estrutura de dados}
 \paragraph{}
-As estruturas de dados são array de cabeçalhos, array de linhas e um dicionário funções agregadoras.  \\
+As estruturas de dados são um array de cabeçalhos,  um array de linhas e um dicionário funções agregadoras. \\
 O array de cabeçalhos é um array de dicionários que vai guardar toda a informação dos cabeçalhos do  
-ficheiro CSV e organiza-la da seguinte forma: \\
+ficheiro CSV e organizá-la da seguinte forma: \\
 \begin{lstlisting}[language=Python]
 {
     "nome":  # nome do campo do csv
@@ -490,7 +490,7 @@ ficheiro CSV e organiza-la da seguinte forma: \\
 }
 \end{lstlisting}
 
-O array de linhas é um array de dicionários também, mas estes têm a estrura da linha com a chave a ser um cabeçalho e o valor a ser a informação desse cabeçalho já processada.  \\
+O array de linhas é um array de dicionários também, mas estes têm a estrutura da linha com a chave a ser um cabeçalho e o valor a ser a informação desse cabeçalho já processada.  \\
 \begin{lstlisting}[language=Python]
 {
     "Numero": "264",
@@ -513,9 +513,7 @@ O dicionário de funções agregadoras contém entradas em que a chave é o nome
 
 \item\textbf{Processamento de cabeçalhos}
 \paragraph{}
-Para processar os cabeçalhos executamos um \textbf{findall} que nos permite tornar a linha num array de tuplos  
-que tem a seguinte forma (nome, intervalo de colunas, função agregadora). De seguida percorremos esse  
-array e convertemo-lo na primeira estrutura mencionada anteriormente.
+Para processar os cabeçalhos executamos um \textbf{findall} que nos permite tornar a linha num array de tuplos que tem a seguinte forma (nome, intervalo de colunas, função agregadora). De seguida percorremos esse array e convertemo-lo na primeira estrutura mencionada anteriormente.
 
 \begin{lstlisting}[language=Python]
 def rangeToTuple(range):
@@ -549,7 +547,7 @@ for i, (nome, range, func) in enumerate(headers):
 
 \item \textbf{Processamento das linhas do ficheiro}
 \paragraph{}
-Para processar as linhas utilizamos a estrutura criada anteriormente, verifica-mos que tipo de transformações  
+Para processar as linhas utilizamos a estrutura criada anteriormente, verificamos que tipo de transformações  
 têm de ser efectuadas para cada conjunto de colunas e preenchemos o dicionário com a informação de cada linha.  \\
 \begin{lstlisting}[language=Python]
 aggregators = {
@@ -585,8 +583,7 @@ json = [rowToDict(row, cols) for row in body]
 
 \item \textbf{Escrita do resultado em formato JSON}
 \paragraph{}
-Na escrita do resultado temos tabulação parametrizável e aquilo que é feito é a conversão para texto,  
-utilizando \textbf{fstrings} para converter cada par do dicionário num par de JSON e o dicionário em si num objeto, depois todo esse texto é concatenado de forma a apresentar o resultado final correctamente.
+Na escrita do resultado temos tabulação parametrizável e aquilo que é feito é a conversão para texto, utilizando \textbf{fstrings} para converter cada par do dicionário num par de JSON e o dicionário em si num objeto, depois todo esse texto é concatenado para apresentar o resultado correctamente.
 
 \begin{lstlisting}[language=Python]
 json = [rowToDict(row, cols) for row in body]
@@ -622,20 +619,20 @@ with open("res.json", "w") as f:
     \includegraphics[width=0.8\linewidth]{alinea_a1.png} \\
 	\includegraphics[width=0.8\linewidth]{alinea_a2.png}
     \paragraph{}
-    Como podemos ver o programa está a fazer a contagem do número de processos por ano.
+    Como podemos ver, o programa faz a contagem do número de processos por ano.
     
     \subsection{Frequência de nomes por século}
     \includegraphics[width=0.8\linewidth]{alinea_b1.png} \\
 	\includegraphics[width=0.8\linewidth]{alinea_b2.png}
     \paragraph{}
-    Como podemos ver o programa está a fazer a contagem do número de nomes e apelidos por século.
+    Como podemos ver, o programa faz a contagem do número de nomes e apelidos por século.
 
     \subsection{Frequência de relações por século}
     \includegraphics[width=0.8\linewidth]{alinea_c1.png} \\
     \includegraphics[width=0.8\linewidth]{alinea_c2.png}
 
     \paragraph{}
-    Como podemos ver o programa está a fazer a contagem do número de relações.
+    Como podemos ver, o programa faz a contagem do número de relações.
 
     \subsection{Escrever as 20 primeiras linhas num JSON}
     \includegraphics[width=0.8\linewidth]{alinea_d1.png} \\
@@ -691,9 +688,9 @@ Obtemos o seguinte output: \\
 \paragraph{}
 Fazendo uma retrospetiva referente ao trabalho prático, todos os objetivos foram cumpridos com certeza e clareza. A aposta em realizar 2 dos 5 problemas propostos fez com que todo o grupo conseguisse estar dentro do trabalho prático e adquirir todos os conhecimentos inerentes ao mesmo.
 \paragraph{}
-A realização deste trabalho prático fez com que entedessemos melhor certas funções do módulo \textbf{re}, como por exemplo a \textbf{search}, \textbf{split}, \textbf{findall}, \textbf{sub}, e também nos deu sensibilidade no que toca a lidar com ficheiros de grandes dimensões visto que nem sempre sabíamos de que forma a informação presente nos mesmos vinha formatada. 
+A realização deste trabalho prático fez com que entendêssemos melhor certas funções do módulo \textbf{re}, como, por exemplo, \textbf{search}, \textbf{split}, \textbf{findall} e \textbf{sub}. Também nos deu sensibilidade no que toca a lidar com ficheiros de grandes dimensões, visto que nem sempre sabíamos de que forma a informação presente nos mesmos estava formatada.  
 \paragraph{}
-Para concluir, todos os objetivos foram concluídos sem grande dificuldade pelo grupo e consideramos que este trabalho foi uma boa preparação para o resto do semestre no qual teremos certamente desafios nos quais utilizaremos o conhecimento aqui adquirido. 
+Em suma, todos os objetivos foram concluídos sem grande dificuldade pelo grupo e consideramos que este trabalho foi uma boa preparação para o resto do semestre, no qual teremos certamente desafios nos quais utilizaremos o conhecimento aqui adquirido. 
 
 
 \end{document}
