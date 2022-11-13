@@ -1,0 +1,383 @@
+
+\documentclass[11pt,a4paper]{report}%especifica o tipo de documento que tenciona escrever: carta, artigo, relatório... neste caso é um relatório
+% [11pt,a4paper] Define o tamanho principal das letras do documento. caso não especifique uma delas, é assumido 10pt
+% a4paper -- Define o tamanho do papel.
+
+\usepackage[portuges]{babel}%Babel -- irá activar automaticamente as regras apropriadas de hifenização para a língua todo o
+                                   %-- o texto gerado é automaticamente traduzido para Português.
+                                   %  Por exemplo, “chapter” irá passar a “capítulo”, “table of contents” a “conteúdo”.
+                                   % portuges -- específica para o Português.
+\usepackage[utf8]{inputenc} % define o encoding usado texto fonte (input)--usual "utf8" ou "latin1
+
+\usepackage{graphicx} %permite incluir graficos, tabelas, figuras
+\usepackage{url} % para utilizar o comando \url{}
+\usepackage{enumerate} %permite escolher, nas listas enumeradas, se os iems sao marcados com letras ou numeros-romanos em vez de numeracao normal
+
+%\usepackage{apalike} % gerar biliografia no estilo 'named' (apalike)
+
+\usepackage{color} % Para escrever em cores
+
+\usepackage{multirow} %tabelas com multilinhas
+\usepackage{array} %formatação especial de tabelas em array
+
+\usepackage[pdftex]{hyperref} % transformar as referências internas do seu documento em hiper-ligações.
+
+%Exemplos de fontes -- nao e vulgar mudar o tipo de fonte
+%\usepackage{tgbonum} % Fonte de letra: TEX Gyre Bonum
+%\usepackage{lmodern} % Fonte de letra: Latin Modern Sans Serif
+%\usepackage{helvet}  % Fonte de letra: Helvetica
+%\usepackage{charter} % Fonte de letra:Charter
+
+\definecolor{saddlebrown}{rgb}{0.55, 0.27, 0.07} % para definir uma nova cor, neste caso 'saddlebrown'
+
+\usepackage{listings}  % para utilizar blocos de texto verbatim no estilo 'listings'
+%paramerização mais vulgar dos blocos LISTING - GENERAL
+\lstset{
+	basicstyle=\small, %o tamanho das fontes que são usadas para o código
+	numbers=left, % onde colocar a numeração da linha
+	numberstyle=\tiny, %o tamanho das fontes que são usadas para a numeração da linha
+	numbersep=5pt, %distancia entre a numeração da linha e o codigo
+	breaklines=true, %define quebra automática de linha
+    frame=tB,  % caixa a volta do codigo
+	mathescape=true, %habilita o modo matemático
+	escapeinside={(*@}{@*)} % se escrever isto  aceita tudo o que esta dentro das marcas e nao altera
+}
+%
+%\lstset{ %
+%	language=Java,							% choose the language of the code
+%	basicstyle=\ttfamily\footnotesize,		% the size of the fonts that are used for the code
+%	keywordstyle=\bfseries,					% set the keyword style
+%	%numbers=left,							% where to put the line-numbers
+%	numberstyle=\scriptsize,				% the size of the fonts that are used for the line-numbers
+%	stepnumber=2,							% the step between two line-numbers. If it's 1 each line
+%											% will be numbered
+%	numbersep=5pt,							% how far the line-numbers are from the code
+%	backgroundcolor=\color{white},			% choose the background color. You must add \usepackage{color}
+%	showspaces=false,						% show spaces adding particular underscores
+%	showstringspaces=false,					% underline spaces within strings
+%	showtabs=false,							% show tabs within strings adding particular underscores
+%	frame=none,								% adds a frame around the code
+%	%abovecaptionskip=-.8em,
+%	%belowcaptionskip=.7em,
+%	tabsize=2,								% sets default tabsize to 2 spaces
+%	captionpos=b,							% sets the caption-position to bottom
+%	breaklines=true,						% sets automatic line breaking
+%	breakatwhitespace=false,				% sets if automatic breaks should only happen at whitespace
+%	title=\lstname,							% show the filename of files included with \lstinputlisting;
+%											% also try caption instead of title
+%	escapeinside={\%*}{*)},					% if you want to add a comment within your code
+%	morekeywords={*,...}					% if you want to add more keywords to the set
+%}
+
+\usepackage{xspace} % deteta se a seguir a palavra tem uma palavra ou um sinal de pontuaçao se tiver uma palavra da espaço, se for um sinal de pontuaçao nao da espaço
+
+\parindent=0pt %espaço a deixar para fazer a  indentação da primeira linha após um parágrafo
+\parskip=2pt % espaço entre o parágrafo e o texto anterior
+
+\setlength{\oddsidemargin}{-1cm} %espaço entre o texto e a margem
+\setlength{\textwidth}{18cm} %Comprimento do texto na pagina
+\setlength{\headsep}{-1cm} %espaço entre o texto e o cabeçalho
+\setlength{\textheight}{23cm} %altura do texto na pagina
+
+% comando '\def' usado para definir abreviatura (macros)
+% o primeiro argumento é o nome do novo comando e o segundo entre chavetas é o texto original, ou sequência de controle, para que expande
+\def\darius{\textsf{Darius}\xspace}
+\def\antlr{\texttt{AnTLR}\xspace}
+\def\pe{\emph{Publicação Eletrónica}\xspace}
+\def\titulo#1{\section{#1}}    %no corpo do documento usa-se na forma '\titulo{MEU TITULO}'
+\def\super#1{{\em Supervisor: #1}\\ }
+\def\area#1{{\em \'{A}rea: #1}\\[0.2cm]}
+\def\resumo{\underline{Resumo}:\\ }
+
+%\input{LPgeneralDefintions} %permite ler de um ficheiro de texto externo mais definições
+
+\title{Programação Imperativa (?º ano de Curso)\\
+       \textbf{Trabalho Prático N}\\ Relatório de Desenvolvimento
+       } %Titulo do documento
+%\title{Um Exemplo de Artigo em \LaTeX}
+\author{Nome-Aluno1\\ (numero-al1) \and Nome-Aluno2\\ (numero-al2)
+         \and Nome-Aluno3\\ (numero-al3)
+       } %autores do documento
+\date{\today} %data
+
+\begin{document} % corpo do documento
+\maketitle % apresentar titulo, autor e data
+
+\begin{abstract}  % resumo do documento
+Isto é um resumo do relatório de \pe focando o contexto do trabalho (muito sucinto),
+os objectivos concretos e os resultados atingidos.\\
+Algum texto curto mas que entusiasme à leitura do relatório de \pe.
+\end{abstract}
+
+\tableofcontents % Insere a tabela de indice
+%\listoffigures % Insere a tabela de indice figuras
+%\listoftables % Insere a tabela de indice tabelas
+
+\chapter{Introdução} \label{chap:intro} %referência cruzada
+
+Neste documento começa-se por mostrar o uso de abreviaturas ou macros com parametros acima definidas.\\
+\super{Pedro Rangel Henriques}
+\titulo{Um belo Projeto}
+\area{Processamento de Linguagens}
+
+Vamos agora indicar o conteúdo habitual da introdução de qualquer relatório.
+\begin{description}  % Item com descrição
+  \item[Enquadramento]  do tema proposto
+  \item[Contexto] do tema que é abordado ao  longo do documento
+  \item[Problema] o problema que se quer resolver e o objetivo do projeto relatado
+  \item[Objetivo] do relatório
+  \item[Resultados ou Contributos] -- pontos a evidenciar
+  \item[Estrutura do documento] o que é abordado em cada capitulo.
+\end{description}
+
+Na Figura~\ref{fig:layoutDimensions} podemos ver o Layout dos Parâmetros do Formato de Página.
+
+ \begin{figure} %insere figuras
+       \centering % Coloca ao centro
+       \includegraphics[width=0.5\textwidth]{layoutDimensions}
+       % width=0.4\textwidth -- a figura é alterada de forma a que a largura seja 0.5 vezes a largura de um parágrafo normal (textwidth). A altura é calculada de forma a manter a relação altura/largura.
+       \caption{Legenda da Figura} \label{fig:layoutDimensions} %legenda da figura
+ \end{figure}
+
+Letras gregas são estas $ \alpha \beta \gamma \delta $ que aqui demonstro EM FORMATO INLINE\\
+
+Exemplo simples de fração múltipla \[ \frac{\frac{a * b + c}{4-3}}{3*5} \] simples  EM FORMATO
+de DESTAQUE (nova linha)\\\\
+
+Exemplo de LISTAS ENUMERADAS com LETRAS:
+\begin{enumerate}[a)]
+\item Listar todas as Pessoas identificadas, sem repetições;
+\item Listar os Países e Cidades marcadas;
+\item Listar as Organizações.\\ % mudar de linha
+\end{enumerate}
+
+Mais exemplos de LISTAS ENUMERADAS mas agora com NUMEROS e outras marcas:
+\begin{enumerate}
+\item Listar todas as Pessoas identificadas, sem repetições;
+  \begin{enumerate}[i)]
+     \item Listar todas as Pessoas identificadas, sem repetições;
+     \item Listar os Países e Cidades marcadas;
+     \item Listar as Organizações.\\ % mudar de linha
+  \end{enumerate}
+\item Listar os Países e Cidades marcadas;
+  \begin{enumerate}[2.1)]
+     \item Listar todas as Pessoas identificadas, sem repetições;
+     \item Listar os Países e Cidades marcadas;
+     \item Listar as Organizações.\\ % mudar de linha
+  \end{enumerate}
+\item Listar as Organizações.
+    \begin{enumerate}[1)]
+     \item Listar todas as Pessoas identificadas, sem repetições;
+     \item Listar os Países e Cidades marcadas;
+     \item Listar as Organizações.\\ % mudar de linha
+  \end{enumerate}
+\end{enumerate}
+
+A mesma enumeração mas no standard DESCRITIVO:
+\begin{description}
+\item[Etape 1:] Listar todas as Pessoas identificadas, sem repetições;
+\item[Etape 2:] Listar os Países e Cidades marcadas;
+\item[Etape 3:] Listar as Organizações.\\\\
+\end{description}
+
+
+\textbf{Texto com cores}\\
+
+\textcolor{blue}{texto em azul}\\
+\textcolor{red}{texto em vermelho} \\
+\textcolor{green}{texto em verde} \\
+\textcolor{saddlebrown}{texto em Castanho} \\\\\\
+
+\textbf{Texto destacado}\\
+
+ \textbf{Texto NEGRITO} isto é um texto a NEGRITO \\%texto a negrito
+ \textsf{Texto fonte SANS SERIF} isto é um texto SANS SERIF \\ % texto em fonte sans serif dentro de uma expressão matemática.
+ \texttt{Texto fonte MÁQUINA}  isto é um texto fonte MÁQUINA\\ %texto na fonte de máquina de escrever dentro de uma expressão matemática.
+ \textit{Texto a ITALICO} isto é um texto a ITALICO\\ %texto a italico
+ \underline{Texto a SUBLINHADO} isto é um texto a SUBLINHADO \\\\ %texto a sublinhado
+
+\textbf{Tamanhos de LETRA}\\
+
+\large{largas -- large}\\
+\Large{maiores -- Large}\\
+\LARGE{muito grandes -- LARGE}\\
+\huge{enormes --  huge}\\
+\Huge{as maiores -- Huge}\\
+\tiny{minúscula  -- tiny}\\
+\scriptsize{muito pequena -- scriptsize} \\
+\footnotesize{bastante pequena  -- footnotesize}\\
+\small{pequena -- small}\\
+\normalsize{normal -- normalsize}\\\\
+
+\textbf{Exemplo de tabelas}\\
+\begin{table}[h!] %Inserir tabela
+\begin{center} %colocar a tabela ao centro
+\begin{tabular}{ | c | c | c | } %desenha a tabela % {formato das colunas} -- 'l' a coluna e alinhada a esquerda;
+                                                                              %'r' a coluna e alinhada a direita;
+                                                                              %'c' a coluna e centralizada
+  \hline  %desenhar uma linha horizontal de comprimento igual ao da tabela
+  cell1 & cell2 & cell3 \\
+  \hline
+  cell4 & cell5 & cell6 \\
+  cell7 & cell8 & cell9 \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{Tabela Basica} \label{tab:tabelaBasica}
+\end{table}
+
+
+\begin{table}[h!] %Inserir tabela
+\begin{center}
+\begin{tabular}{ | m{5em} | p{1cm}| b{1in} | } % 'm': ao meio; 'b': em baixo; 'p': em cima
+\hline
+cell1 dummy text dummy text dummy text& cell2 & cell3 \\
+\hline
+cell5 & cell1 dummy text dummy text dummy text & cell6 \\
+\hline
+cell7 & cell8 & exemplo de uma linha muito extensa \\
+\hline
+\end{tabular}
+\caption{Tabela em formato array } \label{tab:tabelaArray}
+%Tabela em formato array é utilizada adaptar o comprimento da linha a largura da coluna
+\end{center}
+\end{table}
+
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{ |l|c|r| }
+\hline
+col1 & col2 & col3 \\
+  \hline
+  \multirow{3}{4cm}{Multiple row} & cell2 & cell3 \\ %\multirow{num}{formato}{texto} - este comando faz concatenar num linhas em uma so
+                                                    %parâmetro  {4cm} define um comprimento de '4cm' para a primeira coluna e centraliza o texto no meio da célula.
+
+  & cell5 & cell6cell6 \\
+  & cell8 & cell9cell9cell9 \\
+  \hline
+  cell4 & cell5 & cell6 \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{Tabela com multilinhas}
+\end{table}
+
+\begin{table}[h!] %Inserir tabela
+\begin{center}
+\begin{tabular}{|l||c|c|c|c|c|}
+\hline
+\multicolumn{6}{|c|}{\textbf{Horário de Tópicos em Matemática - MAT}}\\
+\hline
+Horário    &Seg &Ter &Qua &Qui &Sex\\
+\hline\hline
+13:00-14:40&    &    &    &    & \\
+\hline
+14:55-16:35&    &    &    &    &TURMA N \\
+\hline
+16:35-18:15&TURMA N & &TURMA N & & \\
+\hline
+18:15-19:00& & & & & \\
+\hline
+\end{tabular}
+\caption{Tabela com multicolunas}
+\end{center}
+\end{table}
+
+\newpage
+
+% colocar omitido um url de um site ou de um documento
+Para mais informações sobre LATEX consultar o
+ \href{http://www.ptep-online.com/ctan/lshort_port.pdf}{livro}.\\
+
+%Colocar url de um site
+ Para mais informações sobre LATEX
+ consultar o livro\footnote{acessível em \url{http://www.ptep-online.com/ctan/lshort_port.pdf}}.
+
+
+\section*{Estrutura do Relatório}
+explicar como está organizado o documento, referindo os capítulos existentes em~\cite{deransart:1990}
+e a sua articulação explicando o conteúdo de cada um.
+No capítulo~\ref{chap:analiseEspecificacao} faz-se uma análise detalhada do problema proposto
+de modo a poder-se especificar  as entradas, resultados e formas de transformação.\\
+etc. \ldots\\ % reticencias
+No capítulo~\ref{concl} termina-se o relatório com uma síntese do que foi dito,
+as conclusões e o trabalho futuro
+
+
+
+\chapter{Análise e Especificação} \label{chap:analiseEspecificacao} %capitulo e referencia cruzada
+\section{Descrição informal do problema} \label{sec:descricaoProblema} %seccao e referencia cruzada
+\section{Especificação do Requisitos}
+\subsection{Dados} \label{subsec:dados} %subseccao e referencia cruzada
+\subsection{Pedidos}
+\subsection{Relações}
+
+\chapter{Concepção/desenho da Resolução}
+\section{Estruturas de Dados}
+\section{Algoritmos}
+
+\chapter{Codificação e Testes}
+\section{Alternativas, Decisões e Problemas de Implementação}
+\section{Testes realizados e Resultados}
+Mostram-se a seguir alguns testes feitos (valores introduzidos) e
+os respectivos resultados obtidos:
+
+%\VerbatimInput{teste1.txt}
+
+\chapter{Conclusão} \label{concl}
+Síntese do Documento~\cite{araujo:2018,martini:2018}.\\
+Estado final do projecto; Análise crítica dos resultados~\cite{Sto77a}.\\
+Trabalho futuro.
+
+\appendix % apendice
+\chapter{Código do Programa}
+
+Lista-se a seguir o CÓDIGO \antlr~\cite{antlr:2016} do programa
+\darius~\cite{maskin:1985} que foi desenvolvido.
+\begin{verbatim}
+public class Aula()
+  {
+    int n, m;
+    int max(int a, int b)
+      {
+       ......
+       return(max);
+      }
+  }
+\end{verbatim}
+
+Lista-se a seguir UM TEXTO (COM O COMANDO VERBATIN)
+\begin{verbatim}
+      aqui deve aparecer o código do programa,
+      tal como está formato no ficheiro-fonte "darius.java"
+      um pouco de matematica $\$$
+      caso indesejável $\varepsilon$
+\end{verbatim}
+
+
+Lista-se a seguir (ver a Listing~\ref{lstExe1} abaixo) UM TEXTO não processado porque fixado COM O COMANDO LISTING 
+que embora parecido com o Verbatim é muito mais sofisticado.
+
+\begin{lstlisting}[caption={Exemplo de uma Listagem}, label={lstExe1}]
+      ou entao aparecer aqui neste sitio um pouco de matematica $\$$
+      como alternativa ao anterior.
+      e aqui mais um teste $\varepsilon$
+\end{lstlisting}
+
+\newpage
+
+É ainda possível IMPORTAR UMA LISTAGEM DIRECTAMENTE DO FICHEIRO tal como se ilustra na Listing~\ref{lstExe2}.
+
+\lstinputlisting[caption={Exemplo de uma importação}, label={lstExe2}]{listagemImportadaLayout.l} %input de um ficheiro da listagem
+
+%-- Fim do documento -- inserção das referencias bibliográficas
+
+%\bibliographystyle{plain} % [1] Numérico pela ordem de citação ou ordem alfabetica
+\bibliographystyle{alpha} % [Hen18] abreviação do apelido e data da publicação
+%\bibliographystyle{apalike} % (Araujo, 2018) apelido e data da publicação
+                             % --para usar este estilo descomente no inicio o comando \usepackage{apalike}
+
+\bibliography{bibLayout} %input do ficheiro de referencias bibliograficas
+
+\end{document} 
