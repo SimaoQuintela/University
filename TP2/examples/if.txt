@@ -1,0 +1,12 @@
+intare = 1
+orange = 2
+elifc = 10
+if (soma == 10 and acc == 3 or[ temp == 2 and cena == 10):
+    a++
+    return a
+elif(soma == 1000 or --temp == 10 ):
+    b++
+    return b
+else:
+    c++
+    return c
