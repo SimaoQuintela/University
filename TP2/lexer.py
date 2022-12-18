@@ -116,11 +116,11 @@ def t_RCPARENT(t):
     return t
 
 def t_AND(t):
-    r'and(?=[\(\) ])'
+    r'and(?=[\( ])'
     return t
 
 def t_OR(t):
-    r'or(?=[\(\) ])'
+    r'or(?=[\( ])'
     return t
 
 def t_NUM(t):
