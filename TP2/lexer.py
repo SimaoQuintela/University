@@ -1,12 +1,5 @@
-# 0052 - R
-# 0072 - r
 import ply.lex as lex
 import sys
-
-# Already implemented:
-# - = and ==         - declarations and equality
-# - if, elif, else   - flux control
-# - and, or          - basic logic operators
 
 tokens = (
     'INTDec',
@@ -14,22 +7,75 @@ tokens = (
     'ID',
     'ATRIB',
     'EQUIV',
+    'LEQ',  # <= - (less or equal)
+    'GEQ',  # >= - (greater or equal)
+    'GT',   # >  - (greater than)
+    'LT',   # <  - (less than)
     'IF',
     'ELSE',
     'ELIF',
     'LCPARENT',
     'RCPARENT',
+    'LSQBRACKET', # left square bracket
+    'RSQBRACKET', # right square bracket
     'AND',
     'OR',
+    'SUM',
+    'SUB',
+    'DIV',
+    'MULT',
+    'MOD',
     'INC',
     'DEC',
-# ------------ #
     'DO',
     'WHILE'
-
 )
 
 literals = [',', ':']
+
+def t_MOD(t):
+    r'\%'
+    return t
+
+def t_SUM(t):
+    r'\+'
+    return t
+
+def t_SUB(t):
+    r'\-'
+    return t
+
+def t_DIV(t):
+    r'\/'
+    return t
+
+def t_MULT(t):
+    r'\*'
+    return t
+
+def t_LSQBRACKET(t):
+    r'\['
+    return t
+
+def t_RSQBRACKET(t):
+    r'\]'
+    return t
+
+def t_LEQ(t):
+    r'\<\='
+    return t
+
+def t_GEQ(t):
+    r'\>\='
+    return t
+
+def t_GT(t):
+    r'\>'
+    return t
+
+def t_LT(t):
+    r'\<'
+    return t
 
 # (?= ) - lookahead, looks for a white space after de int keyword
 #  cover the cases:
@@ -111,7 +157,7 @@ t_ignore = ' \r\t\n'
 
 lexer = lex.lex()
 
-with open("examples/tests.txt") as f:
+with open("examples/operations.txt") as f:
     content = f.read()
 
 lexer.input(content)
@@ -119,12 +165,15 @@ for token in lexer:
     print(token)
 
 
-"""
-read on stdin 
-for linha in sys.stdin:
-    lexer.input(linha) 
-    simb = lexer.token()
-    while simb:
-        print(simb)
+#read from stdin 
+'''
+try:
+    for linha in sys.stdin:
+        lexer.input(linha) 
         simb = lexer.token()
-"""
+        while simb:
+            print(simb)
+            simb = lexer.token()
+except KeyboardInterrupt:
+    print('\nKeyboard Interruption')
+'''

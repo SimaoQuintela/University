@@ -1,22 +1,35 @@
 
 # Syntax
-#
+### All of these operators and flux control instructions are already implemented
 
-* Declarations
+* **Declarations**
     * int x = 10
 
-* Operators
+
+* **Comparison**  
+    * x **<=** y
+    * x **>=** y
+    * x **<** y
+    * x **<** y
     * x **==** y
-    * x **and** y 
-    * x **or** y
+
+* **Numeric Operations**  
+    * x **+** y
+    * x **-** y
+    * x **/** y
+    * x * y
+    * x **%** y
     * x **++**
     * y **--**
-* Ifs
+* **Logical operations**
+    * x **and** y 
+    * x **or** y
+* **Ifs**
     * If(conditions):
     * else:
     * elif(conditions):
 
-* Cycles
+* **Cycles**
     * do:  
     &nbsp;&nbsp;&nbsp; ...  
     &nbsp;&nbsp;&nbsp; ...  
