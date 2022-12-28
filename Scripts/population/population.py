@@ -2,8 +2,6 @@ import pandas as pd
 from sys import argv
 from connection import create_db_connection, Error
 from faker import Faker
-from random import randint
-from re import findall
 from itertools import takewhile
 
 
@@ -46,11 +44,9 @@ def populate_address(connection):
     query = ["INSERT INTO address (idAdress, street, zipCode, city)", "\n\tVALUES"]
     # ex:  ('1', 'Rua de Santa Marta', '4750-428', 'Fafe')
     for i in range(1, 10):
-        address = "".join(list(takewhile(lambda x: x != ',', fake.address())))
-        query.append(f"\n\t('{i}', '{address}', '{fake.postcode()}', '{fake.city()}'), ")
+        query.append(f"\n\t('{i}', '{fake.street_address()}', '{fake.postcode()}', '{fake.city()}'), ")
 
-    address = "".join(list(takewhile(lambda x: x != ',', fake.address())))
-    query.append(f"\n\t('{i+1}', '{address}', '{fake.postcode()}', '{fake.city()}');\n\n")
+    query.append(f"\n\t('{i+1}', '{fake.street_address()}', '{fake.postcode()}', '{fake.city()}');\n\n")
 
     query = ''.join(query)
 

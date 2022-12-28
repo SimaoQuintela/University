@@ -1,26 +1,28 @@
-INSERT INTO address (idAdress, street, zipCode, city)
-	VALUES
-	('1', 'Praï¿½a de Oliveira', '6310-307', 'Leiria'), 
-	('2', 'Av Vicente', '8141-837', 'Esposende'), 
-	('3', 'Praï¿½a Grande de Cima', '3045-541', 'Sï¿½o Salvador de Lordelo'), 
-	('4', 'Praï¿½a de Matias', '7709-853', 'Alverca do Ribatejo'), 
-	('5', 'Avenida Campos', '3480-877', 'Vale de Cambra'), 
-	('6', 'Rua Moreira', '7442-182', 'Serpa'), 
-	('7', 'Alameda Jesus', '0823-718', 'Quarteira'), 
-	('8', 'Rua Gomes', '8326-062', 'Maia'), 
-	('9', 'R. Pacheco', '4345-097', 'Vila do Conde'), 
-	('10', 'Avenida de Matos', '1693-205', 'Entroncamento');
+
 
 INSERT INTO address (idAdress, street, zipCode, city)
 	VALUES
-	('1', 'Avenida Miranda', '9580-307', 'Fiï¿½es'), 
-	('2', 'Avenida Benjamim Cruz', '5046-035', 'Torres Novas'), 
-	('3', 'Praï¿½a Afonso Amaral', '0131-983', 'Odivelas'), 
-	('4', 'Praï¿½a de Santo Estï¿½vï¿½o', '3160-515', 'Santa Cruz'), 
-	('5', 'Av das Andrezas', '8596-672', 'Gondomar'), 
-	('6', 'R. de Cruz', '1906-218', 'Portalegre'), 
-	('7', 'Largo ï¿½ris Moura', '4389-649', 'Odivelas'), 
-	('8', 'Largo William Pinto', '7264-939', 'Peniche'), 
-	('9', 'Praï¿½a de Costa', '3629-925', 'Funchal'), 
-	('10', 'Travessa de Brito', '2340-872', 'Faro');
+	('1', 'Av da Lingueta, 90', '3482-697', 'Santa Maria da Feira'), 
+	('2', 'Rua do Aleixo, 88', '6058-761', 'Oliveira do Hospital'), 
+	('3', 'Alameda Pinto, S/N', '9436-845', 'Gondomar'), 
+	('4', 'Praça do Molhe, 92', '9315-297', 'Espinho'), 
+	('5', 'Travessa de Jesus, 1', '0553-538', 'Peso da Régua'), 
+	('6', 'Largo de Vaz, 71', '8624-453', 'Caniço'), 
+	('7', 'Praça das Portas do Mar, 6', '3508-982', 'Paredes'), 
+	('8', 'Alameda do Peneireiro, 70', '8691-068', 'Mangualde'), 
+	('9', 'Avenida Núria Freitas, 824', '3614-052', 'Loures'), 
+	('10', 'Alameda de Monteiro, 6', '3766-777', 'Barcelos');
+
+INSERT INTO address (idAdress, street, zipCode, city)
+	VALUES
+	('1', 'Travessa Reis, 81', '6157-839', 'Lixa'), 
+	('2', 'Rua dos Heróis do Mar, 92', '6993-532', 'São Mamede de Infesta'), 
+	('3', 'Praça de Costa, 781', '3854-705', 'Estarreja'), 
+	('4', 'Largo das Ondas, S/N', '1000-917', 'Amadora'), 
+	('5', 'Alameda do Adamastor, S/N', '3168-860', 'Amarante'), 
+	('6', 'Rua de Alves, 74', '8138-915', 'Ermesinde'), 
+	('7', 'Travessa Francisco Anjos, 174', '2053-763', 'Bragança'), 
+	('8', 'Alameda dos Jacarandás, 232', '6636-585', 'Amarante'), 
+	('9', 'Alameda Almeida, 16', '6119-035', 'Moura'), 
+	('10', 'Travessa Ribeirinhos, 72', '5408-219', 'Amadora');
 
