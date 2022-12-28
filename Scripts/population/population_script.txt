@@ -1,0 +1,26 @@
+INSERT INTO address (idAdress, street, zipCode, city)
+	VALUES
+	('1', 'Pra�a de Oliveira', '6310-307', 'Leiria'), 
+	('2', 'Av Vicente', '8141-837', 'Esposende'), 
+	('3', 'Pra�a Grande de Cima', '3045-541', 'S�o Salvador de Lordelo'), 
+	('4', 'Pra�a de Matias', '7709-853', 'Alverca do Ribatejo'), 
+	('5', 'Avenida Campos', '3480-877', 'Vale de Cambra'), 
+	('6', 'Rua Moreira', '7442-182', 'Serpa'), 
+	('7', 'Alameda Jesus', '0823-718', 'Quarteira'), 
+	('8', 'Rua Gomes', '8326-062', 'Maia'), 
+	('9', 'R. Pacheco', '4345-097', 'Vila do Conde'), 
+	('10', 'Avenida de Matos', '1693-205', 'Entroncamento');
+
+INSERT INTO address (idAdress, street, zipCode, city)
+	VALUES
+	('1', 'Avenida Miranda', '9580-307', 'Fi�es'), 
+	('2', 'Avenida Benjamim Cruz', '5046-035', 'Torres Novas'), 
+	('3', 'Pra�a Afonso Amaral', '0131-983', 'Odivelas'), 
+	('4', 'Pra�a de Santo Est�v�o', '3160-515', 'Santa Cruz'), 
+	('5', 'Av das Andrezas', '8596-672', 'Gondomar'), 
+	('6', 'R. de Cruz', '1906-218', 'Portalegre'), 
+	('7', 'Largo �ris Moura', '4389-649', 'Odivelas'), 
+	('8', 'Largo William Pinto', '7264-939', 'Peniche'), 
+	('9', 'Pra�a de Costa', '3629-925', 'Funchal'), 
+	('10', 'Travessa de Brito', '2340-872', 'Faro');
+
