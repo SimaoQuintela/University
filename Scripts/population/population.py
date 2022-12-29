@@ -20,15 +20,22 @@ def execute_query(connection, query):
 
 
 def populate_contact(connection):
+    query = "INSERT INTO contact (idContact, name, email, phone) VALUES \n"
 
     for i in range(1,31):
         name = fake.name()
         email = fake.email()
         phnumber = random.randint(910000000,969999999)
-
+        if i <= 29:
+           query += f"('{i}', '{name}', '{email}', '{phnumber}'),\n"
+        else:
+           query += f"('{i}', '{name}', '{email}', '{phnumber}');"
         execute_query(connection, f"INSERT INTO contact (idContact, name, email, phone) VALUES ('{i}', '{name}', '{email}', '{phnumber}')")
 
-
+    f = open("pop_contact_querie.txt", "w")
+    f.write(query)
+    f.close()
+    
 
 def read_query(connection, query):
     cursor = connection.cursor()
