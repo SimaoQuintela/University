@@ -5,6 +5,9 @@ from connection import create_db_connection, Error
 import random
 
 
+global fake
+fake = Faker(["pt_PT"])
+
 def execute_query(connection, query):
     cursor = connection.cursor()
     try:
@@ -17,14 +20,11 @@ def execute_query(connection, query):
 
 
 def populate_contact(connection):
-    fake = Faker(["pt_PT"])
 
     for i in range(1,31):
         name = fake.name()
         email = fake.email()
-        phnumber = "9"
-        for j in range(8):
-            phnumber += str(random.randint(0,9))
+        phnumber = random.randint(910000000,969999999)
 
         execute_query(connection, f"INSERT INTO contact (idContact, name, email, phone) VALUES ('{i}', '{name}', '{email}', '{phnumber}')")
 
