@@ -1,3 +1,4 @@
+import yaml
 import pandas as pd
 from faker import Faker
 from sys import argv
@@ -12,12 +13,14 @@ connection = create_db_connection("localhost", "root", argv[1], "dorlux")
 
 def execute_query(connection, query):
     cursor = connection.cursor()
+    print(query)
     try:
         cursor.execute(query)
         connection.commit()
         print("Query successful")
     except Error as err:
         print(f"Error: '{err}'")
+
 
 def read_query(connection, query):
     cursor = connection.cursor()
@@ -32,6 +35,27 @@ def read_query(connection, query):
         return result
     except Error as err:
         print(f"Error: '{err}'")
+
+
+def populate_category():
+    with open("category.yaml", "r") as file_stream:
+        instances = yaml.safe_load(file_stream)
+    
+    execute_query(connection, "DELETE FROM category")
+    for pk, key in enumerate(instances, start=1):
+        instance = instances[key]
+        sql = f"INSERT INTO category VALUES ('{pk}', '{instance['name']}', '{instance['description']}', '{instance['tax']}')"
+        execute_query(connection, sql)
+
+def populate_item():
+    with open("item.yaml", "r") as file_stream:
+        instances = yaml.safe_load(file_stream)
+    
+    execute_query(connection, "DELETE FROM Item")
+    for pk, key in enumerate(instances, start=1):
+        instance = instances[key]
+        sql = f"INSERT INTO Item VALUES ('{pk}', '{instance['name']}', '{instance['desc']}', '{instance['stockNr']}', '{instance['priceBuy']}', '{instance['priceSell']}', '{instance['category']}')"
+        execute_query(connection, sql)
 
 
 def populate_contact(connection):
@@ -86,6 +110,8 @@ def populate_address(connection):
 
 
 
+populate_category()
+populate_item()
 
 populate_contact(connection)
 populate_address(connection)
