@@ -31,7 +31,7 @@ tokens = (
     'WHILE'
 )
 
-literals = [',', ':']
+literals = [',', ':', '"']
 
 def t_MOD(t):
     r'\%'
@@ -157,7 +157,7 @@ t_ignore = ' \r\t\n'
 
 lexer = lex.lex()
 
-with open("examples/operations.txt") as f:
+with open("examples/tests.txt") as f:
     content = f.read()
 
 lexer.input(content)
