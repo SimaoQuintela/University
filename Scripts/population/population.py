@@ -1,9 +1,10 @@
-import pandas as pd
 from sys import argv
 from connection import create_db_connection, Error
+import yaml
 
 def execute_query(connection, query):
     cursor = connection.cursor()
+    print(query)
     try:
         cursor.execute(query)
         connection.commit()
@@ -11,6 +12,15 @@ def execute_query(connection, query):
     except Error as err:
         print(f"Error: '{err}'")
 
+
+def pupulate_category():
+    with open("category.yaml", "r") as file_stream:
+        categorys = yaml.safe_load(file_stream)
+        execute_query(connection, "DELETE FROM category")
+    for pk, key in enumerate(categorys):
+        cat = categorys[key]
+        sql = f"INSERT INTO category VALUES ('{pk}', '{cat['name']}', '{cat['description']}', '{cat['tax']}')"
+        execute_query(connection, sql)
 
 def read_query(connection, query):
     cursor = connection.cursor()
@@ -26,7 +36,6 @@ def read_query(connection, query):
 # creating a connection
 connection = create_db_connection("localhost", "root", argv[1], "dorlux")
 
-
-execute_query(connection, "INSERT INTO address VALUES ('7', 'ASDAS', 'ASDDAS', 'ADSAD')")
-read_query(connection, "SELECT * FROM address")
+pupulate_category()
+read_query(connection, "SELECT * FROM Address")
 
