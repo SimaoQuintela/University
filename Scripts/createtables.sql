@@ -5,19 +5,22 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema TPBD
+-- Schema dorlux
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema TPBD
+-- Schema dorlux
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `TPBD` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `dorlux` DEFAULT CHARACTER SET utf8 ;
+-- -----------------------------------------------------
+-- Schema sakila
+-- -----------------------------------------------------
+USE `dorlux` ;
 
-
 -- -----------------------------------------------------
--- Table `TPBD`.`Contact`
+-- Table `dorlux`.`Contact`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TPBD`.`Contact` (
+CREATE TABLE IF NOT EXISTS `dorlux`.`Contact` (
   `idContact` INT NOT NULL,
   `name` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
@@ -27,93 +30,91 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `TPBD`.`Client`
+-- Table `dorlux`.`Client`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TPBD`.`Client` (
+CREATE TABLE IF NOT EXISTS `dorlux`.`Client` (
   `idClient` INT NOT NULL,
   `VAT` INT NULL,
   `contact` INT NOT NULL,
-  PRIMARY KEY (`idClient`, `contact`),
+  PRIMARY KEY (`idClient`),
   INDEX `fk_Client_Contact1_idx` (`contact` ASC) VISIBLE,
   CONSTRAINT `fk_Client_Contact1`
     FOREIGN KEY (`contact`)
-    REFERENCES `TPBD`.`Contact` (`idContact`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `dorlux`.`Contact` (`idContact`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `TPBD`.`Employee`
+-- Table `dorlux`.`Employee`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TPBD`.`Employee` (
+CREATE TABLE IF NOT EXISTS `dorlux`.`Employee` (
   `idEmployee` INT NOT NULL,
   `manager` INT NOT NULL,
   `salary` DECIMAL(10) NULL,
   `contact` INT NOT NULL,
-  PRIMARY KEY (`idEmployee`, `contact`),
-  INDEX `fk_Employee_Employee1_idx` (`manager` ASC) VISIBLE,
+  PRIMARY KEY (`idEmployee`),
   INDEX `fk_Employee_Contact1_idx` (`contact` ASC) VISIBLE,
+  INDEX `fk_Employee_Employee1_idx` (`manager` ASC, `contact` ASC) VISIBLE,
   CONSTRAINT `fk_Employee_Employee1`
-    FOREIGN KEY (`manager`)
-    REFERENCES `TPBD`.`Employee` (`idEmployee`)
-    ON DELETE NO ACTION
+    FOREIGN KEY (`manager` , `contact`)
+    REFERENCES `dorlux`.`Employee` (`idEmployee` , `idEmployee`)
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Employee_Contact1`
     FOREIGN KEY (`contact`)
-    REFERENCES `TPBD`.`Contact` (`idContact`)
+    REFERENCES `dorlux`.`Contact` (`idContact`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `TPBD`.`Order`
+-- Table `dorlux`.`Order`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TPBD`.`Order` (
+CREATE TABLE IF NOT EXISTS `dorlux`.`Order` (
   `idOrder` INT NOT NULL,
   `status` VARCHAR(200) NOT NULL,
   `shippingPrice` DECIMAL(6,2) NULL,
   `orderDate` TIMESTAMP NOT NULL,
   `upDate` TIMESTAMP NOT NULL,
   `Employee` INT NOT NULL,
-  `Employee_contact` INT NOT NULL,
   `Client_idClient` INT NOT NULL,
-  `Client_contact` INT NOT NULL,
-  PRIMARY KEY (`idOrder`, `Client_idClient`, `Client_contact`),
-  INDEX `fk_Order_Employee1_idx` (`Employee` ASC, `Employee_contact` ASC) VISIBLE,
-  INDEX `fk_Order_Client1_idx` (`Client_idClient` ASC, `Client_contact` ASC) VISIBLE,
+  PRIMARY KEY (`idOrder`),
+  INDEX `fk_Order_Employee1_idx` (`Employee` ASC) VISIBLE,
+  INDEX `fk_Order_Client1_idx` (`Client_idClient` ASC) VISIBLE,
   CONSTRAINT `fk_Order_Employee1`
-    FOREIGN KEY (`Employee` , `Employee_contact`)
-    REFERENCES `TPBD`.`Employee` (`idEmployee` , `contact`)
+    FOREIGN KEY (`Employee`)
+    REFERENCES `dorlux`.`Employee` (`idEmployee`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Order_Client1`
-    FOREIGN KEY (`Client_idClient` , `Client_contact`)
-    REFERENCES `TPBD`.`Client` (`idClient` , `contact`)
+    FOREIGN KEY (`Client_idClient`)
+    REFERENCES `dorlux`.`Client` (`idClient`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `TPBD`.`category`
+-- Table `dorlux`.`Category`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TPBD`.`category` (
+CREATE TABLE IF NOT EXISTS `dorlux`.`Category` (
   `idCategory` INT NOT NULL,
-  `name` VARCHAR(255) NOT NULL,
-  `descripton` VARCHAR(45) NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `descripton` VARCHAR(255) NULL,
   `tax` DECIMAL(6,2) NOT NULL,
   PRIMARY KEY (`idCategory`));
 
 
 -- -----------------------------------------------------
--- Table `TPBD`.`Item`
+-- Table `dorlux`.`Item`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TPBD`.`Item` (
+CREATE TABLE IF NOT EXISTS `dorlux`.`Item` (
   `idItem` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
-  `desc` VARCHAR(45) NULL,
+  `description` VARCHAR(255) NULL,
   `stockNr` INT NOT NULL,
   `priceBuy` DECIMAL(6,2) NOT NULL,
   `priceSell` DECIMAL(6,2) NOT NULL,
@@ -122,55 +123,54 @@ CREATE TABLE IF NOT EXISTS `TPBD`.`Item` (
   INDEX `fk_Item_category1_idx` (`category` ASC) VISIBLE,
   CONSTRAINT `fk_Item_category1`
     FOREIGN KEY (`category`)
-    REFERENCES `TPBD`.`category` (`idCategory`)
+    REFERENCES `dorlux`.`Category` (`idCategory`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `TPBD`.`Suplier`
+-- Table `dorlux`.`Suplier`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TPBD`.`Suplier` (
+CREATE TABLE IF NOT EXISTS `dorlux`.`Suplier` (
   `VAT` INT NOT NULL,
   `contact` INT NOT NULL,
-  PRIMARY KEY (`VAT`, `contact`),
+  PRIMARY KEY (`VAT`),
   INDEX `fk_Suplier_Contact1_idx` (`contact` ASC) VISIBLE,
   CONSTRAINT `fk_Suplier_Contact1`
     FOREIGN KEY (`contact`)
-    REFERENCES `TPBD`.`Contact` (`idContact`)
+    REFERENCES `dorlux`.`Contact` (`idContact`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `TPBD`.`Suplier_provide_Item`
+-- Table `dorlux`.`Suplier_provide_Item`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TPBD`.`Suplier_provide_Item` (
+CREATE TABLE IF NOT EXISTS `dorlux`.`Suplier_provide_Item` (
   `Item_idItem` INT NOT NULL,
   `Suplier_VAT` INT NOT NULL,
-  `Suplier_contact` INT NOT NULL,
-  PRIMARY KEY (`Item_idItem`, `Suplier_VAT`, `Suplier_contact`),
-  INDEX `fk_Item_has_Suplier_Suplier1_idx` (`Suplier_VAT` ASC, `Suplier_contact` ASC) VISIBLE,
+  PRIMARY KEY (`Item_idItem`, `Suplier_VAT`),
+  INDEX `fk_Item_has_Suplier_Suplier1_idx` (`Suplier_VAT` ASC) VISIBLE,
   INDEX `fk_Item_has_Suplier_Item1_idx` (`Item_idItem` ASC) VISIBLE,
   CONSTRAINT `fk_Item_has_Suplier_Item1`
     FOREIGN KEY (`Item_idItem`)
-    REFERENCES `TPBD`.`Item` (`idItem`)
+    REFERENCES `dorlux`.`Item` (`idItem`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Item_has_Suplier_Suplier1`
-    FOREIGN KEY (`Suplier_VAT` , `Suplier_contact`)
-    REFERENCES `TPBD`.`Suplier` (`VAT` , `contact`)
+    FOREIGN KEY (`Suplier_VAT`)
+    REFERENCES `dorlux`.`Suplier` (`VAT`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `TPBD`.`Address`
+-- Table `dorlux`.`Address`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TPBD`.`Address` (
+CREATE TABLE IF NOT EXISTS `dorlux`.`Address` (
   `idAdress` INT NOT NULL,
   `street` VARCHAR(255) NOT NULL,
   `zipCode` VARCHAR(10) NOT NULL,
@@ -180,52 +180,49 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `TPBD`.`Client_has_Address`
+-- Table `dorlux`.`Client_has_Address`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TPBD`.`Client_has_Address` (
+CREATE TABLE IF NOT EXISTS `dorlux`.`Client_has_Address` (
   `Client_idClient` INT NOT NULL,
-  `Client_contact` INT NOT NULL,
   `Address_idAdress` INT NOT NULL,
-  PRIMARY KEY (`Client_idClient`, `Client_contact`, `Address_idAdress`),
+  PRIMARY KEY (`Client_idClient`, `Address_idAdress`),
   INDEX `fk_Client_has_Address_Address1_idx` (`Address_idAdress` ASC) VISIBLE,
-  INDEX `fk_Client_has_Address_Client1_idx` (`Client_idClient` ASC, `Client_contact` ASC) VISIBLE,
+  INDEX `fk_Client_has_Address_Client1_idx` (`Client_idClient` ASC) VISIBLE,
   CONSTRAINT `fk_Client_has_Address_Client1`
-    FOREIGN KEY (`Client_idClient` , `Client_contact`)
-    REFERENCES `TPBD`.`Client` (`idClient` , `contact`)
+    FOREIGN KEY (`Client_idClient`)
+    REFERENCES `dorlux`.`Client` (`idClient`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Client_has_Address_Address1`
     FOREIGN KEY (`Address_idAdress`)
-    REFERENCES `TPBD`.`Address` (`idAdress`)
+    REFERENCES `dorlux`.`Address` (`idAdress`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `TPBD`.`Order_has_Item`
+-- Table `dorlux`.`Order_has_Item`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TPBD`.`Order_has_Item` (
+CREATE TABLE IF NOT EXISTS `dorlux`.`Order_has_Item` (
   `Order_idOrder` INT NOT NULL,
-  `Order_Client_idClient` INT NOT NULL,
-  `Order_Client_contact` INT NOT NULL,
   `Item_idItem` INT NOT NULL,
-  `Item_category` INT NOT NULL,
   `amount` INT NOT NULL,
-  PRIMARY KEY (`Order_idOrder`, `Order_Client_idClient`, `Order_Client_contact`, `Item_idItem`, `Item_category`),
-  INDEX `fk_Order_has_Item_Item1_idx` (`Item_idItem` ASC, `Item_category` ASC) VISIBLE,
-  INDEX `fk_Order_has_Item_Order1_idx` (`Order_idOrder` ASC, `Order_Client_idClient` ASC, `Order_Client_contact` ASC) VISIBLE,
+  PRIMARY KEY (`Order_idOrder`, `Item_idItem`),
+  INDEX `fk_Order_has_Item_Item1_idx` (`Item_idItem` ASC) VISIBLE,
+  INDEX `fk_Order_has_Item_Order1_idx` (`Order_idOrder` ASC) VISIBLE,
   CONSTRAINT `fk_Order_has_Item_Order1`
-    FOREIGN KEY (`Order_idOrder` , `Order_Client_idClient` , `Order_Client_contact`)
-    REFERENCES `TPBD`.`Order` (`idOrder` , `Client_idClient` , `Client_contact`)
+    FOREIGN KEY (`Order_idOrder`)
+    REFERENCES `dorlux`.`Order` (`idOrder`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Order_has_Item_Item1`
-    FOREIGN KEY (`Item_idItem` , `Item_category`)
-    REFERENCES `TPBD`.`Item` (`idItem` , `category`)
+    FOREIGN KEY (`Item_idItem`)
+    REFERENCES `dorlux`.`Item` (`idItem`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
