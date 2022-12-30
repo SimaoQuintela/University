@@ -1,0 +1,21 @@
+1:
+  name: Teddy Bear
+  desc: Toy to cuddle
+  stockNr: 1337
+  priceBuy: 4
+  priceSell: 10
+  category: 1
+2:
+  name: Black Pencil
+  desc: A Pencile witch is Black
+  stockNr: 42069
+  priceBuy: 0.54
+  priceSell: 2
+  category: 2
+3:
+  name: Birthday Card Nr. 1
+  desc: A Card with happy birthday wishes.
+  stockNr: 1312
+  priceBuy: 0.10
+  priceSell: 1
+  category: 3
