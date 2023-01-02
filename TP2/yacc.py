@@ -1,6 +1,7 @@
 from lexer import tokens
 import ply.yacc as yacc
 
+
 #def p_Programa(p):
 #    "Programa : Corpo"
     #parser.assembly = f'START\n{p[1]}STOP'
