@@ -20,7 +20,7 @@ def populate_client():
     query = "INSERT INTO client (idClient, VAT, contact) \n\tVALUES \n\t"
     listaux = list(range(1,31))
     shuffle(listaux)
-    execute_query(connection, "DELETE FROM client")
+
     for i in range(1,31):
         NIF = randint(100000000,999999999)
         fk = listaux[i-1]
@@ -35,7 +35,7 @@ def populate_client_has_address():
     query = "INSERT INTO client_has_address (Client_idClient, Address_idAdress)\n\tVALUES \n\t"
     iniCliente = 1
     fimCliente = 10
-    execute_query(connection, "DELETE FROM client_has_address")
+
     for j in range(1,4):        #1-10    11-20    21-30       #10 20 30
         clientes = list(range(iniCliente, fimCliente))
         moradas = list(range(1,10))
@@ -66,7 +66,6 @@ def populate_category():
     
     query = "INSERT INTO category (idCategory, name, descripton, tax)\n\tVALUES"
 
-    execute_query(connection, "DELETE FROM category")
     for pk, key in enumerate(instances, start=1):
         instance = instances[key]
         query += f"\n\t('{pk}', '{instance['name']}', '{instance['description']}', '{instance['tax']}'),"
@@ -82,7 +81,6 @@ def populate_item():
     
     query = "INSERT INTO item (idItem, name, description, stockNr, priceBuy, priceSell, category)\n\tVALUES"
 
-    execute_query(connection, "DELETE FROM Item")
     for pk, key in enumerate(instances, start=1):
         instance = instances[key]
         query += f"\n\t('{pk}', '{instance['name']}', '{instance['desc']}', '{instance['stockNr']}', '{instance['priceBuy']}', '{instance['priceSell']}', '{instance['category']}'),"
@@ -94,7 +92,6 @@ def populate_item():
 def populate_contact():
     query = "INSERT INTO contact (idContact, name, email, phone) \n\tVALUES"   
 
-    execute_query(connection, "DELETE FROM contact")
     for i in range(1,31):
         name = fake.name()
         email = fake.email()
@@ -110,7 +107,6 @@ def populate_contact():
 def populate_address():
     query = "INSERT INTO address (idAdress, street, zipCode, city)\n\tVALUES"
     
-    execute_query(connection, "DELETE FROM address")
     for i in range(1, 10):
         query += f"\n\t('{i}', '{fake.street_address()}', '{fake.postcode()}', '{fake.city()}'),"
 
@@ -161,8 +157,27 @@ def populate_order_has_item():
 
 
 
+
+def delete_all():
+    execute_query(connection, "DELETE FROM Order_has_item;")
+    execute_query(connection, "DELETE FROM dorlux.Order;")
+    execute_query(connection, "DELETE FROM Suplier_provide_item;")
+    execute_query(connection, "DELETE FROM Item;")
+    execute_query(connection, "DELETE FROM Suplier;")
+    execute_query(connection, "DELETE FROM Category;")
+
+    execute_query(connection, "UPDATE Employee SET manager = NULL")
+    execute_query(connection, "DELETE FROM Employee;")
+    execute_query(connection, "DELETE FROM Client_has_address;")
+    execute_query(connection, "DELETE FROM Address;")
+    execute_query(connection, "DELETE FROM Client;")
+    execute_query(connection, "DELETE FROM Contact;")
+
+#execute_query(connection, "DELETE FROM dorlux.Order;")
+
+delete_all()
 # no relation tables
-'''
+
 populate_address()
 populate_contact()
 populate_category()
@@ -175,4 +190,3 @@ populate_employee()
 
 populate_order()
 populate_order_has_item()
-'''
