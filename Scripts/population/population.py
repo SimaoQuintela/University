@@ -16,7 +16,6 @@ def write_on_file(query):
     f.write(query)
     f.close()
 
-
 def populate_client():
     query = "INSERT INTO client (idClient, VAT, contact) \n\tVALUES \n\t"
     listaux = list(range(1,31))
@@ -61,7 +60,6 @@ def populate_client_has_address():
     write_on_file(query)
     
 
-
 def populate_category():
     with open("category.yaml", "r") as file_stream:
         instances = yaml.safe_load(file_stream)
@@ -101,11 +99,10 @@ def populate_contact():
         name = fake.name()
         email = fake.email()
         phone_nr = randint(910000000,969999999)
-    
         query += f"\n\t('{i}', '{name}', '{email}', '{phone_nr}'),"
         
     query = query[:-1] + ";\n\n"
-    print(query)
+
     execute_query(connection, query)
     write_on_file(query)
     
