@@ -44,13 +44,12 @@ CREATE TABLE IF NOT EXISTS `dorlux`.`Client` (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 -- Table `dorlux`.`Employee`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dorlux`.`Employee` (
   `idEmployee` INT NOT NULL,
-  `manager` INT NOT NULL,
+  `manager` INT NULL,
   `salary` DECIMAL(10) NULL,
   `contact` INT NOT NULL,
   PRIMARY KEY (`idEmployee`, `contact`),
