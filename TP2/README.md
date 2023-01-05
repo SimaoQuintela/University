@@ -59,8 +59,11 @@ Print    : NonFormatted
          | Formatted (not implemented)
 NonFormatted : PRINT LCPARENT QUOTE STRING QUOTE RCPARENT
 Formatted : ....
-Atrib    : ID ATRIB Expr
-         | ....
+
+
+
+Atrib    : UpdateVar
+         | Input
          | ....
          | ....
 Expr     : ID SUM SUM
