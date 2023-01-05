@@ -44,15 +44,31 @@ Programa : Decls Corpo
          | Corpo
 Decls    : Decl
          | Decls Decl
-Decl     : INTDec ID ATR NUM
-         | INTDec NUM
+Decl     : INTDec ID ATRIB NUM
+         | INTDec ID 
          | INTDec ID LSQBRACKET NUM RSQBRACKET
          | INTDec ID LSQBRACKET NUM RSQBRACKET LSQBRACKET NUM RSQBRACKET
 Corpo    : Proc
          | Corpo Proc
-Proc     : Print
+Proc     : Atrib
+         | Print
          | If
          | Cycle
          | Input
+Print    : NonFormatted
+         | Formatted (not implemented)
+NonFormatted : PRINT LCPARENT QUOTE STRING QUOTE RCPARENT
+Formatted : ....
+Atrib    : ID ATRIB Expr
+         | ....
+         | ....
+         | ....
+Expr     : ID SUM SUM
+         | ID SUB SUB
+         | ID SUM ATRIB NUM
+         | ID SUB ATRIB
+         | ....
+         | .... 
+
 
 ```

@@ -28,10 +28,26 @@ tokens = (
     'INC',
     'DEC',
     'DO',
-    'WHILE'
+    'WHILE',
+    'PRINT',
+    'QUOTE', # Símbolo "
+    'STRING'  
 )
 
-literals = [',', ':', '"']
+literals = [',', ':']
+
+# returns the content inside quotes
+def t_STRING(t):
+    r'(?<=\")[A-Za-z\, ]*(?=\")'
+    return t
+
+def t_QUOTE(t):
+    r'\"'
+    return t
+
+def t_PRINT(t):
+    r'print'
+    return t
 
 def t_MOD(t):
     r'\%'
@@ -157,7 +173,7 @@ t_ignore = ' \r\t\n'
 
 lexer = lex.lex()
 
-with open("examples/tests.txt") as f:
+with open("tests/random_test.txt") as f:
     content = f.read()
 
 lexer.input(content)
