@@ -41,14 +41,39 @@ def p_Decl_Int_Val(p):
         print("Erro: Variável já inicializada")
         parser.success = False
 
+def p_Decl_Int_Input(p):
+    "Decl : INTDec ID ATRIB Input"
+    if p[2] not in p.parser.registers:
+        p.parser.registers.update({p[2] : p.parser.gp})
+        p.parser.ints.append(p[2])
+        p[0] = f'{p[4]}READ\nATOI\nSTOREG {p.parser.registers.get(p[2])}\n'
+        p.parser.gp += 1
+    else:
+        print("Erro variável já inicializada")
+        parser.success = False
+
+def p_Input(p):
+    "Input : INPUT LCPARENT String RCPARENT"
+    p[0] = f'{p[3]}'
+
+
+def p_String(p):
+    "String : QUOTE STRING QUOTE"
+    p[0] = f'PUSHS "{p[2]}"\nWRITES\n'
+
+def p_String_Empty(p): 
+    "String :  "
+    p[0] = ''
+
+
 def p_Corpo(p):
     "Corpo : Proc"
     p[0] = f'{p[1]}'
 
-"""
 def p_Corpo_Proc(p):
     "Corpo : Corpo Proc"
     p[0] = f'{p[1]}{p[2]}'
+"""
 
 def p_Proc_Atrib(p):
     "Proc : Atrib"
@@ -58,7 +83,7 @@ def p_Proc_Atrib(p):
 def p_Atrib_Print(p):
     "Proc : Print"
     p[0] = f'{p[1]}'
-
+    
 def p_Print_NonFormatted(p):
     "Print : NonFormatted"
     p[0] = f'{p[1]}'
@@ -67,8 +92,6 @@ def p_NonFormatted(p):
     "NonFormatted : PRINT LCPARENT QUOTE STRING QUOTE RCPARENT"
     p[0] = f'PUSHS "{p[4]}"\nWRITES\n'
 
-def p_Atrib(p):
-    "Atrib : Input"
 
 def p_error(p):
     print('Syntax error!\np -> ', p)

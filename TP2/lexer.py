@@ -31,18 +31,24 @@ tokens = (
     'WHILE',
     'PRINT',
     'QUOTE', # Símbolo "
-    'STRING'  
+    'STRING',
+    'INPUT'  
 )
 
 literals = [',', ':']
 
-# returns the content inside quotes
-def t_STRING(t):
-    r'(?<=\")[A-Za-z\, ]*(?=\")'
-    return t
 
 def t_QUOTE(t):
     r'\"'
+    return t
+
+# returns the content inside quotes
+def t_STRING(t):
+    r'(?<=\")[A-Za-z0-9\, \?\-\:\\]*(?=\")'
+    return t
+
+def t_INPUT(t):
+    r'input'
     return t
 
 def t_PRINT(t):

@@ -33,15 +33,20 @@ Rule 3     Decls -> Decl
 Rule 4     Decls -> Decls Decl
 Rule 5     Decl -> INTDec ID
 Rule 6     Decl -> INTDec ID ATRIB NUM
-Rule 7     Corpo -> Proc
-Rule 8     Proc -> Print
-Rule 9     Print -> NonFormatted
-Rule 10    NonFormatted -> PRINT LCPARENT QUOTE STRING QUOTE RCPARENT
+Rule 7     Decl -> INTDec ID ATRIB Input
+Rule 8     Input -> INPUT LCPARENT String RCPARENT
+Rule 9     String -> QUOTE STRING QUOTE
+Rule 10    String -> <empty>
+Rule 11    Corpo -> Proc
+Rule 12    Corpo -> Corpo Proc
+Rule 13    Proc -> Print
+Rule 14    Print -> NonFormatted
+Rule 15    NonFormatted -> PRINT LCPARENT QUOTE STRING QUOTE RCPARENT
 
 Terminals, with rules where they appear
 
 AND                  : 
-ATRIB                : 6
+ATRIB                : 6 7
 DEC                  : 
 DIV                  : 
 DO                   : 
@@ -50,11 +55,12 @@ ELSE                 :
 EQUIV                : 
 GEQ                  : 
 GT                   : 
-ID                   : 5 6
+ID                   : 5 6 7
 IF                   : 
 INC                  : 
-INTDec               : 5 6
-LCPARENT             : 10
+INPUT                : 8
+INTDec               : 5 6 7
+LCPARENT             : 8 15
 LEQ                  : 
 LSQBRACKET           : 
 LT                   : 
@@ -62,11 +68,11 @@ MOD                  :
 MULT                 : 
 NUM                  : 6
 OR                   : 
-PRINT                : 10
-QUOTE                : 10 10
-RCPARENT             : 10
+PRINT                : 15
+QUOTE                : 9 9 15 15
+RCPARENT             : 8 15
 RSQBRACKET           : 
-STRING               : 10
+STRING               : 9 15
 SUB                  : 
 SUM                  : 
 WHILE                : 
@@ -74,13 +80,15 @@ error                :
 
 Nonterminals, with rules where they appear
 
-Corpo                : 1 2
+Corpo                : 1 2 12
 Decl                 : 3 4
 Decls                : 2 4
-NonFormatted         : 9
-Print                : 8
-Proc                 : 7
+Input                : 7
+NonFormatted         : 14
+Print                : 13
+Proc                 : 11 12
 Programa             : 0
+String               : 8
 
 Parsing method: LALR
 
@@ -89,14 +97,16 @@ state 0
     (0) S' -> . Programa
     (1) Programa -> . Corpo
     (2) Programa -> . Decls Corpo
-    (7) Corpo -> . Proc
+    (11) Corpo -> . Proc
+    (12) Corpo -> . Corpo Proc
     (3) Decls -> . Decl
     (4) Decls -> . Decls Decl
-    (8) Proc -> . Print
+    (13) Proc -> . Print
     (5) Decl -> . INTDec ID
     (6) Decl -> . INTDec ID ATRIB NUM
-    (9) Print -> . NonFormatted
-    (10) NonFormatted -> . PRINT LCPARENT QUOTE STRING QUOTE RCPARENT
+    (7) Decl -> . INTDec ID ATRIB Input
+    (14) Print -> . NonFormatted
+    (15) NonFormatted -> . PRINT LCPARENT QUOTE STRING QUOTE RCPARENT
 
     INTDec          shift and go to state 7
     PRINT           shift and go to state 9
@@ -118,35 +128,46 @@ state 1
 state 2
 
     (1) Programa -> Corpo .
+    (12) Corpo -> Corpo . Proc
+    (13) Proc -> . Print
+    (14) Print -> . NonFormatted
+    (15) NonFormatted -> . PRINT LCPARENT QUOTE STRING QUOTE RCPARENT
 
     $end            reduce using rule 1 (Programa -> Corpo .)
+    PRINT           shift and go to state 9
 
+    Proc                           shift and go to state 10
+    Print                          shift and go to state 6
+    NonFormatted                   shift and go to state 8
 
 state 3
 
     (2) Programa -> Decls . Corpo
     (4) Decls -> Decls . Decl
-    (7) Corpo -> . Proc
+    (11) Corpo -> . Proc
+    (12) Corpo -> . Corpo Proc
     (5) Decl -> . INTDec ID
     (6) Decl -> . INTDec ID ATRIB NUM
-    (8) Proc -> . Print
-    (9) Print -> . NonFormatted
-    (10) NonFormatted -> . PRINT LCPARENT QUOTE STRING QUOTE RCPARENT
+    (7) Decl -> . INTDec ID ATRIB Input
+    (13) Proc -> . Print
+    (14) Print -> . NonFormatted
+    (15) NonFormatted -> . PRINT LCPARENT QUOTE STRING QUOTE RCPARENT
 
     INTDec          shift and go to state 7
     PRINT           shift and go to state 9
 
-    Corpo                          shift and go to state 10
-    Decl                           shift and go to state 11
+    Corpo                          shift and go to state 11
+    Decl                           shift and go to state 12
     Proc                           shift and go to state 4
     Print                          shift and go to state 6
     NonFormatted                   shift and go to state 8
 
 state 4
 
-    (7) Corpo -> Proc .
+    (11) Corpo -> Proc .
 
-    $end            reduce using rule 7 (Corpo -> Proc .)
+    PRINT           reduce using rule 11 (Corpo -> Proc .)
+    $end            reduce using rule 11 (Corpo -> Proc .)
 
 
 state 5
@@ -159,41 +180,60 @@ state 5
 
 state 6
 
-    (8) Proc -> Print .
+    (13) Proc -> Print .
 
-    $end            reduce using rule 8 (Proc -> Print .)
+    PRINT           reduce using rule 13 (Proc -> Print .)
+    $end            reduce using rule 13 (Proc -> Print .)
 
 
 state 7
 
     (5) Decl -> INTDec . ID
     (6) Decl -> INTDec . ID ATRIB NUM
+    (7) Decl -> INTDec . ID ATRIB Input
 
-    ID              shift and go to state 12
+    ID              shift and go to state 13
 
 
 state 8
 
-    (9) Print -> NonFormatted .
+    (14) Print -> NonFormatted .
 
-    $end            reduce using rule 9 (Print -> NonFormatted .)
+    PRINT           reduce using rule 14 (Print -> NonFormatted .)
+    $end            reduce using rule 14 (Print -> NonFormatted .)
 
 
 state 9
 
-    (10) NonFormatted -> PRINT . LCPARENT QUOTE STRING QUOTE RCPARENT
+    (15) NonFormatted -> PRINT . LCPARENT QUOTE STRING QUOTE RCPARENT
 
-    LCPARENT        shift and go to state 13
+    LCPARENT        shift and go to state 14
 
 
 state 10
 
-    (2) Programa -> Decls Corpo .
+    (12) Corpo -> Corpo Proc .
 
-    $end            reduce using rule 2 (Programa -> Decls Corpo .)
+    PRINT           reduce using rule 12 (Corpo -> Corpo Proc .)
+    $end            reduce using rule 12 (Corpo -> Corpo Proc .)
 
 
 state 11
+
+    (2) Programa -> Decls Corpo .
+    (12) Corpo -> Corpo . Proc
+    (13) Proc -> . Print
+    (14) Print -> . NonFormatted
+    (15) NonFormatted -> . PRINT LCPARENT QUOTE STRING QUOTE RCPARENT
+
+    $end            reduce using rule 2 (Programa -> Decls Corpo .)
+    PRINT           shift and go to state 9
+
+    Proc                           shift and go to state 10
+    Print                          shift and go to state 6
+    NonFormatted                   shift and go to state 8
+
+state 12
 
     (4) Decls -> Decls Decl .
 
@@ -201,38 +241,43 @@ state 11
     PRINT           reduce using rule 4 (Decls -> Decls Decl .)
 
 
-state 12
+state 13
 
     (5) Decl -> INTDec ID .
     (6) Decl -> INTDec ID . ATRIB NUM
+    (7) Decl -> INTDec ID . ATRIB Input
 
     INTDec          reduce using rule 5 (Decl -> INTDec ID .)
     PRINT           reduce using rule 5 (Decl -> INTDec ID .)
-    ATRIB           shift and go to state 14
-
-
-state 13
-
-    (10) NonFormatted -> PRINT LCPARENT . QUOTE STRING QUOTE RCPARENT
-
-    QUOTE           shift and go to state 15
+    ATRIB           shift and go to state 15
 
 
 state 14
 
-    (6) Decl -> INTDec ID ATRIB . NUM
+    (15) NonFormatted -> PRINT LCPARENT . QUOTE STRING QUOTE RCPARENT
 
-    NUM             shift and go to state 16
+    QUOTE           shift and go to state 16
 
 
 state 15
 
-    (10) NonFormatted -> PRINT LCPARENT QUOTE . STRING QUOTE RCPARENT
+    (6) Decl -> INTDec ID ATRIB . NUM
+    (7) Decl -> INTDec ID ATRIB . Input
+    (8) Input -> . INPUT LCPARENT String RCPARENT
 
-    STRING          shift and go to state 17
+    NUM             shift and go to state 17
+    INPUT           shift and go to state 19
 
+    Input                          shift and go to state 18
 
 state 16
+
+    (15) NonFormatted -> PRINT LCPARENT QUOTE . STRING QUOTE RCPARENT
+
+    STRING          shift and go to state 20
+
+
+state 17
 
     (6) Decl -> INTDec ID ATRIB NUM .
 
@@ -240,23 +285,86 @@ state 16
     PRINT           reduce using rule 6 (Decl -> INTDec ID ATRIB NUM .)
 
 
-state 17
-
-    (10) NonFormatted -> PRINT LCPARENT QUOTE STRING . QUOTE RCPARENT
-
-    QUOTE           shift and go to state 18
-
-
 state 18
 
-    (10) NonFormatted -> PRINT LCPARENT QUOTE STRING QUOTE . RCPARENT
+    (7) Decl -> INTDec ID ATRIB Input .
 
-    RCPARENT        shift and go to state 19
+    INTDec          reduce using rule 7 (Decl -> INTDec ID ATRIB Input .)
+    PRINT           reduce using rule 7 (Decl -> INTDec ID ATRIB Input .)
 
 
 state 19
 
-    (10) NonFormatted -> PRINT LCPARENT QUOTE STRING QUOTE RCPARENT .
+    (8) Input -> INPUT . LCPARENT String RCPARENT
 
-    $end            reduce using rule 10 (NonFormatted -> PRINT LCPARENT QUOTE STRING QUOTE RCPARENT .)
+    LCPARENT        shift and go to state 21
+
+
+state 20
+
+    (15) NonFormatted -> PRINT LCPARENT QUOTE STRING . QUOTE RCPARENT
+
+    QUOTE           shift and go to state 22
+
+
+state 21
+
+    (8) Input -> INPUT LCPARENT . String RCPARENT
+    (9) String -> . QUOTE STRING QUOTE
+    (10) String -> .
+
+    QUOTE           shift and go to state 24
+    RCPARENT        reduce using rule 10 (String -> .)
+
+    String                         shift and go to state 23
+
+state 22
+
+    (15) NonFormatted -> PRINT LCPARENT QUOTE STRING QUOTE . RCPARENT
+
+    RCPARENT        shift and go to state 25
+
+
+state 23
+
+    (8) Input -> INPUT LCPARENT String . RCPARENT
+
+    RCPARENT        shift and go to state 26
+
+
+state 24
+
+    (9) String -> QUOTE . STRING QUOTE
+
+    STRING          shift and go to state 27
+
+
+state 25
+
+    (15) NonFormatted -> PRINT LCPARENT QUOTE STRING QUOTE RCPARENT .
+
+    PRINT           reduce using rule 15 (NonFormatted -> PRINT LCPARENT QUOTE STRING QUOTE RCPARENT .)
+    $end            reduce using rule 15 (NonFormatted -> PRINT LCPARENT QUOTE STRING QUOTE RCPARENT .)
+
+
+state 26
+
+    (8) Input -> INPUT LCPARENT String RCPARENT .
+
+    INTDec          reduce using rule 8 (Input -> INPUT LCPARENT String RCPARENT .)
+    PRINT           reduce using rule 8 (Input -> INPUT LCPARENT String RCPARENT .)
+
+
+state 27
+
+    (9) String -> QUOTE STRING . QUOTE
+
+    QUOTE           shift and go to state 28
+
+
+state 28
+
+    (9) String -> QUOTE STRING QUOTE .
+
+    RCPARENT        reduce using rule 9 (String -> QUOTE STRING QUOTE .)
 

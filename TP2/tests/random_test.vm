@@ -1,7 +1,13 @@
 PUSHI 10
 PUSHI 20
-PUSHI 5
+PUSHS "input 1: \n"
+WRITES
+READ
+ATOI
+STOREG 2
 START
-PUSHS "foda se"
+PUSHS "hello\n"
+WRITES
+PUSHS "how are you?\n"
 WRITES
 STOP

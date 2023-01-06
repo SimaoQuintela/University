@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'AND ATRIB DEC DIV DO ELIF ELSE EQUIV GEQ GT ID IF INC INTDec LCPARENT LEQ LSQBRACKET LT MOD MULT NUM OR PRINT QUOTE RCPARENT RSQBRACKET STRING SUB SUM WHILEPrograma : CorpoPrograma : Decls CorpoDecls : DeclDecls : Decls DeclDecl : INTDec IDDecl : INTDec ID ATRIB NUMCorpo : ProcProc : PrintPrint : NonFormattedNonFormatted : PRINT LCPARENT QUOTE STRING QUOTE RCPARENT'
+_lr_signature = 'AND ATRIB DEC DIV DO ELIF ELSE EQUIV GEQ GT ID IF INC INPUT INTDec LCPARENT LEQ LSQBRACKET LT MOD MULT NUM OR PRINT QUOTE RCPARENT RSQBRACKET STRING SUB SUM WHILEPrograma : CorpoPrograma : Decls CorpoDecls : DeclDecls : Decls DeclDecl : INTDec IDDecl : INTDec ID ATRIB NUMDecl : INTDec ID ATRIB InputInput : INPUT LCPARENT String RCPARENTString : QUOTE STRING QUOTEString :  Corpo : ProcCorpo : Corpo ProcProc : PrintPrint : NonFormattedNonFormatted : PRINT LCPARENT QUOTE STRING QUOTE RCPARENT'
     
-_lr_action_items = {'INTDec':([0,3,5,11,12,16,],[7,7,-3,-4,-5,-6,]),'PRINT':([0,3,5,11,12,16,],[9,9,-3,-4,-5,-6,]),'$end':([1,2,4,6,8,10,19,],[0,-1,-7,-8,-9,-2,-10,]),'ID':([7,],[12,]),'LCPARENT':([9,],[13,]),'ATRIB':([12,],[14,]),'QUOTE':([13,17,],[15,18,]),'NUM':([14,],[16,]),'STRING':([15,],[17,]),'RCPARENT':([18,],[19,]),}
+_lr_action_items = {'INTDec':([0,3,5,12,13,17,18,26,],[7,7,-3,-4,-5,-6,-7,-8,]),'PRINT':([0,2,3,4,5,6,8,10,11,12,13,17,18,25,26,],[9,9,9,-11,-3,-13,-14,-12,9,-4,-5,-6,-7,-15,-8,]),'$end':([1,2,4,6,8,10,11,25,],[0,-1,-11,-13,-14,-12,-2,-15,]),'ID':([7,],[13,]),'LCPARENT':([9,19,],[14,21,]),'ATRIB':([13,],[15,]),'QUOTE':([14,20,21,27,],[16,22,24,28,]),'NUM':([15,],[17,]),'INPUT':([15,],[19,]),'STRING':([16,24,],[20,27,]),'RCPARENT':([21,22,23,28,],[-10,25,26,-9,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'Programa':([0,],[1,]),'Corpo':([0,3,],[2,10,]),'Decls':([0,],[3,]),'Proc':([0,3,],[4,4,]),'Decl':([0,3,],[5,11,]),'Print':([0,3,],[6,6,]),'NonFormatted':([0,3,],[8,8,]),}
+_lr_goto_items = {'Programa':([0,],[1,]),'Corpo':([0,3,],[2,11,]),'Decls':([0,],[3,]),'Proc':([0,2,3,11,],[4,10,4,10,]),'Decl':([0,3,],[5,12,]),'Print':([0,2,3,11,],[6,6,6,6,]),'NonFormatted':([0,2,3,11,],[8,8,8,8,]),'Input':([15,],[18,]),'String':([21,],[23,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -33,8 +33,13 @@ _lr_productions = [
   ('Decls -> Decls Decl','Decls',2,'p_Decls_Recursiva','yacc.py',19),
   ('Decl -> INTDec ID','Decl',2,'p_Decl_Int','yacc.py',23),
   ('Decl -> INTDec ID ATRIB NUM','Decl',4,'p_Decl_Int_Val','yacc.py',34),
-  ('Corpo -> Proc','Corpo',1,'p_Corpo','yacc.py',47),
-  ('Proc -> Print','Proc',1,'p_Atrib_Print','yacc.py',61),
-  ('Print -> NonFormatted','Print',1,'p_Print_NonFormatted','yacc.py',65),
-  ('NonFormatted -> PRINT LCPARENT QUOTE STRING QUOTE RCPARENT','NonFormatted',6,'p_NonFormatted','yacc.py',69),
+  ('Decl -> INTDec ID ATRIB Input','Decl',4,'p_Decl_Int_Input','yacc.py',45),
+  ('Input -> INPUT LCPARENT String RCPARENT','Input',4,'p_Input','yacc.py',56),
+  ('String -> QUOTE STRING QUOTE','String',3,'p_String','yacc.py',61),
+  ('String -> <empty>','String',0,'p_String_Empty','yacc.py',65),
+  ('Corpo -> Proc','Corpo',1,'p_Corpo','yacc.py',70),
+  ('Corpo -> Corpo Proc','Corpo',2,'p_Corpo_Proc','yacc.py',74),
+  ('Proc -> Print','Proc',1,'p_Atrib_Print','yacc.py',84),
+  ('Print -> NonFormatted','Print',1,'p_Print_NonFormatted','yacc.py',88),
+  ('NonFormatted -> PRINT LCPARENT QUOTE STRING QUOTE RCPARENT','NonFormatted',6,'p_NonFormatted','yacc.py',92),
 ]
