@@ -1,5 +1,8 @@
 int x = 10
 int y = 20
-int z = 5
+int z = input("input 1: \n")
 
-print("foda se")
+print("hello\n")
+print(x)
+print(y)
+print(z)
