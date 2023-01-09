@@ -3,4 +3,6 @@ int y = 20
 int z = input("input 1: \n")
 
 print("hello\n")
-print("how are you?\n")
+print(x)
+print(y)
+print(z)

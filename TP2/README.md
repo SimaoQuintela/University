@@ -56,9 +56,6 @@ Decl     : INTDec ID
          | INTDec ID ATRIB INPUT LCBRACKET RCBRACKET
          | INTDec ID LSQBRACKET NUM RSQBRACKET
          | INTDec ID LSQBRACKET NUM RSQBRACKET LSQBRACKET NUM RSQBRACKET
-Input    : INPUT LCPARENT String RCPARENT
-String   : QUOTE STRING QUOTE
-         | ε
 Corpo    : Proc
          | Corpo Proc
 Proc     : Atrib
@@ -67,8 +64,11 @@ Proc     : Atrib
          | Cycle
 Print    : NonFormatted
          | Formatted (not implemented)
-NonFormatted : PRINT LCPARENT QUOTE STRING QUOTE RCPARENT
+NonFormatted : PRINT LCPARENT QUOTE Argument QUOTE RCPARENT
 Formatted : ....
+Argument : String
+         | ID
+
 
 Atrib    : UpdateVar
          | Input
@@ -80,6 +80,8 @@ Expr     : ID SUM SUM
          | ID SUB ATRIB
          | ....
          | .... 
-
+Input    : INPUT LCPARENT String RCPARENT
+String   : QUOTE STRING QUOTE
+         | ε
 
 ```

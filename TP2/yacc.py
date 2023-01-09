@@ -57,15 +57,6 @@ def p_Input(p):
     p[0] = f'{p[3]}'
 
 
-def p_String(p):
-    "String : QUOTE STRING QUOTE"
-    p[0] = f'PUSHS "{p[2]}"\nWRITES\n'
-
-def p_String_Empty(p): 
-    "String :  "
-    p[0] = ''
-
-
 def p_Corpo(p):
     "Corpo : Proc"
     p[0] = f'{p[1]}'
@@ -89,9 +80,37 @@ def p_Print_NonFormatted(p):
     p[0] = f'{p[1]}'
 
 def p_NonFormatted(p):
-    "NonFormatted : PRINT LCPARENT QUOTE STRING QUOTE RCPARENT"
-    p[0] = f'PUSHS "{p[4]}"\nWRITES\n'
+    "NonFormatted : PRINT LCPARENT Argument RCPARENT"
+    p[0] = f'{p[3]}'
 
+def p_Argument_String(p):
+    "Argument : String"
+    p[0] = f'{p[1]}'
+
+def p_Argument_Var(p):
+    "Argument : Var"
+    p[0] = f'{p[1]}PUSHS "\\n"\nWRITES\n'
+
+def p_Var(p):
+    "Var : ID"
+    if p[1] in p.parser.registers:
+        if p[1] in p.parser.ints:
+            p[0] = f'PUSHG {p.parser.registers.get(p[1])}\nWRITEI\n'
+        else:
+            parser.success = False
+            print("Erro: A Variável não é do tipo int.")
+    else:
+        parser.success = False
+        print("Erro: Variável não definida")
+
+
+def p_String(p):
+    "String : QUOTE STRING QUOTE"
+    p[0] = f'PUSHS "{p[2]}"\nWRITES\n'
+
+def p_String_Empty(p): 
+    "String :  "
+    p[0] = ''
 
 def p_error(p):
     print('Syntax error!\np -> ', p)
