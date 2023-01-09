@@ -60,6 +60,42 @@ def p_Input(p):
 def p_Corpo(p):
     "Corpo : Proc"
     p[0] = f'{p[1]}'
+    
+#hugo----------------------------------------------------------
+
+def p_Corpo_Expr(p):
+    "Corpo : Expr"
+    p[0] = f'{p[1]}'
+'''
+def p_Expr_Var(p):
+    "Expr     : ID"
+    p[0] = p[1]
+'''
+def p_Expr_Num(p):
+    "Expr : NUM"
+    p[0] = f'PUSHI {p[1]}\n'
+
+def p_Expr_Soma(p):
+    "Expr : Expr SUM Expr"
+    p[0] = f'{p[1]}{p[3]}ADD\n'
+
+def p_Expr_Sub(p):
+    "Expr : Expr  SUB Expr"
+    p[0] = f'{p[1]}{p[3]}SUB\n'
+
+def p_Expr_Mult(p):
+    "Expr : Expr  MULT Expr"
+    p[0] = f'{p[1]}{p[3]}MULT\n'
+
+def p_Expr_Div(p):
+    "Expr : Expr  DIV Expr"
+    p[0] = f'{p[1]}{p[3]}DIV\n'
+
+def p_Expr_Mod(p):
+    "Expr : Expr MOD Expr"
+    p[0] = f'{p[1]}{p[3]}MOD\n'
+    
+#-------------------------------------------------------------
 
 def p_Corpo_Proc(p):
     "Corpo : Corpo Proc"
