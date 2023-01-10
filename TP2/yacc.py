@@ -49,6 +49,17 @@ def p_Decl_Int_Val(p):
         print("Erro: Variável já inicializada")
         parser.success = False
 
+def p_Decl_Int_Expr(p):
+    "Decl : INTDec ID ATRIB Expr"
+    if p[2] not in p.parser.registers:
+        p.parser.registers.update({p[2] : p.parser.gp})
+        p[0] = f'{p[4]}'
+        p.parser.ints.append(p[2])
+        p.parser.gp += 1
+    else:
+        print("Erro: Variável já inicializada")
+        parser.success = False
+
 def p_Decl_Int_Input(p):
     "Decl : INTDec ID ATRIB Input"
     if p[2] not in p.parser.registers:
@@ -74,11 +85,11 @@ def p_Corpo_Expr(p):
 def p_Corpo_Expr_Rec(p):
     "Corpo : Corpo Expr"
     p[0] = f'{p[1]}{p[2]}'
-'''
+
 def p_Expr_Var(p):
-    "Expr     : ID"
+    "Expr : Var"
     p[0] = p[1]
-'''
+
 def p_Expr_Num(p):
     "Expr : NUM"
     p[0] = f'PUSHI {p[1]}\n'
@@ -102,6 +113,10 @@ def p_Expr_Div(p):
 def p_Expr_Mod(p):
     "Expr : Expr MOD Expr"
     p[0] = f'{p[1]}{p[3]}MOD\n'
+
+def p_Expr_Parent(p):
+    "Expr : LCPARENT Expr RCPARENT"
+    p[0] = f'{p[2]}'
     
 #-------------------------------------------------------------
 
@@ -130,13 +145,18 @@ def p_Argument_String(p):
 
 def p_Argument_Var(p):
     "Argument : Var"
-    p[0] = f'{p[1]}PUSHS "\\n"\nWRITES\n'
+    p[0] = f'{p[1]}WRITEI\nPUSHS "\\n"\nWRITES\n'
+
+def p_Argument_Expr(p):
+    "Argument : Expr"
+    p[0] = f'{p[1]}WRITEI\n'
+
 
 def p_Var(p):
     "Var : ID"
     if p[1] in p.parser.registers:
         if p[1] in p.parser.ints:
-            p[0] = f'PUSHG {p.parser.registers.get(p[1])}\nWRITEI\n'
+            p[0] = f'PUSHG {p.parser.registers.get(p[1])}\n'
         else:
             parser.success = False
             print("Erro: A Variável não é do tipo int.")
@@ -188,3 +208,4 @@ if parser.success:
     print("Código assembly gerado e guardado.")
 else:
     print("Erro ao compilar")
+
