@@ -11,6 +11,14 @@ def p_Programa_Decls(p):
     "Programa : Decls Corpo"
     parser.assembly = f'{p[1]}START\n{p[2]}STOP'
 
+def p_Corpo(p):
+    "Corpo : Proc"
+    p[0] = f'{p[1]}'
+
+def p_Corpo_Proc(p):
+    "Corpo : Corpo Proc"
+    p[0] = f'{p[1]}{p[2]}'
+
 def p_Decls(p):
     "Decls : Decl"
     p[0] = f'{p[1]}'
@@ -56,16 +64,16 @@ def p_Input(p):
     "Input : INPUT LCPARENT String RCPARENT"
     p[0] = f'{p[3]}'
 
-
-def p_Corpo(p):
-    "Corpo : Proc"
-    p[0] = f'{p[1]}'
     
 #hugo----------------------------------------------------------
 
 def p_Corpo_Expr(p):
     "Corpo : Expr"
     p[0] = f'{p[1]}'
+
+def p_Corpo_Expr_Rec(p):
+    "Corpo : Corpo Expr"
+    p[0] = f'{p[1]}{p[2]}'
 '''
 def p_Expr_Var(p):
     "Expr     : ID"
@@ -97,9 +105,6 @@ def p_Expr_Mod(p):
     
 #-------------------------------------------------------------
 
-def p_Corpo_Proc(p):
-    "Corpo : Corpo Proc"
-    p[0] = f'{p[1]}{p[2]}'
 """
 
 def p_Proc_Atrib(p):
@@ -153,7 +158,14 @@ def p_error(p):
     parser.sucesso = False
 
 
+precedence = (
+    ("left", "SUM", "SUB"),
+    ("left", "MULT", "DIV")
+)
+
+
 parser = yacc.yacc()
+
 
 parser.success = True
 parser.registers = {}

@@ -62,13 +62,16 @@ Proc     : Atrib
          | Print
          | If
          | Cycle
+         | Comment
+Comment  : Comment ID
+         | Comment 
 Print    : NonFormatted
          | Formatted (not implemented)
 NonFormatted : PRINT LCPARENT QUOTE Argument QUOTE RCPARENT
 Formatted : ....
 Argument : String
-         | ID
-
+         | Var
+Var      : ID
 
 Atrib    : UpdateVar
          | Input

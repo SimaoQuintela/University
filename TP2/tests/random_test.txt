@@ -1,8 +1,5 @@
-int x = 10
-int y = 20
-int z = input("input 1: \n")
-
-print("hello\n")
-print(x)
-print(y)
-print(z)
+if (x) :
+    print("ola")
+    if sda:
+        x
+    dsa

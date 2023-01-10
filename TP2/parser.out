@@ -4,7 +4,6 @@ Unused terminals:
 
     AND
     DEC
-    DIV
     DO
     ELIF
     ELSE
@@ -16,12 +15,8 @@ Unused terminals:
     LEQ
     LSQBRACKET
     LT
-    MOD
-    MULT
     OR
     RSQBRACKET
-    SUB
-    SUM
     WHILE
 
 Grammar
@@ -29,71 +24,80 @@ Grammar
 Rule 0     S' -> Programa
 Rule 1     Programa -> Corpo
 Rule 2     Programa -> Decls Corpo
-Rule 3     Decls -> Decl
-Rule 4     Decls -> Decls Decl
-Rule 5     Decl -> INTDec ID
-Rule 6     Decl -> INTDec ID ATRIB NUM
-Rule 7     Decl -> INTDec ID ATRIB Input
-Rule 8     Input -> INPUT LCPARENT String RCPARENT
-Rule 9     Corpo -> Proc
-Rule 10    Corpo -> Corpo Proc
-Rule 11    Proc -> Print
-Rule 12    Print -> NonFormatted
-Rule 13    NonFormatted -> PRINT LCPARENT Argument RCPARENT
-Rule 14    Argument -> String
-Rule 15    Argument -> Var
-Rule 16    Var -> ID
-Rule 17    String -> QUOTE STRING QUOTE
-Rule 18    String -> <empty>
+Rule 3     Corpo -> Proc
+Rule 4     Corpo -> Corpo Proc
+Rule 5     Decls -> Decl
+Rule 6     Decls -> Decls Decl
+Rule 7     Decl -> INTDec ID
+Rule 8     Decl -> INTDec ID ATRIB NUM
+Rule 9     Decl -> INTDec ID ATRIB Input
+Rule 10    Input -> INPUT LCPARENT String RCPARENT
+Rule 11    Corpo -> Expr
+Rule 12    Corpo -> Corpo Expr
+Rule 13    Expr -> NUM
+Rule 14    Expr -> Expr SUM Expr
+Rule 15    Expr -> Expr SUB Expr
+Rule 16    Expr -> Expr MULT Expr
+Rule 17    Expr -> Expr DIV Expr
+Rule 18    Expr -> Expr MOD Expr
+Rule 19    Proc -> Print
+Rule 20    Print -> NonFormatted
+Rule 21    NonFormatted -> PRINT LCPARENT Argument RCPARENT
+Rule 22    Argument -> String
+Rule 23    Argument -> Var
+Rule 24    Var -> ID
+Rule 25    String -> QUOTE STRING QUOTE
+Rule 26    String -> <empty>
 
 Terminals, with rules where they appear
 
 AND                  : 
-ATRIB                : 6 7
+ATRIB                : 8 9
 DEC                  : 
-DIV                  : 
+DIV                  : 17
 DO                   : 
 ELIF                 : 
 ELSE                 : 
 EQUIV                : 
 GEQ                  : 
 GT                   : 
-ID                   : 5 6 7 16
+ID                   : 7 8 9 24
 IF                   : 
 INC                  : 
-INPUT                : 8
-INTDec               : 5 6 7
-LCPARENT             : 8 13
+INPUT                : 10
+INTDec               : 7 8 9
+LCPARENT             : 10 21
 LEQ                  : 
 LSQBRACKET           : 
 LT                   : 
-MOD                  : 
-MULT                 : 
-NUM                  : 6
+MOD                  : 18
+MULT                 : 16
+NUM                  : 8 13
 OR                   : 
-PRINT                : 13
-QUOTE                : 17 17
-RCPARENT             : 8 13
+PRINT                : 21
+QUOTE                : 25 25
+RCPARENT             : 10 21
 RSQBRACKET           : 
-STRING               : 17
-SUB                  : 
-SUM                  : 
+STRING               : 25
+SUB                  : 15
+SUM                  : 14
 WHILE                : 
 error                : 
 
 Nonterminals, with rules where they appear
 
-Argument             : 13
-Corpo                : 1 2 10
-Decl                 : 3 4
-Decls                : 2 4
-Input                : 7
-NonFormatted         : 12
-Print                : 11
-Proc                 : 9 10
+Argument             : 21
+Corpo                : 1 2 4 12
+Decl                 : 5 6
+Decls                : 2 6
+Expr                 : 11 12 14 14 15 15 16 16 17 17 18 18
+Input                : 9
+NonFormatted         : 20
+Print                : 19
+Proc                 : 3 4
 Programa             : 0
-String               : 8 14
-Var                  : 15
+String               : 10 22
+Var                  : 23
 
 Parsing method: LALR
 
@@ -102,27 +106,37 @@ state 0
     (0) S' -> . Programa
     (1) Programa -> . Corpo
     (2) Programa -> . Decls Corpo
-    (9) Corpo -> . Proc
-    (10) Corpo -> . Corpo Proc
-    (3) Decls -> . Decl
-    (4) Decls -> . Decls Decl
-    (11) Proc -> . Print
-    (5) Decl -> . INTDec ID
-    (6) Decl -> . INTDec ID ATRIB NUM
-    (7) Decl -> . INTDec ID ATRIB Input
-    (12) Print -> . NonFormatted
-    (13) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
+    (3) Corpo -> . Proc
+    (4) Corpo -> . Corpo Proc
+    (11) Corpo -> . Expr
+    (12) Corpo -> . Corpo Expr
+    (5) Decls -> . Decl
+    (6) Decls -> . Decls Decl
+    (19) Proc -> . Print
+    (13) Expr -> . NUM
+    (14) Expr -> . Expr SUM Expr
+    (15) Expr -> . Expr SUB Expr
+    (16) Expr -> . Expr MULT Expr
+    (17) Expr -> . Expr DIV Expr
+    (18) Expr -> . Expr MOD Expr
+    (7) Decl -> . INTDec ID
+    (8) Decl -> . INTDec ID ATRIB NUM
+    (9) Decl -> . INTDec ID ATRIB Input
+    (20) Print -> . NonFormatted
+    (21) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
 
-    INTDec          shift and go to state 7
-    PRINT           shift and go to state 9
+    NUM             shift and go to state 8
+    INTDec          shift and go to state 9
+    PRINT           shift and go to state 11
 
     Programa                       shift and go to state 1
     Corpo                          shift and go to state 2
     Decls                          shift and go to state 3
     Proc                           shift and go to state 4
-    Decl                           shift and go to state 5
-    Print                          shift and go to state 6
-    NonFormatted                   shift and go to state 8
+    Expr                           shift and go to state 5
+    Decl                           shift and go to state 6
+    Print                          shift and go to state 7
+    NonFormatted                   shift and go to state 10
 
 state 1
 
@@ -133,260 +147,559 @@ state 1
 state 2
 
     (1) Programa -> Corpo .
-    (10) Corpo -> Corpo . Proc
-    (11) Proc -> . Print
-    (12) Print -> . NonFormatted
-    (13) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
+    (4) Corpo -> Corpo . Proc
+    (12) Corpo -> Corpo . Expr
+    (19) Proc -> . Print
+    (13) Expr -> . NUM
+    (14) Expr -> . Expr SUM Expr
+    (15) Expr -> . Expr SUB Expr
+    (16) Expr -> . Expr MULT Expr
+    (17) Expr -> . Expr DIV Expr
+    (18) Expr -> . Expr MOD Expr
+    (20) Print -> . NonFormatted
+    (21) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
 
     $end            reduce using rule 1 (Programa -> Corpo .)
-    PRINT           shift and go to state 9
+    NUM             shift and go to state 8
+    PRINT           shift and go to state 11
 
-    Proc                           shift and go to state 10
-    Print                          shift and go to state 6
-    NonFormatted                   shift and go to state 8
+    Proc                           shift and go to state 12
+    Expr                           shift and go to state 13
+    Print                          shift and go to state 7
+    NonFormatted                   shift and go to state 10
 
 state 3
 
     (2) Programa -> Decls . Corpo
-    (4) Decls -> Decls . Decl
-    (9) Corpo -> . Proc
-    (10) Corpo -> . Corpo Proc
-    (5) Decl -> . INTDec ID
-    (6) Decl -> . INTDec ID ATRIB NUM
-    (7) Decl -> . INTDec ID ATRIB Input
-    (11) Proc -> . Print
-    (12) Print -> . NonFormatted
-    (13) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
+    (6) Decls -> Decls . Decl
+    (3) Corpo -> . Proc
+    (4) Corpo -> . Corpo Proc
+    (11) Corpo -> . Expr
+    (12) Corpo -> . Corpo Expr
+    (7) Decl -> . INTDec ID
+    (8) Decl -> . INTDec ID ATRIB NUM
+    (9) Decl -> . INTDec ID ATRIB Input
+    (19) Proc -> . Print
+    (13) Expr -> . NUM
+    (14) Expr -> . Expr SUM Expr
+    (15) Expr -> . Expr SUB Expr
+    (16) Expr -> . Expr MULT Expr
+    (17) Expr -> . Expr DIV Expr
+    (18) Expr -> . Expr MOD Expr
+    (20) Print -> . NonFormatted
+    (21) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
 
-    INTDec          shift and go to state 7
-    PRINT           shift and go to state 9
+    INTDec          shift and go to state 9
+    NUM             shift and go to state 8
+    PRINT           shift and go to state 11
 
-    Corpo                          shift and go to state 11
-    Decl                           shift and go to state 12
+    Corpo                          shift and go to state 14
+    Decl                           shift and go to state 15
     Proc                           shift and go to state 4
-    Print                          shift and go to state 6
-    NonFormatted                   shift and go to state 8
+    Expr                           shift and go to state 5
+    Print                          shift and go to state 7
+    NonFormatted                   shift and go to state 10
 
 state 4
 
-    (9) Corpo -> Proc .
+    (3) Corpo -> Proc .
 
-    PRINT           reduce using rule 9 (Corpo -> Proc .)
-    $end            reduce using rule 9 (Corpo -> Proc .)
+    NUM             reduce using rule 3 (Corpo -> Proc .)
+    PRINT           reduce using rule 3 (Corpo -> Proc .)
+    $end            reduce using rule 3 (Corpo -> Proc .)
 
 
 state 5
 
-    (3) Decls -> Decl .
+    (11) Corpo -> Expr .
+    (14) Expr -> Expr . SUM Expr
+    (15) Expr -> Expr . SUB Expr
+    (16) Expr -> Expr . MULT Expr
+    (17) Expr -> Expr . DIV Expr
+    (18) Expr -> Expr . MOD Expr
 
-    INTDec          reduce using rule 3 (Decls -> Decl .)
-    PRINT           reduce using rule 3 (Decls -> Decl .)
+    NUM             reduce using rule 11 (Corpo -> Expr .)
+    PRINT           reduce using rule 11 (Corpo -> Expr .)
+    $end            reduce using rule 11 (Corpo -> Expr .)
+    SUM             shift and go to state 16
+    SUB             shift and go to state 17
+    MULT            shift and go to state 18
+    DIV             shift and go to state 19
+    MOD             shift and go to state 20
 
 
 state 6
 
-    (11) Proc -> Print .
+    (5) Decls -> Decl .
 
-    PRINT           reduce using rule 11 (Proc -> Print .)
-    $end            reduce using rule 11 (Proc -> Print .)
+    INTDec          reduce using rule 5 (Decls -> Decl .)
+    NUM             reduce using rule 5 (Decls -> Decl .)
+    PRINT           reduce using rule 5 (Decls -> Decl .)
 
 
 state 7
 
-    (5) Decl -> INTDec . ID
-    (6) Decl -> INTDec . ID ATRIB NUM
-    (7) Decl -> INTDec . ID ATRIB Input
+    (19) Proc -> Print .
 
-    ID              shift and go to state 13
+    NUM             reduce using rule 19 (Proc -> Print .)
+    PRINT           reduce using rule 19 (Proc -> Print .)
+    $end            reduce using rule 19 (Proc -> Print .)
 
 
 state 8
 
-    (12) Print -> NonFormatted .
+    (13) Expr -> NUM .
 
-    PRINT           reduce using rule 12 (Print -> NonFormatted .)
-    $end            reduce using rule 12 (Print -> NonFormatted .)
+    SUM             reduce using rule 13 (Expr -> NUM .)
+    SUB             reduce using rule 13 (Expr -> NUM .)
+    MULT            reduce using rule 13 (Expr -> NUM .)
+    DIV             reduce using rule 13 (Expr -> NUM .)
+    MOD             reduce using rule 13 (Expr -> NUM .)
+    NUM             reduce using rule 13 (Expr -> NUM .)
+    PRINT           reduce using rule 13 (Expr -> NUM .)
+    $end            reduce using rule 13 (Expr -> NUM .)
 
 
 state 9
 
-    (13) NonFormatted -> PRINT . LCPARENT Argument RCPARENT
+    (7) Decl -> INTDec . ID
+    (8) Decl -> INTDec . ID ATRIB NUM
+    (9) Decl -> INTDec . ID ATRIB Input
 
-    LCPARENT        shift and go to state 14
+    ID              shift and go to state 21
 
 
 state 10
 
-    (10) Corpo -> Corpo Proc .
+    (20) Print -> NonFormatted .
 
-    PRINT           reduce using rule 10 (Corpo -> Corpo Proc .)
-    $end            reduce using rule 10 (Corpo -> Corpo Proc .)
+    NUM             reduce using rule 20 (Print -> NonFormatted .)
+    PRINT           reduce using rule 20 (Print -> NonFormatted .)
+    $end            reduce using rule 20 (Print -> NonFormatted .)
 
 
 state 11
 
-    (2) Programa -> Decls Corpo .
-    (10) Corpo -> Corpo . Proc
-    (11) Proc -> . Print
-    (12) Print -> . NonFormatted
-    (13) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
+    (21) NonFormatted -> PRINT . LCPARENT Argument RCPARENT
 
-    $end            reduce using rule 2 (Programa -> Decls Corpo .)
-    PRINT           shift and go to state 9
+    LCPARENT        shift and go to state 22
 
-    Proc                           shift and go to state 10
-    Print                          shift and go to state 6
-    NonFormatted                   shift and go to state 8
 
 state 12
 
-    (4) Decls -> Decls Decl .
+    (4) Corpo -> Corpo Proc .
 
-    INTDec          reduce using rule 4 (Decls -> Decls Decl .)
-    PRINT           reduce using rule 4 (Decls -> Decls Decl .)
+    NUM             reduce using rule 4 (Corpo -> Corpo Proc .)
+    PRINT           reduce using rule 4 (Corpo -> Corpo Proc .)
+    $end            reduce using rule 4 (Corpo -> Corpo Proc .)
 
 
 state 13
 
-    (5) Decl -> INTDec ID .
-    (6) Decl -> INTDec ID . ATRIB NUM
-    (7) Decl -> INTDec ID . ATRIB Input
+    (12) Corpo -> Corpo Expr .
+    (14) Expr -> Expr . SUM Expr
+    (15) Expr -> Expr . SUB Expr
+    (16) Expr -> Expr . MULT Expr
+    (17) Expr -> Expr . DIV Expr
+    (18) Expr -> Expr . MOD Expr
 
-    INTDec          reduce using rule 5 (Decl -> INTDec ID .)
-    PRINT           reduce using rule 5 (Decl -> INTDec ID .)
-    ATRIB           shift and go to state 15
+    NUM             reduce using rule 12 (Corpo -> Corpo Expr .)
+    PRINT           reduce using rule 12 (Corpo -> Corpo Expr .)
+    $end            reduce using rule 12 (Corpo -> Corpo Expr .)
+    SUM             shift and go to state 16
+    SUB             shift and go to state 17
+    MULT            shift and go to state 18
+    DIV             shift and go to state 19
+    MOD             shift and go to state 20
 
 
 state 14
 
-    (13) NonFormatted -> PRINT LCPARENT . Argument RCPARENT
-    (14) Argument -> . String
-    (15) Argument -> . Var
-    (17) String -> . QUOTE STRING QUOTE
-    (18) String -> .
-    (16) Var -> . ID
+    (2) Programa -> Decls Corpo .
+    (4) Corpo -> Corpo . Proc
+    (12) Corpo -> Corpo . Expr
+    (19) Proc -> . Print
+    (13) Expr -> . NUM
+    (14) Expr -> . Expr SUM Expr
+    (15) Expr -> . Expr SUB Expr
+    (16) Expr -> . Expr MULT Expr
+    (17) Expr -> . Expr DIV Expr
+    (18) Expr -> . Expr MOD Expr
+    (20) Print -> . NonFormatted
+    (21) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
 
-    QUOTE           shift and go to state 19
-    RCPARENT        reduce using rule 18 (String -> .)
-    ID              shift and go to state 20
+    $end            reduce using rule 2 (Programa -> Decls Corpo .)
+    NUM             shift and go to state 8
+    PRINT           shift and go to state 11
 
-    Argument                       shift and go to state 16
-    String                         shift and go to state 17
-    Var                            shift and go to state 18
+    Proc                           shift and go to state 12
+    Expr                           shift and go to state 13
+    Print                          shift and go to state 7
+    NonFormatted                   shift and go to state 10
 
 state 15
 
-    (6) Decl -> INTDec ID ATRIB . NUM
-    (7) Decl -> INTDec ID ATRIB . Input
-    (8) Input -> . INPUT LCPARENT String RCPARENT
+    (6) Decls -> Decls Decl .
 
-    NUM             shift and go to state 21
-    INPUT           shift and go to state 23
+    INTDec          reduce using rule 6 (Decls -> Decls Decl .)
+    NUM             reduce using rule 6 (Decls -> Decls Decl .)
+    PRINT           reduce using rule 6 (Decls -> Decls Decl .)
 
-    Input                          shift and go to state 22
 
 state 16
 
-    (13) NonFormatted -> PRINT LCPARENT Argument . RCPARENT
+    (14) Expr -> Expr SUM . Expr
+    (13) Expr -> . NUM
+    (14) Expr -> . Expr SUM Expr
+    (15) Expr -> . Expr SUB Expr
+    (16) Expr -> . Expr MULT Expr
+    (17) Expr -> . Expr DIV Expr
+    (18) Expr -> . Expr MOD Expr
 
-    RCPARENT        shift and go to state 24
+    NUM             shift and go to state 8
 
+    Expr                           shift and go to state 23
 
 state 17
 
-    (14) Argument -> String .
+    (15) Expr -> Expr SUB . Expr
+    (13) Expr -> . NUM
+    (14) Expr -> . Expr SUM Expr
+    (15) Expr -> . Expr SUB Expr
+    (16) Expr -> . Expr MULT Expr
+    (17) Expr -> . Expr DIV Expr
+    (18) Expr -> . Expr MOD Expr
 
-    RCPARENT        reduce using rule 14 (Argument -> String .)
+    NUM             shift and go to state 8
 
+    Expr                           shift and go to state 24
 
 state 18
 
-    (15) Argument -> Var .
+    (16) Expr -> Expr MULT . Expr
+    (13) Expr -> . NUM
+    (14) Expr -> . Expr SUM Expr
+    (15) Expr -> . Expr SUB Expr
+    (16) Expr -> . Expr MULT Expr
+    (17) Expr -> . Expr DIV Expr
+    (18) Expr -> . Expr MOD Expr
 
-    RCPARENT        reduce using rule 15 (Argument -> Var .)
+    NUM             shift and go to state 8
 
+    Expr                           shift and go to state 25
 
 state 19
 
-    (17) String -> QUOTE . STRING QUOTE
+    (17) Expr -> Expr DIV . Expr
+    (13) Expr -> . NUM
+    (14) Expr -> . Expr SUM Expr
+    (15) Expr -> . Expr SUB Expr
+    (16) Expr -> . Expr MULT Expr
+    (17) Expr -> . Expr DIV Expr
+    (18) Expr -> . Expr MOD Expr
 
-    STRING          shift and go to state 25
+    NUM             shift and go to state 8
 
+    Expr                           shift and go to state 26
 
 state 20
 
-    (16) Var -> ID .
+    (18) Expr -> Expr MOD . Expr
+    (13) Expr -> . NUM
+    (14) Expr -> . Expr SUM Expr
+    (15) Expr -> . Expr SUB Expr
+    (16) Expr -> . Expr MULT Expr
+    (17) Expr -> . Expr DIV Expr
+    (18) Expr -> . Expr MOD Expr
 
-    RCPARENT        reduce using rule 16 (Var -> ID .)
+    NUM             shift and go to state 8
 
+    Expr                           shift and go to state 27
 
 state 21
 
-    (6) Decl -> INTDec ID ATRIB NUM .
+    (7) Decl -> INTDec ID .
+    (8) Decl -> INTDec ID . ATRIB NUM
+    (9) Decl -> INTDec ID . ATRIB Input
 
-    INTDec          reduce using rule 6 (Decl -> INTDec ID ATRIB NUM .)
-    PRINT           reduce using rule 6 (Decl -> INTDec ID ATRIB NUM .)
+    INTDec          reduce using rule 7 (Decl -> INTDec ID .)
+    NUM             reduce using rule 7 (Decl -> INTDec ID .)
+    PRINT           reduce using rule 7 (Decl -> INTDec ID .)
+    ATRIB           shift and go to state 28
 
 
 state 22
 
-    (7) Decl -> INTDec ID ATRIB Input .
+    (21) NonFormatted -> PRINT LCPARENT . Argument RCPARENT
+    (22) Argument -> . String
+    (23) Argument -> . Var
+    (25) String -> . QUOTE STRING QUOTE
+    (26) String -> .
+    (24) Var -> . ID
 
-    INTDec          reduce using rule 7 (Decl -> INTDec ID ATRIB Input .)
-    PRINT           reduce using rule 7 (Decl -> INTDec ID ATRIB Input .)
+    QUOTE           shift and go to state 32
+    RCPARENT        reduce using rule 26 (String -> .)
+    ID              shift and go to state 33
 
+    Argument                       shift and go to state 29
+    String                         shift and go to state 30
+    Var                            shift and go to state 31
 
 state 23
 
-    (8) Input -> INPUT . LCPARENT String RCPARENT
+    (14) Expr -> Expr SUM Expr .
+    (14) Expr -> Expr . SUM Expr
+    (15) Expr -> Expr . SUB Expr
+    (16) Expr -> Expr . MULT Expr
+    (17) Expr -> Expr . DIV Expr
+    (18) Expr -> Expr . MOD Expr
 
-    LCPARENT        shift and go to state 26
+    SUM             reduce using rule 14 (Expr -> Expr SUM Expr .)
+    SUB             reduce using rule 14 (Expr -> Expr SUM Expr .)
+    MOD             reduce using rule 14 (Expr -> Expr SUM Expr .)
+    NUM             reduce using rule 14 (Expr -> Expr SUM Expr .)
+    PRINT           reduce using rule 14 (Expr -> Expr SUM Expr .)
+    $end            reduce using rule 14 (Expr -> Expr SUM Expr .)
+    MULT            shift and go to state 18
+    DIV             shift and go to state 19
+
+  ! MULT            [ reduce using rule 14 (Expr -> Expr SUM Expr .) ]
+  ! DIV             [ reduce using rule 14 (Expr -> Expr SUM Expr .) ]
+  ! SUM             [ shift and go to state 16 ]
+  ! SUB             [ shift and go to state 17 ]
+  ! MOD             [ shift and go to state 20 ]
 
 
 state 24
 
-    (13) NonFormatted -> PRINT LCPARENT Argument RCPARENT .
+    (15) Expr -> Expr SUB Expr .
+    (14) Expr -> Expr . SUM Expr
+    (15) Expr -> Expr . SUB Expr
+    (16) Expr -> Expr . MULT Expr
+    (17) Expr -> Expr . DIV Expr
+    (18) Expr -> Expr . MOD Expr
 
-    PRINT           reduce using rule 13 (NonFormatted -> PRINT LCPARENT Argument RCPARENT .)
-    $end            reduce using rule 13 (NonFormatted -> PRINT LCPARENT Argument RCPARENT .)
+    SUM             reduce using rule 15 (Expr -> Expr SUB Expr .)
+    SUB             reduce using rule 15 (Expr -> Expr SUB Expr .)
+    MOD             reduce using rule 15 (Expr -> Expr SUB Expr .)
+    NUM             reduce using rule 15 (Expr -> Expr SUB Expr .)
+    PRINT           reduce using rule 15 (Expr -> Expr SUB Expr .)
+    $end            reduce using rule 15 (Expr -> Expr SUB Expr .)
+    MULT            shift and go to state 18
+    DIV             shift and go to state 19
+
+  ! MULT            [ reduce using rule 15 (Expr -> Expr SUB Expr .) ]
+  ! DIV             [ reduce using rule 15 (Expr -> Expr SUB Expr .) ]
+  ! SUM             [ shift and go to state 16 ]
+  ! SUB             [ shift and go to state 17 ]
+  ! MOD             [ shift and go to state 20 ]
 
 
 state 25
 
-    (17) String -> QUOTE STRING . QUOTE
+    (16) Expr -> Expr MULT Expr .
+    (14) Expr -> Expr . SUM Expr
+    (15) Expr -> Expr . SUB Expr
+    (16) Expr -> Expr . MULT Expr
+    (17) Expr -> Expr . DIV Expr
+    (18) Expr -> Expr . MOD Expr
 
-    QUOTE           shift and go to state 27
+    SUM             reduce using rule 16 (Expr -> Expr MULT Expr .)
+    SUB             reduce using rule 16 (Expr -> Expr MULT Expr .)
+    MULT            reduce using rule 16 (Expr -> Expr MULT Expr .)
+    DIV             reduce using rule 16 (Expr -> Expr MULT Expr .)
+    MOD             reduce using rule 16 (Expr -> Expr MULT Expr .)
+    NUM             reduce using rule 16 (Expr -> Expr MULT Expr .)
+    PRINT           reduce using rule 16 (Expr -> Expr MULT Expr .)
+    $end            reduce using rule 16 (Expr -> Expr MULT Expr .)
+
+  ! SUM             [ shift and go to state 16 ]
+  ! SUB             [ shift and go to state 17 ]
+  ! MULT            [ shift and go to state 18 ]
+  ! DIV             [ shift and go to state 19 ]
+  ! MOD             [ shift and go to state 20 ]
 
 
 state 26
 
-    (8) Input -> INPUT LCPARENT . String RCPARENT
-    (17) String -> . QUOTE STRING QUOTE
-    (18) String -> .
+    (17) Expr -> Expr DIV Expr .
+    (14) Expr -> Expr . SUM Expr
+    (15) Expr -> Expr . SUB Expr
+    (16) Expr -> Expr . MULT Expr
+    (17) Expr -> Expr . DIV Expr
+    (18) Expr -> Expr . MOD Expr
 
-    QUOTE           shift and go to state 19
-    RCPARENT        reduce using rule 18 (String -> .)
+    SUM             reduce using rule 17 (Expr -> Expr DIV Expr .)
+    SUB             reduce using rule 17 (Expr -> Expr DIV Expr .)
+    MULT            reduce using rule 17 (Expr -> Expr DIV Expr .)
+    DIV             reduce using rule 17 (Expr -> Expr DIV Expr .)
+    MOD             reduce using rule 17 (Expr -> Expr DIV Expr .)
+    NUM             reduce using rule 17 (Expr -> Expr DIV Expr .)
+    PRINT           reduce using rule 17 (Expr -> Expr DIV Expr .)
+    $end            reduce using rule 17 (Expr -> Expr DIV Expr .)
 
-    String                         shift and go to state 28
+  ! SUM             [ shift and go to state 16 ]
+  ! SUB             [ shift and go to state 17 ]
+  ! MULT            [ shift and go to state 18 ]
+  ! DIV             [ shift and go to state 19 ]
+  ! MOD             [ shift and go to state 20 ]
+
 
 state 27
 
-    (17) String -> QUOTE STRING QUOTE .
+    (18) Expr -> Expr MOD Expr .
+    (14) Expr -> Expr . SUM Expr
+    (15) Expr -> Expr . SUB Expr
+    (16) Expr -> Expr . MULT Expr
+    (17) Expr -> Expr . DIV Expr
+    (18) Expr -> Expr . MOD Expr
 
-    RCPARENT        reduce using rule 17 (String -> QUOTE STRING QUOTE .)
+  ! shift/reduce conflict for SUM resolved as shift
+  ! shift/reduce conflict for SUB resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+    NUM             reduce using rule 18 (Expr -> Expr MOD Expr .)
+    PRINT           reduce using rule 18 (Expr -> Expr MOD Expr .)
+    $end            reduce using rule 18 (Expr -> Expr MOD Expr .)
+    SUM             shift and go to state 16
+    SUB             shift and go to state 17
+    MULT            shift and go to state 18
+    DIV             shift and go to state 19
+    MOD             shift and go to state 20
+
+  ! SUM             [ reduce using rule 18 (Expr -> Expr MOD Expr .) ]
+  ! SUB             [ reduce using rule 18 (Expr -> Expr MOD Expr .) ]
+  ! MULT            [ reduce using rule 18 (Expr -> Expr MOD Expr .) ]
+  ! DIV             [ reduce using rule 18 (Expr -> Expr MOD Expr .) ]
+  ! MOD             [ reduce using rule 18 (Expr -> Expr MOD Expr .) ]
 
 
 state 28
 
-    (8) Input -> INPUT LCPARENT String . RCPARENT
+    (8) Decl -> INTDec ID ATRIB . NUM
+    (9) Decl -> INTDec ID ATRIB . Input
+    (10) Input -> . INPUT LCPARENT String RCPARENT
 
-    RCPARENT        shift and go to state 29
+    NUM             shift and go to state 34
+    INPUT           shift and go to state 36
 
+    Input                          shift and go to state 35
 
 state 29
 
-    (8) Input -> INPUT LCPARENT String RCPARENT .
+    (21) NonFormatted -> PRINT LCPARENT Argument . RCPARENT
 
-    INTDec          reduce using rule 8 (Input -> INPUT LCPARENT String RCPARENT .)
-    PRINT           reduce using rule 8 (Input -> INPUT LCPARENT String RCPARENT .)
+    RCPARENT        shift and go to state 37
 
+
+state 30
+
+    (22) Argument -> String .
+
+    RCPARENT        reduce using rule 22 (Argument -> String .)
+
+
+state 31
+
+    (23) Argument -> Var .
+
+    RCPARENT        reduce using rule 23 (Argument -> Var .)
+
+
+state 32
+
+    (25) String -> QUOTE . STRING QUOTE
+
+    STRING          shift and go to state 38
+
+
+state 33
+
+    (24) Var -> ID .
+
+    RCPARENT        reduce using rule 24 (Var -> ID .)
+
+
+state 34
+
+    (8) Decl -> INTDec ID ATRIB NUM .
+
+    INTDec          reduce using rule 8 (Decl -> INTDec ID ATRIB NUM .)
+    NUM             reduce using rule 8 (Decl -> INTDec ID ATRIB NUM .)
+    PRINT           reduce using rule 8 (Decl -> INTDec ID ATRIB NUM .)
+
+
+state 35
+
+    (9) Decl -> INTDec ID ATRIB Input .
+
+    INTDec          reduce using rule 9 (Decl -> INTDec ID ATRIB Input .)
+    NUM             reduce using rule 9 (Decl -> INTDec ID ATRIB Input .)
+    PRINT           reduce using rule 9 (Decl -> INTDec ID ATRIB Input .)
+
+
+state 36
+
+    (10) Input -> INPUT . LCPARENT String RCPARENT
+
+    LCPARENT        shift and go to state 39
+
+
+state 37
+
+    (21) NonFormatted -> PRINT LCPARENT Argument RCPARENT .
+
+    NUM             reduce using rule 21 (NonFormatted -> PRINT LCPARENT Argument RCPARENT .)
+    PRINT           reduce using rule 21 (NonFormatted -> PRINT LCPARENT Argument RCPARENT .)
+    $end            reduce using rule 21 (NonFormatted -> PRINT LCPARENT Argument RCPARENT .)
+
+
+state 38
+
+    (25) String -> QUOTE STRING . QUOTE
+
+    QUOTE           shift and go to state 40
+
+
+state 39
+
+    (10) Input -> INPUT LCPARENT . String RCPARENT
+    (25) String -> . QUOTE STRING QUOTE
+    (26) String -> .
+
+    QUOTE           shift and go to state 32
+    RCPARENT        reduce using rule 26 (String -> .)
+
+    String                         shift and go to state 41
+
+state 40
+
+    (25) String -> QUOTE STRING QUOTE .
+
+    RCPARENT        reduce using rule 25 (String -> QUOTE STRING QUOTE .)
+
+
+state 41
+
+    (10) Input -> INPUT LCPARENT String . RCPARENT
+
+    RCPARENT        shift and go to state 42
+
+
+state 42
+
+    (10) Input -> INPUT LCPARENT String RCPARENT .
+
+    INTDec          reduce using rule 10 (Input -> INPUT LCPARENT String RCPARENT .)
+    NUM             reduce using rule 10 (Input -> INPUT LCPARENT String RCPARENT .)
+    PRINT           reduce using rule 10 (Input -> INPUT LCPARENT String RCPARENT .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for SUM in state 27 resolved as shift
+WARNING: shift/reduce conflict for SUB in state 27 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 27 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 27 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 27 resolved as shift
