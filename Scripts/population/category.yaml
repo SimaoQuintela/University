@@ -8,8 +8,8 @@ SchoolStuff:
   description: Things students need is School, l
   tax: 5
 
-GratulationCards:
-  name: Cards
+Gifts:
+  name: gifts for friends and family
   description: Cards for Birthdays, Chrismas and so on
   tax: 9
 
