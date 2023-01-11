@@ -1,105 +1,105 @@
 1:
   name: Teddy Bear, small
   desc: Toy to cuddle,
-  stockNr: 1337
+  stockNr: 20
   priceBuy: 1
   priceSell: 3
   category: 1
 2:
   name: Black Pencil
   desc: A Pencile which is Black
-  stockNr: 42069
+  stockNr: 10
   priceBuy: 0.54
   priceSell: 2
   category: 2
 3:
   name: Birthday Card Nr. 1
   desc: A Card with happy birthday wishes.
-  stockNr: 1312
+  stockNr: 20
   priceBuy: 0.10
   priceSell: 1
   category: 3
 4:
   name: Doll 1
   desc: A little toll for little kids
-  stockNr: 123
+  stockNr: 13
   priceBuy: 3.0
   priceSell: 6
   category: 1
 5:
   name: Doll 2
   desc: A little toll for little kids
-  stockNr: 123
+  stockNr: 13
   priceBuy: 3.0
   priceSell: 6
   category: 1
 6:
   name: Doll 3
   desc: A little toll for little kids
-  stockNr: 123
+  stockNr: 12
   priceBuy: 3.0
   priceSell: 6
   category: 1
 7:
   name: Teddy Bear, medium
   desc: Toy to cuddle
-  stockNr: 1338
+  stockNr: 3
   priceBuy: 3
   priceSell: 5
   category: 1
 8:
   name: Teddy Bear, XL
   desc: Toy to cuddle,
-  stockNr: 1339
+  stockNr: 9
   priceBuy: 6
   priceSell: 10
   category: 1
 9:
   name: Teddy Bear, XXL
   desc: Toy to cuddle,
-  stockNr: 1340
+  stockNr: 4
   priceBuy: 10
   priceSell: 14
   category: 1
 10:
   name: School Bag 1
   desc: A bag for studens
-  stockNr: 23
+  stockNr: 5
   priceBuy: 10
   priceSell: 15
   category: 2
 11:
   name: School Bag 2
   desc: A bag for studens
-  stockNr: 24
+  stockNr: 4
   priceBuy: 10
   priceSell: 15
   category: 2
 12:
   name: School Bag 3
   desc: A bag for studens
-  stockNr: 25
+  stockNr: 2
   priceBuy: 10
   priceSell: 15
   category: 2
 13:
   name: Stickers
   desc: Stickers with funny/cute stuff
-  stockNr: 543
+  stockNr: 103
   priceBuy: 3
   priceSell: 5
   category: 3
 14:
   name: Rubics Cube
   desc: Classic phisical riddle
-  stockNr: 544
+  stockNr: 20
   priceBuy: 10
   priceSell: 15
   category: 3
 15:
   name: Umbrella
   desc: Protection agains rain
-  stockNr: 545
+  stockNr: 18
   priceBuy: 6
   priceSell: 9
   category: 3
