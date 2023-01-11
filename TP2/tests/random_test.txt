@@ -1,5 +1,0 @@
-if (x) :
-    print("ola")
-    if sda:
-        x
-    dsa

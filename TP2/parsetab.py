@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'leftSUMSUBleftMULTDIVAND ATRIB DEC DIV DO ELIF ELSE EQUIV GEQ GT ID IF INC INPUT INTDec LCPARENT LEQ LSQBRACKET LT MOD MULT NUM OR PRINT QUOTE RCPARENT RSQBRACKET STRING SUB SUM WHILEPrograma : CorpoPrograma : Decls CorpoCorpo : ProcCorpo : Corpo ProcDecls : DeclDecls : Decls DeclDecl : INTDec IDDecl : INTDec ID ATRIB NUMDecl : INTDec ID ATRIB InputInput : INPUT LCPARENT String RCPARENTCorpo : ExprCorpo : Corpo ExprExpr : NUMExpr : Expr SUM ExprExpr : Expr  SUB ExprExpr : Expr  MULT ExprExpr : Expr  DIV ExprExpr : Expr MOD ExprProc : PrintPrint : NonFormattedNonFormatted : PRINT LCPARENT Argument RCPARENTArgument : StringArgument : VarVar : IDString : QUOTE STRING QUOTEString :  '
+_lr_signature = 'leftSUMSUBleftMULTDIVAND ATRIB COLON DEC DEDENT DIV DO ELIF ELSE ENDMARKER EQUIV GEQ GT ID IF INC INDENT INPUT INTDec LCPARENT LEQ LSQBRACKET LT MOD MULT NEWLINE NUM OR PRINT QUOTE RCPARENT RSQBRACKET STRING SUB SUM WHILE WSProgramaInit : Programa ENDMARKERPrograma : CorpoPrograma : Decls CorpoCorpo : Proc NewlineCorpo : Corpo Proc NewlineDecls : Decl NewlineDecls : Decls Decl NewlineNewline : Newline : NEWLINEDecl : INTDec IDDecl : INTDec ID ATRIB NUMDecl : INTDec ID ATRIB InputInput : INPUT LCPARENT String RCPARENTExpr : VarExpr : NUMExpr : Expr SUM ExprExpr : Expr  SUB ExprExpr : Expr  MULT ExprExpr : Expr  DIV ExprExpr : Expr MOD ExprExpr : ID INCExpr : ID DECProc : PrintPrint : NonFormattedNonFormatted : PRINT LCPARENT Argument RCPARENTArgument : StringArgument : VarArgument : ExprVar : IDString : QUOTE STRING QUOTEString :  '
     
-_lr_action_items = {'NUM':([0,2,3,4,5,6,7,8,10,12,13,14,15,16,17,18,19,20,21,23,24,25,26,27,28,34,35,37,42,],[8,8,8,-3,-11,-5,-19,-13,-20,-4,-12,8,-6,8,8,8,8,8,-7,-14,-15,-16,-17,-18,34,-8,-9,-21,-10,]),'INTDec':([0,3,6,15,21,34,35,42,],[9,9,-5,-6,-7,-8,-9,-10,]),'PRINT':([0,2,3,4,5,6,7,8,10,12,13,14,15,21,23,24,25,26,27,34,35,37,42,],[11,11,11,-3,-11,-5,-19,-13,-20,-4,-12,11,-6,-7,-14,-15,-16,-17,-18,-8,-9,-21,-10,]),'$end':([1,2,4,5,7,8,10,12,13,14,23,24,25,26,27,37,],[0,-1,-3,-11,-19,-13,-20,-4,-12,-2,-14,-15,-16,-17,-18,-21,]),'SUM':([5,8,13,23,24,25,26,27,],[16,-13,16,-14,-15,-16,-17,16,]),'SUB':([5,8,13,23,24,25,26,27,],[17,-13,17,-14,-15,-16,-17,17,]),'MULT':([5,8,13,23,24,25,26,27,],[18,-13,18,18,18,-16,-17,18,]),'DIV':([5,8,13,23,24,25,26,27,],[19,-13,19,19,19,-16,-17,19,]),'MOD':([5,8,13,23,24,25,26,27,],[20,-13,20,-14,-15,-16,-17,20,]),'ID':([9,22,],[21,33,]),'LCPARENT':([11,36,],[22,39,]),'ATRIB':([21,],[28,]),'QUOTE':([22,38,39,],[32,40,32,]),'RCPARENT':([22,29,30,31,33,39,40,41,],[-26,37,-22,-23,-24,-26,-25,42,]),'INPUT':([28,],[36,]),'STRING':([32,],[38,]),}
+_lr_action_items = {'INTDec':([0,4,6,14,16,17,18,21,30,31,52,],[8,8,-8,-8,-9,-6,-10,-7,-11,-12,-13,]),'PRINT':([0,3,4,5,6,7,9,12,13,14,15,16,17,18,20,21,30,31,33,52,],[10,10,10,-8,-8,-23,-24,-8,10,-8,-4,-9,-6,-10,-5,-7,-11,-12,-25,-13,]),'$end':([1,11,],[0,-1,]),'ENDMARKER':([2,3,5,7,9,12,13,15,16,20,33,],[11,-2,-8,-23,-24,-8,-3,-4,-9,-5,-25,]),'NEWLINE':([5,6,7,9,12,14,18,30,31,33,52,],[16,16,-23,-24,16,16,-10,-11,-12,-25,-13,]),'ID':([8,19,34,35,36,37,38,],[18,28,45,45,45,45,45,]),'LCPARENT':([10,32,],[19,42,]),'ATRIB':([18,],[22,]),'QUOTE':([19,39,42,],[27,50,27,]),'RCPARENT':([19,23,24,25,26,28,29,40,41,42,43,44,45,46,47,48,49,50,51,],[-31,33,-26,-14,-28,-29,-15,-21,-22,-31,-16,-14,-29,-17,-18,-19,-20,-30,52,]),'NUM':([19,22,34,35,36,37,38,],[29,30,29,29,29,29,29,]),'INPUT':([22,],[32,]),'SUM':([25,26,28,29,40,41,43,44,45,46,47,48,49,],[-14,34,-29,-15,-21,-22,-16,-14,-29,-17,-18,-19,34,]),'SUB':([25,26,28,29,40,41,43,44,45,46,47,48,49,],[-14,35,-29,-15,-21,-22,-16,-14,-29,-17,-18,-19,35,]),'MULT':([25,26,28,29,40,41,43,44,45,46,47,48,49,],[-14,36,-29,-15,-21,-22,36,-14,-29,36,-18,-19,36,]),'DIV':([25,26,28,29,40,41,43,44,45,46,47,48,49,],[-14,37,-29,-15,-21,-22,37,-14,-29,37,-18,-19,37,]),'MOD':([25,26,28,29,40,41,43,44,45,46,47,48,49,],[-14,38,-29,-15,-21,-22,-16,-14,-29,-17,-18,-19,38,]),'STRING':([27,],[39,]),'INC':([28,45,],[40,40,]),'DEC':([28,45,],[41,41,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'Programa':([0,],[1,]),'Corpo':([0,3,],[2,14,]),'Decls':([0,],[3,]),'Proc':([0,2,3,14,],[4,12,4,12,]),'Expr':([0,2,3,14,16,17,18,19,20,],[5,13,5,13,23,24,25,26,27,]),'Decl':([0,3,],[6,15,]),'Print':([0,2,3,14,],[7,7,7,7,]),'NonFormatted':([0,2,3,14,],[10,10,10,10,]),'Argument':([22,],[29,]),'String':([22,39,],[30,41,]),'Var':([22,],[31,]),'Input':([28,],[35,]),}
+_lr_goto_items = {'ProgramaInit':([0,],[1,]),'Programa':([0,],[2,]),'Corpo':([0,4,],[3,13,]),'Decls':([0,],[4,]),'Proc':([0,3,4,13,],[5,12,5,12,]),'Decl':([0,4,],[6,14,]),'Print':([0,3,4,13,],[7,7,7,7,]),'NonFormatted':([0,3,4,13,],[9,9,9,9,]),'Newline':([5,6,12,14,],[15,17,20,21,]),'Argument':([19,],[23,]),'String':([19,42,],[24,51,]),'Var':([19,34,35,36,37,38,],[25,44,44,44,44,44,]),'Expr':([19,34,35,36,37,38,],[26,43,46,47,48,49,]),'Input':([22,],[31,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -26,31 +26,36 @@ for _k, _v in _lr_goto_items.items():
        _lr_goto[_x][_k] = _y
 del _lr_goto_items
 _lr_productions = [
-  ("S' -> Programa","S'",1,None,None,None),
-  ('Programa -> Corpo','Programa',1,'p_Programa','yacc.py',6),
-  ('Programa -> Decls Corpo','Programa',2,'p_Programa_Decls','yacc.py',11),
-  ('Corpo -> Proc','Corpo',1,'p_Corpo','yacc.py',15),
-  ('Corpo -> Corpo Proc','Corpo',2,'p_Corpo_Proc','yacc.py',19),
-  ('Decls -> Decl','Decls',1,'p_Decls','yacc.py',23),
-  ('Decls -> Decls Decl','Decls',2,'p_Decls_Recursiva','yacc.py',27),
-  ('Decl -> INTDec ID','Decl',2,'p_Decl_Int','yacc.py',31),
-  ('Decl -> INTDec ID ATRIB NUM','Decl',4,'p_Decl_Int_Val','yacc.py',42),
-  ('Decl -> INTDec ID ATRIB Input','Decl',4,'p_Decl_Int_Input','yacc.py',53),
-  ('Input -> INPUT LCPARENT String RCPARENT','Input',4,'p_Input','yacc.py',64),
-  ('Corpo -> Expr','Corpo',1,'p_Corpo_Expr','yacc.py',71),
-  ('Corpo -> Corpo Expr','Corpo',2,'p_Corpo_Expr_Rec','yacc.py',75),
-  ('Expr -> NUM','Expr',1,'p_Expr_Num','yacc.py',83),
-  ('Expr -> Expr SUM Expr','Expr',3,'p_Expr_Soma','yacc.py',87),
-  ('Expr -> Expr SUB Expr','Expr',3,'p_Expr_Sub','yacc.py',91),
-  ('Expr -> Expr MULT Expr','Expr',3,'p_Expr_Mult','yacc.py',95),
-  ('Expr -> Expr DIV Expr','Expr',3,'p_Expr_Div','yacc.py',99),
-  ('Expr -> Expr MOD Expr','Expr',3,'p_Expr_Mod','yacc.py',103),
-  ('Proc -> Print','Proc',1,'p_Atrib_Print','yacc.py',116),
-  ('Print -> NonFormatted','Print',1,'p_Print_NonFormatted','yacc.py',120),
-  ('NonFormatted -> PRINT LCPARENT Argument RCPARENT','NonFormatted',4,'p_NonFormatted','yacc.py',124),
-  ('Argument -> String','Argument',1,'p_Argument_String','yacc.py',128),
-  ('Argument -> Var','Argument',1,'p_Argument_Var','yacc.py',132),
-  ('Var -> ID','Var',1,'p_Var','yacc.py',136),
-  ('String -> QUOTE STRING QUOTE','String',3,'p_String','yacc.py',149),
-  ('String -> <empty>','String',0,'p_String_Empty','yacc.py',153),
+  ("S' -> ProgramaInit","S'",1,None,None,None),
+  ('ProgramaInit -> Programa ENDMARKER','ProgramaInit',2,'p_Programa_Init','yacc.py',6),
+  ('Programa -> Corpo','Programa',1,'p_Programa','yacc.py',10),
+  ('Programa -> Decls Corpo','Programa',2,'p_Programa_Decls','yacc.py',15),
+  ('Corpo -> Proc Newline','Corpo',2,'p_Corpo','yacc.py',20),
+  ('Corpo -> Corpo Proc Newline','Corpo',3,'p_Corpo_Proc','yacc.py',24),
+  ('Decls -> Decl Newline','Decls',2,'p_Decls','yacc.py',28),
+  ('Decls -> Decls Decl Newline','Decls',3,'p_Decls_Recursiva','yacc.py',32),
+  ('Newline -> <empty>','Newline',0,'p_Newline_Empty','yacc.py',36),
+  ('Newline -> NEWLINE','Newline',1,'p_Newline','yacc.py',40),
+  ('Decl -> INTDec ID','Decl',2,'p_Decl_Int','yacc.py',45),
+  ('Decl -> INTDec ID ATRIB NUM','Decl',4,'p_Decl_Int_Val','yacc.py',56),
+  ('Decl -> INTDec ID ATRIB Input','Decl',4,'p_Decl_Int_Input','yacc.py',67),
+  ('Input -> INPUT LCPARENT String RCPARENT','Input',4,'p_Input','yacc.py',78),
+  ('Expr -> Var','Expr',1,'p_Expr_Var','yacc.py',95),
+  ('Expr -> NUM','Expr',1,'p_Expr_Num','yacc.py',99),
+  ('Expr -> Expr SUM Expr','Expr',3,'p_Expr_Soma','yacc.py',103),
+  ('Expr -> Expr SUB Expr','Expr',3,'p_Expr_Sub','yacc.py',107),
+  ('Expr -> Expr MULT Expr','Expr',3,'p_Expr_Mult','yacc.py',111),
+  ('Expr -> Expr DIV Expr','Expr',3,'p_Expr_Div','yacc.py',115),
+  ('Expr -> Expr MOD Expr','Expr',3,'p_Expr_Mod','yacc.py',119),
+  ('Expr -> ID INC','Expr',2,'p_Expr_Inc','yacc.py',123),
+  ('Expr -> ID DEC','Expr',2,'p_Expr_Dec','yacc.py',127),
+  ('Proc -> Print','Proc',1,'p_Atrib_Print','yacc.py',141),
+  ('Print -> NonFormatted','Print',1,'p_Print_NonFormatted','yacc.py',145),
+  ('NonFormatted -> PRINT LCPARENT Argument RCPARENT','NonFormatted',4,'p_NonFormatted','yacc.py',149),
+  ('Argument -> String','Argument',1,'p_Argument_String','yacc.py',153),
+  ('Argument -> Var','Argument',1,'p_Argument_Var','yacc.py',157),
+  ('Argument -> Expr','Argument',1,'p_Argument_Expr','yacc.py',161),
+  ('Var -> ID','Var',1,'p_Var','yacc.py',166),
+  ('String -> QUOTE STRING QUOTE','String',3,'p_String','yacc.py',179),
+  ('String -> <empty>','String',0,'p_String_Empty','yacc.py',184),
 ]

@@ -58,31 +58,39 @@ Decl     : INTDec ID
          | INTDec ID LSQBRACKET NUM RSQBRACKET LSQBRACKET NUM RSQBRACKET
 Corpo    : Proc
          | Corpo Proc
+Newline  : NEWLINE
+         | ε
 Proc     : Atrib
          | Print
          | If
          | Cycle
-         | Comment
-Comment  : Comment ID
-         | Comment 
 Print    : NonFormatted
          | Formatted (not implemented)
+
 NonFormatted : PRINT LCPARENT QUOTE Argument QUOTE RCPARENT
 Formatted : ....
 Argument : String
-         | Var
-Var      : ID
+         | Expr
 
 Atrib    : UpdateVar
          | Input
+         | Expr
          | ....
-         | ....
-Expr     : ID SUM SUM
-         | ID SUB SUB
-         | ID SUM ATRIB NUM
-         | ID SUB ATRIB
-         | ....
-         | .... 
+
+Expr     : Var                .
+         | NUM                .
+         | ID INC             . 
+         | ID DEC             .
+         | ID SUM ATRIB Expr  
+         | ID SUB ATRIB Expr
+         | Expr SUM Expr      .
+         | Expr SUB Expr      .
+         | Expr DIV Expr      .
+         | Expr MUL Expr      .
+         | Expr MOD Expr      .
+
+
+Var      : ID
 Input    : INPUT LCPARENT String RCPARENT
 String   : QUOTE STRING QUOTE
          | ε

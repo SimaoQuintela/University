@@ -1,31 +1,43 @@
-from lexer import tokens
+from lexer import tokens, lexer, IndentLexer
+import ast
 import ply.yacc as yacc
 
+def p_Programa_Init(p):
+    "ProgramaInit : Programa ENDMARKER"
+    parser.assembly = f"{p[1]}"
 
 def p_Programa(p):
     "Programa : Corpo"
-    parser.assembly = f'START\n{p[1]}STOP'
-
+    p[0] = f'START\n{p[1]}STOP'
 
 def p_Programa_Decls(p):
     "Programa : Decls Corpo"
-    parser.assembly = f'{p[1]}START\n{p[2]}STOP'
+    p[0] = f'{p[1]}START\n{p[2]}STOP'
 
 def p_Corpo(p):
-    "Corpo : Proc"
-    p[0] = f'{p[1]}'
+    "Corpo : Proc Newline"
+    p[0] = f'{p[1]}{p[2]}'
 
 def p_Corpo_Proc(p):
-    "Corpo : Corpo Proc"
-    p[0] = f'{p[1]}{p[2]}'
+    "Corpo : Corpo Proc Newline"
+    p[0] = f'{p[1]}{p[2]}{p[3]}'
 
 def p_Decls(p):
-    "Decls : Decl"
-    p[0] = f'{p[1]}'
+    "Decls : Decl Newline"
+    p[0] = f'{p[1]}{p[2]}'
 
 def p_Decls_Recursiva(p):
-    "Decls : Decls Decl"
+    "Decls : Decls Decl Newline"
     p[0] = f'{p[1]}{p[2]}'
+
+def p_Newline_Empty(p):
+    "Newline : "
+    p[0] = ''
+
+def p_Newline(p):
+    "Newline : NEWLINE"
+    p[0] = ''
+
 
 def p_Decl_Int(p):
     "Decl : INTDec ID"
@@ -43,17 +55,6 @@ def p_Decl_Int_Val(p):
     if p[2] not in p.parser.registers:
         p.parser.registers.update({p[2] : p.parser.gp})
         p[0] = f'PUSHI {p[4]}\n'
-        p.parser.ints.append(p[2])
-        p.parser.gp += 1
-    else:
-        print("Erro: Variável já inicializada")
-        parser.success = False
-
-def p_Decl_Int_Expr(p):
-    "Decl : INTDec ID ATRIB Expr"
-    if p[2] not in p.parser.registers:
-        p.parser.registers.update({p[2] : p.parser.gp})
-        p[0] = f'{p[4]}'
         p.parser.ints.append(p[2])
         p.parser.gp += 1
     else:
@@ -78,13 +79,15 @@ def p_Input(p):
     
 #hugo----------------------------------------------------------
 
+'''
 def p_Corpo_Expr(p):
-    "Corpo : Expr"
+    "Proc : Expr"
     p[0] = f'{p[1]}'
 
 def p_Corpo_Expr_Rec(p):
-    "Corpo : Corpo Expr"
+    "Proc : Proc Expr"
     p[0] = f'{p[1]}{p[2]}'
+'''
 
 def p_Expr_Var(p):
     "Expr : Var"
@@ -104,7 +107,7 @@ def p_Expr_Sub(p):
 
 def p_Expr_Mult(p):
     "Expr : Expr  MULT Expr"
-    p[0] = f'{p[1]}{p[3]}MULT\n'
+    p[0] = f'{p[1]}{p[3]}MUL\n'
 
 def p_Expr_Div(p):
     "Expr : Expr  DIV Expr"
@@ -114,11 +117,13 @@ def p_Expr_Mod(p):
     "Expr : Expr MOD Expr"
     p[0] = f'{p[1]}{p[3]}MOD\n'
 
-def p_Expr_Parent(p):
-    "Expr : LCPARENT Expr RCPARENT"
-    p[0] = f'{p[2]}'
-    
-#-------------------------------------------------------------
+def p_Expr_Inc(p):
+    "Expr : ID INC"
+    p[0] = f'PUSHG {p.parser.registers.get(p[1])}\nPUSHI 1\nADD\n'
+
+def p_Expr_Dec(p):
+    "Expr : ID DEC"
+    p[0] = f'PUSHG {p.parser.registers.get(p[1])}\nPUSHI 1\nSUB\n'
 
 """
 
@@ -149,8 +154,7 @@ def p_Argument_Var(p):
 
 def p_Argument_Expr(p):
     "Argument : Expr"
-    p[0] = f'{p[1]}WRITEI\n'
-
+    p[0] = f'{p[1]}WRITEI\nPUSHS "\\n"\nWRITES\n'
 
 def p_Var(p):
     "Var : ID"
@@ -163,7 +167,6 @@ def p_Var(p):
     else:
         parser.success = False
         print("Erro: Variável não definida")
-
 
 def p_String(p):
     "String : QUOTE STRING QUOTE"
@@ -183,9 +186,21 @@ precedence = (
     ("left", "MULT", "DIV")
 )
 
+class GardenSnakeParser(object):
 
+    def __init__(self, lexer=None):
+        if lexer is None:
+            lexer = IndentLexer()
+        self.lexer = lexer
+        self.parser = yacc.yacc(start="ProgramaInit")
+
+    def parse(self, code):
+        self.lexer.input(code)
+        result = self.parser.parse(lexer=self.lexer)
+        return ast.Module(result)
+
+lexer = IndentLexer()
 parser = yacc.yacc()
-
 
 parser.success = True
 parser.registers = {}
@@ -194,10 +209,11 @@ parser.gp = 0
 parser.ints = []
 parser.labels = {}
 
-f_inp = open('tests/random_test.txt', 'r')
-inp = f_inp.read()
-f_inp.close()
-parser.parse(inp)
+with open("tests/random_test.plc") as f:
+    content = f.read()
+
+lexer.input(content)
+parser.parse(lexer=lexer)
 
 if parser.success:
     print("Ficheiro lido com sucesso")

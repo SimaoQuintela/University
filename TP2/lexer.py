@@ -35,7 +35,10 @@ tokens = (
     'INPUT',
     'NEWLINE',
     'WS',
-    'COLON'
+    'COLON',
+    'INDENT',
+    'DEDENT',
+    'ENDMARKER'
 )
 
 literals = [',']
@@ -54,8 +57,6 @@ def t_newline(t):
     t.type = "NEWLINE"
     if t.lexer.paren_count == 0:
         return t
-
-
 
 def t_COLON(t):
     r':'
@@ -266,6 +267,8 @@ def INDENT(lineno):
     return _new_token("INDENT", lineno)
 
 
+
+
 # Track the indentation level and emit the right INDENT / DEDENT events.
 def indentation_filter(tokens):
     # A stack of indentation levels; will never pop item 0
@@ -367,24 +370,20 @@ class IndentLexer(object):
 
     def token(self):
         try:
-            return self.token_stream.next()
+            return next(self.token_stream)
         except StopIteration:
             return None
 
-
-
-with open("tests/random_test.txt") as f:
+lexer = IndentLexer()
+with open("tests/random_test.plc") as f:
     content = f.read()
 
-lexer = lex.lex()
-stream = None
-
-lexer.paren_count = 0
 lexer.input(content)
-stream = filter(lexer, True)
-
+stream = lexer.token_stream
 for token in stream:
     print(f"({token.type} {repr(token.value)} {token.lineno})")
+
+
 
 #read from stdin 
 '''
