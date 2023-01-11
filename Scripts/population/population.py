@@ -1,5 +1,4 @@
 import yaml
-import pandas as pd
 from faker import Faker
 from sys import argv
 from connection import create_db_connection, Error
@@ -17,7 +16,7 @@ def write_on_file(query):
     f.close()
 
 def populate_client():
-    query = "INSERT INTO client (idClient, VAT, contact) \n\tVALUES \n\t"
+    query = "INSERT INTO Client (idClient, VAT, contact) \n\tVALUES \n\t"
     listaux = list(range(1,31))
     shuffle(listaux)
 
@@ -32,7 +31,7 @@ def populate_client():
     write_on_file(query)
 
 def populate_client_has_address():
-    query = "INSERT INTO client_has_address (Client_idClient, Address_idAdress)\n\tVALUES \n\t"
+    query = "INSERT INTO Client_has_Address (Client_idClient, Address_idAdress)\n\tVALUES \n\t"
     iniCliente = 1
     fimCliente = 10
 
@@ -41,30 +40,30 @@ def populate_client_has_address():
         moradas = list(range(1,10))
         shuffle(clientes)
         shuffle(moradas)
-        
+
 
         for i in range(9):
             query += f"({clientes[i]}, {moradas[i]}),\n\t"
-        
+
         y = randint(0,8)
 
-        
+
         query += f"({j*10}, {moradas[y]}),"
 
         iniCliente += 10
         fimCliente += 10
-    
+
     query = query[:-1] + ";\n\n"
 
     execute_query(connection, query)
     write_on_file(query)
-    
+
 
 def populate_category():
     with open("category.yaml", "r") as file_stream:
         instances = yaml.safe_load(file_stream)
-    
-    query = "INSERT INTO category (idCategory, name, descripton, tax)\n\tVALUES"
+
+    query = "INSERT INTO Category (idCategory, name, descripton, tax)\n\tVALUES"
 
     for pk, key in enumerate(instances, start=1):
         instance = instances[key]
@@ -78,35 +77,35 @@ def populate_category():
 def populate_item():
     with open("item.yaml", "r") as file_stream:
         instances = yaml.safe_load(file_stream)
-    
-    query = "INSERT INTO item (idItem, name, description, stockNr, priceBuy, priceSell, category)\n\tVALUES"
+
+    query = "INSERT INTO Item (idItem, name, description, stockNr, priceBuy, priceSell, category)\n\tVALUES"
 
     for pk, key in enumerate(instances, start=1):
         instance = instances[key]
         query += f"\n\t('{pk}', '{instance['name']}', '{instance['desc']}', '{instance['stockNr']}', '{instance['priceBuy']}', '{instance['priceSell']}', '{instance['category']}'),"
-    
+
     query = query[:-1] + ";\n\n"
     execute_query(connection, query)
     write_on_file(query)
 
 def populate_contact():
-    query = "INSERT INTO contact (idContact, name, email, phone) \n\tVALUES"   
+    query = "INSERT INTO Contact (idContact, name, email, phone) \n\tVALUES"
 
     for i in range(1,31):
         name = fake.name()
         email = fake.email()
         phone_nr = randint(910000000,969999999)
         query += f"\n\t('{i}', '{name}', '{email}', '{phone_nr}'),"
-        
+
     query = query[:-1] + ";\n\n"
 
     execute_query(connection, query)
     write_on_file(query)
-    
+
 
 def populate_address():
-    query = "INSERT INTO address (idAdress, street, zipCode, city)\n\tVALUES"
-    
+    query = "INSERT INTO Address (idAdress, street, zipCode, city)\n\tVALUES"
+
     for i in range(1, 10):
         query += f"\n\t('{i}', '{fake.street_address()}', '{fake.postcode()}', '{fake.city()}'),"
 
@@ -117,7 +116,7 @@ def populate_address():
 
 def populate_order():
 
-    query = "INSERT INTO dorlux.Order (idOrder, status, shippingPrice, orderDate, dorlux.order.upDate, Employee, client_idClient)\n\tVALUES"
+    query = "INSERT INTO dorlux.Order (idOrder, status, shippingPrice, orderDate, dorlux.Order.upDate, Employee, client_idClient)\n\tVALUES"
 
     for i in range(1, 51):
         query += f"\n\t('{i}', 'PENDING', '{randint(0,5)}.{randint(0,99)}', NOW(), NOW(), '{randint(1,3)}', '{randint(1,30)}'),"
@@ -129,7 +128,7 @@ def populate_order():
 
 def populate_employee():
 
-    query = "INSERT INTO employee (idEmployee, manager, salary, contact) VALUES\n\t"
+    query = "INSERT INTO Employee (idEmployee, manager, salary, contact) VALUES\n\t"
 
     # Mrs. Dores GIGACHAD
     query += "('1', '1', '1500', '1'),\n\t"
@@ -143,7 +142,7 @@ def populate_order_has_item():
     listaux = list(range(1,51))
     items = list(range(1,4))
     shuffle(listaux)
-    query = "INSERT INTO order_has_item (Order_idOrder, Item_idItem, amount) VALUES"
+    query = "INSERT INTO Order_has_Item (Order_idOrder, Item_idItem, amount) VALUES"
 
     for i in range(1, 51):
         order = listaux[i-1]
@@ -159,16 +158,16 @@ def populate_order_has_item():
 
 
 def delete_all():
-    execute_query(connection, "DELETE FROM Order_has_item;")
+    execute_query(connection, "DELETE FROM Order_has_Item;")
     execute_query(connection, "DELETE FROM dorlux.Order;")
-    execute_query(connection, "DELETE FROM Suplier_provide_item;")
+    execute_query(connection, "DELETE FROM Suplier_provide_Item;")
     execute_query(connection, "DELETE FROM Item;")
     execute_query(connection, "DELETE FROM Suplier;")
     execute_query(connection, "DELETE FROM Category;")
 
     execute_query(connection, "UPDATE Employee SET manager = NULL")
     execute_query(connection, "DELETE FROM Employee;")
-    execute_query(connection, "DELETE FROM Client_has_address;")
+    execute_query(connection, "DELETE FROM Client_has_Address;")
     execute_query(connection, "DELETE FROM Address;")
     execute_query(connection, "DELETE FROM Client;")
     execute_query(connection, "DELETE FROM Contact;")
