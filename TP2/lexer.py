@@ -11,6 +11,8 @@ tokens = (
     'GEQ',  # >= - (greater or equal)
     'GT',   # >  - (greater than)
     'LT',   # <  - (less than)
+    'NEQ',  # /= - (not equal -> NEQ -> NECC)
+    'NOT',
     'IF',
     'ELSE',
     'ELIF',
@@ -43,6 +45,14 @@ tokens = (
 
 literals = [',']
 
+
+def t_NOT(t):
+    r'not'
+    return t
+
+def t_NEQ(t):
+    r'\/\='
+    return t
 
 def t_WS(t):
     r'[ ]+'

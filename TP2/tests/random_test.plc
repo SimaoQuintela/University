@@ -1,11 +1,19 @@
-int x = 1
-int y = 2
+int x = 10
+int y
+int z = 20
+
+if (not x == 10 or not z == 20):
+    y = 10
+    print("If clause\n")
+    print(y)
+else:
+    z = 30
+    print("Else clause\n")
+    print(z)
 
 
-print(x--)
-print("X is a letter\n")
-print(x + y * y + x)
 
+print("Passei o if\n")
 
 
 
