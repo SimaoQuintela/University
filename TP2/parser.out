@@ -2,21 +2,9 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
 Unused terminals:
 
-    AND
-    COLON
-    DEDENT
     DO
     ELIF
-    ELSE
-    EQUIV
-    GEQ
-    GT
-    IF
-    INDENT
-    LEQ
     LSQBRACKET
-    LT
-    OR
     RSQBRACKET
     WHILE
     WS
@@ -29,90 +17,114 @@ Rule 2     Programa -> Corpo
 Rule 3     Programa -> Decls Corpo
 Rule 4     Corpo -> Proc Newline
 Rule 5     Corpo -> Corpo Proc Newline
-Rule 6     Decls -> Decl Newline
-Rule 7     Decls -> Decls Decl Newline
-Rule 8     Newline -> <empty>
-Rule 9     Newline -> NEWLINE
-Rule 10    Decl -> INTDec ID
-Rule 11    Decl -> INTDec ID ATRIB NUM
-Rule 12    Decl -> INTDec ID ATRIB Input
-Rule 13    Input -> INPUT LCPARENT String RCPARENT
-Rule 14    Expr -> Var
-Rule 15    Expr -> NUM
-Rule 16    Expr -> Expr SUM Expr
-Rule 17    Expr -> Expr SUB Expr
-Rule 18    Expr -> Expr MULT Expr
-Rule 19    Expr -> Expr DIV Expr
-Rule 20    Expr -> Expr MOD Expr
-Rule 21    Expr -> ID INC
-Rule 22    Expr -> ID DEC
-Rule 23    Proc -> Print
-Rule 24    Print -> NonFormatted
-Rule 25    NonFormatted -> PRINT LCPARENT Argument RCPARENT
-Rule 26    Argument -> String
-Rule 27    Argument -> Var
-Rule 28    Argument -> Expr
-Rule 29    Var -> ID
-Rule 30    String -> QUOTE STRING QUOTE
-Rule 31    String -> <empty>
+Rule 6     Corpo -> Newline
+Rule 7     Newline -> <empty>
+Rule 8     Newline -> NEWLINE
+Rule 9     Decls -> Decl Newline
+Rule 10    Decls -> Decls Decl Newline
+Rule 11    Decl -> INTDec ID
+Rule 12    Decl -> INTDec ID ATRIB NUM
+Rule 13    Decl -> INTDec ID ATRIB Input
+Rule 14    Proc -> Atrib
+Rule 15    Proc -> Print
+Rule 16    Proc -> If
+Rule 17    If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
+Rule 18    If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+Rule 19    Dedent -> Dedent DEDENT
+Rule 20    Dedent -> <empty>
+Rule 21    Cond -> Expr GT Expr
+Rule 22    Cond -> Expr LT Expr
+Rule 23    Cond -> Expr GEQ Expr
+Rule 24    Cond -> Expr LEQ Expr
+Rule 25    Cond -> Expr EQUIV Expr
+Rule 26    Cond -> Expr NEQ Expr
+Rule 27    Cond -> Cond OR Cond
+Rule 28    Cond -> Expr AND Expr
+Rule 29    Cond -> NOT Cond
+Rule 30    Atrib -> ID ATRIB Expr
+Rule 31    Atrib -> ID ATRIB Input
+Rule 32    Print -> NonFormatted
+Rule 33    NonFormatted -> PRINT LCPARENT Argument RCPARENT
+Rule 34    Argument -> String
+Rule 35    Argument -> Var
+Rule 36    Argument -> Expr
+Rule 37    Expr -> Var
+Rule 38    Expr -> NUM
+Rule 39    Expr -> Expr SUM Expr
+Rule 40    Expr -> Expr SUB Expr
+Rule 41    Expr -> Expr MULT Expr
+Rule 42    Expr -> Expr DIV Expr
+Rule 43    Expr -> Expr MOD Expr
+Rule 44    Expr -> ID INC
+Rule 45    Expr -> ID DEC
+Rule 46    Var -> ID
+Rule 47    Input -> INPUT LCPARENT String RCPARENT
+Rule 48    String -> QUOTE STRING QUOTE
+Rule 49    String -> <empty>
 
 Terminals, with rules where they appear
 
-AND                  : 
-ATRIB                : 11 12
-COLON                : 
-DEC                  : 22
-DEDENT               : 
-DIV                  : 19
+AND                  : 28
+ATRIB                : 12 13 30 31
+COLON                : 17 18 18
+DEC                  : 45
+DEDENT               : 18 19
+DIV                  : 42
 DO                   : 
 ELIF                 : 
-ELSE                 : 
+ELSE                 : 18
 ENDMARKER            : 1
-EQUIV                : 
-GEQ                  : 
-GT                   : 
-ID                   : 10 11 12 21 22 29
-IF                   : 
-INC                  : 21
-INDENT               : 
-INPUT                : 13
-INTDec               : 10 11 12
-LCPARENT             : 13 25
-LEQ                  : 
+EQUIV                : 25
+GEQ                  : 23
+GT                   : 21
+ID                   : 11 12 13 30 31 44 45 46
+IF                   : 17 18
+INC                  : 44
+INDENT               : 17 18 18
+INPUT                : 47
+INTDec               : 11 12 13
+LCPARENT             : 17 18 33 47
+LEQ                  : 24
 LSQBRACKET           : 
-LT                   : 
-MOD                  : 20
-MULT                 : 18
-NEWLINE              : 9
-NUM                  : 11 15
-OR                   : 
-PRINT                : 25
-QUOTE                : 30 30
-RCPARENT             : 13 25
+LT                   : 22
+MOD                  : 43
+MULT                 : 41
+NEQ                  : 26
+NEWLINE              : 8
+NOT                  : 29
+NUM                  : 12 38
+OR                   : 27
+PRINT                : 33
+QUOTE                : 48 48
+RCPARENT             : 17 18 33 47
 RSQBRACKET           : 
-STRING               : 30
-SUB                  : 17
-SUM                  : 16
+STRING               : 48
+SUB                  : 40
+SUM                  : 39
 WHILE                : 
 WS                   : 
 error                : 
 
 Nonterminals, with rules where they appear
 
-Argument             : 25
-Corpo                : 2 3 5
-Decl                 : 6 7
-Decls                : 3 7
-Expr                 : 16 16 17 17 18 18 19 19 20 20 28
-Input                : 12
-Newline              : 4 5 6 7
-NonFormatted         : 24
-Print                : 23
+Argument             : 33
+Atrib                : 14
+Cond                 : 17 18 27 27 29
+Corpo                : 2 3 5 17 18 18
+Decl                 : 9 10
+Decls                : 3 10
+Dedent               : 17 18 19
+Expr                 : 21 21 22 22 23 23 24 24 25 25 26 26 28 28 30 36 39 39 40 40 41 41 42 42 43 43
+If                   : 16
+Input                : 13 31
+Newline              : 4 5 6 9 10 17 18 18
+NonFormatted         : 32
+Print                : 15
 Proc                 : 4 5
 Programa             : 1
 ProgramaInit         : 0
-String               : 13 26
-Var                  : 14 27
+String               : 34 47
+Var                  : 35 37
 
 Parsing method: LALR
 
@@ -124,26 +136,49 @@ state 0
     (3) Programa -> . Decls Corpo
     (4) Corpo -> . Proc Newline
     (5) Corpo -> . Corpo Proc Newline
-    (6) Decls -> . Decl Newline
-    (7) Decls -> . Decls Decl Newline
-    (23) Proc -> . Print
-    (10) Decl -> . INTDec ID
-    (11) Decl -> . INTDec ID ATRIB NUM
-    (12) Decl -> . INTDec ID ATRIB Input
-    (24) Print -> . NonFormatted
-    (25) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
+    (6) Corpo -> . Newline
+    (9) Decls -> . Decl Newline
+    (10) Decls -> . Decls Decl Newline
+    (14) Proc -> . Atrib
+    (15) Proc -> . Print
+    (16) Proc -> . If
+    (7) Newline -> .
+    (8) Newline -> . NEWLINE
+    (11) Decl -> . INTDec ID
+    (12) Decl -> . INTDec ID ATRIB NUM
+    (13) Decl -> . INTDec ID ATRIB Input
+    (30) Atrib -> . ID ATRIB Expr
+    (31) Atrib -> . ID ATRIB Input
+    (32) Print -> . NonFormatted
+    (17) If -> . IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
+    (18) If -> . IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+    (33) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
 
-    INTDec          shift and go to state 8
-    PRINT           shift and go to state 10
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for PRINT resolved as shift
+    ENDMARKER       reduce using rule 7 (Newline -> .)
+    NEWLINE         shift and go to state 11
+    INTDec          shift and go to state 12
+    ID              shift and go to state 13
+    IF              shift and go to state 15
+    PRINT           shift and go to state 16
+
+  ! ID              [ reduce using rule 7 (Newline -> .) ]
+  ! IF              [ reduce using rule 7 (Newline -> .) ]
+  ! PRINT           [ reduce using rule 7 (Newline -> .) ]
 
     ProgramaInit                   shift and go to state 1
     Programa                       shift and go to state 2
     Corpo                          shift and go to state 3
     Decls                          shift and go to state 4
     Proc                           shift and go to state 5
-    Decl                           shift and go to state 6
-    Print                          shift and go to state 7
-    NonFormatted                   shift and go to state 9
+    Newline                        shift and go to state 6
+    Decl                           shift and go to state 7
+    Atrib                          shift and go to state 8
+    Print                          shift and go to state 9
+    If                             shift and go to state 10
+    NonFormatted                   shift and go to state 14
 
 state 1
 
@@ -155,679 +190,1755 @@ state 2
 
     (1) ProgramaInit -> Programa . ENDMARKER
 
-    ENDMARKER       shift and go to state 11
+    ENDMARKER       shift and go to state 17
 
 
 state 3
 
     (2) Programa -> Corpo .
     (5) Corpo -> Corpo . Proc Newline
-    (23) Proc -> . Print
-    (24) Print -> . NonFormatted
-    (25) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
+    (14) Proc -> . Atrib
+    (15) Proc -> . Print
+    (16) Proc -> . If
+    (30) Atrib -> . ID ATRIB Expr
+    (31) Atrib -> . ID ATRIB Input
+    (32) Print -> . NonFormatted
+    (17) If -> . IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
+    (18) If -> . IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+    (33) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
 
     ENDMARKER       reduce using rule 2 (Programa -> Corpo .)
-    PRINT           shift and go to state 10
+    ID              shift and go to state 13
+    IF              shift and go to state 15
+    PRINT           shift and go to state 16
 
-    Proc                           shift and go to state 12
-    Print                          shift and go to state 7
-    NonFormatted                   shift and go to state 9
+    Proc                           shift and go to state 18
+    Atrib                          shift and go to state 8
+    Print                          shift and go to state 9
+    If                             shift and go to state 10
+    NonFormatted                   shift and go to state 14
 
 state 4
 
     (3) Programa -> Decls . Corpo
-    (7) Decls -> Decls . Decl Newline
+    (10) Decls -> Decls . Decl Newline
     (4) Corpo -> . Proc Newline
     (5) Corpo -> . Corpo Proc Newline
-    (10) Decl -> . INTDec ID
-    (11) Decl -> . INTDec ID ATRIB NUM
-    (12) Decl -> . INTDec ID ATRIB Input
-    (23) Proc -> . Print
-    (24) Print -> . NonFormatted
-    (25) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
+    (6) Corpo -> . Newline
+    (11) Decl -> . INTDec ID
+    (12) Decl -> . INTDec ID ATRIB NUM
+    (13) Decl -> . INTDec ID ATRIB Input
+    (14) Proc -> . Atrib
+    (15) Proc -> . Print
+    (16) Proc -> . If
+    (7) Newline -> .
+    (8) Newline -> . NEWLINE
+    (30) Atrib -> . ID ATRIB Expr
+    (31) Atrib -> . ID ATRIB Input
+    (32) Print -> . NonFormatted
+    (17) If -> . IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
+    (18) If -> . IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+    (33) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
 
-    INTDec          shift and go to state 8
-    PRINT           shift and go to state 10
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for PRINT resolved as shift
+    INTDec          shift and go to state 12
+    ENDMARKER       reduce using rule 7 (Newline -> .)
+    NEWLINE         shift and go to state 11
+    ID              shift and go to state 13
+    IF              shift and go to state 15
+    PRINT           shift and go to state 16
 
-    Corpo                          shift and go to state 13
-    Decl                           shift and go to state 14
+  ! ID              [ reduce using rule 7 (Newline -> .) ]
+  ! IF              [ reduce using rule 7 (Newline -> .) ]
+  ! PRINT           [ reduce using rule 7 (Newline -> .) ]
+
+    Corpo                          shift and go to state 19
+    Decl                           shift and go to state 20
+    Newline                        shift and go to state 6
     Proc                           shift and go to state 5
-    Print                          shift and go to state 7
-    NonFormatted                   shift and go to state 9
+    Atrib                          shift and go to state 8
+    Print                          shift and go to state 9
+    If                             shift and go to state 10
+    NonFormatted                   shift and go to state 14
 
 state 5
 
     (4) Corpo -> Proc . Newline
-    (8) Newline -> .
-    (9) Newline -> . NEWLINE
+    (7) Newline -> .
+    (8) Newline -> . NEWLINE
 
-    PRINT           reduce using rule 8 (Newline -> .)
-    ENDMARKER       reduce using rule 8 (Newline -> .)
-    NEWLINE         shift and go to state 16
+  ! shift/reduce conflict for NEWLINE resolved as shift
+    ID              reduce using rule 7 (Newline -> .)
+    IF              reduce using rule 7 (Newline -> .)
+    PRINT           reduce using rule 7 (Newline -> .)
+    ENDMARKER       reduce using rule 7 (Newline -> .)
+    ELSE            reduce using rule 7 (Newline -> .)
+    DEDENT          reduce using rule 7 (Newline -> .)
+    NEWLINE         shift and go to state 11
 
-    Newline                        shift and go to state 15
+  ! NEWLINE         [ reduce using rule 7 (Newline -> .) ]
+
+    Newline                        shift and go to state 21
 
 state 6
 
-    (6) Decls -> Decl . Newline
-    (8) Newline -> .
-    (9) Newline -> . NEWLINE
+    (6) Corpo -> Newline .
 
-    INTDec          reduce using rule 8 (Newline -> .)
-    PRINT           reduce using rule 8 (Newline -> .)
-    NEWLINE         shift and go to state 16
+    ID              reduce using rule 6 (Corpo -> Newline .)
+    IF              reduce using rule 6 (Corpo -> Newline .)
+    PRINT           reduce using rule 6 (Corpo -> Newline .)
+    ENDMARKER       reduce using rule 6 (Corpo -> Newline .)
+    ELSE            reduce using rule 6 (Corpo -> Newline .)
+    DEDENT          reduce using rule 6 (Corpo -> Newline .)
+    NEWLINE         reduce using rule 6 (Corpo -> Newline .)
 
-    Newline                        shift and go to state 17
 
 state 7
 
-    (23) Proc -> Print .
+    (9) Decls -> Decl . Newline
+    (7) Newline -> .
+    (8) Newline -> . NEWLINE
 
-    NEWLINE         reduce using rule 23 (Proc -> Print .)
-    PRINT           reduce using rule 23 (Proc -> Print .)
-    ENDMARKER       reduce using rule 23 (Proc -> Print .)
+  ! shift/reduce conflict for NEWLINE resolved as shift
+    INTDec          reduce using rule 7 (Newline -> .)
+    ID              reduce using rule 7 (Newline -> .)
+    IF              reduce using rule 7 (Newline -> .)
+    PRINT           reduce using rule 7 (Newline -> .)
+    ENDMARKER       reduce using rule 7 (Newline -> .)
+    NEWLINE         shift and go to state 11
 
+  ! NEWLINE         [ reduce using rule 7 (Newline -> .) ]
+
+    Newline                        shift and go to state 22
 
 state 8
 
-    (10) Decl -> INTDec . ID
-    (11) Decl -> INTDec . ID ATRIB NUM
-    (12) Decl -> INTDec . ID ATRIB Input
+    (14) Proc -> Atrib .
 
-    ID              shift and go to state 18
+    NEWLINE         reduce using rule 14 (Proc -> Atrib .)
+    ID              reduce using rule 14 (Proc -> Atrib .)
+    IF              reduce using rule 14 (Proc -> Atrib .)
+    PRINT           reduce using rule 14 (Proc -> Atrib .)
+    ENDMARKER       reduce using rule 14 (Proc -> Atrib .)
+    ELSE            reduce using rule 14 (Proc -> Atrib .)
+    DEDENT          reduce using rule 14 (Proc -> Atrib .)
 
 
 state 9
 
-    (24) Print -> NonFormatted .
+    (15) Proc -> Print .
 
-    NEWLINE         reduce using rule 24 (Print -> NonFormatted .)
-    PRINT           reduce using rule 24 (Print -> NonFormatted .)
-    ENDMARKER       reduce using rule 24 (Print -> NonFormatted .)
+    NEWLINE         reduce using rule 15 (Proc -> Print .)
+    ID              reduce using rule 15 (Proc -> Print .)
+    IF              reduce using rule 15 (Proc -> Print .)
+    PRINT           reduce using rule 15 (Proc -> Print .)
+    ENDMARKER       reduce using rule 15 (Proc -> Print .)
+    ELSE            reduce using rule 15 (Proc -> Print .)
+    DEDENT          reduce using rule 15 (Proc -> Print .)
 
 
 state 10
 
-    (25) NonFormatted -> PRINT . LCPARENT Argument RCPARENT
+    (16) Proc -> If .
 
-    LCPARENT        shift and go to state 19
+    NEWLINE         reduce using rule 16 (Proc -> If .)
+    ID              reduce using rule 16 (Proc -> If .)
+    IF              reduce using rule 16 (Proc -> If .)
+    PRINT           reduce using rule 16 (Proc -> If .)
+    ENDMARKER       reduce using rule 16 (Proc -> If .)
+    ELSE            reduce using rule 16 (Proc -> If .)
+    DEDENT          reduce using rule 16 (Proc -> If .)
 
 
 state 11
+
+    (8) Newline -> NEWLINE .
+
+    ID              reduce using rule 8 (Newline -> NEWLINE .)
+    IF              reduce using rule 8 (Newline -> NEWLINE .)
+    PRINT           reduce using rule 8 (Newline -> NEWLINE .)
+    ENDMARKER       reduce using rule 8 (Newline -> NEWLINE .)
+    ELSE            reduce using rule 8 (Newline -> NEWLINE .)
+    DEDENT          reduce using rule 8 (Newline -> NEWLINE .)
+    NEWLINE         reduce using rule 8 (Newline -> NEWLINE .)
+    INTDec          reduce using rule 8 (Newline -> NEWLINE .)
+    INDENT          reduce using rule 8 (Newline -> NEWLINE .)
+
+
+state 12
+
+    (11) Decl -> INTDec . ID
+    (12) Decl -> INTDec . ID ATRIB NUM
+    (13) Decl -> INTDec . ID ATRIB Input
+
+    ID              shift and go to state 23
+
+
+state 13
+
+    (30) Atrib -> ID . ATRIB Expr
+    (31) Atrib -> ID . ATRIB Input
+
+    ATRIB           shift and go to state 24
+
+
+state 14
+
+    (32) Print -> NonFormatted .
+
+    NEWLINE         reduce using rule 32 (Print -> NonFormatted .)
+    ID              reduce using rule 32 (Print -> NonFormatted .)
+    IF              reduce using rule 32 (Print -> NonFormatted .)
+    PRINT           reduce using rule 32 (Print -> NonFormatted .)
+    ENDMARKER       reduce using rule 32 (Print -> NonFormatted .)
+    ELSE            reduce using rule 32 (Print -> NonFormatted .)
+    DEDENT          reduce using rule 32 (Print -> NonFormatted .)
+
+
+state 15
+
+    (17) If -> IF . LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
+    (18) If -> IF . LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+
+    LCPARENT        shift and go to state 25
+
+
+state 16
+
+    (33) NonFormatted -> PRINT . LCPARENT Argument RCPARENT
+
+    LCPARENT        shift and go to state 26
+
+
+state 17
 
     (1) ProgramaInit -> Programa ENDMARKER .
 
     $end            reduce using rule 1 (ProgramaInit -> Programa ENDMARKER .)
 
 
-state 12
-
-    (5) Corpo -> Corpo Proc . Newline
-    (8) Newline -> .
-    (9) Newline -> . NEWLINE
-
-    PRINT           reduce using rule 8 (Newline -> .)
-    ENDMARKER       reduce using rule 8 (Newline -> .)
-    NEWLINE         shift and go to state 16
-
-    Newline                        shift and go to state 20
-
-state 13
-
-    (3) Programa -> Decls Corpo .
-    (5) Corpo -> Corpo . Proc Newline
-    (23) Proc -> . Print
-    (24) Print -> . NonFormatted
-    (25) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
-
-    ENDMARKER       reduce using rule 3 (Programa -> Decls Corpo .)
-    PRINT           shift and go to state 10
-
-    Proc                           shift and go to state 12
-    Print                          shift and go to state 7
-    NonFormatted                   shift and go to state 9
-
-state 14
-
-    (7) Decls -> Decls Decl . Newline
-    (8) Newline -> .
-    (9) Newline -> . NEWLINE
-
-    INTDec          reduce using rule 8 (Newline -> .)
-    PRINT           reduce using rule 8 (Newline -> .)
-    NEWLINE         shift and go to state 16
-
-    Newline                        shift and go to state 21
-
-state 15
-
-    (4) Corpo -> Proc Newline .
-
-    PRINT           reduce using rule 4 (Corpo -> Proc Newline .)
-    ENDMARKER       reduce using rule 4 (Corpo -> Proc Newline .)
-
-
-state 16
-
-    (9) Newline -> NEWLINE .
-
-    PRINT           reduce using rule 9 (Newline -> NEWLINE .)
-    ENDMARKER       reduce using rule 9 (Newline -> NEWLINE .)
-    INTDec          reduce using rule 9 (Newline -> NEWLINE .)
-
-
-state 17
-
-    (6) Decls -> Decl Newline .
-
-    INTDec          reduce using rule 6 (Decls -> Decl Newline .)
-    PRINT           reduce using rule 6 (Decls -> Decl Newline .)
-
-
 state 18
 
-    (10) Decl -> INTDec ID .
-    (11) Decl -> INTDec ID . ATRIB NUM
-    (12) Decl -> INTDec ID . ATRIB Input
+    (5) Corpo -> Corpo Proc . Newline
+    (7) Newline -> .
+    (8) Newline -> . NEWLINE
 
-    NEWLINE         reduce using rule 10 (Decl -> INTDec ID .)
-    INTDec          reduce using rule 10 (Decl -> INTDec ID .)
-    PRINT           reduce using rule 10 (Decl -> INTDec ID .)
-    ATRIB           shift and go to state 22
+  ! shift/reduce conflict for NEWLINE resolved as shift
+    ID              reduce using rule 7 (Newline -> .)
+    IF              reduce using rule 7 (Newline -> .)
+    PRINT           reduce using rule 7 (Newline -> .)
+    ENDMARKER       reduce using rule 7 (Newline -> .)
+    ELSE            reduce using rule 7 (Newline -> .)
+    DEDENT          reduce using rule 7 (Newline -> .)
+    NEWLINE         shift and go to state 11
 
+  ! NEWLINE         [ reduce using rule 7 (Newline -> .) ]
+
+    Newline                        shift and go to state 27
 
 state 19
 
-    (25) NonFormatted -> PRINT LCPARENT . Argument RCPARENT
-    (26) Argument -> . String
-    (27) Argument -> . Var
-    (28) Argument -> . Expr
-    (30) String -> . QUOTE STRING QUOTE
-    (31) String -> .
-    (29) Var -> . ID
-    (14) Expr -> . Var
-    (15) Expr -> . NUM
-    (16) Expr -> . Expr SUM Expr
-    (17) Expr -> . Expr SUB Expr
-    (18) Expr -> . Expr MULT Expr
-    (19) Expr -> . Expr DIV Expr
-    (20) Expr -> . Expr MOD Expr
-    (21) Expr -> . ID INC
-    (22) Expr -> . ID DEC
+    (3) Programa -> Decls Corpo .
+    (5) Corpo -> Corpo . Proc Newline
+    (14) Proc -> . Atrib
+    (15) Proc -> . Print
+    (16) Proc -> . If
+    (30) Atrib -> . ID ATRIB Expr
+    (31) Atrib -> . ID ATRIB Input
+    (32) Print -> . NonFormatted
+    (17) If -> . IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
+    (18) If -> . IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+    (33) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
 
-    QUOTE           shift and go to state 27
-    RCPARENT        reduce using rule 31 (String -> .)
-    ID              shift and go to state 28
-    NUM             shift and go to state 29
+    ENDMARKER       reduce using rule 3 (Programa -> Decls Corpo .)
+    ID              shift and go to state 13
+    IF              shift and go to state 15
+    PRINT           shift and go to state 16
 
-    Argument                       shift and go to state 23
-    String                         shift and go to state 24
-    Var                            shift and go to state 25
-    Expr                           shift and go to state 26
+    Proc                           shift and go to state 18
+    Atrib                          shift and go to state 8
+    Print                          shift and go to state 9
+    If                             shift and go to state 10
+    NonFormatted                   shift and go to state 14
 
 state 20
 
-    (5) Corpo -> Corpo Proc Newline .
+    (10) Decls -> Decls Decl . Newline
+    (7) Newline -> .
+    (8) Newline -> . NEWLINE
 
-    PRINT           reduce using rule 5 (Corpo -> Corpo Proc Newline .)
-    ENDMARKER       reduce using rule 5 (Corpo -> Corpo Proc Newline .)
+  ! shift/reduce conflict for NEWLINE resolved as shift
+    INTDec          reduce using rule 7 (Newline -> .)
+    ID              reduce using rule 7 (Newline -> .)
+    IF              reduce using rule 7 (Newline -> .)
+    PRINT           reduce using rule 7 (Newline -> .)
+    ENDMARKER       reduce using rule 7 (Newline -> .)
+    NEWLINE         shift and go to state 11
 
+  ! NEWLINE         [ reduce using rule 7 (Newline -> .) ]
+
+    Newline                        shift and go to state 28
 
 state 21
 
-    (7) Decls -> Decls Decl Newline .
+    (4) Corpo -> Proc Newline .
 
-    INTDec          reduce using rule 7 (Decls -> Decls Decl Newline .)
-    PRINT           reduce using rule 7 (Decls -> Decls Decl Newline .)
+    ID              reduce using rule 4 (Corpo -> Proc Newline .)
+    IF              reduce using rule 4 (Corpo -> Proc Newline .)
+    PRINT           reduce using rule 4 (Corpo -> Proc Newline .)
+    ENDMARKER       reduce using rule 4 (Corpo -> Proc Newline .)
+    ELSE            reduce using rule 4 (Corpo -> Proc Newline .)
+    DEDENT          reduce using rule 4 (Corpo -> Proc Newline .)
+    NEWLINE         reduce using rule 4 (Corpo -> Proc Newline .)
 
 
 state 22
 
-    (11) Decl -> INTDec ID ATRIB . NUM
-    (12) Decl -> INTDec ID ATRIB . Input
-    (13) Input -> . INPUT LCPARENT String RCPARENT
+    (9) Decls -> Decl Newline .
 
-    NUM             shift and go to state 30
-    INPUT           shift and go to state 32
+    INTDec          reduce using rule 9 (Decls -> Decl Newline .)
+    NEWLINE         reduce using rule 9 (Decls -> Decl Newline .)
+    ID              reduce using rule 9 (Decls -> Decl Newline .)
+    IF              reduce using rule 9 (Decls -> Decl Newline .)
+    PRINT           reduce using rule 9 (Decls -> Decl Newline .)
+    ENDMARKER       reduce using rule 9 (Decls -> Decl Newline .)
 
-    Input                          shift and go to state 31
 
 state 23
 
-    (25) NonFormatted -> PRINT LCPARENT Argument . RCPARENT
+    (11) Decl -> INTDec ID .
+    (12) Decl -> INTDec ID . ATRIB NUM
+    (13) Decl -> INTDec ID . ATRIB Input
 
-    RCPARENT        shift and go to state 33
+    NEWLINE         reduce using rule 11 (Decl -> INTDec ID .)
+    INTDec          reduce using rule 11 (Decl -> INTDec ID .)
+    ID              reduce using rule 11 (Decl -> INTDec ID .)
+    IF              reduce using rule 11 (Decl -> INTDec ID .)
+    PRINT           reduce using rule 11 (Decl -> INTDec ID .)
+    ENDMARKER       reduce using rule 11 (Decl -> INTDec ID .)
+    ATRIB           shift and go to state 29
 
 
 state 24
 
-    (26) Argument -> String .
+    (30) Atrib -> ID ATRIB . Expr
+    (31) Atrib -> ID ATRIB . Input
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
+    (47) Input -> . INPUT LCPARENT String RCPARENT
+    (46) Var -> . ID
 
-    RCPARENT        reduce using rule 26 (Argument -> String .)
+    NUM             shift and go to state 34
+    ID              shift and go to state 30
+    INPUT           shift and go to state 35
 
+    Expr                           shift and go to state 31
+    Input                          shift and go to state 32
+    Var                            shift and go to state 33
 
 state 25
 
-    (27) Argument -> Var .
-    (14) Expr -> Var .
+    (17) If -> IF LCPARENT . Cond RCPARENT COLON Newline INDENT Corpo Dedent
+    (18) If -> IF LCPARENT . Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+    (21) Cond -> . Expr GT Expr
+    (22) Cond -> . Expr LT Expr
+    (23) Cond -> . Expr GEQ Expr
+    (24) Cond -> . Expr LEQ Expr
+    (25) Cond -> . Expr EQUIV Expr
+    (26) Cond -> . Expr NEQ Expr
+    (27) Cond -> . Cond OR Cond
+    (28) Cond -> . Expr AND Expr
+    (29) Cond -> . NOT Cond
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
+    (46) Var -> . ID
 
-  ! reduce/reduce conflict for RCPARENT resolved using rule 14 (Expr -> Var .)
-    SUM             reduce using rule 14 (Expr -> Var .)
-    SUB             reduce using rule 14 (Expr -> Var .)
-    MULT            reduce using rule 14 (Expr -> Var .)
-    DIV             reduce using rule 14 (Expr -> Var .)
-    MOD             reduce using rule 14 (Expr -> Var .)
-    RCPARENT        reduce using rule 14 (Expr -> Var .)
+    NOT             shift and go to state 38
+    NUM             shift and go to state 34
+    ID              shift and go to state 30
 
-  ! RCPARENT        [ reduce using rule 27 (Argument -> Var .) ]
-
+    Cond                           shift and go to state 36
+    Expr                           shift and go to state 37
+    Var                            shift and go to state 33
 
 state 26
 
-    (28) Argument -> Expr .
-    (16) Expr -> Expr . SUM Expr
-    (17) Expr -> Expr . SUB Expr
-    (18) Expr -> Expr . MULT Expr
-    (19) Expr -> Expr . DIV Expr
-    (20) Expr -> Expr . MOD Expr
+    (33) NonFormatted -> PRINT LCPARENT . Argument RCPARENT
+    (34) Argument -> . String
+    (35) Argument -> . Var
+    (36) Argument -> . Expr
+    (48) String -> . QUOTE STRING QUOTE
+    (49) String -> .
+    (46) Var -> . ID
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
 
-    RCPARENT        reduce using rule 28 (Argument -> Expr .)
-    SUM             shift and go to state 34
-    SUB             shift and go to state 35
-    MULT            shift and go to state 36
-    DIV             shift and go to state 37
-    MOD             shift and go to state 38
+    QUOTE           shift and go to state 43
+    RCPARENT        reduce using rule 49 (String -> .)
+    ID              shift and go to state 44
+    NUM             shift and go to state 34
 
+    Argument                       shift and go to state 39
+    String                         shift and go to state 40
+    Var                            shift and go to state 41
+    Expr                           shift and go to state 42
 
 state 27
 
-    (30) String -> QUOTE . STRING QUOTE
+    (5) Corpo -> Corpo Proc Newline .
 
-    STRING          shift and go to state 39
+    ID              reduce using rule 5 (Corpo -> Corpo Proc Newline .)
+    IF              reduce using rule 5 (Corpo -> Corpo Proc Newline .)
+    PRINT           reduce using rule 5 (Corpo -> Corpo Proc Newline .)
+    ENDMARKER       reduce using rule 5 (Corpo -> Corpo Proc Newline .)
+    ELSE            reduce using rule 5 (Corpo -> Corpo Proc Newline .)
+    DEDENT          reduce using rule 5 (Corpo -> Corpo Proc Newline .)
+    NEWLINE         reduce using rule 5 (Corpo -> Corpo Proc Newline .)
 
 
 state 28
 
-    (29) Var -> ID .
-    (21) Expr -> ID . INC
-    (22) Expr -> ID . DEC
+    (10) Decls -> Decls Decl Newline .
 
-    RCPARENT        reduce using rule 29 (Var -> ID .)
-    SUM             reduce using rule 29 (Var -> ID .)
-    SUB             reduce using rule 29 (Var -> ID .)
-    MULT            reduce using rule 29 (Var -> ID .)
-    DIV             reduce using rule 29 (Var -> ID .)
-    MOD             reduce using rule 29 (Var -> ID .)
-    INC             shift and go to state 40
-    DEC             shift and go to state 41
+    INTDec          reduce using rule 10 (Decls -> Decls Decl Newline .)
+    NEWLINE         reduce using rule 10 (Decls -> Decls Decl Newline .)
+    ID              reduce using rule 10 (Decls -> Decls Decl Newline .)
+    IF              reduce using rule 10 (Decls -> Decls Decl Newline .)
+    PRINT           reduce using rule 10 (Decls -> Decls Decl Newline .)
+    ENDMARKER       reduce using rule 10 (Decls -> Decls Decl Newline .)
 
 
 state 29
 
-    (15) Expr -> NUM .
+    (12) Decl -> INTDec ID ATRIB . NUM
+    (13) Decl -> INTDec ID ATRIB . Input
+    (47) Input -> . INPUT LCPARENT String RCPARENT
 
-    SUM             reduce using rule 15 (Expr -> NUM .)
-    SUB             reduce using rule 15 (Expr -> NUM .)
-    MULT            reduce using rule 15 (Expr -> NUM .)
-    DIV             reduce using rule 15 (Expr -> NUM .)
-    MOD             reduce using rule 15 (Expr -> NUM .)
-    RCPARENT        reduce using rule 15 (Expr -> NUM .)
+    NUM             shift and go to state 45
+    INPUT           shift and go to state 35
 
+    Input                          shift and go to state 46
 
 state 30
 
-    (11) Decl -> INTDec ID ATRIB NUM .
+    (44) Expr -> ID . INC
+    (45) Expr -> ID . DEC
+    (46) Var -> ID .
 
-    NEWLINE         reduce using rule 11 (Decl -> INTDec ID ATRIB NUM .)
-    INTDec          reduce using rule 11 (Decl -> INTDec ID ATRIB NUM .)
-    PRINT           reduce using rule 11 (Decl -> INTDec ID ATRIB NUM .)
+    INC             shift and go to state 47
+    DEC             shift and go to state 48
+    SUM             reduce using rule 46 (Var -> ID .)
+    SUB             reduce using rule 46 (Var -> ID .)
+    MULT            reduce using rule 46 (Var -> ID .)
+    DIV             reduce using rule 46 (Var -> ID .)
+    MOD             reduce using rule 46 (Var -> ID .)
+    NEWLINE         reduce using rule 46 (Var -> ID .)
+    ID              reduce using rule 46 (Var -> ID .)
+    IF              reduce using rule 46 (Var -> ID .)
+    PRINT           reduce using rule 46 (Var -> ID .)
+    ENDMARKER       reduce using rule 46 (Var -> ID .)
+    ELSE            reduce using rule 46 (Var -> ID .)
+    DEDENT          reduce using rule 46 (Var -> ID .)
+    GT              reduce using rule 46 (Var -> ID .)
+    LT              reduce using rule 46 (Var -> ID .)
+    GEQ             reduce using rule 46 (Var -> ID .)
+    LEQ             reduce using rule 46 (Var -> ID .)
+    EQUIV           reduce using rule 46 (Var -> ID .)
+    NEQ             reduce using rule 46 (Var -> ID .)
+    AND             reduce using rule 46 (Var -> ID .)
+    RCPARENT        reduce using rule 46 (Var -> ID .)
+    OR              reduce using rule 46 (Var -> ID .)
 
 
 state 31
 
-    (12) Decl -> INTDec ID ATRIB Input .
+    (30) Atrib -> ID ATRIB Expr .
+    (39) Expr -> Expr . SUM Expr
+    (40) Expr -> Expr . SUB Expr
+    (41) Expr -> Expr . MULT Expr
+    (42) Expr -> Expr . DIV Expr
+    (43) Expr -> Expr . MOD Expr
 
-    NEWLINE         reduce using rule 12 (Decl -> INTDec ID ATRIB Input .)
-    INTDec          reduce using rule 12 (Decl -> INTDec ID ATRIB Input .)
-    PRINT           reduce using rule 12 (Decl -> INTDec ID ATRIB Input .)
+    NEWLINE         reduce using rule 30 (Atrib -> ID ATRIB Expr .)
+    ID              reduce using rule 30 (Atrib -> ID ATRIB Expr .)
+    IF              reduce using rule 30 (Atrib -> ID ATRIB Expr .)
+    PRINT           reduce using rule 30 (Atrib -> ID ATRIB Expr .)
+    ENDMARKER       reduce using rule 30 (Atrib -> ID ATRIB Expr .)
+    ELSE            reduce using rule 30 (Atrib -> ID ATRIB Expr .)
+    DEDENT          reduce using rule 30 (Atrib -> ID ATRIB Expr .)
+    SUM             shift and go to state 49
+    SUB             shift and go to state 50
+    MULT            shift and go to state 51
+    DIV             shift and go to state 52
+    MOD             shift and go to state 53
 
 
 state 32
 
-    (13) Input -> INPUT . LCPARENT String RCPARENT
+    (31) Atrib -> ID ATRIB Input .
 
-    LCPARENT        shift and go to state 42
+    NEWLINE         reduce using rule 31 (Atrib -> ID ATRIB Input .)
+    ID              reduce using rule 31 (Atrib -> ID ATRIB Input .)
+    IF              reduce using rule 31 (Atrib -> ID ATRIB Input .)
+    PRINT           reduce using rule 31 (Atrib -> ID ATRIB Input .)
+    ENDMARKER       reduce using rule 31 (Atrib -> ID ATRIB Input .)
+    ELSE            reduce using rule 31 (Atrib -> ID ATRIB Input .)
+    DEDENT          reduce using rule 31 (Atrib -> ID ATRIB Input .)
 
 
 state 33
 
-    (25) NonFormatted -> PRINT LCPARENT Argument RCPARENT .
+    (37) Expr -> Var .
 
-    NEWLINE         reduce using rule 25 (NonFormatted -> PRINT LCPARENT Argument RCPARENT .)
-    PRINT           reduce using rule 25 (NonFormatted -> PRINT LCPARENT Argument RCPARENT .)
-    ENDMARKER       reduce using rule 25 (NonFormatted -> PRINT LCPARENT Argument RCPARENT .)
+    SUM             reduce using rule 37 (Expr -> Var .)
+    SUB             reduce using rule 37 (Expr -> Var .)
+    MULT            reduce using rule 37 (Expr -> Var .)
+    DIV             reduce using rule 37 (Expr -> Var .)
+    MOD             reduce using rule 37 (Expr -> Var .)
+    NEWLINE         reduce using rule 37 (Expr -> Var .)
+    ID              reduce using rule 37 (Expr -> Var .)
+    IF              reduce using rule 37 (Expr -> Var .)
+    PRINT           reduce using rule 37 (Expr -> Var .)
+    ENDMARKER       reduce using rule 37 (Expr -> Var .)
+    ELSE            reduce using rule 37 (Expr -> Var .)
+    DEDENT          reduce using rule 37 (Expr -> Var .)
+    GT              reduce using rule 37 (Expr -> Var .)
+    LT              reduce using rule 37 (Expr -> Var .)
+    GEQ             reduce using rule 37 (Expr -> Var .)
+    LEQ             reduce using rule 37 (Expr -> Var .)
+    EQUIV           reduce using rule 37 (Expr -> Var .)
+    NEQ             reduce using rule 37 (Expr -> Var .)
+    AND             reduce using rule 37 (Expr -> Var .)
+    RCPARENT        reduce using rule 37 (Expr -> Var .)
+    OR              reduce using rule 37 (Expr -> Var .)
 
 
 state 34
 
-    (16) Expr -> Expr SUM . Expr
-    (14) Expr -> . Var
-    (15) Expr -> . NUM
-    (16) Expr -> . Expr SUM Expr
-    (17) Expr -> . Expr SUB Expr
-    (18) Expr -> . Expr MULT Expr
-    (19) Expr -> . Expr DIV Expr
-    (20) Expr -> . Expr MOD Expr
-    (21) Expr -> . ID INC
-    (22) Expr -> . ID DEC
-    (29) Var -> . ID
+    (38) Expr -> NUM .
 
-    NUM             shift and go to state 29
-    ID              shift and go to state 45
+    SUM             reduce using rule 38 (Expr -> NUM .)
+    SUB             reduce using rule 38 (Expr -> NUM .)
+    MULT            reduce using rule 38 (Expr -> NUM .)
+    DIV             reduce using rule 38 (Expr -> NUM .)
+    MOD             reduce using rule 38 (Expr -> NUM .)
+    NEWLINE         reduce using rule 38 (Expr -> NUM .)
+    ID              reduce using rule 38 (Expr -> NUM .)
+    IF              reduce using rule 38 (Expr -> NUM .)
+    PRINT           reduce using rule 38 (Expr -> NUM .)
+    ENDMARKER       reduce using rule 38 (Expr -> NUM .)
+    ELSE            reduce using rule 38 (Expr -> NUM .)
+    DEDENT          reduce using rule 38 (Expr -> NUM .)
+    GT              reduce using rule 38 (Expr -> NUM .)
+    LT              reduce using rule 38 (Expr -> NUM .)
+    GEQ             reduce using rule 38 (Expr -> NUM .)
+    LEQ             reduce using rule 38 (Expr -> NUM .)
+    EQUIV           reduce using rule 38 (Expr -> NUM .)
+    NEQ             reduce using rule 38 (Expr -> NUM .)
+    AND             reduce using rule 38 (Expr -> NUM .)
+    RCPARENT        reduce using rule 38 (Expr -> NUM .)
+    OR              reduce using rule 38 (Expr -> NUM .)
 
-    Expr                           shift and go to state 43
-    Var                            shift and go to state 44
 
 state 35
 
-    (17) Expr -> Expr SUB . Expr
-    (14) Expr -> . Var
-    (15) Expr -> . NUM
-    (16) Expr -> . Expr SUM Expr
-    (17) Expr -> . Expr SUB Expr
-    (18) Expr -> . Expr MULT Expr
-    (19) Expr -> . Expr DIV Expr
-    (20) Expr -> . Expr MOD Expr
-    (21) Expr -> . ID INC
-    (22) Expr -> . ID DEC
-    (29) Var -> . ID
+    (47) Input -> INPUT . LCPARENT String RCPARENT
 
-    NUM             shift and go to state 29
-    ID              shift and go to state 45
+    LCPARENT        shift and go to state 54
 
-    Expr                           shift and go to state 46
-    Var                            shift and go to state 44
 
 state 36
 
-    (18) Expr -> Expr MULT . Expr
-    (14) Expr -> . Var
-    (15) Expr -> . NUM
-    (16) Expr -> . Expr SUM Expr
-    (17) Expr -> . Expr SUB Expr
-    (18) Expr -> . Expr MULT Expr
-    (19) Expr -> . Expr DIV Expr
-    (20) Expr -> . Expr MOD Expr
-    (21) Expr -> . ID INC
-    (22) Expr -> . ID DEC
-    (29) Var -> . ID
+    (17) If -> IF LCPARENT Cond . RCPARENT COLON Newline INDENT Corpo Dedent
+    (18) If -> IF LCPARENT Cond . RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+    (27) Cond -> Cond . OR Cond
 
-    NUM             shift and go to state 29
-    ID              shift and go to state 45
+    RCPARENT        shift and go to state 55
+    OR              shift and go to state 56
 
-    Expr                           shift and go to state 47
-    Var                            shift and go to state 44
 
 state 37
 
-    (19) Expr -> Expr DIV . Expr
-    (14) Expr -> . Var
-    (15) Expr -> . NUM
-    (16) Expr -> . Expr SUM Expr
-    (17) Expr -> . Expr SUB Expr
-    (18) Expr -> . Expr MULT Expr
-    (19) Expr -> . Expr DIV Expr
-    (20) Expr -> . Expr MOD Expr
-    (21) Expr -> . ID INC
-    (22) Expr -> . ID DEC
-    (29) Var -> . ID
+    (21) Cond -> Expr . GT Expr
+    (22) Cond -> Expr . LT Expr
+    (23) Cond -> Expr . GEQ Expr
+    (24) Cond -> Expr . LEQ Expr
+    (25) Cond -> Expr . EQUIV Expr
+    (26) Cond -> Expr . NEQ Expr
+    (28) Cond -> Expr . AND Expr
+    (39) Expr -> Expr . SUM Expr
+    (40) Expr -> Expr . SUB Expr
+    (41) Expr -> Expr . MULT Expr
+    (42) Expr -> Expr . DIV Expr
+    (43) Expr -> Expr . MOD Expr
 
-    NUM             shift and go to state 29
-    ID              shift and go to state 45
+    GT              shift and go to state 57
+    LT              shift and go to state 58
+    GEQ             shift and go to state 59
+    LEQ             shift and go to state 60
+    EQUIV           shift and go to state 61
+    NEQ             shift and go to state 62
+    AND             shift and go to state 63
+    SUM             shift and go to state 49
+    SUB             shift and go to state 50
+    MULT            shift and go to state 51
+    DIV             shift and go to state 52
+    MOD             shift and go to state 53
 
-    Expr                           shift and go to state 48
-    Var                            shift and go to state 44
 
 state 38
 
-    (20) Expr -> Expr MOD . Expr
-    (14) Expr -> . Var
-    (15) Expr -> . NUM
-    (16) Expr -> . Expr SUM Expr
-    (17) Expr -> . Expr SUB Expr
-    (18) Expr -> . Expr MULT Expr
-    (19) Expr -> . Expr DIV Expr
-    (20) Expr -> . Expr MOD Expr
-    (21) Expr -> . ID INC
-    (22) Expr -> . ID DEC
-    (29) Var -> . ID
+    (29) Cond -> NOT . Cond
+    (21) Cond -> . Expr GT Expr
+    (22) Cond -> . Expr LT Expr
+    (23) Cond -> . Expr GEQ Expr
+    (24) Cond -> . Expr LEQ Expr
+    (25) Cond -> . Expr EQUIV Expr
+    (26) Cond -> . Expr NEQ Expr
+    (27) Cond -> . Cond OR Cond
+    (28) Cond -> . Expr AND Expr
+    (29) Cond -> . NOT Cond
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
+    (46) Var -> . ID
 
-    NUM             shift and go to state 29
-    ID              shift and go to state 45
+    NOT             shift and go to state 38
+    NUM             shift and go to state 34
+    ID              shift and go to state 30
 
-    Expr                           shift and go to state 49
-    Var                            shift and go to state 44
+    Cond                           shift and go to state 64
+    Expr                           shift and go to state 37
+    Var                            shift and go to state 33
 
 state 39
 
-    (30) String -> QUOTE STRING . QUOTE
+    (33) NonFormatted -> PRINT LCPARENT Argument . RCPARENT
 
-    QUOTE           shift and go to state 50
+    RCPARENT        shift and go to state 65
 
 
 state 40
 
-    (21) Expr -> ID INC .
+    (34) Argument -> String .
 
-    SUM             reduce using rule 21 (Expr -> ID INC .)
-    SUB             reduce using rule 21 (Expr -> ID INC .)
-    MULT            reduce using rule 21 (Expr -> ID INC .)
-    DIV             reduce using rule 21 (Expr -> ID INC .)
-    MOD             reduce using rule 21 (Expr -> ID INC .)
-    RCPARENT        reduce using rule 21 (Expr -> ID INC .)
+    RCPARENT        reduce using rule 34 (Argument -> String .)
 
 
 state 41
 
-    (22) Expr -> ID DEC .
+    (35) Argument -> Var .
+    (37) Expr -> Var .
 
-    SUM             reduce using rule 22 (Expr -> ID DEC .)
-    SUB             reduce using rule 22 (Expr -> ID DEC .)
-    MULT            reduce using rule 22 (Expr -> ID DEC .)
-    DIV             reduce using rule 22 (Expr -> ID DEC .)
-    MOD             reduce using rule 22 (Expr -> ID DEC .)
-    RCPARENT        reduce using rule 22 (Expr -> ID DEC .)
+  ! reduce/reduce conflict for RCPARENT resolved using rule 35 (Argument -> Var .)
+    RCPARENT        reduce using rule 35 (Argument -> Var .)
+    SUM             reduce using rule 37 (Expr -> Var .)
+    SUB             reduce using rule 37 (Expr -> Var .)
+    MULT            reduce using rule 37 (Expr -> Var .)
+    DIV             reduce using rule 37 (Expr -> Var .)
+    MOD             reduce using rule 37 (Expr -> Var .)
+
+  ! RCPARENT        [ reduce using rule 37 (Expr -> Var .) ]
 
 
 state 42
 
-    (13) Input -> INPUT LCPARENT . String RCPARENT
-    (30) String -> . QUOTE STRING QUOTE
-    (31) String -> .
+    (36) Argument -> Expr .
+    (39) Expr -> Expr . SUM Expr
+    (40) Expr -> Expr . SUB Expr
+    (41) Expr -> Expr . MULT Expr
+    (42) Expr -> Expr . DIV Expr
+    (43) Expr -> Expr . MOD Expr
 
-    QUOTE           shift and go to state 27
-    RCPARENT        reduce using rule 31 (String -> .)
+    RCPARENT        reduce using rule 36 (Argument -> Expr .)
+    SUM             shift and go to state 49
+    SUB             shift and go to state 50
+    MULT            shift and go to state 51
+    DIV             shift and go to state 52
+    MOD             shift and go to state 53
 
-    String                         shift and go to state 51
 
 state 43
 
-    (16) Expr -> Expr SUM Expr .
-    (16) Expr -> Expr . SUM Expr
-    (17) Expr -> Expr . SUB Expr
-    (18) Expr -> Expr . MULT Expr
-    (19) Expr -> Expr . DIV Expr
-    (20) Expr -> Expr . MOD Expr
+    (48) String -> QUOTE . STRING QUOTE
 
-    SUM             reduce using rule 16 (Expr -> Expr SUM Expr .)
-    SUB             reduce using rule 16 (Expr -> Expr SUM Expr .)
-    MOD             reduce using rule 16 (Expr -> Expr SUM Expr .)
-    RCPARENT        reduce using rule 16 (Expr -> Expr SUM Expr .)
-    MULT            shift and go to state 36
-    DIV             shift and go to state 37
-
-  ! MULT            [ reduce using rule 16 (Expr -> Expr SUM Expr .) ]
-  ! DIV             [ reduce using rule 16 (Expr -> Expr SUM Expr .) ]
-  ! SUM             [ shift and go to state 34 ]
-  ! SUB             [ shift and go to state 35 ]
-  ! MOD             [ shift and go to state 38 ]
+    STRING          shift and go to state 66
 
 
 state 44
 
-    (14) Expr -> Var .
+    (46) Var -> ID .
+    (44) Expr -> ID . INC
+    (45) Expr -> ID . DEC
 
-    SUM             reduce using rule 14 (Expr -> Var .)
-    SUB             reduce using rule 14 (Expr -> Var .)
-    MULT            reduce using rule 14 (Expr -> Var .)
-    DIV             reduce using rule 14 (Expr -> Var .)
-    MOD             reduce using rule 14 (Expr -> Var .)
-    RCPARENT        reduce using rule 14 (Expr -> Var .)
+    RCPARENT        reduce using rule 46 (Var -> ID .)
+    SUM             reduce using rule 46 (Var -> ID .)
+    SUB             reduce using rule 46 (Var -> ID .)
+    MULT            reduce using rule 46 (Var -> ID .)
+    DIV             reduce using rule 46 (Var -> ID .)
+    MOD             reduce using rule 46 (Var -> ID .)
+    INC             shift and go to state 47
+    DEC             shift and go to state 48
 
 
 state 45
 
-    (21) Expr -> ID . INC
-    (22) Expr -> ID . DEC
-    (29) Var -> ID .
+    (12) Decl -> INTDec ID ATRIB NUM .
 
-    INC             shift and go to state 40
-    DEC             shift and go to state 41
-    SUM             reduce using rule 29 (Var -> ID .)
-    SUB             reduce using rule 29 (Var -> ID .)
-    MULT            reduce using rule 29 (Var -> ID .)
-    DIV             reduce using rule 29 (Var -> ID .)
-    MOD             reduce using rule 29 (Var -> ID .)
-    RCPARENT        reduce using rule 29 (Var -> ID .)
+    NEWLINE         reduce using rule 12 (Decl -> INTDec ID ATRIB NUM .)
+    INTDec          reduce using rule 12 (Decl -> INTDec ID ATRIB NUM .)
+    ID              reduce using rule 12 (Decl -> INTDec ID ATRIB NUM .)
+    IF              reduce using rule 12 (Decl -> INTDec ID ATRIB NUM .)
+    PRINT           reduce using rule 12 (Decl -> INTDec ID ATRIB NUM .)
+    ENDMARKER       reduce using rule 12 (Decl -> INTDec ID ATRIB NUM .)
 
 
 state 46
 
-    (17) Expr -> Expr SUB Expr .
-    (16) Expr -> Expr . SUM Expr
-    (17) Expr -> Expr . SUB Expr
-    (18) Expr -> Expr . MULT Expr
-    (19) Expr -> Expr . DIV Expr
-    (20) Expr -> Expr . MOD Expr
+    (13) Decl -> INTDec ID ATRIB Input .
 
-    SUM             reduce using rule 17 (Expr -> Expr SUB Expr .)
-    SUB             reduce using rule 17 (Expr -> Expr SUB Expr .)
-    MOD             reduce using rule 17 (Expr -> Expr SUB Expr .)
-    RCPARENT        reduce using rule 17 (Expr -> Expr SUB Expr .)
-    MULT            shift and go to state 36
-    DIV             shift and go to state 37
-
-  ! MULT            [ reduce using rule 17 (Expr -> Expr SUB Expr .) ]
-  ! DIV             [ reduce using rule 17 (Expr -> Expr SUB Expr .) ]
-  ! SUM             [ shift and go to state 34 ]
-  ! SUB             [ shift and go to state 35 ]
-  ! MOD             [ shift and go to state 38 ]
+    NEWLINE         reduce using rule 13 (Decl -> INTDec ID ATRIB Input .)
+    INTDec          reduce using rule 13 (Decl -> INTDec ID ATRIB Input .)
+    ID              reduce using rule 13 (Decl -> INTDec ID ATRIB Input .)
+    IF              reduce using rule 13 (Decl -> INTDec ID ATRIB Input .)
+    PRINT           reduce using rule 13 (Decl -> INTDec ID ATRIB Input .)
+    ENDMARKER       reduce using rule 13 (Decl -> INTDec ID ATRIB Input .)
 
 
 state 47
 
-    (18) Expr -> Expr MULT Expr .
-    (16) Expr -> Expr . SUM Expr
-    (17) Expr -> Expr . SUB Expr
-    (18) Expr -> Expr . MULT Expr
-    (19) Expr -> Expr . DIV Expr
-    (20) Expr -> Expr . MOD Expr
+    (44) Expr -> ID INC .
 
-    SUM             reduce using rule 18 (Expr -> Expr MULT Expr .)
-    SUB             reduce using rule 18 (Expr -> Expr MULT Expr .)
-    MULT            reduce using rule 18 (Expr -> Expr MULT Expr .)
-    DIV             reduce using rule 18 (Expr -> Expr MULT Expr .)
-    MOD             reduce using rule 18 (Expr -> Expr MULT Expr .)
-    RCPARENT        reduce using rule 18 (Expr -> Expr MULT Expr .)
-
-  ! SUM             [ shift and go to state 34 ]
-  ! SUB             [ shift and go to state 35 ]
-  ! MULT            [ shift and go to state 36 ]
-  ! DIV             [ shift and go to state 37 ]
-  ! MOD             [ shift and go to state 38 ]
+    SUM             reduce using rule 44 (Expr -> ID INC .)
+    SUB             reduce using rule 44 (Expr -> ID INC .)
+    MULT            reduce using rule 44 (Expr -> ID INC .)
+    DIV             reduce using rule 44 (Expr -> ID INC .)
+    MOD             reduce using rule 44 (Expr -> ID INC .)
+    NEWLINE         reduce using rule 44 (Expr -> ID INC .)
+    ID              reduce using rule 44 (Expr -> ID INC .)
+    IF              reduce using rule 44 (Expr -> ID INC .)
+    PRINT           reduce using rule 44 (Expr -> ID INC .)
+    ENDMARKER       reduce using rule 44 (Expr -> ID INC .)
+    ELSE            reduce using rule 44 (Expr -> ID INC .)
+    DEDENT          reduce using rule 44 (Expr -> ID INC .)
+    GT              reduce using rule 44 (Expr -> ID INC .)
+    LT              reduce using rule 44 (Expr -> ID INC .)
+    GEQ             reduce using rule 44 (Expr -> ID INC .)
+    LEQ             reduce using rule 44 (Expr -> ID INC .)
+    EQUIV           reduce using rule 44 (Expr -> ID INC .)
+    NEQ             reduce using rule 44 (Expr -> ID INC .)
+    AND             reduce using rule 44 (Expr -> ID INC .)
+    RCPARENT        reduce using rule 44 (Expr -> ID INC .)
+    OR              reduce using rule 44 (Expr -> ID INC .)
 
 
 state 48
 
-    (19) Expr -> Expr DIV Expr .
-    (16) Expr -> Expr . SUM Expr
-    (17) Expr -> Expr . SUB Expr
-    (18) Expr -> Expr . MULT Expr
-    (19) Expr -> Expr . DIV Expr
-    (20) Expr -> Expr . MOD Expr
+    (45) Expr -> ID DEC .
 
-    SUM             reduce using rule 19 (Expr -> Expr DIV Expr .)
-    SUB             reduce using rule 19 (Expr -> Expr DIV Expr .)
-    MULT            reduce using rule 19 (Expr -> Expr DIV Expr .)
-    DIV             reduce using rule 19 (Expr -> Expr DIV Expr .)
-    MOD             reduce using rule 19 (Expr -> Expr DIV Expr .)
-    RCPARENT        reduce using rule 19 (Expr -> Expr DIV Expr .)
-
-  ! SUM             [ shift and go to state 34 ]
-  ! SUB             [ shift and go to state 35 ]
-  ! MULT            [ shift and go to state 36 ]
-  ! DIV             [ shift and go to state 37 ]
-  ! MOD             [ shift and go to state 38 ]
+    SUM             reduce using rule 45 (Expr -> ID DEC .)
+    SUB             reduce using rule 45 (Expr -> ID DEC .)
+    MULT            reduce using rule 45 (Expr -> ID DEC .)
+    DIV             reduce using rule 45 (Expr -> ID DEC .)
+    MOD             reduce using rule 45 (Expr -> ID DEC .)
+    NEWLINE         reduce using rule 45 (Expr -> ID DEC .)
+    ID              reduce using rule 45 (Expr -> ID DEC .)
+    IF              reduce using rule 45 (Expr -> ID DEC .)
+    PRINT           reduce using rule 45 (Expr -> ID DEC .)
+    ENDMARKER       reduce using rule 45 (Expr -> ID DEC .)
+    ELSE            reduce using rule 45 (Expr -> ID DEC .)
+    DEDENT          reduce using rule 45 (Expr -> ID DEC .)
+    GT              reduce using rule 45 (Expr -> ID DEC .)
+    LT              reduce using rule 45 (Expr -> ID DEC .)
+    GEQ             reduce using rule 45 (Expr -> ID DEC .)
+    LEQ             reduce using rule 45 (Expr -> ID DEC .)
+    EQUIV           reduce using rule 45 (Expr -> ID DEC .)
+    NEQ             reduce using rule 45 (Expr -> ID DEC .)
+    AND             reduce using rule 45 (Expr -> ID DEC .)
+    RCPARENT        reduce using rule 45 (Expr -> ID DEC .)
+    OR              reduce using rule 45 (Expr -> ID DEC .)
 
 
 state 49
 
-    (20) Expr -> Expr MOD Expr .
-    (16) Expr -> Expr . SUM Expr
-    (17) Expr -> Expr . SUB Expr
-    (18) Expr -> Expr . MULT Expr
-    (19) Expr -> Expr . DIV Expr
-    (20) Expr -> Expr . MOD Expr
+    (39) Expr -> Expr SUM . Expr
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
+    (46) Var -> . ID
+
+    NUM             shift and go to state 34
+    ID              shift and go to state 30
+
+    Expr                           shift and go to state 67
+    Var                            shift and go to state 33
+
+state 50
+
+    (40) Expr -> Expr SUB . Expr
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
+    (46) Var -> . ID
+
+    NUM             shift and go to state 34
+    ID              shift and go to state 30
+
+    Expr                           shift and go to state 68
+    Var                            shift and go to state 33
+
+state 51
+
+    (41) Expr -> Expr MULT . Expr
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
+    (46) Var -> . ID
+
+    NUM             shift and go to state 34
+    ID              shift and go to state 30
+
+    Expr                           shift and go to state 69
+    Var                            shift and go to state 33
+
+state 52
+
+    (42) Expr -> Expr DIV . Expr
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
+    (46) Var -> . ID
+
+    NUM             shift and go to state 34
+    ID              shift and go to state 30
+
+    Expr                           shift and go to state 70
+    Var                            shift and go to state 33
+
+state 53
+
+    (43) Expr -> Expr MOD . Expr
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
+    (46) Var -> . ID
+
+    NUM             shift and go to state 34
+    ID              shift and go to state 30
+
+    Expr                           shift and go to state 71
+    Var                            shift and go to state 33
+
+state 54
+
+    (47) Input -> INPUT LCPARENT . String RCPARENT
+    (48) String -> . QUOTE STRING QUOTE
+    (49) String -> .
+
+    QUOTE           shift and go to state 43
+    RCPARENT        reduce using rule 49 (String -> .)
+
+    String                         shift and go to state 72
+
+state 55
+
+    (17) If -> IF LCPARENT Cond RCPARENT . COLON Newline INDENT Corpo Dedent
+    (18) If -> IF LCPARENT Cond RCPARENT . COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+
+    COLON           shift and go to state 73
+
+
+state 56
+
+    (27) Cond -> Cond OR . Cond
+    (21) Cond -> . Expr GT Expr
+    (22) Cond -> . Expr LT Expr
+    (23) Cond -> . Expr GEQ Expr
+    (24) Cond -> . Expr LEQ Expr
+    (25) Cond -> . Expr EQUIV Expr
+    (26) Cond -> . Expr NEQ Expr
+    (27) Cond -> . Cond OR Cond
+    (28) Cond -> . Expr AND Expr
+    (29) Cond -> . NOT Cond
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
+    (46) Var -> . ID
+
+    NOT             shift and go to state 38
+    NUM             shift and go to state 34
+    ID              shift and go to state 30
+
+    Cond                           shift and go to state 74
+    Expr                           shift and go to state 37
+    Var                            shift and go to state 33
+
+state 57
+
+    (21) Cond -> Expr GT . Expr
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
+    (46) Var -> . ID
+
+    NUM             shift and go to state 34
+    ID              shift and go to state 30
+
+    Expr                           shift and go to state 75
+    Var                            shift and go to state 33
+
+state 58
+
+    (22) Cond -> Expr LT . Expr
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
+    (46) Var -> . ID
+
+    NUM             shift and go to state 34
+    ID              shift and go to state 30
+
+    Expr                           shift and go to state 76
+    Var                            shift and go to state 33
+
+state 59
+
+    (23) Cond -> Expr GEQ . Expr
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
+    (46) Var -> . ID
+
+    NUM             shift and go to state 34
+    ID              shift and go to state 30
+
+    Expr                           shift and go to state 77
+    Var                            shift and go to state 33
+
+state 60
+
+    (24) Cond -> Expr LEQ . Expr
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
+    (46) Var -> . ID
+
+    NUM             shift and go to state 34
+    ID              shift and go to state 30
+
+    Expr                           shift and go to state 78
+    Var                            shift and go to state 33
+
+state 61
+
+    (25) Cond -> Expr EQUIV . Expr
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
+    (46) Var -> . ID
+
+    NUM             shift and go to state 34
+    ID              shift and go to state 30
+
+    Expr                           shift and go to state 79
+    Var                            shift and go to state 33
+
+state 62
+
+    (26) Cond -> Expr NEQ . Expr
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
+    (46) Var -> . ID
+
+    NUM             shift and go to state 34
+    ID              shift and go to state 30
+
+    Expr                           shift and go to state 80
+    Var                            shift and go to state 33
+
+state 63
+
+    (28) Cond -> Expr AND . Expr
+    (37) Expr -> . Var
+    (38) Expr -> . NUM
+    (39) Expr -> . Expr SUM Expr
+    (40) Expr -> . Expr SUB Expr
+    (41) Expr -> . Expr MULT Expr
+    (42) Expr -> . Expr DIV Expr
+    (43) Expr -> . Expr MOD Expr
+    (44) Expr -> . ID INC
+    (45) Expr -> . ID DEC
+    (46) Var -> . ID
+
+    NUM             shift and go to state 34
+    ID              shift and go to state 30
+
+    Expr                           shift and go to state 81
+    Var                            shift and go to state 33
+
+state 64
+
+    (29) Cond -> NOT Cond .
+    (27) Cond -> Cond . OR Cond
+
+  ! shift/reduce conflict for OR resolved as shift
+    RCPARENT        reduce using rule 29 (Cond -> NOT Cond .)
+    OR              shift and go to state 56
+
+  ! OR              [ reduce using rule 29 (Cond -> NOT Cond .) ]
+
+
+state 65
+
+    (33) NonFormatted -> PRINT LCPARENT Argument RCPARENT .
+
+    NEWLINE         reduce using rule 33 (NonFormatted -> PRINT LCPARENT Argument RCPARENT .)
+    ID              reduce using rule 33 (NonFormatted -> PRINT LCPARENT Argument RCPARENT .)
+    IF              reduce using rule 33 (NonFormatted -> PRINT LCPARENT Argument RCPARENT .)
+    PRINT           reduce using rule 33 (NonFormatted -> PRINT LCPARENT Argument RCPARENT .)
+    ENDMARKER       reduce using rule 33 (NonFormatted -> PRINT LCPARENT Argument RCPARENT .)
+    ELSE            reduce using rule 33 (NonFormatted -> PRINT LCPARENT Argument RCPARENT .)
+    DEDENT          reduce using rule 33 (NonFormatted -> PRINT LCPARENT Argument RCPARENT .)
+
+
+state 66
+
+    (48) String -> QUOTE STRING . QUOTE
+
+    QUOTE           shift and go to state 82
+
+
+state 67
+
+    (39) Expr -> Expr SUM Expr .
+    (39) Expr -> Expr . SUM Expr
+    (40) Expr -> Expr . SUB Expr
+    (41) Expr -> Expr . MULT Expr
+    (42) Expr -> Expr . DIV Expr
+    (43) Expr -> Expr . MOD Expr
+
+    SUM             reduce using rule 39 (Expr -> Expr SUM Expr .)
+    SUB             reduce using rule 39 (Expr -> Expr SUM Expr .)
+    MOD             reduce using rule 39 (Expr -> Expr SUM Expr .)
+    NEWLINE         reduce using rule 39 (Expr -> Expr SUM Expr .)
+    ID              reduce using rule 39 (Expr -> Expr SUM Expr .)
+    IF              reduce using rule 39 (Expr -> Expr SUM Expr .)
+    PRINT           reduce using rule 39 (Expr -> Expr SUM Expr .)
+    ENDMARKER       reduce using rule 39 (Expr -> Expr SUM Expr .)
+    ELSE            reduce using rule 39 (Expr -> Expr SUM Expr .)
+    DEDENT          reduce using rule 39 (Expr -> Expr SUM Expr .)
+    GT              reduce using rule 39 (Expr -> Expr SUM Expr .)
+    LT              reduce using rule 39 (Expr -> Expr SUM Expr .)
+    GEQ             reduce using rule 39 (Expr -> Expr SUM Expr .)
+    LEQ             reduce using rule 39 (Expr -> Expr SUM Expr .)
+    EQUIV           reduce using rule 39 (Expr -> Expr SUM Expr .)
+    NEQ             reduce using rule 39 (Expr -> Expr SUM Expr .)
+    AND             reduce using rule 39 (Expr -> Expr SUM Expr .)
+    RCPARENT        reduce using rule 39 (Expr -> Expr SUM Expr .)
+    OR              reduce using rule 39 (Expr -> Expr SUM Expr .)
+    MULT            shift and go to state 51
+    DIV             shift and go to state 52
+
+  ! MULT            [ reduce using rule 39 (Expr -> Expr SUM Expr .) ]
+  ! DIV             [ reduce using rule 39 (Expr -> Expr SUM Expr .) ]
+  ! SUM             [ shift and go to state 49 ]
+  ! SUB             [ shift and go to state 50 ]
+  ! MOD             [ shift and go to state 53 ]
+
+
+state 68
+
+    (40) Expr -> Expr SUB Expr .
+    (39) Expr -> Expr . SUM Expr
+    (40) Expr -> Expr . SUB Expr
+    (41) Expr -> Expr . MULT Expr
+    (42) Expr -> Expr . DIV Expr
+    (43) Expr -> Expr . MOD Expr
+
+    SUM             reduce using rule 40 (Expr -> Expr SUB Expr .)
+    SUB             reduce using rule 40 (Expr -> Expr SUB Expr .)
+    MOD             reduce using rule 40 (Expr -> Expr SUB Expr .)
+    NEWLINE         reduce using rule 40 (Expr -> Expr SUB Expr .)
+    ID              reduce using rule 40 (Expr -> Expr SUB Expr .)
+    IF              reduce using rule 40 (Expr -> Expr SUB Expr .)
+    PRINT           reduce using rule 40 (Expr -> Expr SUB Expr .)
+    ENDMARKER       reduce using rule 40 (Expr -> Expr SUB Expr .)
+    ELSE            reduce using rule 40 (Expr -> Expr SUB Expr .)
+    DEDENT          reduce using rule 40 (Expr -> Expr SUB Expr .)
+    GT              reduce using rule 40 (Expr -> Expr SUB Expr .)
+    LT              reduce using rule 40 (Expr -> Expr SUB Expr .)
+    GEQ             reduce using rule 40 (Expr -> Expr SUB Expr .)
+    LEQ             reduce using rule 40 (Expr -> Expr SUB Expr .)
+    EQUIV           reduce using rule 40 (Expr -> Expr SUB Expr .)
+    NEQ             reduce using rule 40 (Expr -> Expr SUB Expr .)
+    AND             reduce using rule 40 (Expr -> Expr SUB Expr .)
+    RCPARENT        reduce using rule 40 (Expr -> Expr SUB Expr .)
+    OR              reduce using rule 40 (Expr -> Expr SUB Expr .)
+    MULT            shift and go to state 51
+    DIV             shift and go to state 52
+
+  ! MULT            [ reduce using rule 40 (Expr -> Expr SUB Expr .) ]
+  ! DIV             [ reduce using rule 40 (Expr -> Expr SUB Expr .) ]
+  ! SUM             [ shift and go to state 49 ]
+  ! SUB             [ shift and go to state 50 ]
+  ! MOD             [ shift and go to state 53 ]
+
+
+state 69
+
+    (41) Expr -> Expr MULT Expr .
+    (39) Expr -> Expr . SUM Expr
+    (40) Expr -> Expr . SUB Expr
+    (41) Expr -> Expr . MULT Expr
+    (42) Expr -> Expr . DIV Expr
+    (43) Expr -> Expr . MOD Expr
+
+    SUM             reduce using rule 41 (Expr -> Expr MULT Expr .)
+    SUB             reduce using rule 41 (Expr -> Expr MULT Expr .)
+    MULT            reduce using rule 41 (Expr -> Expr MULT Expr .)
+    DIV             reduce using rule 41 (Expr -> Expr MULT Expr .)
+    MOD             reduce using rule 41 (Expr -> Expr MULT Expr .)
+    NEWLINE         reduce using rule 41 (Expr -> Expr MULT Expr .)
+    ID              reduce using rule 41 (Expr -> Expr MULT Expr .)
+    IF              reduce using rule 41 (Expr -> Expr MULT Expr .)
+    PRINT           reduce using rule 41 (Expr -> Expr MULT Expr .)
+    ENDMARKER       reduce using rule 41 (Expr -> Expr MULT Expr .)
+    ELSE            reduce using rule 41 (Expr -> Expr MULT Expr .)
+    DEDENT          reduce using rule 41 (Expr -> Expr MULT Expr .)
+    GT              reduce using rule 41 (Expr -> Expr MULT Expr .)
+    LT              reduce using rule 41 (Expr -> Expr MULT Expr .)
+    GEQ             reduce using rule 41 (Expr -> Expr MULT Expr .)
+    LEQ             reduce using rule 41 (Expr -> Expr MULT Expr .)
+    EQUIV           reduce using rule 41 (Expr -> Expr MULT Expr .)
+    NEQ             reduce using rule 41 (Expr -> Expr MULT Expr .)
+    AND             reduce using rule 41 (Expr -> Expr MULT Expr .)
+    RCPARENT        reduce using rule 41 (Expr -> Expr MULT Expr .)
+    OR              reduce using rule 41 (Expr -> Expr MULT Expr .)
+
+  ! SUM             [ shift and go to state 49 ]
+  ! SUB             [ shift and go to state 50 ]
+  ! MULT            [ shift and go to state 51 ]
+  ! DIV             [ shift and go to state 52 ]
+  ! MOD             [ shift and go to state 53 ]
+
+
+state 70
+
+    (42) Expr -> Expr DIV Expr .
+    (39) Expr -> Expr . SUM Expr
+    (40) Expr -> Expr . SUB Expr
+    (41) Expr -> Expr . MULT Expr
+    (42) Expr -> Expr . DIV Expr
+    (43) Expr -> Expr . MOD Expr
+
+    SUM             reduce using rule 42 (Expr -> Expr DIV Expr .)
+    SUB             reduce using rule 42 (Expr -> Expr DIV Expr .)
+    MULT            reduce using rule 42 (Expr -> Expr DIV Expr .)
+    DIV             reduce using rule 42 (Expr -> Expr DIV Expr .)
+    MOD             reduce using rule 42 (Expr -> Expr DIV Expr .)
+    NEWLINE         reduce using rule 42 (Expr -> Expr DIV Expr .)
+    ID              reduce using rule 42 (Expr -> Expr DIV Expr .)
+    IF              reduce using rule 42 (Expr -> Expr DIV Expr .)
+    PRINT           reduce using rule 42 (Expr -> Expr DIV Expr .)
+    ENDMARKER       reduce using rule 42 (Expr -> Expr DIV Expr .)
+    ELSE            reduce using rule 42 (Expr -> Expr DIV Expr .)
+    DEDENT          reduce using rule 42 (Expr -> Expr DIV Expr .)
+    GT              reduce using rule 42 (Expr -> Expr DIV Expr .)
+    LT              reduce using rule 42 (Expr -> Expr DIV Expr .)
+    GEQ             reduce using rule 42 (Expr -> Expr DIV Expr .)
+    LEQ             reduce using rule 42 (Expr -> Expr DIV Expr .)
+    EQUIV           reduce using rule 42 (Expr -> Expr DIV Expr .)
+    NEQ             reduce using rule 42 (Expr -> Expr DIV Expr .)
+    AND             reduce using rule 42 (Expr -> Expr DIV Expr .)
+    RCPARENT        reduce using rule 42 (Expr -> Expr DIV Expr .)
+    OR              reduce using rule 42 (Expr -> Expr DIV Expr .)
+
+  ! SUM             [ shift and go to state 49 ]
+  ! SUB             [ shift and go to state 50 ]
+  ! MULT            [ shift and go to state 51 ]
+  ! DIV             [ shift and go to state 52 ]
+  ! MOD             [ shift and go to state 53 ]
+
+
+state 71
+
+    (43) Expr -> Expr MOD Expr .
+    (39) Expr -> Expr . SUM Expr
+    (40) Expr -> Expr . SUB Expr
+    (41) Expr -> Expr . MULT Expr
+    (42) Expr -> Expr . DIV Expr
+    (43) Expr -> Expr . MOD Expr
 
   ! shift/reduce conflict for SUM resolved as shift
   ! shift/reduce conflict for SUB resolved as shift
   ! shift/reduce conflict for MULT resolved as shift
   ! shift/reduce conflict for DIV resolved as shift
   ! shift/reduce conflict for MOD resolved as shift
-    RCPARENT        reduce using rule 20 (Expr -> Expr MOD Expr .)
-    SUM             shift and go to state 34
-    SUB             shift and go to state 35
-    MULT            shift and go to state 36
-    DIV             shift and go to state 37
-    MOD             shift and go to state 38
+    NEWLINE         reduce using rule 43 (Expr -> Expr MOD Expr .)
+    ID              reduce using rule 43 (Expr -> Expr MOD Expr .)
+    IF              reduce using rule 43 (Expr -> Expr MOD Expr .)
+    PRINT           reduce using rule 43 (Expr -> Expr MOD Expr .)
+    ENDMARKER       reduce using rule 43 (Expr -> Expr MOD Expr .)
+    ELSE            reduce using rule 43 (Expr -> Expr MOD Expr .)
+    DEDENT          reduce using rule 43 (Expr -> Expr MOD Expr .)
+    GT              reduce using rule 43 (Expr -> Expr MOD Expr .)
+    LT              reduce using rule 43 (Expr -> Expr MOD Expr .)
+    GEQ             reduce using rule 43 (Expr -> Expr MOD Expr .)
+    LEQ             reduce using rule 43 (Expr -> Expr MOD Expr .)
+    EQUIV           reduce using rule 43 (Expr -> Expr MOD Expr .)
+    NEQ             reduce using rule 43 (Expr -> Expr MOD Expr .)
+    AND             reduce using rule 43 (Expr -> Expr MOD Expr .)
+    RCPARENT        reduce using rule 43 (Expr -> Expr MOD Expr .)
+    OR              reduce using rule 43 (Expr -> Expr MOD Expr .)
+    SUM             shift and go to state 49
+    SUB             shift and go to state 50
+    MULT            shift and go to state 51
+    DIV             shift and go to state 52
+    MOD             shift and go to state 53
 
-  ! SUM             [ reduce using rule 20 (Expr -> Expr MOD Expr .) ]
-  ! SUB             [ reduce using rule 20 (Expr -> Expr MOD Expr .) ]
-  ! MULT            [ reduce using rule 20 (Expr -> Expr MOD Expr .) ]
-  ! DIV             [ reduce using rule 20 (Expr -> Expr MOD Expr .) ]
-  ! MOD             [ reduce using rule 20 (Expr -> Expr MOD Expr .) ]
+  ! SUM             [ reduce using rule 43 (Expr -> Expr MOD Expr .) ]
+  ! SUB             [ reduce using rule 43 (Expr -> Expr MOD Expr .) ]
+  ! MULT            [ reduce using rule 43 (Expr -> Expr MOD Expr .) ]
+  ! DIV             [ reduce using rule 43 (Expr -> Expr MOD Expr .) ]
+  ! MOD             [ reduce using rule 43 (Expr -> Expr MOD Expr .) ]
 
 
-state 50
+state 72
 
-    (30) String -> QUOTE STRING QUOTE .
+    (47) Input -> INPUT LCPARENT String . RCPARENT
 
-    RCPARENT        reduce using rule 30 (String -> QUOTE STRING QUOTE .)
-
-
-state 51
-
-    (13) Input -> INPUT LCPARENT String . RCPARENT
-
-    RCPARENT        shift and go to state 52
+    RCPARENT        shift and go to state 83
 
 
-state 52
+state 73
 
-    (13) Input -> INPUT LCPARENT String RCPARENT .
+    (17) If -> IF LCPARENT Cond RCPARENT COLON . Newline INDENT Corpo Dedent
+    (18) If -> IF LCPARENT Cond RCPARENT COLON . Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+    (7) Newline -> .
+    (8) Newline -> . NEWLINE
 
-    NEWLINE         reduce using rule 13 (Input -> INPUT LCPARENT String RCPARENT .)
-    INTDec          reduce using rule 13 (Input -> INPUT LCPARENT String RCPARENT .)
-    PRINT           reduce using rule 13 (Input -> INPUT LCPARENT String RCPARENT .)
+    INDENT          reduce using rule 7 (Newline -> .)
+    NEWLINE         shift and go to state 11
+
+    Newline                        shift and go to state 84
+
+state 74
+
+    (27) Cond -> Cond OR Cond .
+    (27) Cond -> Cond . OR Cond
+
+  ! shift/reduce conflict for OR resolved as shift
+    RCPARENT        reduce using rule 27 (Cond -> Cond OR Cond .)
+    OR              shift and go to state 56
+
+  ! OR              [ reduce using rule 27 (Cond -> Cond OR Cond .) ]
+
+
+state 75
+
+    (21) Cond -> Expr GT Expr .
+    (39) Expr -> Expr . SUM Expr
+    (40) Expr -> Expr . SUB Expr
+    (41) Expr -> Expr . MULT Expr
+    (42) Expr -> Expr . DIV Expr
+    (43) Expr -> Expr . MOD Expr
+
+    RCPARENT        reduce using rule 21 (Cond -> Expr GT Expr .)
+    OR              reduce using rule 21 (Cond -> Expr GT Expr .)
+    SUM             shift and go to state 49
+    SUB             shift and go to state 50
+    MULT            shift and go to state 51
+    DIV             shift and go to state 52
+    MOD             shift and go to state 53
+
+
+state 76
+
+    (22) Cond -> Expr LT Expr .
+    (39) Expr -> Expr . SUM Expr
+    (40) Expr -> Expr . SUB Expr
+    (41) Expr -> Expr . MULT Expr
+    (42) Expr -> Expr . DIV Expr
+    (43) Expr -> Expr . MOD Expr
+
+    RCPARENT        reduce using rule 22 (Cond -> Expr LT Expr .)
+    OR              reduce using rule 22 (Cond -> Expr LT Expr .)
+    SUM             shift and go to state 49
+    SUB             shift and go to state 50
+    MULT            shift and go to state 51
+    DIV             shift and go to state 52
+    MOD             shift and go to state 53
+
+
+state 77
+
+    (23) Cond -> Expr GEQ Expr .
+    (39) Expr -> Expr . SUM Expr
+    (40) Expr -> Expr . SUB Expr
+    (41) Expr -> Expr . MULT Expr
+    (42) Expr -> Expr . DIV Expr
+    (43) Expr -> Expr . MOD Expr
+
+    RCPARENT        reduce using rule 23 (Cond -> Expr GEQ Expr .)
+    OR              reduce using rule 23 (Cond -> Expr GEQ Expr .)
+    SUM             shift and go to state 49
+    SUB             shift and go to state 50
+    MULT            shift and go to state 51
+    DIV             shift and go to state 52
+    MOD             shift and go to state 53
+
+
+state 78
+
+    (24) Cond -> Expr LEQ Expr .
+    (39) Expr -> Expr . SUM Expr
+    (40) Expr -> Expr . SUB Expr
+    (41) Expr -> Expr . MULT Expr
+    (42) Expr -> Expr . DIV Expr
+    (43) Expr -> Expr . MOD Expr
+
+    RCPARENT        reduce using rule 24 (Cond -> Expr LEQ Expr .)
+    OR              reduce using rule 24 (Cond -> Expr LEQ Expr .)
+    SUM             shift and go to state 49
+    SUB             shift and go to state 50
+    MULT            shift and go to state 51
+    DIV             shift and go to state 52
+    MOD             shift and go to state 53
+
+
+state 79
+
+    (25) Cond -> Expr EQUIV Expr .
+    (39) Expr -> Expr . SUM Expr
+    (40) Expr -> Expr . SUB Expr
+    (41) Expr -> Expr . MULT Expr
+    (42) Expr -> Expr . DIV Expr
+    (43) Expr -> Expr . MOD Expr
+
+    RCPARENT        reduce using rule 25 (Cond -> Expr EQUIV Expr .)
+    OR              reduce using rule 25 (Cond -> Expr EQUIV Expr .)
+    SUM             shift and go to state 49
+    SUB             shift and go to state 50
+    MULT            shift and go to state 51
+    DIV             shift and go to state 52
+    MOD             shift and go to state 53
+
+
+state 80
+
+    (26) Cond -> Expr NEQ Expr .
+    (39) Expr -> Expr . SUM Expr
+    (40) Expr -> Expr . SUB Expr
+    (41) Expr -> Expr . MULT Expr
+    (42) Expr -> Expr . DIV Expr
+    (43) Expr -> Expr . MOD Expr
+
+    RCPARENT        reduce using rule 26 (Cond -> Expr NEQ Expr .)
+    OR              reduce using rule 26 (Cond -> Expr NEQ Expr .)
+    SUM             shift and go to state 49
+    SUB             shift and go to state 50
+    MULT            shift and go to state 51
+    DIV             shift and go to state 52
+    MOD             shift and go to state 53
+
+
+state 81
+
+    (28) Cond -> Expr AND Expr .
+    (39) Expr -> Expr . SUM Expr
+    (40) Expr -> Expr . SUB Expr
+    (41) Expr -> Expr . MULT Expr
+    (42) Expr -> Expr . DIV Expr
+    (43) Expr -> Expr . MOD Expr
+
+    RCPARENT        reduce using rule 28 (Cond -> Expr AND Expr .)
+    OR              reduce using rule 28 (Cond -> Expr AND Expr .)
+    SUM             shift and go to state 49
+    SUB             shift and go to state 50
+    MULT            shift and go to state 51
+    DIV             shift and go to state 52
+    MOD             shift and go to state 53
+
+
+state 82
+
+    (48) String -> QUOTE STRING QUOTE .
+
+    RCPARENT        reduce using rule 48 (String -> QUOTE STRING QUOTE .)
+
+
+state 83
+
+    (47) Input -> INPUT LCPARENT String RCPARENT .
+
+    NEWLINE         reduce using rule 47 (Input -> INPUT LCPARENT String RCPARENT .)
+    ID              reduce using rule 47 (Input -> INPUT LCPARENT String RCPARENT .)
+    IF              reduce using rule 47 (Input -> INPUT LCPARENT String RCPARENT .)
+    PRINT           reduce using rule 47 (Input -> INPUT LCPARENT String RCPARENT .)
+    ENDMARKER       reduce using rule 47 (Input -> INPUT LCPARENT String RCPARENT .)
+    ELSE            reduce using rule 47 (Input -> INPUT LCPARENT String RCPARENT .)
+    DEDENT          reduce using rule 47 (Input -> INPUT LCPARENT String RCPARENT .)
+    INTDec          reduce using rule 47 (Input -> INPUT LCPARENT String RCPARENT .)
+
+
+state 84
+
+    (17) If -> IF LCPARENT Cond RCPARENT COLON Newline . INDENT Corpo Dedent
+    (18) If -> IF LCPARENT Cond RCPARENT COLON Newline . INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+
+    INDENT          shift and go to state 85
+
+
+state 85
+
+    (17) If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT . Corpo Dedent
+    (18) If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT . Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+    (4) Corpo -> . Proc Newline
+    (5) Corpo -> . Corpo Proc Newline
+    (6) Corpo -> . Newline
+    (14) Proc -> . Atrib
+    (15) Proc -> . Print
+    (16) Proc -> . If
+    (7) Newline -> .
+    (8) Newline -> . NEWLINE
+    (30) Atrib -> . ID ATRIB Expr
+    (31) Atrib -> . ID ATRIB Input
+    (32) Print -> . NonFormatted
+    (17) If -> . IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
+    (18) If -> . IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+    (33) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
+
+  ! shift/reduce conflict for NEWLINE resolved as shift
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for PRINT resolved as shift
+    ELSE            reduce using rule 7 (Newline -> .)
+    DEDENT          reduce using rule 7 (Newline -> .)
+    ENDMARKER       reduce using rule 7 (Newline -> .)
+    NEWLINE         shift and go to state 11
+    ID              shift and go to state 13
+    IF              shift and go to state 15
+    PRINT           shift and go to state 16
+
+  ! ID              [ reduce using rule 7 (Newline -> .) ]
+  ! IF              [ reduce using rule 7 (Newline -> .) ]
+  ! PRINT           [ reduce using rule 7 (Newline -> .) ]
+  ! NEWLINE         [ reduce using rule 7 (Newline -> .) ]
+
+    Newline                        shift and go to state 6
+    Corpo                          shift and go to state 86
+    Proc                           shift and go to state 5
+    Atrib                          shift and go to state 8
+    Print                          shift and go to state 9
+    If                             shift and go to state 10
+    NonFormatted                   shift and go to state 14
+
+state 86
+
+    (17) If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo . Dedent
+    (18) If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo . Dedent ELSE COLON Newline INDENT Corpo DEDENT
+    (5) Corpo -> Corpo . Proc Newline
+    (19) Dedent -> . Dedent DEDENT
+    (20) Dedent -> .
+    (14) Proc -> . Atrib
+    (15) Proc -> . Print
+    (16) Proc -> . If
+    (30) Atrib -> . ID ATRIB Expr
+    (31) Atrib -> . ID ATRIB Input
+    (32) Print -> . NonFormatted
+    (17) If -> . IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
+    (18) If -> . IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+    (33) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
+
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for PRINT resolved as shift
+    ELSE            reduce using rule 20 (Dedent -> .)
+    DEDENT          reduce using rule 20 (Dedent -> .)
+    NEWLINE         reduce using rule 20 (Dedent -> .)
+    ENDMARKER       reduce using rule 20 (Dedent -> .)
+    ID              shift and go to state 13
+    IF              shift and go to state 15
+    PRINT           shift and go to state 16
+
+  ! ID              [ reduce using rule 20 (Dedent -> .) ]
+  ! IF              [ reduce using rule 20 (Dedent -> .) ]
+  ! PRINT           [ reduce using rule 20 (Dedent -> .) ]
+
+    Dedent                         shift and go to state 87
+    Proc                           shift and go to state 18
+    Atrib                          shift and go to state 8
+    Print                          shift and go to state 9
+    If                             shift and go to state 10
+    NonFormatted                   shift and go to state 14
+
+state 87
+
+    (17) If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent .
+    (18) If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent . ELSE COLON Newline INDENT Corpo DEDENT
+    (19) Dedent -> Dedent . DEDENT
+
+  ! shift/reduce conflict for ELSE resolved as shift
+  ! shift/reduce conflict for DEDENT resolved as shift
+    NEWLINE         reduce using rule 17 (If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent .)
+    ID              reduce using rule 17 (If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent .)
+    IF              reduce using rule 17 (If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent .)
+    PRINT           reduce using rule 17 (If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent .)
+    ENDMARKER       reduce using rule 17 (If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent .)
+    ELSE            shift and go to state 88
+    DEDENT          shift and go to state 89
+
+  ! ELSE            [ reduce using rule 17 (If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent .) ]
+  ! DEDENT          [ reduce using rule 17 (If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent .) ]
+
+
+state 88
+
+    (18) If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE . COLON Newline INDENT Corpo DEDENT
+
+    COLON           shift and go to state 90
+
+
+state 89
+
+    (19) Dedent -> Dedent DEDENT .
+
+    ELSE            reduce using rule 19 (Dedent -> Dedent DEDENT .)
+    DEDENT          reduce using rule 19 (Dedent -> Dedent DEDENT .)
+    NEWLINE         reduce using rule 19 (Dedent -> Dedent DEDENT .)
+    ID              reduce using rule 19 (Dedent -> Dedent DEDENT .)
+    IF              reduce using rule 19 (Dedent -> Dedent DEDENT .)
+    PRINT           reduce using rule 19 (Dedent -> Dedent DEDENT .)
+    ENDMARKER       reduce using rule 19 (Dedent -> Dedent DEDENT .)
+
+
+state 90
+
+    (18) If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON . Newline INDENT Corpo DEDENT
+    (7) Newline -> .
+    (8) Newline -> . NEWLINE
+
+    INDENT          reduce using rule 7 (Newline -> .)
+    NEWLINE         shift and go to state 11
+
+    Newline                        shift and go to state 91
+
+state 91
+
+    (18) If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline . INDENT Corpo DEDENT
+
+    INDENT          shift and go to state 92
+
+
+state 92
+
+    (18) If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT . Corpo DEDENT
+    (4) Corpo -> . Proc Newline
+    (5) Corpo -> . Corpo Proc Newline
+    (6) Corpo -> . Newline
+    (14) Proc -> . Atrib
+    (15) Proc -> . Print
+    (16) Proc -> . If
+    (7) Newline -> .
+    (8) Newline -> . NEWLINE
+    (30) Atrib -> . ID ATRIB Expr
+    (31) Atrib -> . ID ATRIB Input
+    (32) Print -> . NonFormatted
+    (17) If -> . IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
+    (18) If -> . IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+    (33) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
+
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for PRINT resolved as shift
+    DEDENT          reduce using rule 7 (Newline -> .)
+    NEWLINE         shift and go to state 11
+    ID              shift and go to state 13
+    IF              shift and go to state 15
+    PRINT           shift and go to state 16
+
+  ! ID              [ reduce using rule 7 (Newline -> .) ]
+  ! IF              [ reduce using rule 7 (Newline -> .) ]
+  ! PRINT           [ reduce using rule 7 (Newline -> .) ]
+
+    Newline                        shift and go to state 6
+    Corpo                          shift and go to state 93
+    Proc                           shift and go to state 5
+    Atrib                          shift and go to state 8
+    Print                          shift and go to state 9
+    If                             shift and go to state 10
+    NonFormatted                   shift and go to state 14
+
+state 93
+
+    (18) If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo . DEDENT
+    (5) Corpo -> Corpo . Proc Newline
+    (14) Proc -> . Atrib
+    (15) Proc -> . Print
+    (16) Proc -> . If
+    (30) Atrib -> . ID ATRIB Expr
+    (31) Atrib -> . ID ATRIB Input
+    (32) Print -> . NonFormatted
+    (17) If -> . IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
+    (18) If -> . IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+    (33) NonFormatted -> . PRINT LCPARENT Argument RCPARENT
+
+    DEDENT          shift and go to state 94
+    ID              shift and go to state 13
+    IF              shift and go to state 15
+    PRINT           shift and go to state 16
+
+    Proc                           shift and go to state 18
+    Atrib                          shift and go to state 8
+    Print                          shift and go to state 9
+    If                             shift and go to state 10
+    NonFormatted                   shift and go to state 14
+
+state 94
+
+    (18) If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT .
+
+    NEWLINE         reduce using rule 18 (If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT .)
+    ID              reduce using rule 18 (If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT .)
+    IF              reduce using rule 18 (If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT .)
+    PRINT           reduce using rule 18 (If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT .)
+    ENDMARKER       reduce using rule 18 (If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT .)
+    ELSE            reduce using rule 18 (If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT .)
+    DEDENT          reduce using rule 18 (If -> IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT .)
 
 WARNING: 
 WARNING: Conflicts:
 WARNING: 
-WARNING: shift/reduce conflict for SUM in state 49 resolved as shift
-WARNING: shift/reduce conflict for SUB in state 49 resolved as shift
-WARNING: shift/reduce conflict for MULT in state 49 resolved as shift
-WARNING: shift/reduce conflict for DIV in state 49 resolved as shift
-WARNING: shift/reduce conflict for MOD in state 49 resolved as shift
-WARNING: reduce/reduce conflict in state 25 resolved using rule (Expr -> Var)
-WARNING: rejected rule (Argument -> Var) in state 25
-WARNING: Rule (Argument -> Var) is never reduced
+WARNING: shift/reduce conflict for ID in state 0 resolved as shift
+WARNING: shift/reduce conflict for IF in state 0 resolved as shift
+WARNING: shift/reduce conflict for PRINT in state 0 resolved as shift
+WARNING: shift/reduce conflict for ID in state 4 resolved as shift
+WARNING: shift/reduce conflict for IF in state 4 resolved as shift
+WARNING: shift/reduce conflict for PRINT in state 4 resolved as shift
+WARNING: shift/reduce conflict for NEWLINE in state 5 resolved as shift
+WARNING: shift/reduce conflict for NEWLINE in state 7 resolved as shift
+WARNING: shift/reduce conflict for NEWLINE in state 18 resolved as shift
+WARNING: shift/reduce conflict for NEWLINE in state 20 resolved as shift
+WARNING: shift/reduce conflict for OR in state 64 resolved as shift
+WARNING: shift/reduce conflict for SUM in state 71 resolved as shift
+WARNING: shift/reduce conflict for SUB in state 71 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 71 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 71 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 71 resolved as shift
+WARNING: shift/reduce conflict for OR in state 74 resolved as shift
+WARNING: shift/reduce conflict for NEWLINE in state 85 resolved as shift
+WARNING: shift/reduce conflict for ID in state 85 resolved as shift
+WARNING: shift/reduce conflict for IF in state 85 resolved as shift
+WARNING: shift/reduce conflict for PRINT in state 85 resolved as shift
+WARNING: shift/reduce conflict for ID in state 86 resolved as shift
+WARNING: shift/reduce conflict for IF in state 86 resolved as shift
+WARNING: shift/reduce conflict for PRINT in state 86 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 87 resolved as shift
+WARNING: shift/reduce conflict for DEDENT in state 87 resolved as shift
+WARNING: shift/reduce conflict for ID in state 92 resolved as shift
+WARNING: shift/reduce conflict for IF in state 92 resolved as shift
+WARNING: shift/reduce conflict for PRINT in state 92 resolved as shift
+WARNING: reduce/reduce conflict in state 41 resolved using rule (Argument -> Var)
+WARNING: rejected rule (Expr -> Var) in state 41

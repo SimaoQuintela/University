@@ -66,16 +66,28 @@ Proc     : Atrib
          | Cycle
 Print    : NonFormatted
          | Formatted (not implemented)
-
 NonFormatted : PRINT LCPARENT QUOTE Argument QUOTE RCPARENT
 Formatted : ....
 Argument : String
          | Expr
 
-Atrib    : UpdateVar
-         | Input
-         | Expr
+
+If       : IF LCPARENT cond RCPARENT COLON INDENT Corpo Dedent
+         | IF LCPARENT cond RCPARENT COLON INDENT Corpo Dedent ELSE COLON INDENT Corpo DEDENT
+
+Atrib    : ID ATRIB Expr
+         | ID ATRIB Input
          | ....
+
+Cond     : Expr GT Expr 
+         | Expr LT Expr
+         | Expr GEQ Expr
+         | Expr LEQ Expr
+         | Expr EQUIV Expr
+         | Expr NEQ Expr
+         | Cond OR Cond
+         | Cond AND Cond
+         | NOT Cond
 
 Expr     : Var                .
          | NUM                .
@@ -88,7 +100,6 @@ Expr     : Var                .
          | Expr DIV Expr      .
          | Expr MUL Expr      .
          | Expr MOD Expr      .
-
 
 Var      : ID
 Input    : INPUT LCPARENT String RCPARENT
