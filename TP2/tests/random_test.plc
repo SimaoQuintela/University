@@ -1,21 +1,13 @@
-int x = 10
-int y
-int z = 20
+int i
 
-if (not x == 10 or not z == 20):
-    y = 10
-    print("If clause\n")
-    print(y)
-else:
-    z = 30
-    print("Else clause\n")
-    print(z)
+do:
+    print("Iteracao numero: ")
+    print(i)
+    i = i+1
+while(not i <= 10)
 
 
-
-print("Passei o if\n")
-
-
+print("Sai do do while")
 
 
 

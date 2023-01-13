@@ -37,6 +37,14 @@ def p_Newline(p):
     "Newline : NEWLINE"
     p[0] = ''
 
+# ---------------- Indentation ----------------
+def p_Dedent_Rec(p):
+    "Dedent : Dedent DEDENT"
+    p[0] = f'{p[0]}{p[1]}'
+
+def p_Dedent_Empty(p):
+    "Dedent : "
+    p[0] = ''
 
 # ---------------- Declarations ----------------
 def p_Decls(p):
@@ -93,6 +101,10 @@ def p_Proc_If(p):
     "Proc : If"
     p[0] = f'{p[1]}'
 
+def p_DoWhile(p):
+    "Proc : DoWhile"
+    p[0] = f'{p[1]}'
+
 
 # ---------------- If Else - Flux Control ----------------
 def p_If(p):
@@ -102,16 +114,13 @@ def p_If(p):
 
 def p_If_Else(p):
     "If : IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT"
-    p[0] = f'{p[3]}JZ l{p.parser.labels}\n{p[8]}JUMP l{p.parser.labels}f\nl{p.parser.labels}: NOP\n{p[14]}l{p.parser.labels}f: NOP\n'
+    p[0] = f'{p[3]}JZ label{p.parser.labels}\n{p[8]}JUMP label{p.parser.labels}f\nlabel{p.parser.labels}: NOP\n{p[14]}label{p.parser.labels}f: NOP\n'
 
-# ---------------- Indentation ----------------
-def p_Dedent_Rec(p):
-    "Dedent : Dedent DEDENT"
-    p[0] = f'{p[0]}{p[1]}'
 
-def p_Dedent_Empty(p):
-    "Dedent : "
-    p[0] = ''
+# ---------------- Cycles - Flux Control ----------------
+def p_Do_While(p):
+    "DoWhile : DO COLON Newline INDENT Corpo Dedent WHILE LCPARENT Cond RCPARENT NEWLINE"
+    p[0] = f'label{p.parser.labels}:\n{p[5]}{p[9]}NOT\nJZ label{p.parser.labels}\n'
 
 # ---------------- Conditions ----------------
 def p_Cond_GT(p):
