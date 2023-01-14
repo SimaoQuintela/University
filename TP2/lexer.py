@@ -20,6 +20,8 @@ tokens = (
     'RCPARENT',
     'LSQBRACKET', # left square bracket
     'RSQBRACKET', # right square bracket
+    'LCURLBRACKET',
+    'RCURLBRACKET',
     'AND',
     'OR',
     'SUM',
@@ -45,6 +47,13 @@ tokens = (
 
 literals = [',']
 
+def t_LCURLBRACKET(t):
+    r'\{'
+    return t
+
+def t_RCURLBRACKET(t):
+    r'\}'
+    return t
 
 def t_NOT(t):
     r'not'
