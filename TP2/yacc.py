@@ -1,6 +1,7 @@
 from lexer import tokens, lexer, IndentLexer
 import ast
 import ply.yacc as yacc
+import re
 
 # ---------------- Programa ----------------
 def p_Programa_Init(p):
@@ -13,6 +14,14 @@ def p_Programa(p):
 
 def p_Programa_Decls(p):
     "Programa : Decls Corpo"
+    p[0] = f'{p[1]}START\n{p[2]}STOP'
+
+def p_SubPrograma(p):
+    "SubPrograma : Corpo"
+    p[0] = f'START\n{p[1]}STOP'
+
+def p_SubPrograma_Decls(p):
+    "SubPrograma : Decls Corpo"
     p[0] = f'{p[1]}START\n{p[2]}STOP'
 
 # ---------------- Corpo ----------------
@@ -88,6 +97,22 @@ def p_Decl_Int_Input(p):
         print("Erro variável já inicializada")
         parser.success = False
 
+def p_DEF(p):
+    "Decl : Def"
+    p[0] = f'{p[1]}'
+
+def p_Def(p):
+    "Def : DEF ID COLON Newline INDENT Corpo DEDENT"
+    name = f'function{len(p.parser.functions)}'
+    p[0] = f'JUMP {name}Ignore\n{name}:\n{p[6]}RETURN\n{name}Ignore:\n\n'
+    p.parser.functions[p[2]+"()"] = name
+
+def p_Def_Decls(p):
+    "Def : DEF ID COLON Newline INDENT Decls Corpo DEDENT"
+    name = f'function{len(p.parser.functions)}'
+    p[0] = f'JUMP {name}Ignore\n{name}:\n{p[6]}{p[7]}RETURN\n{name}Ignore:\n\n'
+    p.parser.functions[p[2]+"()"] = name
+
 # ---------------- Procedures ----------------
 def p_Proc_Atrib(p):
     "Proc : Atrib"
@@ -105,6 +130,13 @@ def p_DoWhile(p):
     "Proc : DoWhile"
     p[0] = f'{p[1]}'
 
+def p_Proc_Call(p):
+    "Proc : Call"
+    p[0] = f'{p[1]}'
+
+def p_Call(p):
+    "Call : CALL"
+    p[0] = f'PUSHA {p.parser.functions[p[1]]}\nCALL\n'
 
 # ---------------- If Else - Flux Control ----------------
 def p_If(p):
@@ -294,6 +326,7 @@ parser.assembly = ""
 parser.gp = 0
 parser.ints = []
 parser.labels = 0
+parser.functions = {}
 
 with open("tests/random_test.plc") as f:
     content = f.read()

@@ -3,6 +3,8 @@ import sys
 
 tokens = (
     'INTDec',
+    'DEF',
+    'CALL',
     'NUM',
     'ID',
     'ATRIB',
@@ -45,6 +47,21 @@ tokens = (
 
 literals = [',']
 
+def t_INPUT(t):
+    r'input'
+    return t
+
+def t_PRINT(t):
+    r'print'
+    return t
+
+def t_DEF(t):
+    r'def(?=[ ])'
+    return t
+
+def t_CALL(t):
+    r'\w+\(\)'
+    return t
 
 def t_NOT(t):
     r'not'
@@ -79,14 +96,6 @@ def t_QUOTE(t):
 # returns the content inside quotes
 def t_STRING(t):
     r'(?<=\")[A-Za-z0-9\, \?\-\:\\]*(?=\")'
-    return t
-
-def t_INPUT(t):
-    r'input'
-    return t
-
-def t_PRINT(t):
-    r'print'
     return t
 
 def t_MOD(t):

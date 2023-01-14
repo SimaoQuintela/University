@@ -1,13 +1,7 @@
-int i
+def function:
+    int y = 5
+    print("defc")
 
-do:
-    print("Iteracao numero: ")
-    print(i)
-    i = i+1
-while(not i <= 10)
-
-
-print("Sai do do while")
-
-
-
+int x = input()
+print(x)
+function()

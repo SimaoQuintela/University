@@ -1,22 +1,20 @@
-PUSHI 0
+JUMP function0Ignore
+function0:
+PUSHI 5
 START
-label0:
-PUSHS "Iteracao numero: "
+PUSHS "defc"
 WRITES
-PUSHG 0
+STOPRETURN
+function0Ignore:
+
+READ
+ATOI
+STOREG 1
+START
+PUSHG 1
 WRITEI
 PUSHS "\n"
 WRITES
-PUSHG 0
-PUSHI 1
-ADD
-STOREG 0
-PUSHG 0
-PUSHI 10
-INFEQ
-NOT
-NOT
-JZ label0
-PUSHS "Sai do do while"
-WRITES
+PUSHA function0
+CALL
 STOP
