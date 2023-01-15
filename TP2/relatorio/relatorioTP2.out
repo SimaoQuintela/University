@@ -1,33 +1,22 @@
 \BOOKMARK [0][-]{chapter.1}{Introdu\347\343o}{}% 1
-\BOOKMARK [0][-]{chapter.2}{Explica\347\343o da nossa linguagem}{}% 2
-\BOOKMARK [1][-]{section.2.1}{Declara\347\343o de vari\341veis}{chapter.2}% 3
-\BOOKMARK [1][-]{section.2.2}{Operadores de compara\347\343o}{chapter.2}% 4
-\BOOKMARK [1][-]{section.2.3}{Opera\347\365es num\351ricas}{chapter.2}% 5
-\BOOKMARK [1][-]{section.2.4}{Operadores l\363gicos}{chapter.2}% 6
-\BOOKMARK [1][-]{section.2.5}{Instru\347\365es condicionais}{chapter.2}% 7
-\BOOKMARK [1][-]{section.2.6}{Ciclo do-while}{chapter.2}% 8
-\BOOKMARK [1][-]{section.2.7}{Input/Output}{chapter.2}% 9
-\BOOKMARK [1][-]{section.2.8}{Coment\341rio}{chapter.2}% 10
-\BOOKMARK [0][-]{chapter.3}{Resolu\347\343o}{}% 11
-\BOOKMARK [1][-]{section.3.1}{Gram\341tica}{chapter.3}% 12
-\BOOKMARK [1][-]{section.3.2}{M\363dulo Lexer}{chapter.3}% 13
-\BOOKMARK [2][-]{subsection.3.2.1}{Tokens}{section.3.2}% 14
-\BOOKMARK [2][-]{subsection.3.2.2}{Express\365es regulares que caracterizam os tokens}{section.3.2}% 15
-\BOOKMARK [2][-]{subsection.3.2.3}{Indenta\347\343o}{section.3.2}% 16
-\BOOKMARK [1][-]{section.3.3}{M\363dulo Yacc}{chapter.3}% 17
-\BOOKMARK [2][-]{subsection.3.3.1}{Programa}{section.3.3}% 18
-\BOOKMARK [2][-]{subsection.3.3.2}{Corpo}{section.3.3}% 19
-\BOOKMARK [2][-]{subsection.3.3.3}{Newline}{section.3.3}% 20
-\BOOKMARK [2][-]{subsection.3.3.4}{Declara\347\365es}{section.3.3}% 21
-\BOOKMARK [2][-]{subsection.3.3.5}{Procedimentos}{section.3.3}% 22
-\BOOKMARK [2][-]{subsection.3.3.6}{If-Else}{section.3.3}% 23
-\BOOKMARK [2][-]{subsection.3.3.7}{Indenta\347\343o}{section.3.3}% 24
-\BOOKMARK [2][-]{subsection.3.3.8}{Operadores de compara\347\343o e operadores l\363gicos}{section.3.3}% 25
-\BOOKMARK [2][-]{subsection.3.3.9}{Atribui\347\365es}{section.3.3}% 26
-\BOOKMARK [2][-]{subsection.3.3.10}{Print}{section.3.3}% 27
-\BOOKMARK [2][-]{subsection.3.3.11}{Operadores aritm\351ticos}{section.3.3}% 28
-\BOOKMARK [2][-]{subsection.3.3.12}{Input}{section.3.3}% 29
-\BOOKMARK [2][-]{subsection.3.3.13}{Strings}{section.3.3}% 30
-\BOOKMARK [2][-]{subsection.3.3.14}{Erros}{section.3.3}% 31
-\BOOKMARK [0][-]{chapter.4}{Exemplos de funcionamento}{}% 32
-\BOOKMARK [0][-]{chapter.5}{Conclus\343o}{}% 33
+\BOOKMARK [0][-]{chapter.2}{Enunciado}{}% 2
+\BOOKMARK [0][-]{chapter.3}{Concep\347\343o da Solu\347\343o}{}% 3
+\BOOKMARK [1][-]{section.3.1}{Sintaxe da Linguagem PLC}{chapter.3}% 4
+\BOOKMARK [2][-]{subsection.3.1.1}{Declara\347\343o de vari\341veis}{section.3.1}% 5
+\BOOKMARK [2][-]{subsection.3.1.2}{Operadores de compara\347\343o}{section.3.1}% 6
+\BOOKMARK [2][-]{subsection.3.1.3}{Opera\347\365es num\351ricas}{section.3.1}% 7
+\BOOKMARK [2][-]{subsection.3.1.4}{Operadores l\363gicos}{section.3.1}% 8
+\BOOKMARK [2][-]{subsection.3.1.5}{Instru\347\365es condicionais}{section.3.1}% 9
+\BOOKMARK [2][-]{subsection.3.1.6}{Ciclo while}{section.3.1}% 10
+\BOOKMARK [2][-]{subsection.3.1.7}{Ciclo do-while}{section.3.1}% 11
+\BOOKMARK [2][-]{subsection.3.1.8}{Input/Output}{section.3.1}% 12
+\BOOKMARK [2][-]{subsection.3.1.9}{Coment\341rio}{section.3.1}% 13
+\BOOKMARK [1][-]{section.3.2}{S\355mbolos}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.3}{Desenho da GIC}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.4}{Extras}{chapter.3}% 16
+\BOOKMARK [2][-]{subsection.3.4.1}{Coment\341rios}{section.3.4}% 17
+\BOOKMARK [2][-]{subsection.3.4.2}{Erros}{section.3.4}% 18
+\BOOKMARK [2][-]{subsection.3.4.3}{Ordem de opera\347\365es\(simples\)}{section.3.4}% 19
+\BOOKMARK [2][-]{subsection.3.4.4}{Indenta\347\343o}{section.3.4}% 20
+\BOOKMARK [0][-]{chapter.4}{Exemplos de funcionamento}{}% 21
+\BOOKMARK [0][-]{chapter.5}{Conclus\343o}{}% 22
