@@ -17,7 +17,6 @@ tokens = (
     'NOT',
     'IF',
     'ELSE',
-    'ELIF',
     'LCPARENT',
     'RCPARENT',
     'LSQBRACKET', # left square bracket
