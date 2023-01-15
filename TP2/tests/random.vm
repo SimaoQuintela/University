@@ -1,0 +1,23 @@
+JUMP function0Ignore
+function0:
+PUSHS "teste\n"
+WRITES
+RETURN
+function0Ignore:
+
+JUMP function1Ignore
+function1:
+PUSHI 5
+PUSHG 0
+WRITEI
+WRITELN
+RETURN
+function1Ignore:
+
+
+START
+PUSHA function0
+CALL
+PUSHA function1
+CALL
+STOP

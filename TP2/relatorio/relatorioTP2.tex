@@ -84,6 +84,7 @@
 
 
     \chapter{Enunciado}
+    \paragraph{}
     Pretende-se que comece por definir uma linguagem de programação imperativa simples, a seu gosto.
     Apenas deve ter em consideração que essa linguagem terá de permitir:
     \begin{itemize}
@@ -185,12 +186,16 @@
         # isto e um comentario na nossa linguagem
     \end{lstlisting}
 
+    \subsection{Assert}
+    A linguagem tem definidos asserts que utilizam as mensagems de erro da Máquina Virtual
+    \begin{lstlisting}[language=Python]
+        assert (cond)
+    \end{lstlisting}
+
     \section{Símbolos}
     Os simbolos da linguagem são os seguintes:
     \begin{verbatim}
         'INTDec',
-        'DEF',
-        'CALL',
         'NUM',
         'ID',
         'ATRIB',
@@ -200,16 +205,12 @@
         'GT',   # >  - (greater than)
         'LT',   # <  - (less than)
         'NEQ',  # /= - (not equal -> NEQ -> NECC)
-        'NOT',
-        'IF',
-        'ELSE',
-        'ELIF',
         'LCPARENT',
         'RCPARENT',
         'LSQBRACKET', # left square bracket
         'RSQBRACKET', # right square bracket
-        'AND',
-        'OR',
+        'LCURLBRACKET',
+        'RCURLBRACKET',
         'SUM',
         'SUB',
         'DIV',
@@ -217,18 +218,26 @@
         'MOD',
         'INC',
         'DEC',
-        'DO',
-        'WHILE',
-        'PRINT',
         'QUOTE', # Símbolo "
         'STRING',
-        'INPUT',
         'NEWLINE',
-        'WS',
         'COLON',
+        'WS',
         'INDENT',
         'DEDENT',
         'ENDMARKER'
+        'IF',
+        'ELSE',
+        'ASSERT',
+        'WHILE',
+        'DO',
+        'PRINT',
+        'INPUT',
+        'AND',
+        'OR',
+        'NOT',
+        'DEF',
+        'CALL'
     \end{verbatim}
 
     \section{Desenho da GIC}
@@ -300,11 +309,11 @@
         \item Comentários
         \item Erros
         \item Ordem de operações(simples)
-        \item Asserts?
         \item Indentação obrigatória
     \end{itemize}
 
     \subsection{Comentários}
+    \paragraph{}
     Os comentários funcionam através do consumo do padrão sem retornar valor.
     \begin{lstlisting}[language=Python]
         def t_comment(t):
@@ -313,6 +322,7 @@
     \end{lstlisting}
 
     \subsection{Erros}
+    \paragraph{}
     Definimos messagens de erro para ajudar o utilizador a corrigir os erros do seu programa.
     \begin{lstlisting}[language=Python]
         def p_error(p):
@@ -321,6 +331,7 @@
     \end{lstlisting}
 
     \subsection{Ordem de operações(simples)}
+    \paragraph{}
     Definimos também a precedência dos operadores aritméticos para que o cálculo de uma expressão aritmética seja
      feito de acordo com a precedência habitual dos operadores(não tendo em conta expressões dentro de parêntesis):
     \begin{lstlisting}[language=Python]
@@ -331,7 +342,19 @@
     \end{lstlisting}
 
     \subsection{Indentação}
-    -- colocar indentação
+    \paragraph{}
+    Para implementar a indentação obrigatória inspiramo-nos num dos exemplos da documentação do PLY chamado "GardenSanke".
+    O processo de verificação de indentação é feito através de dois filtros que são corridos após o analisador léxico.
+    Os tokens utilizados para o processo são o 'COLON', a 'NEWLINE', o 'WS' o 'INDENT' e o 'DEDENT'.
+    \paragraph{}
+    O primeiro filtro identifica os tokens 'COLON', 'NEWLINE' e 'WS' e utiliza-os para identificar quais os tokens que devem ser indentados e 
+    quais os tokens no início das linhas para posteriormente verificar o nível da indentação.
+    \paragraph{}
+    O segundo filtro calcula as profundidades das indentações a emitir e os tokens 'INDENT' e 'DEDENT' para criar os blocos.
+    Nos 'WS' inicializa a profundidade da indentação e retêm o token neste filtro. Nos 'NEWLINE' reinicia profundidade da indentação.
+    Nos restantes tokens verifica se a indentação está de acodordo com a respectiva profundidade e emite os seus tokens 'INDENT' e 'DEDENT'
+    No final criamos 'DEDENT's que estejam em falta devido à terminação do ficheiro num estado aninhado.
+
 
 
     \chapter{Exemplos de funcionamento}

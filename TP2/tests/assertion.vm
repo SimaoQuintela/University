@@ -1,0 +1,22 @@
+START
+PUSHS "Entrei no segundo if\n"
+WRITES
+PUSHI 1
+PUSHI 2
+INF
+JZ label0
+JUMP label0f
+label0: NOP
+ERR "False assertion in line 2"
+label0f: NOP
+PUSHS "Entrei no segundo if\n"
+WRITES
+PUSHI 1
+PUSHI 2
+SUP
+JZ label1
+JUMP label1f
+label1: NOP
+ERR "False assertion in line 4"
+label1f: NOP
+STOP
