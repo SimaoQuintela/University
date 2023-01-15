@@ -14,19 +14,10 @@ WRITELN
 RETURN
 function1Ignore:
 
-JUMP function2Ignore
-function2:
-PUSHS "reservado"
-WRITES
-RETURN
-function2Ignore:
-
 
 START
 PUSHA function0
 CALL
 PUSHA function1
-CALL
-PUSHA function2
 CALL
 STOP

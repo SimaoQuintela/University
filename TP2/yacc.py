@@ -1,4 +1,4 @@
-from lexer import tokens, lexer, IndentLexer
+from lexer import lexer, LexerPLC
 import ast
 import ply.yacc as yacc
 import sys
@@ -339,21 +339,11 @@ precedence = (
     ("left", "MULT", "DIV", "MOD")
 )
 
-class PLCParser(object):
+tokens = LexerPLC.tokens
 
-    def __init__(self, lexer=None):
-        if lexer is None:
-            lexer = IndentLexer()
-        self.lexer = lexer
-        self.parser = yacc.yacc(start="ProgramaInit")
 
-    def parse(self, code):
-        self.lexer.input(code)
-        result = self.parser.parse(lexer=self.lexer)
-        return ast.Module(result)
-
-lexer = IndentLexer()
-parser = yacc.yacc()
+lexer = LexerPLC()
+parser = yacc.yacc(start="ProgramaInit")
 
 parser.success = True
 parser.registers = {}
@@ -373,10 +363,10 @@ parser.parse(lexer=lexer)
 
 if parser.success:
     print("Ficheiro lido com sucesso")
-    f_out = open(f'tests/{sys.argv[1]}.vm', 'w+')
-    f_out.write(parser.assembly)
-    f_out.close()
+    with open(f'tests/{sys.argv[1]}.vm', 'w+') as f_out:
+        f_out.write(parser.assembly)
+        f_out.close()
     print("Código assembly gerado e guardado.")
 else:
-    print("Erro ao compilar")
+    print("Erro ao gerar o código.")
 
