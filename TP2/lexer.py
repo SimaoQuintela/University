@@ -62,6 +62,7 @@ def t_DEF(t):
 
 def t_CALL(t):
     r'\w+\(\)'
+    return t
 
 def t_LCURLBRACKET(t):
     r'\{'
@@ -103,7 +104,7 @@ def t_QUOTE(t):
 
 # returns the content inside quotes
 def t_STRING(t):
-    r'(?<=\")[A-Za-z0-9\, \?\-\:\\]*(?=\")'
+    r'(?<=\")[A-Za-z0-9\, !-()\?\-\:\\]*(?=\")'
     return t
 
 def t_MOD(t):
@@ -402,7 +403,7 @@ class IndentLexer(object):
             return None
 
 lexer = IndentLexer()
-with open("tests/random_test.plc") as f:
+with open(f"tests/{sys.argv[1]}.plc") as f:
     content = f.read()
 
 lexer.input(content)

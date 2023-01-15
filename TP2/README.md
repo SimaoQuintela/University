@@ -5,8 +5,8 @@
 * **Declarations**
     * int x
     * int x = 10
-    * int x[n]
-    * int x[n][m]
+    * int x[4]
+    * int x[4] = {10,20,30,40}
 
 * **Comparison**  
     * x **<=** y
@@ -26,16 +26,20 @@
 * **Logical operations**
     * x **and** y 
     * x **or** y
+    * **not** x
 * **Ifs**
     * If(conditions):
+    &nbsp;&nbsp;&nbsp; ...  
     * else:
-    * elif(conditions):
 
 * **Cycles**
     * do:  
     &nbsp;&nbsp;&nbsp; ...  
     &nbsp;&nbsp;&nbsp; ...  
     while(conditions):
+    * while(cond):
+    &nbsp;&nbsp;&nbsp; ...  
+    &nbsp;&nbsp;&nbsp; ...  
 
 * **Input/Output**
     * int x = input()
@@ -49,17 +53,25 @@
 ProgramaInit : Programa ENDMARKER
 Programa : Decls Corpo
          | Corpo
-Decls    : Decl
-         | Decls Decl
+Decls    : Decl Newline
+         | Decls Decl Newline
 Decl     : INTDec ID
          | INTDec ID ATRIB NUM
          | INTDec ID ATRIB Input 
-         | INTDec ID ATRIB INPUT LCBRACKET String RCBRACKET
          | INTDec ID LSQBRACKET NUM RSQBRACKET
+         | INTDec ID LSQBRACKET NUM RSQBRACKET ATRIB ArrayValues
+         | Def
+Def      : DEF ID COLON Newline INDENT Corpo DEDENT
+         | DEF ID COLON Newline INDENT Decls Corpo DEDENT
+ArrayValues : LCURLBRACKET ArrayIntValues RCURLBRACKET
+ArrayIntValues : ArrayIntValues ',' Expr
+               | Expr
 Corpo    : Proc Newline
          | Corpo Proc Newline
          | Newline
 Newline  : NEWLINE
+         | ε
+Dedent   : Dedent DEDENT
          | ε
 Proc     : Atrib
          | Print
@@ -69,13 +81,6 @@ Proc     : Atrib
 Cycle    : DoWhile
          | While
 Call     : CALL
-Print    : NonFormatted
-         | Formatted (not implemented)
-NonFormatted : PRINT LCPARENT QUOTE Argument QUOTE RCPARENT
-Formatted : ....
-Argument : String
-         | Expr
-
 
 If       : IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
          | IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
@@ -88,18 +93,20 @@ Atrib    : ID ATRIB Expr
          | ID ATRIB Input
          | ID INC
          | ID DEC
+         | ID LSQBRACKET Expr RSQBRACKET ATRIB Expr
 Cond     : Expr GT Expr 
          | Expr LT Expr
          | Expr GEQ Expr
          | Expr LEQ Expr
          | Expr EQUIV Expr
          | Expr NEQ Expr
-         | Cond OR Cond
-         | Cond AND Cond
+         | Expr OR Expr
+         | Expr AND Expr
          | NOT Cond
 
 Expr     : Var                
-         | NUM                
+         | NUM
+         | ExprIncDec         
          | ID INC             
          | ID DEC             
          | Expr SUM Expr      
@@ -108,7 +115,15 @@ Expr     : Var
          | Expr MUL Expr      
          | Expr MOD Expr      
 
+ExprIncDec : ID INC
+           | ID DEC
+
 Var      : ID
+         | ID LSQBRACKET Expr RSQBRACKET
+Print    : NonFormatted
+NonFormatted : PRINT LCPARENT QUOTE Argument QUOTE RCPARENT
+Argument : String
+         | Expr
 Input    : INPUT LCPARENT String RCPARENT
 String   : QUOTE STRING QUOTE
          | ε

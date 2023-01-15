@@ -1,0 +1,56 @@
+PUSHI 1
+PUSHI 5
+PUSHI 0
+PUSHG 0
+PUSHG 1
+ADD
+PUSHI 4
+PUSHI 2
+PUSHG 1
+PUSHI 57
+JUMP function0Ignore
+function0:
+PUSHS "O numero e par\n"
+WRITES
+RETURN
+function0Ignore:
+
+JUMP function1Ignore
+function1:
+PUSHS "O numero e impar\n"
+WRITES
+RETURN
+function1Ignore:
+
+START
+label1c: NOP
+PUSHG 2
+PUSHI 5
+INF
+JZ label1f
+PUSHGP
+PUSHI 3
+PADD
+PUSHG 2
+LOADN
+PUSHI 2
+MOD
+PUSHI 0
+EQUAL
+JZ label0
+PUSHA function0
+CALL
+JUMP label0f
+label0: NOP
+PUSHA function1
+CALL
+label0f: NOP
+PUSHG 2
+PUSHI 1
+ADD
+STOREG 2
+JUMP label1c
+label1f: NOP
+PUSHS "algo"
+WRITES
+STOP

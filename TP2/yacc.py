@@ -224,7 +224,7 @@ def p_Cond_NEQ(p):
     p[0] = f'{p[1]}{p[3]}EQUAL\nNOT\n'
 
 def p_Cond_OR(p):
-    "Cond : Cond OR Cond"
+    "Cond : Expr OR Expr"
     p[0] = f'{p[1]}{p[3]}ADD\nPUSHI 1\nSUPEQ\n'
 
 def p_Cond_AND(p):
@@ -286,10 +286,6 @@ def p_NonFormatted(p):
 def p_Argument_String(p):
     "Argument : String"
     p[0] = f'{p[1]}'
-
-def p_Argument_Var(p):
-    "Argument : Var"
-    p[0] = f'{p[1]}WRITEI\nWRITELN\n'
 
 def p_Argument_Expr(p):
     "Argument : Expr"
@@ -422,7 +418,7 @@ parser.parse(lexer=lexer)
 
 if parser.success:
     print("Ficheiro lido com sucesso")
-    f_out = open(f'tests/{sys.argv[1]}.vm', 'w')
+    f_out = open(f'tests/{sys.argv[1]}.vm', 'w+')
     f_out.write(parser.assembly)
     f_out.close()
     print("Código assembly gerado e guardado.")
