@@ -1,6 +1,7 @@
 from lexer import tokens, lexer, IndentLexer
 import ast
 import ply.yacc as yacc
+import sys
 
 # ---------------- Programa ----------------
 def p_Programa_Init(p):
@@ -88,6 +89,22 @@ def p_Decl_Int_Input(p):
         print("Erro variável já inicializada")
         parser.success = False
 
+def p_DEF(p):
+    "Decl : Def"
+    p[0] = f'{p[1]}'
+
+def p_Def(p):
+    "Def : DEF ID COLON Newline INDENT Corpo DEDENT"
+    name = f'function{len(p.parser.functions)}'
+    p[0] = f'JUMP {name}Ignore\n{name}:\n{p[6]}RETURN\n{name}Ignore:\n\n'
+    p.parser.functions[p[2]+"()"] = name
+
+def p_Def_Decls(p):
+    "Def : DEF ID COLON Newline INDENT Decls Corpo DEDENT"
+    name = f'function{len(p.parser.functions)}'
+    p[0] = f'JUMP {name}Ignore\n{name}:\n{p[6]}{p[7]}RETURN\n{name}Ignore:\n\n'
+    p.parser.functions[p[2]+"()"] = name
+    
 def p_Decl_Int_Array_Val(p):
     "Decl : INTDec ID LSQBRACKET NUM RSQBRACKET ATRIB ArrayValues"
     if p[2] not in p.parser.arrays:
@@ -139,10 +156,25 @@ def p_Proc_If(p):
     "Proc : If"
     p[0] = f'{p[1]}'
 
-def p_DoWhile(p):
-    "Proc : DoWhile"
+def p_Cycle(p):
+    "Proc : Cycle"
     p[0] = f'{p[1]}'
 
+def p_Cycle_DoWhile(p):
+    "Cycle : DoWhile"
+    p[0] = f'{p[1]}'
+
+def p_Cycle_While(p):
+    "Cycle : While"
+    p[0] = f'{p[1]}'
+
+def p_Proc_Call(p):
+    "Proc : Call"
+    p[0] = f'{p[1]}'
+
+def p_Call(p):
+    "Call : CALL"
+    p[0] = f'PUSHA {p.parser.functions[p[1]]}\nCALL\n'
 
 # ---------------- If Else - Flux Control ----------------
 def p_If(p):
@@ -153,12 +185,18 @@ def p_If(p):
 def p_If_Else(p):
     "If : IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT"
     p[0] = f'{p[3]}JZ label{p.parser.labels}\n{p[8]}JUMP label{p.parser.labels}f\nlabel{p.parser.labels}: NOP\n{p[14]}label{p.parser.labels}f: NOP\n'
-
+    p.parser.labels += 1
 
 # ---------------- Cycles - Flux Control ----------------
 def p_Do_While(p):
     "DoWhile : DO COLON Newline INDENT Corpo Dedent WHILE LCPARENT Cond RCPARENT NEWLINE"
     p[0] = f'label{p.parser.labels}:\n{p[5]}{p[9]}NOT\nJZ label{p.parser.labels}\n'
+    p.parser.labels += 1
+
+def p_While(p):
+    "While : WHILE LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent"
+    p[0] = f'label{p.parser.labels}c: NOP\n{p[3]}JZ label{p.parser.labels}f\n{p[8]}JUMP label{p.parser.labels}c\nlabel{p.parser.labels}f: NOP\n'
+    p.parser.labels += 1
 
 # ---------------- Conditions ----------------
 def p_Cond_GT(p):
@@ -214,6 +252,13 @@ def p_Atrib_Input(p):
         print(f"Erro, variável {p[1]} não inicializada")
         parser.success = False
 
+def p_Atrib_INC(p):
+    "Atrib : ID INC"
+    p[0] = f'PUSHG {p.parser.registers.get(p[1])}\nPUSHI 1\nADD\nSTOREG {p.parser.registers.get(p[1])}\n'
+
+def p_Atrib_DEC(p):
+    "Atrib : ID DEC"
+    p[0] = f'PUSHG {p.parser.registers.get(p[1])}\nPUSHI 1\nSUB\nSTOREG {p.parser.registers.get(p[1])}\n'
 def p_Atrib_Array(p):
     "Atrib : ID LSQBRACKET Expr RSQBRACKET ATRIB Expr"
     if p[1] in p.parser.registers:
@@ -226,6 +271,7 @@ def p_Atrib_Array(p):
     else:
         print("Erro: Variável não definida.")
         parser.success = False
+
 
 
 # ---------------- Print ----------------
@@ -243,15 +289,19 @@ def p_Argument_String(p):
 
 def p_Argument_Var(p):
     "Argument : Var"
-    p[0] = f'{p[1]}WRITEI\nPUSHS "\\n"\nWRITES\n'
+    p[0] = f'{p[1]}WRITEI\nWRITELN\n'
 
 def p_Argument_Expr(p):
     "Argument : Expr"
-    p[0] = f'{p[1]}WRITEI\nPUSHS "\\n"\nWRITES\n'
+    p[0] = f'{p[1]}WRITEI\nWRITELN\n'
 
 # ---------------- Expressions ----------------
 def p_Expr_Var(p):
     "Expr : Var"
+    p[0] = p[1]
+
+def p_Expr_INC(p):
+    "Expr : ExprIncDec"
     p[0] = p[1]
 
 def p_Expr_Num(p):
@@ -279,12 +329,14 @@ def p_Expr_Mod(p):
     p[0] = f'{p[1]}{p[3]}MOD\n'
 
 def p_Expr_Inc(p):
-    "Expr : ID INC"
-    p[0] = f'PUSHG {p.parser.registers.get(p[1])}\nPUSHI 1\nADD\n'
+    "ExprIncDec : ID INC"
+    var_gp_index = p.parser.registers.get(p[1])
+    p[0] = f'PUSHG {var_gp_index}\nPUSHI 1\nADD\nSTOREG {var_gp_index}\nPUSHG {var_gp_index}\n'
 
 def p_Expr_Dec(p):
-    "Expr : ID DEC"
-    p[0] = f'PUSHG {p.parser.registers.get(p[1])}\nPUSHI 1\nSUB\n'
+    "ExprIncDec : ID DEC"
+    var_gp_index = p.parser.registers.get(p[1])
+    p[0] = f'PUSHG {var_gp_index}\nPUSHI 1\nSUB\nSTOREG {var_gp_index}\nPUSHG {var_gp_index}\n'
 
 # ---------------- Vars -----------------
 def p_Var(p):
@@ -334,7 +386,7 @@ def p_error(p):
 
 precedence = (
     ("left", "SUM", "SUB"),
-    ("left", "MULT", "DIV")
+    ("left", "MULT", "DIV", "MOD")
 )
 
 class PLCParser(object):
@@ -360,8 +412,9 @@ parser.gp = 0
 parser.ints = []
 parser.arrays = []
 parser.labels = 0
+parser.functions = {}
 
-with open("tests/random_test.plc") as f:
+with open(f"tests/{sys.argv[1]}.plc") as f:
     content = f.read()
 
 lexer.input(content)
@@ -369,8 +422,7 @@ parser.parse(lexer=lexer)
 
 if parser.success:
     print("Ficheiro lido com sucesso")
-
-    f_out = open('tests/random_test.vm', 'w')
+    f_out = open(f'tests/{sys.argv[1]}.vm', 'w')
     f_out.write(parser.assembly)
     f_out.close()
     print("Código assembly gerado e guardado.")

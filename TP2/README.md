@@ -46,6 +46,7 @@
 
 **GIC**
 ```
+ProgramaInit : Programa ENDMARKER
 Programa : Decls Corpo
          | Corpo
 Decls    : Decl
@@ -53,17 +54,21 @@ Decls    : Decl
 Decl     : INTDec ID
          | INTDec ID ATRIB NUM
          | INTDec ID ATRIB Input 
-         | INTDec ID ATRIB INPUT LCBRACKET RCBRACKET
+         | INTDec ID ATRIB INPUT LCBRACKET String RCBRACKET
          | INTDec ID LSQBRACKET NUM RSQBRACKET
-         | INTDec ID LSQBRACKET NUM RSQBRACKET LSQBRACKET NUM RSQBRACKET
-Corpo    : Proc
-         | Corpo Proc
+Corpo    : Proc Newline
+         | Corpo Proc Newline
+         | Newline
 Newline  : NEWLINE
          | ε
 Proc     : Atrib
          | Print
          | If
          | Cycle
+         | Call
+Cycle    : DoWhile
+         | While
+Call     : CALL
 Print    : NonFormatted
          | Formatted (not implemented)
 NonFormatted : PRINT LCPARENT QUOTE Argument QUOTE RCPARENT
@@ -72,13 +77,17 @@ Argument : String
          | Expr
 
 
-If       : IF LCPARENT cond RCPARENT COLON INDENT Corpo Dedent
-         | IF LCPARENT cond RCPARENT COLON INDENT Corpo Dedent ELSE COLON INDENT Corpo DEDENT
+If       : IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
+         | IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+
+DoWhile  : DO COLON Newline INDENT Corpo Dedent WHILE LCPARENT Cond RCPARENT NEWLINE
+
+While    : WHILE LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
 
 Atrib    : ID ATRIB Expr
          | ID ATRIB Input
-         | ....
-
+         | ID INC
+         | ID DEC
 Cond     : Expr GT Expr 
          | Expr LT Expr
          | Expr GEQ Expr
@@ -89,17 +98,15 @@ Cond     : Expr GT Expr
          | Cond AND Cond
          | NOT Cond
 
-Expr     : Var                .
-         | NUM                .
-         | ID INC             . 
-         | ID DEC             .
-         | ID SUM ATRIB Expr  
-         | ID SUB ATRIB Expr
-         | Expr SUM Expr      .
-         | Expr SUB Expr      .
-         | Expr DIV Expr      .
-         | Expr MUL Expr      .
-         | Expr MOD Expr      .
+Expr     : Var                
+         | NUM                
+         | ID INC             
+         | ID DEC             
+         | Expr SUM Expr      
+         | Expr SUB Expr      
+         | Expr DIV Expr      
+         | Expr MUL Expr      
+         | Expr MOD Expr      
 
 Var      : ID
 Input    : INPUT LCPARENT String RCPARENT
