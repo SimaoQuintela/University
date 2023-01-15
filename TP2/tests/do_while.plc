@@ -1,0 +1,13 @@
+int i
+
+do:
+    print("Iteracao numero: ")
+    print(i)
+    i = i+1
+while(not i <= 10)
+
+
+print("Sai do do while")
+
+
+

@@ -104,6 +104,44 @@ def p_Def_Decls(p):
     name = f'function{len(p.parser.functions)}'
     p[0] = f'JUMP {name}Ignore\n{name}:\n{p[6]}{p[7]}RETURN\n{name}Ignore:\n\n'
     p.parser.functions[p[2]+"()"] = name
+    
+def p_Decl_Int_Array_Val(p):
+    "Decl : INTDec ID LSQBRACKET NUM RSQBRACKET ATRIB ArrayValues"
+    if p[2] not in p.parser.arrays:
+        p.parser.registers.update({p[2]: (p.parser.gp-int(p[4]), int(p[4]))})
+        p.parser.arrays.append(p[2])
+        p[0] = f"{p[7]}"
+    else:
+        print("Array já inicializado")
+        parser.success = False
+
+def p_Decl_Int_Array(p):
+    "Decl : INTDec ID LSQBRACKET NUM RSQBRACKET"
+    if p[2] not in p.parser.arrays:
+        # "x" : (gp, size)
+        p.parser.registers.update({p[2]: (p.parser.gp, int(p[4]))})
+        p.parser.arrays.append(p[2])
+        p.parser.gp += int(p[4])
+        p[0] = f"PUSHN {p[4]}\n"
+    else:
+        print("Array já inicializado")
+        parser.success = False
+
+
+
+def p_ArrayValues(p):
+    "ArrayValues : LCURLBRACKET ArrayIntValues RCURLBRACKET"
+    p[0]  = f'{p[2]}'
+
+def p_ArrayIntValues_Rec(p):
+    "ArrayIntValues : ArrayIntValues ',' Expr"
+    p[0] = f'{p[1]}{p[3]}'
+    p.parser.gp += 1
+
+def p_ArrayIntValues(p):
+    "ArrayIntValues : Expr"
+    p[0] = f'{p[1]}'
+    p.parser.gp += 1
 
 # ---------------- Procedures ----------------
 def p_Proc_Atrib(p):
@@ -221,6 +259,20 @@ def p_Atrib_INC(p):
 def p_Atrib_DEC(p):
     "Atrib : ID DEC"
     p[0] = f'PUSHG {p.parser.registers.get(p[1])}\nPUSHI 1\nSUB\nSTOREG {p.parser.registers.get(p[1])}\n'
+def p_Atrib_Array(p):
+    "Atrib : ID LSQBRACKET Expr RSQBRACKET ATRIB Expr"
+    if p[1] in p.parser.registers:
+        if p[1] in p.parser.arrays:
+            p[0] = f'PUSHGP\nPUSHI {p.parser.registers.get(p[1])[0]}\nPADD\n{p[3]}{p[6]}STOREN\n'
+
+        else:
+            print(f"Erro: Variável {p[1]} não é um array.")
+            parser.success = False
+    else:
+        print("Erro: Variável não definida.")
+        parser.success = False
+
+
 
 # ---------------- Print ----------------
 def p_Print_NonFormatted(p):
@@ -286,6 +338,7 @@ def p_Expr_Dec(p):
     var_gp_index = p.parser.registers.get(p[1])
     p[0] = f'PUSHG {var_gp_index}\nPUSHI 1\nSUB\nSTOREG {var_gp_index}\nPUSHG {var_gp_index}\n'
 
+# ---------------- Vars -----------------
 def p_Var(p):
     "Var : ID"
     if p[1] in p.parser.registers:
@@ -297,6 +350,18 @@ def p_Var(p):
     else:
         parser.success = False
         print("Erro: Variável não definida")
+
+def p_Var_Array(p):
+    "Var    : ID LSQBRACKET Expr RSQBRACKET"
+    if p[1] in p.parser.registers:
+        if p[1] not in p.parser.ints:
+            p[0] = f'PUSHGP\nPUSHI {p.parser.registers.get(p[1])[0]}\nPADD\n{p[3]}LOADN\n'
+        else:
+            print(f"Erro: Variável {p[1]} não é um array.")
+            parser.success = False
+    else:
+        print("Erro: Variável não definida.")
+        parser.success = False
 
 # ---------------- Input ----------------
 def p_Input(p):
@@ -345,6 +410,7 @@ parser.registers = {}
 parser.assembly = ""
 parser.gp = 0
 parser.ints = []
+parser.arrays = []
 parser.labels = 0
 parser.functions = {}
 
