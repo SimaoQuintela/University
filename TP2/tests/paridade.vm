@@ -22,6 +22,7 @@ WRITES
 RETURN
 function1Ignore:
 
+
 START
 label1c: NOP
 PUSHG 2

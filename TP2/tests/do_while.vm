@@ -1,5 +1,6 @@
 PUSHI 0
 PUSHI 0
+
 START
 label1:
 PUSHS "Menu: \n"

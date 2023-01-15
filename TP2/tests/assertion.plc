@@ -1,0 +1,4 @@
+print("Entrei no segundo if\n")
+assert (1 < 2)
+print("Entrei no segundo if\n")
+assert (1 > 2)
