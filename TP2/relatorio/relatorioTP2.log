@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.1.14)  15 JAN 2023 01:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.1.14)  15 JAN 2023 19:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./relatorioTP2.tex
+**relatorioTP2.tex
 (./relatorioTP2.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14>
@@ -329,7 +329,7 @@ LaTeX Info: Redefining \nameref on input line 55.
 \openout3 = `relatorioTP2.out'.
 
 \c@lstlisting=\count274
-<../../imagens/TP2/um.jpg, id=92, 435.6275pt x 328.22626pt>
+<../../imagens/TP2/um.jpg, id=96, 435.6275pt x 328.22626pt>
 File: ../../imagens/TP2/um.jpg Graphic file (type jpg)
 <use ../../imagens/TP2/um.jpg>
 Package pdftex.def Info: ../../imagens/TP2/um.jpg  used on input line 59.
@@ -340,17 +340,17 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 66.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 66.
-<../../imagens/TP2/simao.jpg, id=95, 461.725pt x 461.725pt>
+<../../imagens/TP2/simao.jpg, id=99, 461.725pt x 461.725pt>
 File: ../../imagens/TP2/simao.jpg Graphic file (type jpg)
 <use ../../imagens/TP2/simao.jpg>
 Package pdftex.def Info: ../../imagens/TP2/simao.jpg  used on input line 67.
 (pdftex.def)             Requested size: 97.20032pt x 97.1976pt.
-<../../imagens/TP2/david.jpg, id=96, 461.725pt x 461.725pt>
+<../../imagens/TP2/david.jpg, id=100, 461.725pt x 461.725pt>
 File: ../../imagens/TP2/david.jpg Graphic file (type jpg)
 <use ../../imagens/TP2/david.jpg>
 Package pdftex.def Info: ../../imagens/TP2/david.jpg  used on input line 68.
 (pdftex.def)             Requested size: 97.20032pt x 97.1976pt.
-<../../imagens/TP2/hugo.jpg, id=97, 701.62125pt x 602.25pt>
+<../../imagens/TP2/hugo.jpg, id=101, 701.62125pt x 602.25pt>
 File: ../../imagens/TP2/hugo.jpg Graphic file (type jpg)
 <use ../../imagens/TP2/hugo.jpg>
 Package pdftex.def Info: ../../imagens/TP2/hugo.jpg  used on input line 69.
@@ -382,11 +382,9 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.100 ...rmitida a operação de indexação (ı́
+l.101 ...rmitida a operação de indexação (ı́
                                                   ndice inteiro);
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
+? 
 [4
 
 ]
@@ -397,7 +395,7 @@ File: lstlang1.sty 2019/09/10 1.8c listings language file
 
 ] [6]
 [7]
-Overfull \hbox (88.39764pt too wide) in paragraph at lines 295--295
+Overfull \hbox (88.39764pt too wide) in paragraph at lines 304--304
 []               \OT1/cmtt/m/n/10.95 | INTDec ID LSQBRACKET NUM RSQBRACKET LSQB
 RACKET NUM RSQBRACKET[] 
  []
@@ -410,25 +408,23 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.295     \end{verbatim}
+l.304     \end{verbatim}
                         
-You may provide a definition with
-\DeclareUnicodeCharacter 
+? 
 
-
-Overfull \hbox (13.6647pt too wide) in paragraph at lines 295--295
+Overfull \hbox (13.6647pt too wide) in paragraph at lines 304--304
 []      \OT1/cmtt/m/n/10.95 NonFormatted : PRINT LCPARENT QUOTE Argument QUOTE 
 RCPARENT[] 
  []
 
 
-Overfull \hbox (30.91077pt too wide) in paragraph at lines 295--295
+Overfull \hbox (30.91077pt too wide) in paragraph at lines 304--304
 []      \OT1/cmtt/m/n/10.95 If       : IF LCPARENT cond RCPARENT COLON INDENT C
 orpo Dedent[] 
  []
 
 
-Overfull \hbox (209.12009pt too wide) in paragraph at lines 295--295
+Overfull \hbox (209.12009pt too wide) in paragraph at lines 304--304
 []               \OT1/cmtt/m/n/10.95 | IF LCPARENT cond RCPARENT COLON INDENT C
 orpo Dedent ELSE COLON INDENT Corpo DEDENT[] 
  []
@@ -442,49 +438,41 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.295     \end{verbatim}
+l.304     \end{verbatim}
                         
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-[9]
-Overfull \hbox (2.23251pt too wide) in paragraph at lines 324--326
-\OT1/cmr/m/n/10.95 ha-bi-tual dos ope-ra-do-res(n~ao tendo em conta ex-press~oe
-s den-tro de par^entesis): 
- []
-
-[10]
+? 
+[9] [10] [11]
 Cap\'{\i }tulo 4.
-[11
+[12
 
 ]
 Cap\'{\i }tulo 5.
 
-Overfull \hbox (4.60504pt too wide) in paragraph at lines 343--344
+Overfull \hbox (4.60504pt too wide) in paragraph at lines 366--367
 \OT1/cmr/m/n/10.95 deste tra-ba-lho foi par-ti-cu-lar-mente atra-tiva pois ao d
 e-sen-vol-ver a nossa pr^^Sopria
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 350.
-[12
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 373.
+[13
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 350.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 373.
  (./relatorioTP2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 350.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 350.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 373.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 373.
 Package rerunfilecheck Info: File `relatorioTP2.out' has not changed.
-(rerunfilecheck)             Checksum: 3A7C3D9776AA6C1DC23B4F26D0756760;1470.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 350.
+(rerunfilecheck)             Checksum: D379BFAA432262724C0C7953FF260BA7;1531.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 373.
  ) 
 Here is how much of TeX's memory you used:
- 8272 strings out of 481239
- 122706 string characters out of 5920377
- 667585 words of memory out of 5000000
- 23293 multiletter control sequences out of 15000+600000
+ 8288 strings out of 481239
+ 122911 string characters out of 5920377
+ 674588 words of memory out of 5000000
+ 23297 multiletter control sequences out of 15000+600000
  541282 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,9n,42p,462b,1900s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,9n,42p,460b,1902s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
@@ -497,10 +485,10 @@ mti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></u
 sr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts
 /type1/public/cm-super/sfrm1200.pfb>
-Output written on relatorioTP2.pdf (12 pages, 535085 bytes).
+Output written on relatorioTP2.pdf (13 pages, 537782 bytes).
 PDF statistics:
- 324 PDF objects out of 1000 (max. 8388607)
- 291 compressed objects within 3 object streams
- 109 named destinations out of 1000 (max. 500000)
- 197 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 347 PDF objects out of 1000 (max. 8388607)
+ 312 compressed objects within 4 object streams
+ 121 named destinations out of 1000 (max. 500000)
+ 205 words of extra memory for PDF output out of 10000 (max. 10000000)
 
