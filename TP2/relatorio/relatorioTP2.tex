@@ -21,18 +21,18 @@
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
 \lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
+    backgroundcolor=\color{backcolour},
     commentstyle=\color{magenta},
     keywordstyle=\color{codegreen},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
     basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=2pt,                  
-    showspaces=false,                
+    breakatwhitespace=false,
+    breaklines=true,
+    keepspaces=true,
+    numbers=left,
+    numbersep=2pt,
+    showspaces=false,
     showstringspaces=false,
     showtabs=true
 }
@@ -44,11 +44,12 @@
 \title{PLC - Trabalho Prático 2\\
     \large Grupo nº14}
 
-\author{Simão Pedro Batista Caridade Quintela \\ (A97444) 
-        \and David José de Sousa Machado \\ (A91665)
-        \and Hugo Filipe de Sá Rocha \\ (A96463)
-       } %autores do documento
-       
+\author{
+    Simão Pedro Batista Caridade Quintela \\ (A97444) 
+    \and David José de Sousa Machado \\ (A91665)
+    \and Hugo Filipe de Sá Rocha \\ (A96463)
+} %autores do documento
+
 \date{\today} %data
 
 \begin{document}
@@ -64,200 +65,278 @@
         \maketitle
         
         \includegraphics[width=0.3\linewidth]{simao.jpg}
-        \includegraphics[width=0.3\linewidth]{david.jpg}    
+        \includegraphics[width=0.3\linewidth]{david.jpg}
         \includegraphics[width=0.35\linewidth]{hugo.jpg}
-        
-        
     \end{minipage}
-    
+
     \tableofcontents
-    
+
     \pagebreak
-    
+
+
     \chapter{Introdução}
-% 
     \paragraph{}
     No âmbito da disciplina de Processamento de Linguagens e Compiladores foi-nos proposto pelo docente Pedro Rangel Henriques o desenvolvimento de uma Linguagem de Programação Imperativa simples e de um compilador para reconhecer programas escritas nessa linguagem gerando o respetivo código Assembly da Máquina Virtual VM.
     \paragraph{}
     Começamos por tentar encontrar um nome original e atrativo para a nossa linguagem e acabou por nos surgir a ideia de colocar o nome "Python-Like-C" cuja sigla (PLC) coincide com a sigla da Unidade Curricular que integra este trabalho (Processamento de Linguagens e Compiladores).
-    
-
     \paragraph{}
     Neste documento está apresentada a gramática da nossa linguagem, o código escrito no módulo Lexer e Yacc do Python e ainda, como foi pedido, alguns testes com código escrito na nossa linguagem e o respetivo código Assembly gerado.
 
-    \chapter{Explicação da nossa linguagem}
-    \paragraph{}
-    A nossa linguagem contempla os seguintes mecanismos:
-    \section{Declaração de variáveis}
+
+    \chapter{Enunciado}
+    Pretende-se que comece por definir uma linguagem de programação imperativa simples, a seu gosto.
+    Apenas deve ter em consideração que essa linguagem terá de permitir:
+    \begin{itemize}
+        \item \textit{declarar} variáveis atómicas do tipo \textit{inteiro}, com os quais se podem realizar as habituais operações aritméticas, relacionais e lógicas;
+        \item \textit{efetuar} instruções algorítmicas básicas como a \textit{atribuição do valor de expressões numéricas a variáveis};
+        \item \textit{ler} do \textit{standard input} e \textit{escrever} no \textit{standard output};
+        \item \textit{efetuar} instruções \textit{condicionais} para controlo do fluxo de execução;
+        \item \textit{efetuar} instruções cíclicas para controlo do fluxo de execução, permitindo o seu aninhamento.\\
+    \underline{Note} que deve implementar pelo menos o ciclo \textbf{while-do}, \textbf{repeat-until} ou \textbf{for-do}.
+    \end{itemize}
+
+    Adicionalmente deve ainda suportar, à sua escolha, uma das duas funcionalidades seguintes:
+    \begin{itemize}
+        \item \textit{declarar e manusear} variáveis estruturadas do tipo \textit{array (a 1 ou 2 dimensões)} de inteiros, em relação aos quais é apenas permitida a operação de indexação (ı́ndice inteiro);
+        \item \textit{definir e invocar subprogramas} sem parâmetros mas que possam retornar um resultado do tipo inteiro.
+    \end{itemize}
+
+
+    \chapter{Concepção da Solução}
+    Neste capítulo vamos apresentar:
+    \begin{itemize}
+        \item A sintaxe da linguagem PLC
+        \item Os símbolos
+        \item O desenho da gramática independente de contexto
+        \item Extras
+    \end{itemize}
+    No nosso trabalho, acabámos por implementar \textit{arrays} unidimensionais e subprogramas sem retorno.
+
+
+    \section{Sintaxe da Linguagem PLC}
+    A sintaxe da linguagem é a seguinte
+
+    \subsection{Declaração de variáveis}
     \begin{lstlisting}[language=Python]
-    
-       int x = 10
-       int x
-       int x = 10
-       int x[n]
-       int x[n][m]
+        int x
+        int x = 10
+        int x[n]
+        int x[10] = {1,2,3,4,5,6,7,8,9,10}
     \end{lstlisting}
-    \section{Operadores de comparação}
+
+    \subsection{Operadores de comparação}
     \begin{lstlisting}[language=Python]
-    
-       x <= y
-       x >= y
-       x < y
-       x < y
-       x == y
+        x <= y
+        x >= y
+        x < y
+        x > y
+        x == y
     \end{lstlisting}
-    \section{Operações numéricas}
+
+    \subsection{Operações numéricas}
     \begin{lstlisting}[language=Python]
-    
-      x + y
-      x - y
-      x / y
-      x * y
-      x % y
-      x ++ #(incremento)
-      y -- #(decremento)
+        x + y
+        x - y
+        x / y
+        x * y
+        x % y
+        x ++ #(incremento)
+        y -- #(decremento)
     \end{lstlisting}
-      \section{Operadores lógicos}
+
+    \subsection{Operadores lógicos}
     \begin{lstlisting}[language=Python]
-    
-      x and y
-      x or y
+        x and y
+        x or y
+        not x
     \end{lstlisting}
-    \section{Instruções condicionais}
+
+    \subsection{Instruções condicionais}
     \begin{lstlisting}[language=Python]
-    
-     if (cond):
-     elif (cond):
-     else:
-     \end{lstlisting}
-     \section{Ciclo do-while}
-     \begin{lstlisting}[language=Python]
-    
-     do:
-     ...
-     ...
-     while(cond):
-     \end{lstlisting}
-    \section{Input/Output}
+        if (cond):
+            ...
+        elif (cond):
+            ...
+        else:
+    \end{lstlisting}
+
+    \subsection{Ciclo while}
     \begin{lstlisting}[language=Python]
-    
-     x = input()
-     x = input("Declare the variable with the value: ")
-     print("Hello world!")
-     \end{lstlisting}
-    \section{Comentário}
+        while (cond):
+            ...
+    \end{lstlisting}
+
+    \subsection{Ciclo do-while}
     \begin{lstlisting}[language=Python]
+        do:
+            ...
+        while (cond)
+    \end{lstlisting}
 
-     #isto e um comentario na nossa linguagem
-     \end{lstlisting}
-     
+    \subsection{Input/Output}
+    \begin{lstlisting}[language=Python]
+        x = input()
+        x = input("Declare the variable with the value: ")
+        print("Hello world!")
+    \end{lstlisting}
 
-    \chapter{Resolução}
-    \section{Gramática}
-    \paragraph{}
-    --- Colocar nossa gramática ---
+    \subsection{Comentário}
+    \begin{lstlisting}[language=Python]
+        # isto e um comentario na nossa linguagem
+    \end{lstlisting}
 
+    \section{Símbolos}
+    Os simbolos da linguagem são os seguintes:
+    \begin{verbatim}
+        'INTDec',
+        'DEF',
+        'CALL',
+        'NUM',
+        'ID',
+        'ATRIB',
+        'EQUIV',
+        'LEQ',  # <= - (less or equal)
+        'GEQ',  # >= - (greater or equal)
+        'GT',   # >  - (greater than)
+        'LT',   # <  - (less than)
+        'NEQ',  # /= - (not equal -> NEQ -> NECC)
+        'NOT',
+        'IF',
+        'ELSE',
+        'ELIF',
+        'LCPARENT',
+        'RCPARENT',
+        'LSQBRACKET', # left square bracket
+        'RSQBRACKET', # right square bracket
+        'AND',
+        'OR',
+        'SUM',
+        'SUB',
+        'DIV',
+        'MULT',
+        'MOD',
+        'INC',
+        'DEC',
+        'DO',
+        'WHILE',
+        'PRINT',
+        'QUOTE', # Símbolo "
+        'STRING',
+        'INPUT',
+        'NEWLINE',
+        'WS',
+        'COLON',
+        'INDENT',
+        'DEDENT',
+        'ENDMARKER'
+    \end{verbatim}
 
-    \section{Módulo Lexer}
-    \paragraph{}
-    Neste módulo identificamos os diferentes tokens (símbolos terminais da gramática) e a expressão regular que os caracteriza. Foi também neste módulo que implementamos a indentação da nossa linguagem.
+    \section{Desenho da GIC}
+    A nossa linguagem é gerada pela seguinte grámatica independente de contexto:
+    \begin{verbatim}
+      Programa : Decls Corpo
+               | Corpo
+      Decls    : Decl
+               | Decls Decl
+      Decl     : INTDec ID
+               | INTDec ID ATRIB NUM
+               | INTDec ID ATRIB Input 
+               | INTDec ID ATRIB INPUT LCBRACKET RCBRACKET
+               | INTDec ID LSQBRACKET NUM RSQBRACKET
+               | INTDec ID LSQBRACKET NUM RSQBRACKET LSQBRACKET NUM RSQBRACKET
+      Corpo    : Proc
+               | Corpo Proc
+      Newline  : NEWLINE
+               | ε
+      Proc     : Atrib
+               | Print
+               | If
+               | Cycle
+      Print    : NonFormatted
+               | Formatted (not implemented)
+      NonFormatted : PRINT LCPARENT QUOTE Argument QUOTE RCPARENT
+      Formatted : ....
+      Argument : String
+               | Expr
 
-    \paragraph{}
-    \subsection{Tokens}
-       Os tokens que definimos foram:
-          -- colocar tokens --
-      
-    \paragraph{}
-    \subsection{Expressões regulares que caracterizam os tokens}
-    As expressões regulares que caracterizam os nossos tokens são:
-     -- colocar as funcoes dos tokens --
+      If       : IF LCPARENT cond RCPARENT COLON INDENT Corpo Dedent
+               | IF LCPARENT cond RCPARENT COLON INDENT Corpo Dedent ELSE COLON INDENT Corpo DEDENT
 
-    \paragraph{}
-    \subsection{Indentação}
-    -- colocar indentação
+      Atrib    : ID ATRIB Expr
+               | ID ATRIB Input
+               | ....
 
-    
-    \section{Módulo Yacc}
-    \paragraph{}
-    É neste módulo que implementamos a nossa gramática, isto é, onde caracterizámos cada produção da gramática.
-    Abaixo indicámos as diversas produções da nossa gramática organizadas por tópico.
-    
-    \paragraph{}
-    \subsection{Programa}
-       --colocar produçoes Programa : 
-      
-    \paragraph{}
-    \subsection{Corpo}
-       --colocar produçoes Corpo :
+      Cond     : Expr GT Expr 
+               | Expr LT Expr
+               | Expr GEQ Expr
+               | Expr LEQ Expr
+               | Expr EQUIV Expr
+               | Expr NEQ Expr
+               | Cond OR Cond
+               | Cond AND Cond
+               | NOT Cond
 
-    \paragraph{}
-    \subsection{Newline}
-       --colocar produçoes Newline :
+      Expr     : Var                .
+               | NUM                .
+               | ID INC             . 
+               | ID DEC             .
+               | ID SUM ATRIB Expr  
+               | ID SUB ATRIB Expr
+               | Expr SUM Expr      .
+               | Expr SUB Expr      .
+               | Expr DIV Expr      .
+               | Expr MUL Expr      .
+               | Expr MOD Expr      .
 
-    \paragraph{}
-    \subsection{Declarações}
-       --colocar produçoes Decl :
+      Var      : ID
+      Input    : INPUT LCPARENT String RCPARENT
+      String   : QUOTE STRING QUOTE
+               | ε
+    \end{verbatim}
 
-    \paragraph{}
-    \subsection{Procedimentos}
-       --colocar produçoes Proc :
+    \section{Extras}
+    Os extras implementados foram:
+    \begin{itemize}
+        \item Comentários
+        \item Erros
+        \item Ordem de operações(simples)
+        \item Asserts?
+        \item Indentação obrigatória
+    \end{itemize}
 
-    \paragraph{}
-    \subsection{If-Else}
-       --colocar produçoes  If :
+    \subsection{Comentários}
+    Os comentários funcionam através do consumo do padrão sem retornar valor.
+    \begin{lstlisting}[language=Python]
+        def t_comment(t):
+            r'\#.*'
+            pass
+    \end{lstlisting}
 
-    \paragraph{}
-    \subsection{Indentação}
-       --colocar produçoes Dedent :
-
-    \paragraph{}
-    \subsection{Operadores de comparação e operadores lógicos}
-       --colocar produçoes Cond :
-
-    \paragraph{}
-    \subsection{Atribuições}
-       --colocar produçoes Atrib :
-
-    \paragraph{}
-    \subsection{Print}
-       --colocar produçoes Print :
-
-    \paragraph{}
-    \subsection{Operadores aritméticos}
-       --colocar produçoes Expr :
-
-    \paragraph{}
-    \subsection{Input}
-       --colocar produçoes Input :
-
-    \paragraph{}
-    \subsection{Strings}
-       --colocar produçoes String :
-
-    \paragraph{}
     \subsection{Erros}
+    Definimos messagens de erro para ajudar o utilizador a corrigir os erros do seu programa.
     \begin{lstlisting}[language=Python]
-    
-     def p_error(p):
-        print('Syntax error!\np -> ', p)
-        parser.sucesso = False
+        def p_error(p):
+            print('Syntax error!\np -> ', p)
+            parser.sucesso = False
     \end{lstlisting}
 
-    \paragraph{}
-    Definimos também a precedência dos operadores aritméticos para que o cálculo de uma expressão aritmética seja feito de acordo com a precedência habitual dos operadores:
+    \subsection{Ordem de operações(simples)}
+    Definimos também a precedência dos operadores aritméticos para que o cálculo de uma expressão aritmética seja
+     feito de acordo com a precedência habitual dos operadores(não tendo em conta expressões dentro de parêntesis):
     \begin{lstlisting}[language=Python]
-    
         precedence = (
             ("left", "SUM", "SUB"),
             ("left", "MULT", "DIV")
         )
-  
     \end{lstlisting}
-    
- 
+
+    \subsection{Indentação}
+    -- colocar indentação
+
+
     \chapter{Exemplos de funcionamento}
     --- preencher exemplos -- 
-    
+
 
 \chapter{Conclusão}
 \paragraph{}
