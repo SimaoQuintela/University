@@ -91,7 +91,7 @@ def populate_item():
 def populate_contact():
     query = "INSERT INTO Contact (idContact, name, email, phone) \n\tVALUES"
 
-    for i in range(1,31):
+    for i in range(1,45):
         name = fake.name()
         email = fake.email()
         phone_nr = randint(910000000,969999999)
@@ -131,22 +131,45 @@ def populate_employee():
     query = "INSERT INTO Employee (idEmployee, manager, salary, contact) VALUES\n\t"
 
     # Mrs. Dores GIGACHAD
-    query += "('1', '1', '1500', '1'),\n\t"
+    query += "('1', '1', '1500', '32'),\n\t"
     # Other 2 employees
-    query += "('2', '1', '1000', '10'),\n\t('3', '1', '1000', '20');\n\n"
+    query += "('2', '1', '1000', '33'),\n\t('3', '1', '1000', '34');\n\n"
 
     execute_query(connection, query)
     write_on_file(query)
 
+def populate_suplier():
+    query = "INSERT INTO Suplier (VAT, contact) VALUES"
+    ids = []
+    for i in range(10):
+        vat = NIF = randint(100000000,999999999)
+        ids.append(vat)
+        query += f"\n\t('{vat}', '{i+35}'),"
+    
+    query = query[:-1] + ";\n\n"
+    execute_query(connection, query)
+    write_on_file(query)
+
+    query = "INSERT INTO Suplier_provide_Item (Suplier_VAT,Item_idItem) VALUES"
+
+    for i in range(1, 16):
+        suplier = ids[randint(0,9)]
+        query += f"\n\t('{suplier}', '{i}'),"
+
+    query = query[:-1] + ";\n\n"
+    execute_query(connection, query)
+    write_on_file(query)
+
+
 def populate_order_has_item():
     listaux = list(range(1,51))
-    items = list(range(1,4))
     shuffle(listaux)
+    
     query = "INSERT INTO Order_has_Item (Order_idOrder, Item_idItem, amount) VALUES"
 
     for i in range(1, 51):
         order = listaux[i-1]
-        item = items[randint(0,2)]
+        item = randint(1,15)
         query += f"\n\t('{order}', '{item}', '{randint(1, 20)}'),"
 
     query = query[:-1] + ";\n\n"
@@ -186,6 +209,10 @@ populate_client()
 populate_client_has_address()
 populate_item()
 populate_employee()
+populate_suplier()
+
 
 populate_order()
 populate_order_has_item()
+
+
