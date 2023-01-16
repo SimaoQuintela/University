@@ -1,8 +1,10 @@
+# FETCH ALL DATA FROM THE DATABASE
 USE dorlux;
 
 SELECT * FROM dorlux.order;
 SELECT * FROM category;
 SELECT * FROM client;
+SELECT * FROM address;
 SELECT * FROM client_has_address;
 SELECT * FROM contact;
 SELECT * FROM employee;
@@ -10,6 +12,78 @@ SELECT * FROM item;
 SELECT * FROM order_has_item;
 SELECT * FROM suplier;
 SELECT * FROM suplier_provide_item;
+
+-- Creating Clients View
+CREATE VIEW Clients 
+AS
+	SELECT idClient AS "Id", name AS "Name",  phone AS "PhoneNr" 
+    FROM client AS cl INNER JOIN contact AS cont
+		ON cl.contact = cont.idContact;
+
+SELECT *
+	FROM Clients;
+
+DROP VIEW Clients;
+-- ------------------------------------------------------------------
+
+-- 3- Listing orders
+	-- 3.1 - List all orders of a certain day
+DELIMITER $$
+CREATE PROCEDURE orders_on_day
+	(day_nr INT, month_nr INT)
+BEGIN
+SELECT * FROM dorlux.order
+	WHERE year(orderDate) = day_nr AND month(orderDate) = month_nr;
+END $$
+CALL orders_on_day(2023, 1);
+    
+    -- 3.2 - List Orders of a especific category in a specific status
+DELIMITER $$
+CREATE PROCEDURE list_order_in_category_status(category_nr INT, status_name VARCHAR(200))
+BEGIN
+SELECT * FROM
+	dorlux.order AS Orders INNER JOIN order_has_Item AS Ord_has_item
+		ON Orders.idOrder = Ord_has_item.Order_idOrder
+	INNER JOIN Item AS It
+		ON It.idItem = Ord_has_item.Item_idItem
+	WHERE category = category_nr  AND status = status_name;
+END
+$$
+
+
+CALL list_order_in_category_status(2, 'PENDING');
+CALL list_order_in_category_status(1, 'PROCESSED');
+
+    -- 3.3 - List all orders Processed with address attached
+SELECT idOrder, status, orderDate, idClient, VAT, street, zipCode, city FROM
+	dorlux.order AS Orders INNER JOIN dorlux.client AS Cl
+		ON Orders.Client_idClient = Cl.idClient
+	INNER JOIN Client_has_Address AS cl_has_addr
+		ON cl_has_addr.Client_idClient = Cl.idClient 
+	INNER JOIN Address AS addr
+		ON cl_has_addr.Address_idAdress = addr.idAdress
+	WHERE status = 'PROCESSED';
+	
+    
+    
+# 4- Employees
+	# 4.1 - List all orders attached to a certain Employee
+DELIMITER $$
+CREATE PROCEDURE list_orders_attached_to_employee(employee_id INT)
+BEGIN
+SELECT idOrder, status, shippingPrice, orderDate, idEmployee, salary FROM
+	dorlux.order AS Orders INNER JOIN employee as Emp
+		ON Orders.Employee = Emp.idEmployee
+	WHERE idEmployee = employee_id;
+END
+$$
+
+CALL list_orders_attached_to_employee(2)
+
+
+
+
+
 
 # Miguel: 1 and 2
 # Hugo: 7 and 8 

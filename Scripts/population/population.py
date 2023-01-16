@@ -117,9 +117,9 @@ def populate_address():
 def populate_order():
 
     query = "INSERT INTO dorlux.Order (idOrder, status, shippingPrice, orderDate, dorlux.Order.upDate, Employee, client_idClient)\n\tVALUES"
-
+    status = ["PENDING", "DELIVERED", "PROCESSED"]
     for i in range(1, 51):
-        query += f"\n\t('{i}', 'PENDING', '{randint(0,5)}.{randint(0,99)}', NOW(), NOW(), '{randint(1,3)}', '{randint(1,30)}'),"
+        query += f"\n\t('{i}', '{status[randint(0,len(status)-1)]}', '{randint(0,5)}.{randint(0,99)}', NOW(), NOW(), '{randint(1,3)}', '{randint(1,30)}'),"
 
     query = query[:-1] + ";\n\n"
     execute_query(connection, query)
@@ -199,7 +199,7 @@ def delete_all():
 
 delete_all()
 # no relation tables
-
+"""
 populate_address()
 populate_contact()
 populate_category()
@@ -214,5 +214,4 @@ populate_suplier()
 
 populate_order()
 populate_order_has_item()
-
-
+"""
