@@ -13,31 +13,35 @@ SELECT * FROM order_has_item;
 SELECT * FROM suplier;
 SELECT * FROM suplier_provide_item;
 
--- Creating Clients View
-CREATE VIEW Clients 
-AS
-	SELECT idClient AS "Id", name AS "Name",  phone AS "PhoneNr" 
-    FROM client AS cl INNER JOIN contact AS cont
-		ON cl.contact = cont.idContact;
-
-SELECT *
-	FROM Clients;
-
-DROP VIEW Clients;
--- ------------------------------------------------------------------
-
--- 3- Listing orders
-	-- 3.1 - List all orders of a certain day
+# RM01 - Anything to Processed
+# RM02 - Anything to Delivering
+# RM03 - Anything to Delivered
+# RM04 - Anything to Canceled
 DELIMITER $$
-CREATE PROCEDURE orders_on_day
-	(day_nr INT, month_nr INT)
+CREATE PROCEDURE change_order_status(status_name VARCHAR(200), idOrder_nr INT)
+BEGIN
+UPDATE dorlux.order
+    SET dorlux.order.status = status_name , dorlux.order.upDate = NOW()
+    WHERE idOrder = idOrder_nr;
+END $$
+CALL change_order_status('DELIVERED', 2)
+CALL change_order_status('PROCESSED', 3)
+CALL change_order_status('CANCELED', 4)
+CALL change_order_status('DELIVERING', 5)
+
+-- RM5 - List all orders of a certain year in a certain month
+DROP PROCEDURE orders_on_year_month
+-- -----------------------------------------------------------
+DELIMITER $$
+CREATE PROCEDURE orders_on_year_month(year_nr INT, month_nr INT)
 BEGIN
 SELECT * FROM dorlux.order
-	WHERE year(orderDate) = day_nr AND month(orderDate) = month_nr;
+	WHERE year(orderDate) = year_nr AND month(orderDate) = month_nr;
 END $$
-CALL orders_on_day(2023, 1);
+CALL orders_on_year_month(2023, 1);
     
-    -- 3.2 - List Orders of a especific category in a specific status
+-- RM6 - List Orders of a especific category in a specific status
+DROP PROCEDURE orders_on_year_month;
 DELIMITER $$
 CREATE PROCEDURE list_order_in_category_status(category_nr INT, status_name VARCHAR(200))
 BEGIN
@@ -50,11 +54,10 @@ SELECT * FROM
 END
 $$
 
-
 CALL list_order_in_category_status(2, 'PENDING');
 CALL list_order_in_category_status(1, 'PROCESSED');
 
-    -- 3.3 - List all orders Processed with address attached
+-- RM07 - List all orders Processed with address attached
 SELECT idOrder, status, orderDate, idClient, VAT, street, zipCode, city FROM
 	dorlux.order AS Orders INNER JOIN dorlux.client AS Cl
 		ON Orders.Client_idClient = Cl.idClient
@@ -64,10 +67,7 @@ SELECT idOrder, status, orderDate, idClient, VAT, street, zipCode, city FROM
 		ON cl_has_addr.Address_idAdress = addr.idAdress
 	WHERE status = 'PROCESSED';
 	
-    
-    
-# 4- Employees
-	# 4.1 - List all orders attached to a certain Employee
+# RM08 - List all orders attached to a certain Employee
 DELIMITER $$
 CREATE PROCEDURE list_orders_attached_to_employee(employee_id INT)
 BEGIN
@@ -77,49 +77,100 @@ SELECT idOrder, status, shippingPrice, orderDate, idEmployee, salary FROM
 	WHERE idEmployee = employee_id;
 END
 $$
-
 CALL list_orders_attached_to_employee(2)
 
+# RM09 - What orders a client have made ?
+DELIMITER $$
+CREATE PROCEDURE orders_of_client(idClient_nr INT)
+BEGIN
+SELECT 
+	cont.name AS UserName,
+    tab_ord.idOrder AS idOrder,
+    tab_ord.status AS Status
+    FROM
+dorlux.Order AS tab_ord INNER JOIN Order_has_Item AS ord_has_it
+		ON tab_ord.idOrder = ord_has_it.order_idOrder
+	INNER JOIN Item AS it
+		ON ord_has_it.Item_idItem = it.idItem
+	INNER JOIN dorlux.Client AS Cl
+		On tab_ord.Client_idClient = Cl.idClient
+	INNER JOIN contact AS cont
+		ON Cl.contact = cont.idContact
+	WHERE Cl.idClient = idClient_nr;
+END
+$$
+CALL orders_of_client(1)
 
-
-
-
-
-# Miguel: 1 and 2
-# Hugo: 7 and 8 
-# Ianni boy: 5
-# Quintela: 3 and 4
-# 6 - global 
-
-
-# 1- Change order status and update the responsible employee for the order
-    # 1.1 - Pending to Processed
-    # 1.2 - Processed to Delivering
-    # 1.3 - Delivering to Delivered
-    # 1.4 - From anything to Canceled
-
-# 2- Register requirement - Create a new client
-    # 2.1 - Delete a client
-    # 2.2 - Update a client
-
-# 3- Listing orders
-	# 3.1 - List all orders of a certain day
-    # 3.2 - Listing Pending Orders of a especific category
-    # 3.3 - List all orders Processed for delivery with address attached
-    
-# 4- Employees
-	# 4.1 - List all orders attached to an certain Employee
-
-# 5- Client
-	# 5.1 - List all orders made by a Client
-    # 5.2 - List top 10 Clients
+# RM10 - Top X clients
+DELIMITER $$
+CREATE PROCEDURE top_X_clients(top_limit INT)
+BEGIN
+SELECT Cl.idClient AS "idClient", cont.name AS "Nome", it.priceSell*ord_has_it.amount AS ValorGasto FROM 
+	dorlux.Order AS tab_ord INNER JOIN Order_has_Item AS ord_has_it
+		ON tab_ord.idOrder = ord_has_it.order_idOrder
+	INNER JOIN Item AS it
+		ON ord_has_it.Item_idItem = it.idItem
+	INNER JOIN dorlux.Client AS Cl
+		On tab_ord.Client_idClient = Cl.idClient
+	INNER JOIN contact AS cont
+		ON Cl.contact = cont.idContact
 	
-# 6- Order Manipulation
-	# Develop a trigger that decrease the stockNr when an order is made and increases when an order is cancelled
-    
+    GROUP BY Order_idOrder
+    ORDER BY ValorGasto DESC
+	LIMIT top_limit;
+END
+$$
+CALL top_X_clients(10);
+CALL top_X_clients(20);
+CALL top_X_clients(30);
 
-# 7- Supliers
-	# 7.1 - How many items do we bought from suppliers, and which ones
-    
-# 8 - Items
-	# 8.1 - List the current stock
+
+# RM11 - How many items do we bought from a supplier
+DROP PROCEDURE spQuaisItemsForn; 
+
+DELIMITER $$
+CREATE FUNCTION  fuItemsCompradosForn(vatForn INT)
+         RETURNS INT
+         DETERMINISTIC
+BEGIN
+    DECLARE numeroitems INT;
+    SELECT COUNT(I.idItem) INTO numeroitems FROM item AS I
+         INNER JOIN suplier_provide_item AS SPI
+             ON I.idItem = SPI.Item_idItem
+         INNER JOIN suplier AS S
+             ON SPI.Suplier_VAT = S.VAT
+         WHERE S.VAT = vatForn;
+    RETURN numeroitems;
+END $$
+SELECT fuItemsCompradosForn(795294490)
+
+# RM11 - Which items we bought from a supplier
+DROP PROCEDURE spQuaisItemsForn; 
+
+DELIMITER $$
+CREATE PROCEDURE spQuaisItemsForn(vatForn INT)
+BEGIN
+    SELECT I.name, I.description FROM item AS I
+         INNER JOIN suplier_provide_item AS SPI
+             ON I.idItem = SPI.Item_idItem
+         INNER JOIN suplier AS S
+             ON SPI.Suplier_VAT = S.VAT
+         WHERE S.VAT = vatForn;
+END $$
+CALL spQuaisItemsForn(795294490);
+
+# RM12 - List the current stock
+SELECT I.name, I.description, I.stockNr FROM Item AS I
+
+
+# RM-13 - Orders items by stock number
+SELECT * FROM Item
+	ORDER BY stockNr DESC
+
+# RM-14 - Order categories by name
+SELECT * FROM category
+	ORDER BY name ASC
+
+# RM-15 - Order employees by salary
+SELECT * FROM employee
+	ORDER BY salary DESC
