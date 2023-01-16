@@ -12,10 +12,22 @@ SELECT * FROM item;
 SELECT * FROM order_has_item;
 SELECT * FROM suplier;
 SELECT * FROM suplier_provide_item;
-# ----------------------------------
 
-# 3- Listing orders
-	# 3.1 - List all orders of a certain day
+-- Creating Clients View
+CREATE VIEW Clients 
+AS
+	SELECT idClient AS "Id", name AS "Name",  phone AS "PhoneNr" 
+    FROM client AS cl INNER JOIN contact AS cont
+		ON cl.contact = cont.idContact;
+
+SELECT *
+	FROM Clients;
+
+DROP VIEW Clients;
+-- ------------------------------------------------------------------
+
+-- 3- Listing orders
+	-- 3.1 - List all orders of a certain day
 DELIMITER $$
 CREATE PROCEDURE orders_on_day
 	(day_nr INT, month_nr INT)
@@ -25,7 +37,7 @@ SELECT * FROM dorlux.order
 END $$
 CALL orders_on_day(2023, 1);
     
-    # 3.2 - List Orders of a especific category in a specific status
+    -- 3.2 - List Orders of a especific category in a specific status
 DELIMITER $$
 CREATE PROCEDURE list_order_in_category_status(category_nr INT, status_name VARCHAR(200))
 BEGIN
@@ -34,12 +46,15 @@ SELECT * FROM
 		ON Orders.idOrder = Ord_has_item.Order_idOrder
 	INNER JOIN Item AS It
 		ON It.idItem = Ord_has_item.Item_idItem
-	WHERE category = category  AND status = status_name;
+	WHERE category = category_nr  AND status = status_name;
 END
 $$
-CALL list_order_in_category_status(2, 'PENDING');
 
-    # 3.3 - List all orders Processed with address attached
+
+CALL list_order_in_category_status(2, 'PENDING');
+CALL list_order_in_category_status(1, 'PROCESSED');
+
+    -- 3.3 - List all orders Processed with address attached
 SELECT idOrder, status, orderDate, idClient, VAT, street, zipCode, city FROM
 	dorlux.order AS Orders INNER JOIN dorlux.client AS Cl
 		ON Orders.Client_idClient = Cl.idClient
