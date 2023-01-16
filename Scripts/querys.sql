@@ -13,6 +13,8 @@ SELECT * FROM order_has_item;
 SELECT * FROM suplier;
 SELECT * FROM suplier_provide_item;
 
+DROP SCHEMA dorlux;
+
 # RM01 - Anything to Processed
 # RM02 - Anything to Delivering
 # RM03 - Anything to Delivered
@@ -124,10 +126,7 @@ CALL top_X_clients(10);
 CALL top_X_clients(20);
 CALL top_X_clients(30);
 
-
 # RM11 - How many items do we bought from a supplier
-DROP PROCEDURE spQuaisItemsForn; 
-
 DELIMITER $$
 CREATE FUNCTION  fuItemsCompradosForn(vatForn INT)
          RETURNS INT
