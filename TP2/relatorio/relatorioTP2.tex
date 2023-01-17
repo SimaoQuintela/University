@@ -80,7 +80,7 @@
     \paragraph{}
     Começamos por tentar encontrar um nome original e atrativo para a nossa linguagem e acabou por nos surgir a ideia de colocar o nome "Python-Like-C" cuja sigla (PLC) coincide com a sigla da Unidade Curricular que integra este trabalho (Processamento de Linguagens e Compiladores).
     \paragraph{}
-    Neste documento está apresentada a gramática da nossa linguagem, o código escrito no módulo Lexer e Yacc do Python e ainda, como foi pedido, alguns testes com código escrito na nossa linguagem e o respetivo código Assembly gerado.
+    Neste documento está apresentada a gramática e a sintaxe da nossa linguagem, bem como alguns testes com código escrito na nossa linguagem e o respetivo código Assembly gerado.
 
 
     \chapter{Enunciado}
@@ -155,8 +155,6 @@
     \subsection{Instruções condicionais}
     \begin{lstlisting}[language=Python]
         if (cond):
-            ...
-        elif (cond):
             ...
         else:
     \end{lstlisting}
@@ -243,38 +241,51 @@
     \section{Desenho da GIC}
     A nossa linguagem é gerada pela seguinte grámatica independente de contexto:
     \begin{verbatim}
+      ProgramaInit : Programa ENDMARKER
       Programa : Decls Corpo
                | Corpo
-      Decls    : Decl
-               | Decls Decl
+      Decls    : Decl Newline
+               | Decls Decl Newline
       Decl     : INTDec ID
                | INTDec ID ATRIB NUM
                | INTDec ID ATRIB Input 
-               | INTDec ID ATRIB INPUT LCBRACKET RCBRACKET
+               | INTDec ID LSQBRACKET NUM RSQBRACKET ATRIB ArrayValues
                | INTDec ID LSQBRACKET NUM RSQBRACKET
-               | INTDec ID LSQBRACKET NUM RSQBRACKET LSQBRACKET NUM RSQBRACKET
+               | Def
+      Def      : DEF ID COLON Newline INDENT Corpo DEDENT
+               | DEF ID COLON Newline INDENT Decls Corpo DEDENT
+      ArrayValues    : LCURLBRACKET ArrayIntValues RCURLBRACKET
+      ArrayIntValues : ArrayIntValues ',' Expr
+                     | Expr
       Corpo    : Proc
                | Corpo Proc
       Newline  : NEWLINE
+               | ε
+      Dedent   : Dedent DEDENT 
                | ε
       Proc     : Atrib
                | Print
                | If
                | Cycle
+               | Call
+               | Assert
+      Call     : CALL
+      Assert   : ASSERT LCPARENT Cond RCPARENT
       Print    : NonFormatted
-               | Formatted (not implemented)
-      NonFormatted : PRINT LCPARENT QUOTE Argument QUOTE RCPARENT
-      Formatted : ....
+      NonFormatted : PRINT LCPARENT Argument RCPARENT
       Argument : String
                | Expr
-
-      If       : IF LCPARENT cond RCPARENT COLON INDENT Corpo Dedent
-               | IF LCPARENT cond RCPARENT COLON INDENT Corpo Dedent ELSE COLON INDENT Corpo DEDENT
-
+      If       : IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
+               | IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+      Cycle    : While
+               | DoWhile
+      DoWhile  : DO COLON Newline INDENT Corpo Dedent WHILE LCPARENT Cond RCPARENT NEWLINE
+      While    : WHILE LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
       Atrib    : ID ATRIB Expr
                | ID ATRIB Input
-               | ....
-
+               | ID INC
+               | ID DEC
+               | ID LSQBRACKET Expr RSQBRACKET ATRIB Expr
       Cond     : Expr GT Expr 
                | Expr LT Expr
                | Expr GEQ Expr
@@ -284,20 +295,20 @@
                | Cond OR Cond
                | Cond AND Cond
                | NOT Cond
-
-      Expr     : Var                .
-               | NUM                .
-               | ID INC             . 
-               | ID DEC             .
+      Expr     : Var    
+               | ExprIncDec
+               | NUM                
+               | ID INC             
+               | ID DEC             
                | ID SUM ATRIB Expr  
                | ID SUB ATRIB Expr
-               | Expr SUM Expr      .
-               | Expr SUB Expr      .
-               | Expr DIV Expr      .
-               | Expr MUL Expr      .
-               | Expr MOD Expr      .
-
+               | Expr SUM Expr      
+               | Expr SUB Expr      
+               | Expr DIV Expr      
+               | Expr MULT Expr      
+               | Expr MOD Expr      
       Var      : ID
+               | ID LSQBRACKET Expr RSQBRACKET
       Input    : INPUT LCPARENT String RCPARENT
       String   : QUOTE STRING QUOTE
                | ε
@@ -358,7 +369,498 @@
 
 
     \chapter{Exemplos de funcionamento}
-    --- preencher exemplos -- 
+    \subsection{Assert}
+    \begin{lstlisting}[language=Python]
+print("Entrei no segundo if\n")
+assert(1 < 2)
+print("Entrei no segundo if\n")
+assert (1 > 2)
+    \end{lstlisting}
+    \paragraph{}
+    \textbf{Código Assembly gerado:}
+    \begin{lstlisting}
+START
+PUSHS "Entrei no segundo if\n"
+WRITES
+PUSHI 1
+PUSHI 2
+INF
+JZ label0
+JUMP label0f
+label0: NOP
+ERR "False assertion in line 2"
+label0f: NOP
+PUSHS "Entrei no segundo if\n"
+WRITES
+PUSHI 1
+PUSHI 2
+SUP
+JZ label1
+JUMP label1f
+label1: NOP
+ERR "False assertion in line 4"
+label1f: NOP
+STOP
+    \end{lstlisting}
+
+    \subsection{Bubble-Sort}
+    \begin{lstlisting}[language=Python]
+int array[5] = {5,4,3,2,1}
+int tamanho = 4
+int i
+int j
+int temp
+while(i < tamanho):
+    j = 0
+    while(j < tamanho):
+        if (array[j] > array[j+1]):
+            temp = array[j]
+            array[j] = array[j+1]
+            array[j+1] = temp
+        j++
+    i++
+
+print(array[0])
+print(array[1])
+print(array[2])
+print(array[3])
+print(array[4])
+print("Estou ordenado! :)") 
+    \end{lstlisting}
+    \paragraph{}
+    \textbf{Código Assembly gerado:}
+    \begin{lstlisting}
+PUSHI 5
+PUSHI 4
+PUSHI 3
+PUSHI 2
+PUSHI 1
+PUSHI 4
+PUSHI 0
+PUSHI 0
+PUSHI 0
+
+START
+label2c: NOP
+PUSHG 6
+PUSHG 5
+INF
+JZ label2f
+PUSHI 0
+STOREG 7
+label1c: NOP
+PUSHG 7
+PUSHG 5
+INF
+JZ label1f
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 7
+LOADN
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 7
+PUSHI 1
+ADD
+LOADN
+SUP
+JZ label0
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 7
+LOADN
+STOREG 8
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 7
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 7
+PUSHI 1
+ADD
+LOADN
+STOREN
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 7
+PUSHI 1
+ADD
+PUSHG 8
+STOREN
+label0: NOP
+PUSHG 7
+PUSHI 1
+ADD
+STOREG 7
+JUMP label1c
+label1f: NOP
+PUSHG 6
+PUSHI 1
+ADD
+STOREG 6
+JUMP label2c
+label2f: NOP
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 0
+LOADN
+WRITEI
+WRITELN
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 1
+LOADN
+WRITEI
+WRITELN
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 2
+LOADN
+WRITEI
+WRITELN
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 3
+LOADN
+WRITEI
+WRITELN
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 4
+LOADN
+WRITEI
+WRITELN
+PUSHS "Estou ordenado! :)"
+WRITES
+STOP
+    \end{lstlisting}
+    
+    \subsection{Do-While}
+    \begin{lstlisting}[language=Python]
+int opcao
+int valores = 0
+
+do:
+    print("Menu: \n")
+    print("1- Ter 20 a PLC\n")
+    print("2- Ir a recurso\n")
+    opcao = input("Escolha a sua opcao: ")
+    print("\n")
+    if (opcao == 1):
+        valores++
+        print("Faltam estes valores para o 20: ")
+        print(20-valores)
+
+    print("\n")
+while(opcao /= 2)
+
+
+if (opcao == 2):
+    print("Boa sorte no recurso :(\n")
+else:
+    print("Acabaste com estes valores: ")
+    print(valores)        
+    \end{lstlisting}
+    \paragraph{}
+    \textbf{Código Assembly gerado:}
+    \begin{lstlisting}
+PUSHI 0
+PUSHI 0
+
+START
+label1:
+PUSHS "Menu: \n"
+WRITES
+PUSHS "1- Ter 20 a PLC\n"
+WRITES
+PUSHS "2- Ir a recurso\n"
+WRITES
+PUSHS "Escolha a sua opcao: "
+WRITES
+READ
+ATOI
+STOREG 0
+PUSHS "\n"
+WRITES
+PUSHG 0
+PUSHI 1
+EQUAL
+JZ label0
+PUSHG 1
+PUSHI 1
+ADD
+STOREG 1
+PUSHS "Faltam estes valores para o 20: "
+WRITES
+PUSHI 20
+PUSHG 1
+SUB
+WRITEI
+WRITELN
+label0: NOP
+PUSHS "\n"
+WRITES
+PUSHG 0
+PUSHI 2
+EQUAL
+NOT
+NOT
+JZ label1
+PUSHG 0
+PUSHI 2
+EQUAL
+JZ label2
+PUSHS "Boa sorte no recurso :(\n"
+WRITES
+JUMP label2f
+label2: NOP
+PUSHS "Acabaste com estes valores: "
+WRITES
+PUSHG 1
+WRITEI
+WRITELN
+label2f: NOP
+STOP
+    \end{lstlisting}
+    
+    \subsection{Lógica}
+    \begin{lstlisting}[language=Python]
+int bitUm = 0
+int bitDois = 1
+int bitTres = 1
+
+if(bitUm or bitDois):
+    if (bitTres and bitDois):
+        print("Entrei no segundo if\n")
+    else:
+        print("Entrei no primeiro else\n")
+else:
+    print("Entrei no segundo else\n")        
+    \end{lstlisting}
+    \paragraph{}
+    \textbf{Código Assembly gerado:}
+    \begin{lstlisting}
+PUSHI 0
+PUSHI 1
+PUSHI 1
+
+START
+PUSHG 0
+PUSHG 1
+ADD
+PUSHI 1
+SUPEQ
+JZ label1
+PUSHG 2
+PUSHG 1
+ADD
+PUSHI 2
+SUPEQ
+JZ label0
+PUSHS "Entrei no segundo if\n"
+WRITES
+JUMP label0f
+label0: NOP
+PUSHS "Entrei no primeiro else\n"
+WRITES
+label0f: NOP
+JUMP label1f
+label1: NOP
+PUSHS "Entrei no segundo else\n"
+WRITES
+label1f: NOP
+STOP
+    \end{lstlisting}
+    
+    \subsection{Paridade}
+    \begin{lstlisting}[language=Python]
+int x = 1
+int y = 5
+int i
+int array[5] = {x+y, 4, 2, y, 57}
+
+def par:
+    print("O numero e par\n")
+
+def impar:
+    print("O numero e impar\n")
+
+while (i < 5):
+    if (array[i] % 2 == 0):
+        par()
+    else:
+        impar()
+    i++
+
+print("algo")       
+    \end{lstlisting}
+    \paragraph{}
+    \textbf{Código Assembly gerado:}
+    \begin{lstlisting}
+PUSHI 1
+PUSHI 5
+PUSHI 0
+PUSHG 0
+PUSHG 1
+ADD
+PUSHI 4
+PUSHI 2
+PUSHG 1
+PUSHI 57
+JUMP function0Ignore
+function0:
+PUSHS "O numero e par\n"
+WRITES
+RETURN
+function0Ignore:
+
+JUMP function1Ignore
+function1:
+PUSHS "O numero e impar\n"
+WRITES
+RETURN
+function1Ignore:
+
+
+START
+label1c: NOP
+PUSHG 2
+PUSHI 5
+INF
+JZ label1f
+PUSHGP
+PUSHI 3
+PADD
+PUSHG 2
+LOADN
+PUSHI 2
+MOD
+PUSHI 0
+EQUAL
+JZ label0
+PUSHA function0
+CALL
+JUMP label0f
+label0: NOP
+PUSHA function1
+CALL
+label0f: NOP
+PUSHG 2
+PUSHI 1
+ADD
+STOREG 2
+JUMP label1c
+label1f: NOP
+PUSHS "algo"
+WRITES
+STOP
+    \end{lstlisting}
+    
+    \subsection{Quadrado}
+    \begin{lstlisting}[language=Python]
+int x[5] = {1,2,3,4,5}
+int tamanho = 5
+int i
+
+while(i < tamanho):
+    x[i] = x[i] * x[i]
+    i++
+
+print(x[0])
+print(x[1])
+print(x[2])
+print(x[3])
+print(x[4])        
+    \end{lstlisting}
+    \paragraph{}
+    \textbf{Código Assembly gerado:}
+    \begin{lstlisting}
+PUSHI 1
+PUSHI 2
+PUSHI 3
+PUSHI 4
+PUSHI 5
+PUSHI 5
+PUSHI 0
+
+START
+label0c: NOP
+PUSHG 6
+PUSHG 5
+INF
+JZ label0f
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 6
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 6
+LOADN
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 6
+LOADN
+MUL
+STOREN
+PUSHG 6
+PUSHI 1
+ADD
+STOREG 6
+JUMP label0c
+label0f: NOP
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 0
+LOADN
+WRITEI
+WRITELN
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 1
+LOADN
+WRITEI
+WRITELN
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 2
+LOADN
+WRITEI
+WRITELN
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 3
+LOADN
+WRITEI
+WRITELN
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 4
+LOADN
+WRITEI
+WRITELN
+STOP
+    \end{lstlisting}
+    
+
 
 
 \chapter{Conclusão}
