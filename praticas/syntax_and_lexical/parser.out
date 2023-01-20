@@ -1,0 +1,129 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> LIST
+Rule 1     LIST -> LPAREN ELS RPAREN
+Rule 2     ELS -> ELS VIRG EL
+Rule 3     ELS -> EL
+Rule 4     EL -> NUM
+Rule 5     EL -> BOOL
+Rule 6     EL -> ID
+
+Terminals, with rules where they appear
+
+BOOL                 : 5
+ID                   : 6
+LPAREN               : 1
+NUM                  : 4
+RPAREN               : 1
+VIRG                 : 2
+error                : 
+
+Nonterminals, with rules where they appear
+
+EL                   : 2 3
+ELS                  : 1 2
+LIST                 : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . LIST
+    (1) LIST -> . LPAREN ELS RPAREN
+
+    LPAREN          shift and go to state 2
+
+    LIST                           shift and go to state 1
+
+state 1
+
+    (0) S' -> LIST .
+
+
+
+state 2
+
+    (1) LIST -> LPAREN . ELS RPAREN
+    (2) ELS -> . ELS VIRG EL
+    (3) ELS -> . EL
+    (4) EL -> . NUM
+    (5) EL -> . BOOL
+    (6) EL -> . ID
+
+    NUM             shift and go to state 5
+    BOOL            shift and go to state 6
+    ID              shift and go to state 7
+
+    ELS                            shift and go to state 3
+    EL                             shift and go to state 4
+
+state 3
+
+    (1) LIST -> LPAREN ELS . RPAREN
+    (2) ELS -> ELS . VIRG EL
+
+    RPAREN          shift and go to state 8
+    VIRG            shift and go to state 9
+
+
+state 4
+
+    (3) ELS -> EL .
+
+    RPAREN          reduce using rule 3 (ELS -> EL .)
+    VIRG            reduce using rule 3 (ELS -> EL .)
+
+
+state 5
+
+    (4) EL -> NUM .
+
+    RPAREN          reduce using rule 4 (EL -> NUM .)
+    VIRG            reduce using rule 4 (EL -> NUM .)
+
+
+state 6
+
+    (5) EL -> BOOL .
+
+    RPAREN          reduce using rule 5 (EL -> BOOL .)
+    VIRG            reduce using rule 5 (EL -> BOOL .)
+
+
+state 7
+
+    (6) EL -> ID .
+
+    RPAREN          reduce using rule 6 (EL -> ID .)
+    VIRG            reduce using rule 6 (EL -> ID .)
+
+
+state 8
+
+    (1) LIST -> LPAREN ELS RPAREN .
+
+    $end            reduce using rule 1 (LIST -> LPAREN ELS RPAREN .)
+
+
+state 9
+
+    (2) ELS -> ELS VIRG . EL
+    (4) EL -> . NUM
+    (5) EL -> . BOOL
+    (6) EL -> . ID
+
+    NUM             shift and go to state 5
+    BOOL            shift and go to state 6
+    ID              shift and go to state 7
+
+    EL                             shift and go to state 10
+
+state 10
+
+    (2) ELS -> ELS VIRG EL .
+
+    RPAREN          reduce using rule 2 (ELS -> ELS VIRG EL .)
+    VIRG            reduce using rule 2 (ELS -> ELS VIRG EL .)
+

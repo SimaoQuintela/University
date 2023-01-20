@@ -1,0 +1,44 @@
+()
+(15 () ())
+(15 (4 () ()) ())
+
+p1: ArvBin -> '(' num ArvBin ArvBin ')'
+p2:         | '(' ')'
+
+in: ()
+prox_simb: (
+Buffer rec: ArvBin
+
+p1: ArvBin -> '(' Cont ')'
+p2: Cont -> num ArvBin ArvBin
+p3:       | 
+
+in: ()
+prox_simb: )
+Buffer rec: 
+    ArvBin
+    '(' Cont ')'
+    '(' ')'
+
+---------------------------------------------------------
+
+p1: Exp -> Exp '+' Termo
+p2:      | Termo
+
+p3: Termo -> Termo '*' Factor
+p4:        | Factor
+
+p5: Factor -> num
+p6:         | '(' Exp ')'
+
+-------
+
+p1: Exp -> Termo ExpCont
+p2: ExpCont -> '+' Exp
+p3:          | vazio
+p4: Termo -> Factor TermoCont
+p5: TermoCont -> '*' Termo
+p6:            | vazio
+p7: Factor -> num
+p8:         | '(' Exp ')'
+
