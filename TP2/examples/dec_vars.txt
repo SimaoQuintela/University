@@ -1,0 +1,5 @@
+int x
+int something
+int bla = 10, ble = 30
+
+something == bla

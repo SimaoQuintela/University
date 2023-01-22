@@ -29,3 +29,4 @@
 - [NECC](https://github.com/NECC) - Developer / Director of Dev. Department
 - [CoderDojo](https://github.com/coderdojobraga) - Mentor
 - [Hackathon SEI'22](https://github.com/SimaoQuintela/hackathon-sei22)
+

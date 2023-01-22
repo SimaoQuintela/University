@@ -1,0 +1,19 @@
+int x = 1
+int y = 5
+int i
+int array[5] = {x+y, 4, 2, y, 57}
+
+def par:
+    print("O numero e par\n")
+
+def impar:
+    print("O numero e impar\n")
+
+while (i < 5):
+    if (array[i] % 2 == 0):
+        par()
+    else:
+        impar()
+    i++
+
+print("algo")

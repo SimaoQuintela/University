@@ -1,0 +1,30 @@
+PUSHI 0
+PUSHI 1
+PUSHI 1
+
+START
+PUSHG 0
+PUSHG 1
+ADD
+PUSHI 1
+SUPEQ
+JZ label1
+PUSHG 2
+PUSHG 1
+ADD
+PUSHI 2
+SUPEQ
+JZ label0
+PUSHS "Entrei no segundo if\n"
+WRITES
+JUMP label0f
+label0: NOP
+PUSHS "Entrei no primeiro else\n"
+WRITES
+label0f: NOP
+JUMP label1f
+label1: NOP
+PUSHS "Entrei no segundo else\n"
+WRITES
+label1f: NOP
+STOP

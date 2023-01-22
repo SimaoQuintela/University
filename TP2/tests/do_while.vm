@@ -1,0 +1,57 @@
+PUSHI 0
+PUSHI 0
+
+START
+label1:
+PUSHS "Menu: \n"
+WRITES
+PUSHS "1- Ter 20 a PLC\n"
+WRITES
+PUSHS "2- Ir a recurso\n"
+WRITES
+PUSHS "Escolha a sua opcao: "
+WRITES
+READ
+ATOI
+STOREG 0
+PUSHS "\n"
+WRITES
+PUSHG 0
+PUSHI 1
+EQUAL
+JZ label0
+PUSHG 1
+PUSHI 1
+ADD
+STOREG 1
+PUSHS "Faltam estes valores para o 20: "
+WRITES
+PUSHI 20
+PUSHG 1
+SUB
+WRITEI
+WRITELN
+label0: NOP
+PUSHS "\n"
+WRITES
+PUSHG 0
+PUSHI 2
+EQUAL
+NOT
+NOT
+JZ label1
+PUSHG 0
+PUSHI 2
+EQUAL
+JZ label2
+PUSHS "Boa sorte no recurso :(\n"
+WRITES
+JUMP label2f
+label2: NOP
+PUSHS "Acabaste com estes valores: "
+WRITES
+PUSHG 1
+WRITEI
+WRITELN
+label2f: NOP
+STOP

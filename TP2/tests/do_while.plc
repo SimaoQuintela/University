@@ -1,0 +1,26 @@
+int opcao
+int valores = 0
+
+do:
+    print("Menu: \n")
+    print("1- Ter 20 a PLC\n")
+    print("2- Ir a recurso\n")
+    opcao = input("Escolha a sua opcao: ")
+    print("\n")
+    if (opcao == 1):
+        valores++
+        print("Faltam estes valores para o 20: ")
+        print(20-valores)
+
+    print("\n")
+while(opcao /= 2)
+
+
+if (opcao == 2):
+    print("Boa sorte no recurso :(\n")
+else:
+    print("Acabaste com estes valores: ")
+    print(valores)
+
+
+

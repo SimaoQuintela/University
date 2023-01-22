@@ -1,0 +1,37 @@
+\babel@toc {portuges}{}
+\contentsline {chapter}{\numberline {1}Introdução}{3}{chapter.1}%
+\contentsline {paragraph}{}{3}{section*.2}%
+\contentsline {paragraph}{}{3}{section*.3}%
+\contentsline {paragraph}{}{3}{section*.4}%
+\contentsline {chapter}{\numberline {2}Enunciado}{4}{chapter.2}%
+\contentsline {paragraph}{}{4}{section*.5}%
+\contentsline {chapter}{\numberline {3}Concepção da Solução}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Sintaxe da Linguagem PLC}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Declaração de variáveis}{5}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Operadores de comparação}{5}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Operações numéricas}{5}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Operadores lógicos}{6}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5}Instruções condicionais}{6}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.1.6}Ciclo while}{6}{subsection.3.1.6}%
+\contentsline {subsection}{\numberline {3.1.7}Ciclo do-while}{6}{subsection.3.1.7}%
+\contentsline {subsection}{\numberline {3.1.8}Input/Output}{6}{subsection.3.1.8}%
+\contentsline {subsection}{\numberline {3.1.9}Comentário}{6}{subsection.3.1.9}%
+\contentsline {subsection}{\numberline {3.1.10}Assert}{6}{subsection.3.1.10}%
+\contentsline {section}{\numberline {3.2}Símbolos}{7}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Desenho da GIC}{8}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Extras}{9}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Comentários}{9}{subsection.3.4.1}%
+\contentsline {paragraph}{}{9}{section*.6}%
+\contentsline {subsection}{\numberline {3.4.2}Erros}{10}{subsection.3.4.2}%
+\contentsline {paragraph}{}{10}{section*.7}%
+\contentsline {subsection}{\numberline {3.4.3}Ordem de operações(simples)}{10}{subsection.3.4.3}%
+\contentsline {paragraph}{}{10}{section*.8}%
+\contentsline {subsection}{\numberline {3.4.4}Indentação}{10}{subsection.3.4.4}%
+\contentsline {paragraph}{}{10}{section*.9}%
+\contentsline {paragraph}{}{10}{section*.10}%
+\contentsline {paragraph}{}{10}{section*.11}%
+\contentsline {chapter}{\numberline {4}Exemplos de funcionamento}{12}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conclusão}{13}{chapter.5}%
+\contentsline {paragraph}{}{13}{section*.12}%
+\contentsline {paragraph}{}{13}{section*.13}%
+\contentsline {paragraph}{}{13}{section*.14}%

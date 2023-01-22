@@ -1,0 +1,12 @@
+int bitUm = 0
+int bitDois = 1
+int bitTres = 1
+
+if(bitUm or bitDois):
+    if (bitTres and bitDois):
+        print("Entrei no segundo if\n")
+    else:
+        print("Entrei no primeiro else\n")
+else:
+    print("Entrei no segundo else\n")
+        

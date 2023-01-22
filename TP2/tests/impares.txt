@@ -1,0 +1,16 @@
+int inf1
+int sup
+int i
+int som
+
+inf1 = input()
+sup = input()
+i = inf1
+
+while i != sup:
+    if i%2 == 1:
+        print(i)
+        som++
+    i++
+
+print(som)

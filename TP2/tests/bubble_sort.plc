@@ -1,0 +1,21 @@
+int array[5] = {5,4,3,2,1}
+int tamanho = 4
+int i
+int j
+int temp
+while(i < tamanho):
+    j = 0
+    while(j < tamanho):
+        if (array[j] > array[j+1]):
+            temp = array[j]
+            array[j] = array[j+1]
+            array[j+1] = temp
+        j++
+    i++
+
+print(array[0])
+print(array[1])
+print(array[2])
+print(array[3])
+print(array[4])
+print("Estou ordenado! :)")

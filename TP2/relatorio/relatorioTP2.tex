@@ -1,0 +1,875 @@
+\documentclass[11pt,a4paper]{report}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[portuges]{babel}
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage[pdftex]{hyperref}
+\usepackage{listings}
+\usepackage{enumitem}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{magenta},
+    keywordstyle=\color{codegreen},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    keepspaces=true,
+    numbers=left,
+    numbersep=2pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=true
+}
+
+\lstset{style=mystyle}
+
+\graphicspath{{../../imagens/TP2/}}
+
+\title{PLC - Trabalho Prático 2\\
+    \large Grupo nº14}
+
+\author{
+    Simão Pedro Batista Caridade Quintela \\ (A97444) 
+    \and David José de Sousa Machado \\ (A91665)
+    \and Hugo Filipe de Sá Rocha \\ (A96463)
+} %autores do documento
+
+\date{\today} %data
+
+\begin{document}
+
+    \begin{minipage}{0.9\linewidth}
+        \centering
+        \includegraphics[width=0.4\textwidth]{um.jpg}\par\vspace{1 cm}
+        \href{https://www.uminho.pt/PT}
+        {\scshape\LARGE Universidade do Minho} \par
+        \vspace{0.6cm}
+        \href{https://lcc.di.uminho.pt}
+        {\scshape\Large Licenciatura em Ciências da Computação} \par
+        \maketitle
+        
+        \includegraphics[width=0.3\linewidth]{simao.jpg}
+        \includegraphics[width=0.3\linewidth]{david.jpg}
+        \includegraphics[width=0.35\linewidth]{hugo.jpg}
+    \end{minipage}
+
+    \tableofcontents
+
+    \pagebreak
+
+
+    \chapter{Introdução}
+    \paragraph{}
+    No âmbito da disciplina de Processamento de Linguagens e Compiladores foi-nos proposto pelo docente Pedro Rangel Henriques o desenvolvimento de uma Linguagem de Programação Imperativa simples e de um compilador para reconhecer programas escritas nessa linguagem gerando o respetivo código Assembly da Máquina Virtual VM.
+    \paragraph{}
+    Começamos por tentar encontrar um nome original e atrativo para a nossa linguagem e acabou por nos surgir a ideia de colocar o nome "Python-Like-C" cuja sigla (PLC) coincide com a sigla da Unidade Curricular que integra este trabalho (Processamento de Linguagens e Compiladores).
+    \paragraph{}
+    Neste documento está apresentada a gramática e a sintaxe da nossa linguagem, bem como alguns testes com código escrito na nossa linguagem e o respetivo código Assembly gerado.
+
+
+    \chapter{Enunciado}
+    \paragraph{}
+    Pretende-se que comece por definir uma linguagem de programação imperativa simples, a seu gosto.
+    Apenas deve ter em consideração que essa linguagem terá de permitir:
+    \begin{itemize}
+        \item \textit{declarar} variáveis atómicas do tipo \textit{inteiro}, com os quais se podem realizar as habituais operações aritméticas, relacionais e lógicas;
+        \item \textit{efetuar} instruções algorítmicas básicas como a \textit{atribuição do valor de expressões numéricas a variáveis};
+        \item \textit{ler} do \textit{standard input} e \textit{escrever} no \textit{standard output};
+        \item \textit{efetuar} instruções \textit{condicionais} para controlo do fluxo de execução;
+        \item \textit{efetuar} instruções cíclicas para controlo do fluxo de execução, permitindo o seu aninhamento.\\
+    \underline{Note} que deve implementar pelo menos o ciclo \textbf{while-do}, \textbf{repeat-until} ou \textbf{for-do}.
+    \end{itemize}
+
+    Adicionalmente deve ainda suportar, à sua escolha, uma das duas funcionalidades seguintes:
+    \begin{itemize}
+        \item \textit{declarar e manusear} variáveis estruturadas do tipo \textit{array (a 1 ou 2 dimensões)} de inteiros, em relação aos quais é apenas permitida a operação de indexação (ı́ndice inteiro);
+        \item \textit{definir e invocar subprogramas} sem parâmetros mas que possam retornar um resultado do tipo inteiro.
+    \end{itemize}
+
+
+    \chapter{Concepção da Solução}
+    Neste capítulo vamos apresentar:
+    \begin{itemize}
+        \item A sintaxe da linguagem PLC
+        \item Os símbolos
+        \item O desenho da gramática independente de contexto
+        \item Extras
+    \end{itemize}
+    No nosso trabalho, acabámos por implementar \textit{arrays} unidimensionais e subprogramas sem retorno.
+
+
+    \section{Sintaxe da Linguagem PLC}
+    A sintaxe da linguagem é a seguinte
+
+    \subsection{Declaração de variáveis}
+    \begin{lstlisting}[language=Python]
+        int x
+        int x = 10
+        int x[n]
+        int x[10] = {1,2,3,4,5,6,7,8,9,10}
+    \end{lstlisting}
+
+    \subsection{Operadores de comparação}
+    \begin{lstlisting}[language=Python]
+        x <= y
+        x >= y
+        x < y
+        x > y
+        x == y
+    \end{lstlisting}
+
+    \subsection{Operações numéricas}
+    \begin{lstlisting}[language=Python]
+        x + y
+        x - y
+        x / y
+        x * y
+        x % y
+        x ++ #(incremento)
+        y -- #(decremento)
+    \end{lstlisting}
+
+    \subsection{Operadores lógicos}
+    \begin{lstlisting}[language=Python]
+        x and y
+        x or y
+        not x
+    \end{lstlisting}
+
+    \subsection{Instruções condicionais}
+    \begin{lstlisting}[language=Python]
+        if (cond):
+            ...
+        else:
+    \end{lstlisting}
+
+    \subsection{Ciclo while}
+    \begin{lstlisting}[language=Python]
+        while (cond):
+            ...
+    \end{lstlisting}
+
+    \subsection{Ciclo do-while}
+    \begin{lstlisting}[language=Python]
+        do:
+            ...
+        while (cond)
+    \end{lstlisting}
+
+    \subsection{Input/Output}
+    \begin{lstlisting}[language=Python]
+        x = input()
+        x = input("Declare the variable with the value: ")
+        print("Hello world!")
+    \end{lstlisting}
+
+    \subsection{Comentário}
+    \begin{lstlisting}[language=Python]
+        # isto e um comentario na nossa linguagem
+    \end{lstlisting}
+
+    \subsection{Assert}
+    A linguagem tem definidos asserts que utilizam as mensagems de erro da Máquina Virtual
+    \begin{lstlisting}[language=Python]
+        assert (cond)
+    \end{lstlisting}
+
+    \section{Símbolos}
+    Os simbolos da linguagem são os seguintes:
+    \begin{verbatim}
+        'INTDec',
+        'NUM',
+        'ID',
+        'ATRIB',
+        'EQUIV',
+        'LEQ',  # <= - (less or equal)
+        'GEQ',  # >= - (greater or equal)
+        'GT',   # >  - (greater than)
+        'LT',   # <  - (less than)
+        'NEQ',  # /= - (not equal -> NEQ -> NECC)
+        'LCPARENT',
+        'RCPARENT',
+        'LSQBRACKET', # left square bracket
+        'RSQBRACKET', # right square bracket
+        'LCURLBRACKET',
+        'RCURLBRACKET',
+        'SUM',
+        'SUB',
+        'DIV',
+        'MULT',
+        'MOD',
+        'INC',
+        'DEC',
+        'QUOTE', # Símbolo "
+        'STRING',
+        'NEWLINE',
+        'COLON',
+        'WS',
+        'INDENT',
+        'DEDENT',
+        'ENDMARKER'
+        'IF',
+        'ELSE',
+        'ASSERT',
+        'WHILE',
+        'DO',
+        'PRINT',
+        'INPUT',
+        'AND',
+        'OR',
+        'NOT',
+        'DEF',
+        'CALL'
+    \end{verbatim}
+
+    \section{Desenho da GIC}
+    A nossa linguagem é gerada pela seguinte grámatica independente de contexto:
+    \begin{verbatim}
+      ProgramaInit : Programa ENDMARKER
+      Programa : Decls Corpo
+               | Corpo
+      Decls    : Decl Newline
+               | Decls Decl Newline
+      Decl     : INTDec ID
+               | INTDec ID ATRIB NUM
+               | INTDec ID ATRIB Input 
+               | INTDec ID LSQBRACKET NUM RSQBRACKET ATRIB ArrayValues
+               | INTDec ID LSQBRACKET NUM RSQBRACKET
+               | Def
+      Def      : DEF ID COLON Newline INDENT Corpo DEDENT
+               | DEF ID COLON Newline INDENT Decls Corpo DEDENT
+      ArrayValues    : LCURLBRACKET ArrayIntValues RCURLBRACKET
+      ArrayIntValues : ArrayIntValues ',' Expr
+                     | Expr
+      Corpo    : Proc
+               | Corpo Proc
+      Newline  : NEWLINE
+               | ε
+      Dedent   : Dedent DEDENT 
+               | ε
+      Proc     : Atrib
+               | Print
+               | If
+               | Cycle
+               | Call
+               | Assert
+      Call     : CALL
+      Assert   : ASSERT LCPARENT Cond RCPARENT
+      Print    : NonFormatted
+      NonFormatted : PRINT LCPARENT Argument RCPARENT
+      Argument : String
+               | Expr
+      If       : IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
+               | IF LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent ELSE COLON Newline INDENT Corpo DEDENT
+      Cycle    : While
+               | DoWhile
+      DoWhile  : DO COLON Newline INDENT Corpo Dedent WHILE LCPARENT Cond RCPARENT NEWLINE
+      While    : WHILE LCPARENT Cond RCPARENT COLON Newline INDENT Corpo Dedent
+      Atrib    : ID ATRIB Expr
+               | ID ATRIB Input
+               | ID INC
+               | ID DEC
+               | ID LSQBRACKET Expr RSQBRACKET ATRIB Expr
+      Cond     : Expr GT Expr 
+               | Expr LT Expr
+               | Expr GEQ Expr
+               | Expr LEQ Expr
+               | Expr EQUIV Expr
+               | Expr NEQ Expr
+               | Cond OR Cond
+               | Cond AND Cond
+               | NOT Cond
+      Expr     : Var    
+               | ExprIncDec
+               | NUM                
+               | ID INC             
+               | ID DEC             
+               | ID SUM ATRIB Expr  
+               | ID SUB ATRIB Expr
+               | Expr SUM Expr      
+               | Expr SUB Expr      
+               | Expr DIV Expr      
+               | Expr MULT Expr      
+               | Expr MOD Expr      
+      Var      : ID
+               | ID LSQBRACKET Expr RSQBRACKET
+      Input    : INPUT LCPARENT String RCPARENT
+      String   : QUOTE STRING QUOTE
+               | ε
+    \end{verbatim}
+
+    \section{Extras}
+    Os extras implementados foram:
+    \begin{itemize}
+        \item Comentários
+        \item Erros
+        \item Ordem de operações(simples)
+        \item Indentação obrigatória
+    \end{itemize}
+
+    \subsection{Comentários}
+    \paragraph{}
+    Os comentários funcionam através do consumo do padrão sem retornar valor.
+    \begin{lstlisting}[language=Python]
+        def t_comment(t):
+            r'\#.*'
+            pass
+    \end{lstlisting}
+
+    \subsection{Erros}
+    \paragraph{}
+    Definimos messagens de erro para ajudar o utilizador a corrigir os erros do seu programa.
+    \begin{lstlisting}[language=Python]
+        def p_error(p):
+            print('Syntax error!\np -> ', p)
+            parser.sucesso = False
+    \end{lstlisting}
+
+    \subsection{Ordem de operações(simples)}
+    \paragraph{}
+    Definimos também a precedência dos operadores aritméticos para que o cálculo de uma expressão aritmética seja
+     feito de acordo com a precedência habitual dos operadores(não tendo em conta expressões dentro de parêntesis):
+    \begin{lstlisting}[language=Python]
+        precedence = (
+            ("left", "SUM", "SUB"),
+            ("left", "MULT", "DIV")
+        )
+    \end{lstlisting}
+
+    \subsection{Indentação}
+    \paragraph{}
+    Para implementar a indentação obrigatória inspiramo-nos num dos exemplos da documentação do PLY chamado "GardenSanke".
+    O processo de verificação de indentação é feito através de dois filtros que são corridos após o analisador léxico.
+    Os tokens utilizados para o processo são o 'COLON', a 'NEWLINE', o 'WS' o 'INDENT' e o 'DEDENT'.
+    \paragraph{}
+    O primeiro filtro identifica os tokens 'COLON', 'NEWLINE' e 'WS' e utiliza-os para identificar quais os tokens que devem ser indentados e 
+    quais os tokens no início das linhas para posteriormente verificar o nível da indentação.
+    \paragraph{}
+    O segundo filtro calcula as profundidades das indentações a emitir e os tokens 'INDENT' e 'DEDENT' para criar os blocos.
+    Nos 'WS' inicializa a profundidade da indentação e retêm o token neste filtro. Nos 'NEWLINE' reinicia profundidade da indentação.
+    Nos restantes tokens verifica se a indentação está de acodordo com a respectiva profundidade e emite os seus tokens 'INDENT' e 'DEDENT'
+    No final criamos 'DEDENT's que estejam em falta devido à terminação do ficheiro num estado aninhado.
+
+
+
+    \chapter{Exemplos de funcionamento}
+    \subsection{Assert}
+    \begin{lstlisting}[language=Python]
+print("Entrei no segundo if\n")
+assert(1 < 2)
+print("Entrei no segundo if\n")
+assert (1 > 2)
+    \end{lstlisting}
+    \paragraph{}
+    \textbf{Código Assembly gerado:}
+    \begin{lstlisting}
+START
+PUSHS "Entrei no segundo if\n"
+WRITES
+PUSHI 1
+PUSHI 2
+INF
+JZ label0
+JUMP label0f
+label0: NOP
+ERR "False assertion in line 2"
+label0f: NOP
+PUSHS "Entrei no segundo if\n"
+WRITES
+PUSHI 1
+PUSHI 2
+SUP
+JZ label1
+JUMP label1f
+label1: NOP
+ERR "False assertion in line 4"
+label1f: NOP
+STOP
+    \end{lstlisting}
+
+    \subsection{Bubble-Sort}
+    \begin{lstlisting}[language=Python]
+int array[5] = {5,4,3,2,1}
+int tamanho = 4
+int i
+int j
+int temp
+while(i < tamanho):
+    j = 0
+    while(j < tamanho):
+        if (array[j] > array[j+1]):
+            temp = array[j]
+            array[j] = array[j+1]
+            array[j+1] = temp
+        j++
+    i++
+
+print(array[0])
+print(array[1])
+print(array[2])
+print(array[3])
+print(array[4])
+print("Estou ordenado! :)") 
+    \end{lstlisting}
+    \paragraph{}
+    \textbf{Código Assembly gerado:}
+    \begin{lstlisting}
+PUSHI 5
+PUSHI 4
+PUSHI 3
+PUSHI 2
+PUSHI 1
+PUSHI 4
+PUSHI 0
+PUSHI 0
+PUSHI 0
+
+START
+label2c: NOP
+PUSHG 6
+PUSHG 5
+INF
+JZ label2f
+PUSHI 0
+STOREG 7
+label1c: NOP
+PUSHG 7
+PUSHG 5
+INF
+JZ label1f
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 7
+LOADN
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 7
+PUSHI 1
+ADD
+LOADN
+SUP
+JZ label0
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 7
+LOADN
+STOREG 8
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 7
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 7
+PUSHI 1
+ADD
+LOADN
+STOREN
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 7
+PUSHI 1
+ADD
+PUSHG 8
+STOREN
+label0: NOP
+PUSHG 7
+PUSHI 1
+ADD
+STOREG 7
+JUMP label1c
+label1f: NOP
+PUSHG 6
+PUSHI 1
+ADD
+STOREG 6
+JUMP label2c
+label2f: NOP
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 0
+LOADN
+WRITEI
+WRITELN
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 1
+LOADN
+WRITEI
+WRITELN
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 2
+LOADN
+WRITEI
+WRITELN
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 3
+LOADN
+WRITEI
+WRITELN
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 4
+LOADN
+WRITEI
+WRITELN
+PUSHS "Estou ordenado! :)"
+WRITES
+STOP
+    \end{lstlisting}
+    
+    \subsection{Do-While}
+    \begin{lstlisting}[language=Python]
+int opcao
+int valores = 0
+
+do:
+    print("Menu: \n")
+    print("1- Ter 20 a PLC\n")
+    print("2- Ir a recurso\n")
+    opcao = input("Escolha a sua opcao: ")
+    print("\n")
+    if (opcao == 1):
+        valores++
+        print("Faltam estes valores para o 20: ")
+        print(20-valores)
+
+    print("\n")
+while(opcao /= 2)
+
+
+if (opcao == 2):
+    print("Boa sorte no recurso :(\n")
+else:
+    print("Acabaste com estes valores: ")
+    print(valores)        
+    \end{lstlisting}
+    \paragraph{}
+    \textbf{Código Assembly gerado:}
+    \begin{lstlisting}
+PUSHI 0
+PUSHI 0
+
+START
+label1:
+PUSHS "Menu: \n"
+WRITES
+PUSHS "1- Ter 20 a PLC\n"
+WRITES
+PUSHS "2- Ir a recurso\n"
+WRITES
+PUSHS "Escolha a sua opcao: "
+WRITES
+READ
+ATOI
+STOREG 0
+PUSHS "\n"
+WRITES
+PUSHG 0
+PUSHI 1
+EQUAL
+JZ label0
+PUSHG 1
+PUSHI 1
+ADD
+STOREG 1
+PUSHS "Faltam estes valores para o 20: "
+WRITES
+PUSHI 20
+PUSHG 1
+SUB
+WRITEI
+WRITELN
+label0: NOP
+PUSHS "\n"
+WRITES
+PUSHG 0
+PUSHI 2
+EQUAL
+NOT
+NOT
+JZ label1
+PUSHG 0
+PUSHI 2
+EQUAL
+JZ label2
+PUSHS "Boa sorte no recurso :(\n"
+WRITES
+JUMP label2f
+label2: NOP
+PUSHS "Acabaste com estes valores: "
+WRITES
+PUSHG 1
+WRITEI
+WRITELN
+label2f: NOP
+STOP
+    \end{lstlisting}
+    
+    \subsection{Lógica}
+    \begin{lstlisting}[language=Python]
+int bitUm = 0
+int bitDois = 1
+int bitTres = 1
+
+if(bitUm or bitDois):
+    if (bitTres and bitDois):
+        print("Entrei no segundo if\n")
+    else:
+        print("Entrei no primeiro else\n")
+else:
+    print("Entrei no segundo else\n")        
+    \end{lstlisting}
+    \paragraph{}
+    \textbf{Código Assembly gerado:}
+    \begin{lstlisting}
+PUSHI 0
+PUSHI 1
+PUSHI 1
+
+START
+PUSHG 0
+PUSHG 1
+ADD
+PUSHI 1
+SUPEQ
+JZ label1
+PUSHG 2
+PUSHG 1
+ADD
+PUSHI 2
+SUPEQ
+JZ label0
+PUSHS "Entrei no segundo if\n"
+WRITES
+JUMP label0f
+label0: NOP
+PUSHS "Entrei no primeiro else\n"
+WRITES
+label0f: NOP
+JUMP label1f
+label1: NOP
+PUSHS "Entrei no segundo else\n"
+WRITES
+label1f: NOP
+STOP
+    \end{lstlisting}
+    
+    \subsection{Paridade}
+    \begin{lstlisting}[language=Python]
+int x = 1
+int y = 5
+int i
+int array[5] = {x+y, 4, 2, y, 57}
+
+def par:
+    print("O numero e par\n")
+
+def impar:
+    print("O numero e impar\n")
+
+while (i < 5):
+    if (array[i] % 2 == 0):
+        par()
+    else:
+        impar()
+    i++
+
+print("algo")       
+    \end{lstlisting}
+    \paragraph{}
+    \textbf{Código Assembly gerado:}
+    \begin{lstlisting}
+PUSHI 1
+PUSHI 5
+PUSHI 0
+PUSHG 0
+PUSHG 1
+ADD
+PUSHI 4
+PUSHI 2
+PUSHG 1
+PUSHI 57
+JUMP function0Ignore
+function0:
+PUSHS "O numero e par\n"
+WRITES
+RETURN
+function0Ignore:
+
+JUMP function1Ignore
+function1:
+PUSHS "O numero e impar\n"
+WRITES
+RETURN
+function1Ignore:
+
+
+START
+label1c: NOP
+PUSHG 2
+PUSHI 5
+INF
+JZ label1f
+PUSHGP
+PUSHI 3
+PADD
+PUSHG 2
+LOADN
+PUSHI 2
+MOD
+PUSHI 0
+EQUAL
+JZ label0
+PUSHA function0
+CALL
+JUMP label0f
+label0: NOP
+PUSHA function1
+CALL
+label0f: NOP
+PUSHG 2
+PUSHI 1
+ADD
+STOREG 2
+JUMP label1c
+label1f: NOP
+PUSHS "algo"
+WRITES
+STOP
+    \end{lstlisting}
+    
+    \subsection{Quadrado}
+    \begin{lstlisting}[language=Python]
+int x[5] = {1,2,3,4,5}
+int tamanho = 5
+int i
+
+while(i < tamanho):
+    x[i] = x[i] * x[i]
+    i++
+
+print(x[0])
+print(x[1])
+print(x[2])
+print(x[3])
+print(x[4])        
+    \end{lstlisting}
+    \paragraph{}
+    \textbf{Código Assembly gerado:}
+    \begin{lstlisting}
+PUSHI 1
+PUSHI 2
+PUSHI 3
+PUSHI 4
+PUSHI 5
+PUSHI 5
+PUSHI 0
+
+START
+label0c: NOP
+PUSHG 6
+PUSHG 5
+INF
+JZ label0f
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 6
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 6
+LOADN
+PUSHGP
+PUSHI 0
+PADD
+PUSHG 6
+LOADN
+MUL
+STOREN
+PUSHG 6
+PUSHI 1
+ADD
+STOREG 6
+JUMP label0c
+label0f: NOP
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 0
+LOADN
+WRITEI
+WRITELN
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 1
+LOADN
+WRITEI
+WRITELN
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 2
+LOADN
+WRITEI
+WRITELN
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 3
+LOADN
+WRITEI
+WRITELN
+PUSHGP
+PUSHI 0
+PADD
+PUSHI 4
+LOADN
+WRITEI
+WRITELN
+STOP
+    \end{lstlisting}
+    
+
+
+
+\chapter{Conclusão}
+\paragraph{}
+Fazendo uma retrospetiva referente ao trabalho prático, entendemos que os todos os objetivos do trabalho prático foram cumpridos. A realização deste trabalho foi particularmente atrativa pois ao desenvolver a nossa própria linguagem de programação somos nós quem decide toda a sua sintaxe e notação e chegar ao fim e perceber que conseguimos desenvolver a base de uma linguagem de programação é satisfatório.
+\paragraph{}
+A realização deste trabalho prático fez com que ficássemos bem dentro do funcionamento do módulo Lexer e do módulo Yacc, nomeadamente como funciona o reconhecimento de tokens e a implementação da nossa gramática. A geração de código Assembly foi sem dúvida também um ponto positivo deste trabalho pois permitiu-nos entender melhor a linguagem e as suas instruções. 
+\paragraph{}
+Em suma, entendemos que todos os objetivos foram concluídos e consideramos que este trabalho foi bastante desafiador e uma excelente fonte de conhecimento para desafios futuros. 
+
+
+\end{document}
