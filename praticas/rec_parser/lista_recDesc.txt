@@ -1,0 +1,43 @@
+6
+7+8
+7-2+1
+8*2+6
+(2-3)*3-6/2
+
+[]
+
+Lista 
+
+[23]
+[7,89,111]
+
+p1: Lista -> '[' Elementos ']'
+p2:        | '[' ']'
+
+p3: Elementos -> num
+p4:            | num ',' Elementos
+
+-------------------------------------------
+
+p1: Lista -> '[' Cont
+p2: Cont -> ']'
+p3:       | Elementos ']'
+
+p4: Elementos -> num ContElem
+p5: ContElem -> vazio
+              | ',' Elementos
+        
+in: []
+prox_simb: ]
+Stack: Lista ==> '[' Cont ==> '[' ']'
+
+in: [1,3]
+prox_simb: ]
+Buffer: 
+    Lista 
+    '[' Cont  
+    '[' Elementos ']' 
+    '[' num ContElem ']' 
+    '[' num ',' Elementos ']'
+    '[' num ',' num ContElem ']'
+    '[' num ',' num ']'

@@ -1,0 +1,487 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> prog
+Rule 1     prog -> statements
+Rule 2     statements -> statements statement
+Rule 3     statements -> statement
+Rule 4     statement -> atrib
+Rule 5     statement -> print
+Rule 6     statement -> dump
+Rule 7     atrib -> ID = aexp
+Rule 8     print -> PRINT ( aexp )
+Rule 9     dump -> DUMP
+Rule 10    aexp -> aexp + term
+Rule 11    aexp -> aexp - term
+Rule 12    aexp -> term
+Rule 13    term -> term * factor
+Rule 14    term -> term / factor
+Rule 15    term -> factor
+Rule 16    factor -> NUM
+Rule 17    factor -> ID
+Rule 18    factor -> ( aexp )
+
+Terminals, with rules where they appear
+
+(                    : 8 18
+)                    : 8 18
+*                    : 13
++                    : 10
+-                    : 11
+/                    : 14
+=                    : 7
+DUMP                 : 9
+ID                   : 7 17
+NUM                  : 16
+PRINT                : 8
+error                : 
+
+Nonterminals, with rules where they appear
+
+aexp                 : 7 8 10 11 18
+atrib                : 4
+dump                 : 6
+factor               : 13 14 15
+print                : 5
+prog                 : 0
+statement            : 2 3
+statements           : 1 2
+term                 : 10 11 12 13 14
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . prog
+    (1) prog -> . statements
+    (2) statements -> . statements statement
+    (3) statements -> . statement
+    (4) statement -> . atrib
+    (5) statement -> . print
+    (6) statement -> . dump
+    (7) atrib -> . ID = aexp
+    (8) print -> . PRINT ( aexp )
+    (9) dump -> . DUMP
+
+    ID              shift and go to state 7
+    PRINT           shift and go to state 8
+    DUMP            shift and go to state 9
+
+    prog                           shift and go to state 1
+    statements                     shift and go to state 2
+    statement                      shift and go to state 3
+    atrib                          shift and go to state 4
+    print                          shift and go to state 5
+    dump                           shift and go to state 6
+
+state 1
+
+    (0) S' -> prog .
+
+
+
+state 2
+
+    (1) prog -> statements .
+    (2) statements -> statements . statement
+    (4) statement -> . atrib
+    (5) statement -> . print
+    (6) statement -> . dump
+    (7) atrib -> . ID = aexp
+    (8) print -> . PRINT ( aexp )
+    (9) dump -> . DUMP
+
+    $end            reduce using rule 1 (prog -> statements .)
+    ID              shift and go to state 7
+    PRINT           shift and go to state 8
+    DUMP            shift and go to state 9
+
+    statement                      shift and go to state 10
+    atrib                          shift and go to state 4
+    print                          shift and go to state 5
+    dump                           shift and go to state 6
+
+state 3
+
+    (3) statements -> statement .
+
+    ID              reduce using rule 3 (statements -> statement .)
+    PRINT           reduce using rule 3 (statements -> statement .)
+    DUMP            reduce using rule 3 (statements -> statement .)
+    $end            reduce using rule 3 (statements -> statement .)
+
+
+state 4
+
+    (4) statement -> atrib .
+
+    ID              reduce using rule 4 (statement -> atrib .)
+    PRINT           reduce using rule 4 (statement -> atrib .)
+    DUMP            reduce using rule 4 (statement -> atrib .)
+    $end            reduce using rule 4 (statement -> atrib .)
+
+
+state 5
+
+    (5) statement -> print .
+
+    ID              reduce using rule 5 (statement -> print .)
+    PRINT           reduce using rule 5 (statement -> print .)
+    DUMP            reduce using rule 5 (statement -> print .)
+    $end            reduce using rule 5 (statement -> print .)
+
+
+state 6
+
+    (6) statement -> dump .
+
+    ID              reduce using rule 6 (statement -> dump .)
+    PRINT           reduce using rule 6 (statement -> dump .)
+    DUMP            reduce using rule 6 (statement -> dump .)
+    $end            reduce using rule 6 (statement -> dump .)
+
+
+state 7
+
+    (7) atrib -> ID . = aexp
+
+    =               shift and go to state 11
+
+
+state 8
+
+    (8) print -> PRINT . ( aexp )
+
+    (               shift and go to state 12
+
+
+state 9
+
+    (9) dump -> DUMP .
+
+    ID              reduce using rule 9 (dump -> DUMP .)
+    PRINT           reduce using rule 9 (dump -> DUMP .)
+    DUMP            reduce using rule 9 (dump -> DUMP .)
+    $end            reduce using rule 9 (dump -> DUMP .)
+
+
+state 10
+
+    (2) statements -> statements statement .
+
+    ID              reduce using rule 2 (statements -> statements statement .)
+    PRINT           reduce using rule 2 (statements -> statements statement .)
+    DUMP            reduce using rule 2 (statements -> statements statement .)
+    $end            reduce using rule 2 (statements -> statements statement .)
+
+
+state 11
+
+    (7) atrib -> ID = . aexp
+    (10) aexp -> . aexp + term
+    (11) aexp -> . aexp - term
+    (12) aexp -> . term
+    (13) term -> . term * factor
+    (14) term -> . term / factor
+    (15) term -> . factor
+    (16) factor -> . NUM
+    (17) factor -> . ID
+    (18) factor -> . ( aexp )
+
+    NUM             shift and go to state 17
+    ID              shift and go to state 13
+    (               shift and go to state 18
+
+    aexp                           shift and go to state 14
+    term                           shift and go to state 15
+    factor                         shift and go to state 16
+
+state 12
+
+    (8) print -> PRINT ( . aexp )
+    (10) aexp -> . aexp + term
+    (11) aexp -> . aexp - term
+    (12) aexp -> . term
+    (13) term -> . term * factor
+    (14) term -> . term / factor
+    (15) term -> . factor
+    (16) factor -> . NUM
+    (17) factor -> . ID
+    (18) factor -> . ( aexp )
+
+    NUM             shift and go to state 17
+    ID              shift and go to state 13
+    (               shift and go to state 18
+
+    aexp                           shift and go to state 19
+    term                           shift and go to state 15
+    factor                         shift and go to state 16
+
+state 13
+
+    (17) factor -> ID .
+
+    *               reduce using rule 17 (factor -> ID .)
+    /               reduce using rule 17 (factor -> ID .)
+    +               reduce using rule 17 (factor -> ID .)
+    -               reduce using rule 17 (factor -> ID .)
+    ID              reduce using rule 17 (factor -> ID .)
+    PRINT           reduce using rule 17 (factor -> ID .)
+    DUMP            reduce using rule 17 (factor -> ID .)
+    $end            reduce using rule 17 (factor -> ID .)
+    )               reduce using rule 17 (factor -> ID .)
+
+
+state 14
+
+    (7) atrib -> ID = aexp .
+    (10) aexp -> aexp . + term
+    (11) aexp -> aexp . - term
+
+    ID              reduce using rule 7 (atrib -> ID = aexp .)
+    PRINT           reduce using rule 7 (atrib -> ID = aexp .)
+    DUMP            reduce using rule 7 (atrib -> ID = aexp .)
+    $end            reduce using rule 7 (atrib -> ID = aexp .)
+    +               shift and go to state 20
+    -               shift and go to state 21
+
+
+state 15
+
+    (12) aexp -> term .
+    (13) term -> term . * factor
+    (14) term -> term . / factor
+
+    +               reduce using rule 12 (aexp -> term .)
+    -               reduce using rule 12 (aexp -> term .)
+    ID              reduce using rule 12 (aexp -> term .)
+    PRINT           reduce using rule 12 (aexp -> term .)
+    DUMP            reduce using rule 12 (aexp -> term .)
+    $end            reduce using rule 12 (aexp -> term .)
+    )               reduce using rule 12 (aexp -> term .)
+    *               shift and go to state 22
+    /               shift and go to state 23
+
+
+state 16
+
+    (15) term -> factor .
+
+    *               reduce using rule 15 (term -> factor .)
+    /               reduce using rule 15 (term -> factor .)
+    +               reduce using rule 15 (term -> factor .)
+    -               reduce using rule 15 (term -> factor .)
+    ID              reduce using rule 15 (term -> factor .)
+    PRINT           reduce using rule 15 (term -> factor .)
+    DUMP            reduce using rule 15 (term -> factor .)
+    $end            reduce using rule 15 (term -> factor .)
+    )               reduce using rule 15 (term -> factor .)
+
+
+state 17
+
+    (16) factor -> NUM .
+
+    *               reduce using rule 16 (factor -> NUM .)
+    /               reduce using rule 16 (factor -> NUM .)
+    +               reduce using rule 16 (factor -> NUM .)
+    -               reduce using rule 16 (factor -> NUM .)
+    ID              reduce using rule 16 (factor -> NUM .)
+    PRINT           reduce using rule 16 (factor -> NUM .)
+    DUMP            reduce using rule 16 (factor -> NUM .)
+    $end            reduce using rule 16 (factor -> NUM .)
+    )               reduce using rule 16 (factor -> NUM .)
+
+
+state 18
+
+    (18) factor -> ( . aexp )
+    (10) aexp -> . aexp + term
+    (11) aexp -> . aexp - term
+    (12) aexp -> . term
+    (13) term -> . term * factor
+    (14) term -> . term / factor
+    (15) term -> . factor
+    (16) factor -> . NUM
+    (17) factor -> . ID
+    (18) factor -> . ( aexp )
+
+    NUM             shift and go to state 17
+    ID              shift and go to state 13
+    (               shift and go to state 18
+
+    aexp                           shift and go to state 24
+    term                           shift and go to state 15
+    factor                         shift and go to state 16
+
+state 19
+
+    (8) print -> PRINT ( aexp . )
+    (10) aexp -> aexp . + term
+    (11) aexp -> aexp . - term
+
+    )               shift and go to state 25
+    +               shift and go to state 20
+    -               shift and go to state 21
+
+
+state 20
+
+    (10) aexp -> aexp + . term
+    (13) term -> . term * factor
+    (14) term -> . term / factor
+    (15) term -> . factor
+    (16) factor -> . NUM
+    (17) factor -> . ID
+    (18) factor -> . ( aexp )
+
+    NUM             shift and go to state 17
+    ID              shift and go to state 13
+    (               shift and go to state 18
+
+    term                           shift and go to state 26
+    factor                         shift and go to state 16
+
+state 21
+
+    (11) aexp -> aexp - . term
+    (13) term -> . term * factor
+    (14) term -> . term / factor
+    (15) term -> . factor
+    (16) factor -> . NUM
+    (17) factor -> . ID
+    (18) factor -> . ( aexp )
+
+    NUM             shift and go to state 17
+    ID              shift and go to state 13
+    (               shift and go to state 18
+
+    term                           shift and go to state 27
+    factor                         shift and go to state 16
+
+state 22
+
+    (13) term -> term * . factor
+    (16) factor -> . NUM
+    (17) factor -> . ID
+    (18) factor -> . ( aexp )
+
+    NUM             shift and go to state 17
+    ID              shift and go to state 13
+    (               shift and go to state 18
+
+    factor                         shift and go to state 28
+
+state 23
+
+    (14) term -> term / . factor
+    (16) factor -> . NUM
+    (17) factor -> . ID
+    (18) factor -> . ( aexp )
+
+    NUM             shift and go to state 17
+    ID              shift and go to state 13
+    (               shift and go to state 18
+
+    factor                         shift and go to state 29
+
+state 24
+
+    (18) factor -> ( aexp . )
+    (10) aexp -> aexp . + term
+    (11) aexp -> aexp . - term
+
+    )               shift and go to state 30
+    +               shift and go to state 20
+    -               shift and go to state 21
+
+
+state 25
+
+    (8) print -> PRINT ( aexp ) .
+
+    ID              reduce using rule 8 (print -> PRINT ( aexp ) .)
+    PRINT           reduce using rule 8 (print -> PRINT ( aexp ) .)
+    DUMP            reduce using rule 8 (print -> PRINT ( aexp ) .)
+    $end            reduce using rule 8 (print -> PRINT ( aexp ) .)
+
+
+state 26
+
+    (10) aexp -> aexp + term .
+    (13) term -> term . * factor
+    (14) term -> term . / factor
+
+    +               reduce using rule 10 (aexp -> aexp + term .)
+    -               reduce using rule 10 (aexp -> aexp + term .)
+    ID              reduce using rule 10 (aexp -> aexp + term .)
+    PRINT           reduce using rule 10 (aexp -> aexp + term .)
+    DUMP            reduce using rule 10 (aexp -> aexp + term .)
+    $end            reduce using rule 10 (aexp -> aexp + term .)
+    )               reduce using rule 10 (aexp -> aexp + term .)
+    *               shift and go to state 22
+    /               shift and go to state 23
+
+
+state 27
+
+    (11) aexp -> aexp - term .
+    (13) term -> term . * factor
+    (14) term -> term . / factor
+
+    +               reduce using rule 11 (aexp -> aexp - term .)
+    -               reduce using rule 11 (aexp -> aexp - term .)
+    ID              reduce using rule 11 (aexp -> aexp - term .)
+    PRINT           reduce using rule 11 (aexp -> aexp - term .)
+    DUMP            reduce using rule 11 (aexp -> aexp - term .)
+    $end            reduce using rule 11 (aexp -> aexp - term .)
+    )               reduce using rule 11 (aexp -> aexp - term .)
+    *               shift and go to state 22
+    /               shift and go to state 23
+
+
+state 28
+
+    (13) term -> term * factor .
+
+    *               reduce using rule 13 (term -> term * factor .)
+    /               reduce using rule 13 (term -> term * factor .)
+    +               reduce using rule 13 (term -> term * factor .)
+    -               reduce using rule 13 (term -> term * factor .)
+    ID              reduce using rule 13 (term -> term * factor .)
+    PRINT           reduce using rule 13 (term -> term * factor .)
+    DUMP            reduce using rule 13 (term -> term * factor .)
+    $end            reduce using rule 13 (term -> term * factor .)
+    )               reduce using rule 13 (term -> term * factor .)
+
+
+state 29
+
+    (14) term -> term / factor .
+
+    *               reduce using rule 14 (term -> term / factor .)
+    /               reduce using rule 14 (term -> term / factor .)
+    +               reduce using rule 14 (term -> term / factor .)
+    -               reduce using rule 14 (term -> term / factor .)
+    ID              reduce using rule 14 (term -> term / factor .)
+    PRINT           reduce using rule 14 (term -> term / factor .)
+    DUMP            reduce using rule 14 (term -> term / factor .)
+    $end            reduce using rule 14 (term -> term / factor .)
+    )               reduce using rule 14 (term -> term / factor .)
+
+
+state 30
+
+    (18) factor -> ( aexp ) .
+
+    *               reduce using rule 18 (factor -> ( aexp ) .)
+    /               reduce using rule 18 (factor -> ( aexp ) .)
+    +               reduce using rule 18 (factor -> ( aexp ) .)
+    -               reduce using rule 18 (factor -> ( aexp ) .)
+    ID              reduce using rule 18 (factor -> ( aexp ) .)
+    PRINT           reduce using rule 18 (factor -> ( aexp ) .)
+    DUMP            reduce using rule 18 (factor -> ( aexp ) .)
+    $end            reduce using rule 18 (factor -> ( aexp ) .)
+    )               reduce using rule 18 (factor -> ( aexp ) .)
+
