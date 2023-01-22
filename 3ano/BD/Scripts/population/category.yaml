@@ -1,0 +1,15 @@
+Toys:
+  name: Toys
+  description: Toys mainly targeted at children.
+  tax: 10
+
+SchoolStuff:
+  name: School utilitys
+  description: Things students need is School, l
+  tax: 5
+
+Gifts:
+  name: gifts for friends and family
+  description: Cards for Birthdays, Chrismas and so on
+  tax: 9
+

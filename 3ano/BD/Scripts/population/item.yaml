@@ -1,0 +1,105 @@
+1:
+  name: Teddy Bear, small
+  desc: Toy to cuddle,
+  stockNr: 20
+  priceBuy: 1
+  priceSell: 3
+  category: 1
+2:
+  name: Black Pencil
+  desc: A Pencile which is Black
+  stockNr: 10
+  priceBuy: 0.54
+  priceSell: 2
+  category: 2
+3:
+  name: Birthday Card Nr. 1
+  desc: A Card with happy birthday wishes.
+  stockNr: 20
+  priceBuy: 0.10
+  priceSell: 1
+  category: 3
+4:
+  name: Doll 1
+  desc: A little toll for little kids
+  stockNr: 13
+  priceBuy: 3.0
+  priceSell: 6
+  category: 1
+5:
+  name: Doll 2
+  desc: A little toll for little kids
+  stockNr: 13
+  priceBuy: 3.0
+  priceSell: 6
+  category: 1
+6:
+  name: Doll 3
+  desc: A little toll for little kids
+  stockNr: 12
+  priceBuy: 3.0
+  priceSell: 6
+  category: 1
+7:
+  name: Teddy Bear, medium
+  desc: Toy to cuddle
+  stockNr: 3
+  priceBuy: 3
+  priceSell: 5
+  category: 1
+8:
+  name: Teddy Bear, XL
+  desc: Toy to cuddle,
+  stockNr: 9
+  priceBuy: 6
+  priceSell: 10
+  category: 1
+9:
+  name: Teddy Bear, XXL
+  desc: Toy to cuddle,
+  stockNr: 4
+  priceBuy: 10
+  priceSell: 14
+  category: 1
+10:
+  name: School Bag 1
+  desc: A bag for studens
+  stockNr: 5
+  priceBuy: 10
+  priceSell: 15
+  category: 2
+11:
+  name: School Bag 2
+  desc: A bag for studens
+  stockNr: 4
+  priceBuy: 10
+  priceSell: 15
+  category: 2
+12:
+  name: School Bag 3
+  desc: A bag for studens
+  stockNr: 2
+  priceBuy: 10
+  priceSell: 15
+  category: 2
+13:
+  name: Stickers
+  desc: Stickers with funny/cute stuff
+  stockNr: 103
+  priceBuy: 3
+  priceSell: 5
+  category: 3
+14:
+  name: Rubics Cube
+  desc: Classic phisical riddle
+  stockNr: 20
+  priceBuy: 10
+  priceSell: 15
+  category: 3
+15:
+  name: Umbrella
+  desc: Protection agains rain
+  stockNr: 18
+  priceBuy: 6
+  priceSell: 9
+  category: 3
