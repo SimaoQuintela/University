@@ -1,4 +1,5 @@
-
+# Welcome to Python-Like-C
+### Python-Like-C was developed to take what's best in Python and add a bit of C operators and procedures that we think are missing in Python, like ++/--, do while loops, etc. 
 # Syntax
 ### All of these operators and flux control instructions are already implemented
 
@@ -14,6 +15,7 @@
     * x **<** y
     * x **<** y
     * x **==** y
+    * x **/=** y
 
 * **Numeric Operations**  
     * x **+** y
@@ -36,7 +38,7 @@
     * do:  
     &nbsp;&nbsp;&nbsp; ...  
     &nbsp;&nbsp;&nbsp; ...  
-    while(conditions):
+    while(conditions)
     * while(cond):
     &nbsp;&nbsp;&nbsp; ...  
     &nbsp;&nbsp;&nbsp; ...  
@@ -47,6 +49,14 @@
     * x = input()
     * x = input("Update the variable name with the value: ")
     * print("David's beautiful green eyes") 
+
+* **Functions**
+   * def name( ): - no parameters yet 
+
+* **Assertion**
+   * assert(cond)
+   
+## **We also implemented Python indentation. Hope you notice that :wink:**
 
 **GIC**
 ```
