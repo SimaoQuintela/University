@@ -28,6 +28,7 @@
 | --- | :---: | :---: |
 | Processamento de Linguagens e Compiladores | [Exercises](https://github.com/SimaoQuintela/University/tree/main/3ano/PLC/PLC_Praticas/praticas) | [Project](https://github.com/SimaoQuintela/University/tree/main/3ano/PLC/Project) |
 | Bases de Dados | - | [Project](https://github.com/SimaoQuintela/University/tree/main/3ano/BD) |
+| Lógica Computacional | [Exercises](https://github.com/SimaoQuintela/University/tree/main/3ano/LC/AulasPraticas) | [Project](https://github.com/SimaoQuintela/University/tree/main/3ano/LC/Trabalhos) |
 
 
 ## I also have been involved in the following projects and activities
