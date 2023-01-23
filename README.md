@@ -24,6 +24,12 @@
 | Cálculo de Programas | - | [Project](https://github.com/SimaoQuintela/University/tree/main/2ano/CP-Projeto) |
 
 
+| 3<sup>rd</sup> year - 1<sup>st</sup> semester | | |
+| --- | :---: | :---: |
+| Processamento de Linguagens e Compiladores | [Exercises](https://github.com/SimaoQuintela/University/tree/main/3ano/PLC/PLC_Praticas/praticas) | [Project](https://github.com/SimaoQuintela/University/tree/main/3ano/PLC/Project) |
+| Bases de Dados | - | [Project](https://github.com/SimaoQuintela/University/tree/main/3ano/BD) |
+
+
 ## I also have been involved in the following projects and activities
 - [JOIN'22](https://github.com/joinum/parzival) - Frontend developer
 - [NECC](https://github.com/NECC) - Developer / Director of Dev. Department
