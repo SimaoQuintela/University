@@ -30,9 +30,19 @@
 | Bases de Dados | - | [Project](https://github.com/SimaoQuintela/University/tree/main/3ano/BD) |
 | Lógica Computacional | [Exercises](https://github.com/SimaoQuintela/University/tree/main/3ano/LC/AulasPraticas) | [Project](https://github.com/SimaoQuintela/University/tree/main/3ano/LC/Trabalhos) |
 
+| 3<sup>rd</sup> year - 2<sup>nd</sup> semester | | |
+| --- | :---: | :---: |
+| Interação e Concorrência | - | [Project](https://github.com/SimaoQuintela/University/tree/main/3ano/IC-Project) |
+| Programação Concorrente | [Exercises](https://github.com/SimaoQuintela/University/tree/main/3ano/PC-Praticas) | [Project](https://giphy.com/gifs/news-francis-collins-LRyVDM2yBYYPhSVTQ9) |
+| Computação Gráfica | [Exercises](https://giphy.com/gifs/news-francis-collins-LRyVDM2yBYYPhSVTQ9) | [Project](https://giphy.com/gifs/news-francis-collins-LRyVDM2yBYYPhSVTQ9)
+| Projeto Final | - | [Project](https://giphy.com/gifs/news-francis-collins-LRyVDM2yBYYPhSVTQ9) |
+
+
 
 ## I also have been involved in the following projects and activities
+- [JOIN'23](https://join.di.uminho.pt/) - Organization
+- [NECC 22/23](https://github.com/NECC) - Director of Dev. Department
 - [JOIN'22](https://github.com/joinum/parzival) - Frontend developer
-- [NECC](https://github.com/NECC) - Developer / Director of Dev. Department
+- [NECC 21/22](https://github.com/NECC) - Developer
 - [CoderDojo](https://github.com/coderdojobraga) - Mentor
 - [Hackathon SEI'22](https://github.com/SimaoQuintela/hackathon-sei22)
