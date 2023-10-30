@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+    <entry key="node_file" type="xstring" value="settings.xml"/>
+    <config key="flow_stack">
+        <config key="Loop_0">
+            <entry key="type" type="xstring" value="loopcontext"/>
+        </config>
+        <config key="Variable_1">
+            <entry key="type" type="xstring" value="variable"/>
+            <entry key="name" type="xstring" value="maxIterations"/>
+            <entry key="class" type="xstring" value="INTEGER"/>
+            <entry key="value" type="xint" value="253"/>
+        </config>
+        <config key="Variable_2">
+            <entry key="type" type="xstring" value="variable"/>
+            <entry key="name" type="xstring" value="currentIteration"/>
+            <entry key="class" type="xstring" value="INTEGER"/>
+            <entry key="value" type="xint" value="0"/>
+        </config>
+        <config key="Variable_3">
+            <entry key="type" type="xstring" value="variable"/>
+            <entry key="name" type="xstring" value="currentFeature"/>
+            <entry key="class" type="xstring" value="STRING"/>
+            <entry key="value" type="xstring" value=""/>
+        </config>
+        <config key="Loop_Execute_4">
+            <entry key="type" type="xstring" value="loopcontext_execute"/>
+        </config>
+        <config key="Variable_5">
+            <entry key="type" type="xstring" value="variable"/>
+            <entry key="name" type="xstring" value="maxIterations"/>
+            <entry key="class" type="xstring" value="INTEGER"/>
+            <entry key="value" type="xint" value="253"/>
+        </config>
+        <config key="Variable_6">
+            <entry key="type" type="xstring" value="variable"/>
+            <entry key="name" type="xstring" value="currentIteration"/>
+            <entry key="class" type="xstring" value="INTEGER"/>
+            <entry key="value" type="xint" value="252"/>
+        </config>
+        <config key="Variable_7">
+            <entry key="type" type="xstring" value="variable"/>
+            <entry key="name" type="xstring" value="currentFeature"/>
+            <entry key="class" type="xstring" value="STRING"/>
+            <entry key="value" type="xstring" value="CustServ Calls"/>
+        </config>
+    </config>
+    <config key="internal_node_subsettings">
+        <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+    </config>
+    <config key="model">
+        <entry key="selectionStrategy" type="xbyte" value="1"/>
+        <entry key="ga_crossoverStrategy" type="xbyte" value="0"/>
+        <entry key="ga_selectionStrategy" type="xbyte" value="0"/>
+        <config key="constantColumnsFilterConfig">
+            <entry key="filter-type" type="xstring" value="STANDARD"/>
+            <config key="included_names">
+                <entry key="array-size" type="xint" value="22"/>
+                <entry key="0" type="xstring" value="VMail Message"/>
+                <entry key="1" type="xstring" value="Day Mins"/>
+                <entry key="2" type="xstring" value="Eve Mins"/>
+                <entry key="3" type="xstring" value="Night Mins"/>
+                <entry key="4" type="xstring" value="Intl Mins"/>
+                <entry key="5" type="xstring" value="CustServ Calls"/>
+                <entry key="6" type="xstring" value="Day Calls"/>
+                <entry key="7" type="xstring" value="Day Charge"/>
+                <entry key="8" type="xstring" value="Eve Calls"/>
+                <entry key="9" type="xstring" value="Eve Charge"/>
+                <entry key="10" type="xstring" value="Night Calls"/>
+                <entry key="11" type="xstring" value="Night Charge"/>
+                <entry key="12" type="xstring" value="Intl Calls"/>
+                <entry key="13" type="xstring" value="Intl Charge"/>
+                <entry key="14" type="xstring" value="Area Code"/>
+                <entry key="15" type="xstring" value="Phone"/>
+                <entry key="16" type="xstring" value="Account Length"/>
+                <entry key="17" type="xstring" value="Int'l Plan"/>
+                <entry key="18" type="xstring" value="VMail Plan"/>
+                <entry key="19" type="xstring" value="State"/>
+                <entry key="20" type="xstring" value="Area Code (right)"/>
+                <entry key="21" type="xstring" value="Phone (right)"/>
+            </config>
+            <config key="excluded_names">
+                <entry key="array-size" type="xint" value="1"/>
+                <entry key="0" type="xstring" value="Churn"/>
+            </config>
+            <entry key="enforce_option" type="xstring" value="EnforceExclusion"/>
+            <config key="name_pattern">
+                <entry key="pattern" type="xstring" value=""/>
+                <entry key="type" type="xstring" value="Wildcard"/>
+                <entry key="caseSensitive" type="xboolean" value="true"/>
+                <entry key="excludeMatching" type="xboolean" value="false"/>
+            </config>
+            <config key="datatype">
+                <config key="typelist">
+                    <entry key="org.knime.core.data.IntValue" type="xboolean" value="false"/>
+                    <entry key="org.knime.core.data.DoubleValue" type="xboolean" value="false"/>
+                    <entry key="org.knime.core.data.StringValue" type="xboolean" value="false"/>
+                    <entry key="org.knime.core.data.BooleanValue" type="xboolean" value="false"/>
+                    <entry key="org.knime.core.data.LongValue" type="xboolean" value="false"/>
+                    <entry key="org.knime.core.data.date.DateAndTimeValue" type="xboolean" value="false"/>
+                </config>
+            </config>
+        </config>
+        <entry key="nrFeatureThreshold" type="xint" value="-1"/>
+        <entry key="nrFeatureLowerBound" type="xint" value="-1"/>
+        <entry key="nrFeatureUpperBound" type="xint" value="-1"/>
+        <entry key="popSize" type="xint" value="20"/>
+        <entry key="maxNumGenerations" type="xint" value="10"/>
+        <entry key="useRandomSeed" type="xboolean" value="false"/>
+        <entry key="randomSeed" type="xlong" value="1696357483579"/>
+        <entry key="survivorsFraction" type="xdouble" value="0.4"/>
+        <entry key="crossoverRate" type="xdouble" value="0.6"/>
+        <entry key="mutationRate" type="xdouble" value="0.01"/>
+        <entry key="elitismRate" type="xdouble" value="0.1"/>
+        <entry key="earlyStopping" type="xint" value="-1"/>
+        <entry key="maxNumIterations" type="xint" value="50"/>
+        <entry key="earlyStoppingRandom" type="xint" value="-1"/>
+        <entry key="earlyStoppingTolerance" type="xdouble" value="0.01"/>
+    </config>
+    <entry key="customDescription" type="xstring" isnull="true" value=""/>
+    <entry key="state" type="xstring" value="EXECUTED"/>
+    <entry key="factory" type="xstring" value="org.knime.base.node.meta.feature.selection.FeatureSelectionLoopStartNodeFactory"/>
+    <entry key="node-name" type="xstring" value="Feature Selection Loop Start (1:1)"/>
+    <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>
+    <entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.base"/>
+    <entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+    <entry key="node-bundle-version" type="xstring" value="5.1.1.v202308221556"/>
+    <entry key="node-feature-name" type="xstring" isnull="true" value=""/>
+    <entry key="node-feature-symbolic-name" type="xstring" isnull="true" value=""/>
+    <entry key="node-feature-vendor" type="xstring" isnull="true" value=""/>
+    <entry key="node-feature-version" type="xstring" value="0.0.0"/>
+    <config key="factory_settings"/>
+    <entry key="name" type="xstring" value="Feature Selection Loop Start (1:1)"/>
+    <entry key="hasContent" type="xboolean" value="true"/>
+    <entry key="isInactive" type="xboolean" value="false"/>
+    <config key="ports">
+        <config key="port_1">
+            <entry key="index" type="xint" value="1"/>
+            <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
+            <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
+            <entry key="port_object_summary" type="xstring" value="Rows: 3333, Cols: 2"/>
+            <entry key="port_dir_location" type="xstring" value="port_1"/>
+        </config>
+    </config>
+    <config key="filestores">
+        <entry key="file_store_location" type="xstring" isnull="true" value=""/>
+        <entry key="file_store_id" type="xstring" value="ec352c5c-3aff-4aa0-9146-1a7d0d73b6dc"/>
+    </config>
+</config>

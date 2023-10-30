@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow-metadata content-type="text/plain" xmlns="http://www.knime.org/core/node/workflow/metadata/v1.0">
+    <last-modified>2023-07-13T10:49:39.674+03:00</last-modified>
+    <description>This workflow is an example of how to build a basic PMML model for a churn prediction using a Decision Tree algorithm.</description>
+    <tags>
+        <tag>churn prediction</tag>
+        <tag>classification</tag>
+        <tag>decision tree</tag>
+    </tags>
+    <links>
+        <link href="https://www.knime.com/getting-started">Build a workflow</link>
+        <link href="https://docs.knime.com/latest/analytics_platform_quickstart_guide/index.html">KNIME Quickstart Guide</link>
+    </links>
+</workflow-metadata>

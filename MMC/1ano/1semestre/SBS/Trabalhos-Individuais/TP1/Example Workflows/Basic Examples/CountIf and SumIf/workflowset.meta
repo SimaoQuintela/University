@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This file is auto-generated and is overwritten each time the workflow is saved.
+    The metadata have moved to the `workflow-metadata.xml` file.-->
+<KNIMEMetaInfo nrOfElements="2" xmlns="http://www.knime.org/2.9/metainfo">
+    <element form="multiline" name="Comments" read-only="false">There has been no title set for this workflow's metadata.
+
+This workflow shows how to perform a SumIf and a CountIf function in KNIME Analytics Platform. Of course, there are different ways to get this done using KNIME. In the following example, we show you one of the possible ones.
+
+TAGS: spreadsheet,aggregation,data wrangling</element>
+    <element form="text" name="Last Edited" read-only="true">2023-07-13 10:48:41 +0300</element>
+</KNIMEMetaInfo>

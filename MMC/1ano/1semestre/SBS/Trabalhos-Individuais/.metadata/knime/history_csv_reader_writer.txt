@@ -1,0 +1,3 @@
+C:\University\MMCC\1ano\1semestre\SBS\Trabalhos-Individuais\TP3\data\data.bin
+C:\University\MMCC\1ano\1semestre\SBS\Trabalhos-Individuais\TP2\ContractData.csv
+C:\University\MMCC\1ano\1semestre\SBS\Trabalhos-Individuais\TP1\titanic_dataset - titanic_dataset.csv

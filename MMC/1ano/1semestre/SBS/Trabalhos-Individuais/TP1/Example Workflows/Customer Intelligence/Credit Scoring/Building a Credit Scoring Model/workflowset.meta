@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This file is auto-generated and is overwritten each time the workflow is saved.
+    The metadata have moved to the `workflow-metadata.xml` file.-->
+<KNIMEMetaInfo nrOfElements="2" xmlns="http://www.knime.org/2.9/metainfo">
+    <element form="multiline" name="Comments" read-only="false">There has been no title set for this workflow's metadata.
+
+This KNIME workflow focuses on creating a credit scoring model based on historical data. As with all data mining modeling activities, it is unclear in advance which analytic method is most suitable. This workflow therefore uses three different methods simultaneously – Decision Trees, Neural Networking and SVM – then automatically determines which model is most accurate and writes that model out for further use.
+
+This workflow manipulates the data so it is suitable for a variety of modeling techniques by converting nominals to numerics. The data was enhanced so that understandable labels are used. It uses metanodes to “package” each technique suitable for reuse. Each Model uses a Test / Learn and cross validated process to ensure accuracy. The workflow writes out the model in the official PMML format, so that other applications can use the model.
+
+
+
+TAGS: Credit Scoring,Credit Rating,Customer Risk,Deicision Tree,Neural Network,SVM</element>
+    <element form="text" name="Last Edited" read-only="true">2023-07-13 10:50:38 +0300</element>
+</KNIMEMetaInfo>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="kMeans">
+    <entry key="dimensions" type="xint" value="14"/>
+    <entry key="ignoredColumns" type="xint" value="1"/>
+    <config key="clusterCoverage">
+        <entry key="array-size" type="xint" value="4"/>
+        <entry key="0" type="xint" value="270"/>
+        <entry key="1" type="xint" value="771"/>
+        <entry key="2" type="xint" value="232"/>
+        <entry key="3" type="xint" value="226"/>
+    </config>
+    <config key="kMeansCluster0">
+        <entry key="array-size" type="xint" value="13"/>
+        <entry key="0" type="xdouble" value="0.5530317928548012"/>
+        <entry key="1" type="xdouble" value="0.22936326737696613"/>
+        <entry key="2" type="xdouble" value="0.1363013698630137"/>
+        <entry key="3" type="xdouble" value="0.1748840660359859"/>
+        <entry key="4" type="xdouble" value="0.16374543557642152"/>
+        <entry key="5" type="xdouble" value="0.11488025127601127"/>
+        <entry key="6" type="xdouble" value="0.6550552020449268"/>
+        <entry key="7" type="xdouble" value="0.31764362787984846"/>
+        <entry key="8" type="xdouble" value="0.25500110889332456"/>
+        <entry key="9" type="xdouble" value="0.25143399810066486"/>
+        <entry key="10" type="xdouble" value="0.5318518518518517"/>
+        <entry key="11" type="xdouble" value="0.21928524344708902"/>
+        <entry key="12" type="xdouble" value="-0.2308739340384208"/>
+    </config>
+    <config key="kMeansCluster1">
+        <entry key="array-size" type="xint" value="13"/>
+        <entry key="0" type="xdouble" value="0.2818429117454633"/>
+        <entry key="1" type="xdouble" value="0.3254357443633064"/>
+        <entry key="2" type="xdouble" value="0.1076657249968898"/>
+        <entry key="3" type="xdouble" value="0.12369946452041752"/>
+        <entry key="4" type="xdouble" value="0.22855811914287305"/>
+        <entry key="5" type="xdouble" value="0.17775089026687302"/>
+        <entry key="6" type="xdouble" value="0.5069574193745016"/>
+        <entry key="7" type="xdouble" value="0.4716852027737784"/>
+        <entry key="8" type="xdouble" value="0.16520266859277552"/>
+        <entry key="9" type="xdouble" value="0.21817153879410772"/>
+        <entry key="10" type="xdouble" value="0.43891050583657437"/>
+        <entry key="11" type="xdouble" value="0.07721567721776852"/>
+        <entry key="12" type="xdouble" value="0.13589166167099567"/>
+    </config>
+    <config key="kMeansCluster2">
+        <entry key="array-size" type="xint" value="13"/>
+        <entry key="0" type="xdouble" value="0.418599328654257"/>
+        <entry key="1" type="xdouble" value="0.17566131317902708"/>
+        <entry key="2" type="xdouble" value="0.11778164855928218"/>
+        <entry key="3" type="xdouble" value="0.11648724886304758"/>
+        <entry key="4" type="xdouble" value="0.1409057795046141"/>
+        <entry key="5" type="xdouble" value="0.07205739003289888"/>
+        <entry key="6" type="xdouble" value="0.45357359866322533"/>
+        <entry key="7" type="xdouble" value="0.39685718164539807"/>
+        <entry key="8" type="xdouble" value="0.24457980590543035"/>
+        <entry key="9" type="xdouble" value="0.4822944297082231"/>
+        <entry key="10" type="xdouble" value="0.7198275862068952"/>
+        <entry key="11" type="xdouble" value="-0.1811821660251409"/>
+        <entry key="12" type="xdouble" value="-0.2583257927408198"/>
+    </config>
+    <config key="kMeansCluster3">
+        <entry key="array-size" type="xint" value="13"/>
+        <entry key="0" type="xdouble" value="0.18811183334638568"/>
+        <entry key="1" type="xdouble" value="0.2801551703236755"/>
+        <entry key="2" type="xdouble" value="0.09584495090313974"/>
+        <entry key="3" type="xdouble" value="0.09396191292271783"/>
+        <entry key="4" type="xdouble" value="0.24526361710083522"/>
+        <entry key="5" type="xdouble" value="0.13876293817817975"/>
+        <entry key="6" type="xdouble" value="0.30838628773407056"/>
+        <entry key="7" type="xdouble" value="0.5573827607832207"/>
+        <entry key="8" type="xdouble" value="0.18584070796460195"/>
+        <entry key="9" type="xdouble" value="0.5135012480145228"/>
+        <entry key="10" type="xdouble" value="0.6256637168141576"/>
+        <entry key="11" type="xdouble" value="-0.3394072581760193"/>
+        <entry key="12" type="xdouble" value="0.07741183609693085"/>
+    </config>
+    <config key="FeatureNames">
+        <entry key="array-size" type="xint" value="14"/>
+        <entry key="0" type="xstring" value="fixed acidity"/>
+        <entry key="1" type="xstring" value="volatile acidity"/>
+        <entry key="2" type="xstring" value="residual sugar"/>
+        <entry key="3" type="xstring" value="chlorides"/>
+        <entry key="4" type="xstring" value="free sulfur dioxide"/>
+        <entry key="5" type="xstring" value="total sulfur dioxide"/>
+        <entry key="6" type="xstring" value="density"/>
+        <entry key="7" type="xstring" value="pH"/>
+        <entry key="8" type="xstring" value="sulphates"/>
+        <entry key="9" type="xstring" value="alcohol"/>
+        <entry key="10" type="xstring" value="quality"/>
+        <entry key="11" type="xstring" value="PCA dimension 0"/>
+        <entry key="12" type="xstring" value="PCA dimension 1"/>
+        <entry key="13" type="xstring" isnull="true" value=""/>
+    </config>
+</config>

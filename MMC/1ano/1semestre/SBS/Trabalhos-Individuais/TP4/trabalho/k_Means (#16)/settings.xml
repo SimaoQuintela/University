@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+    <entry key="node_file" type="xstring" value="settings.xml"/>
+    <config key="flow_stack">
+        <config key="Variable_0">
+            <entry key="type" type="xstring" value="variable"/>
+            <entry key="name" type="xstring" value="NumberClusters"/>
+            <entry key="class" type="xstring" value="INTEGER"/>
+            <entry key="value" type="xint" value="4"/>
+        </config>
+    </config>
+    <config key="internal_node_subsettings">
+        <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+    </config>
+    <config key="model">
+        <config key="nrClusters_Internals">
+            <entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
+            <entry key="EnabledStatus" type="xboolean" value="true"/>
+        </config>
+        <entry key="nrClusters" type="xint" value="4"/>
+        <config key="centroid_initialization_Internals">
+            <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+            <entry key="EnabledStatus" type="xboolean" value="true"/>
+        </config>
+        <entry key="centroid_initialization" type="xstring" value="RANDOM_INITIALIZATION"/>
+        <config key="centroid_seeds_Internals">
+            <entry key="SettingsModelID" type="xstring" value="SMN_long_seed"/>
+            <entry key="EnabledStatus" type="xboolean" value="true"/>
+        </config>
+        <entry key="centroid_seeds" type="xlong" value="0"/>
+        <entry key="centroid_seeds_BOOL" type="xboolean" value="true"/>
+        <config key="maxNrIterations_Internals">
+            <entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
+            <entry key="EnabledStatus" type="xboolean" value="true"/>
+        </config>
+        <entry key="maxNrIterations" type="xint" value="99"/>
+        <config key="cfgColmns_Internals">
+            <entry key="SettingsModelID" type="xstring" value="SMID_filterString"/>
+            <entry key="EnabledStatus" type="xboolean" value="true"/>
+        </config>
+        <config key="cfgColmns">
+            <config key="InclList">
+                <entry key="array-size" type="xint" value="13"/>
+                <entry key="0" type="xstring" value="fixed acidity"/>
+                <entry key="1" type="xstring" value="volatile acidity"/>
+                <entry key="2" type="xstring" value="residual sugar"/>
+                <entry key="3" type="xstring" value="chlorides"/>
+                <entry key="4" type="xstring" value="free sulfur dioxide"/>
+                <entry key="5" type="xstring" value="total sulfur dioxide"/>
+                <entry key="6" type="xstring" value="density"/>
+                <entry key="7" type="xstring" value="pH"/>
+                <entry key="8" type="xstring" value="sulphates"/>
+                <entry key="9" type="xstring" value="alcohol"/>
+                <entry key="10" type="xstring" value="quality"/>
+                <entry key="11" type="xstring" value="PCA dimension 0"/>
+                <entry key="12" type="xstring" value="PCA dimension 1"/>
+            </config>
+            <config key="ExclList">
+                <entry key="array-size" type="xint" value="0"/>
+            </config>
+            <entry key="keep_all_columns_selected" type="xboolean" value="false"/>
+        </config>
+        <config key="enableHilite_Internals">
+            <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+            <entry key="EnabledStatus" type="xboolean" value="true"/>
+        </config>
+        <entry key="enableHilite" type="xboolean" value="false"/>
+    </config>
+    <config key="variables">
+        <entry key="version" type="xstring" value="V_2019_09_13"/>
+        <config key="tree">
+            <config key="nrClusters">
+                <entry key="used_variable" type="xstring" isnull="true" value=""/>
+                <entry key="exposed_variable" type="xstring" value="NumberClusters"/>
+            </config>
+        </config>
+    </config>
+    <entry key="customDescription" type="xstring" isnull="true" value=""/>
+    <entry key="state" type="xstring" value="EXECUTED"/>
+    <entry key="factory" type="xstring" value="org.knime.base.node.mine.cluster.kmeans.ClusterNodeFactory2"/>
+    <entry key="node-name" type="xstring" value="k-Means"/>
+    <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>
+    <entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.base"/>
+    <entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+    <entry key="node-bundle-version" type="xstring" value="5.1.1.v202308221556"/>
+    <entry key="node-feature-name" type="xstring" value="KNIME Base nodes"/>
+    <entry key="node-feature-symbolic-name" type="xstring" value="org.knime.features.base.feature.group"/>
+    <entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+    <entry key="node-feature-version" type="xstring" value="5.1.1.v202308221556"/>
+    <config key="factory_settings"/>
+    <entry key="name" type="xstring" value="k-Means"/>
+    <entry key="hasContent" type="xboolean" value="true"/>
+    <entry key="isInactive" type="xboolean" value="false"/>
+    <config key="ports">
+        <config key="port_1">
+            <entry key="index" type="xint" value="1"/>
+            <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
+            <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
+            <entry key="port_object_summary" type="xstring" value="Rows: 1499, Cols: 15"/>
+            <entry key="port_dir_location" type="xstring" value="port_1"/>
+        </config>
+        <config key="port_2">
+            <entry key="index" type="xint" value="2"/>
+            <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
+            <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
+            <entry key="port_object_summary" type="xstring" value="Rows: 4, Cols: 13"/>
+            <entry key="port_dir_location" type="xstring" value="port_2"/>
+        </config>
+        <config key="port_3">
+            <entry key="index" type="xint" value="3"/>
+            <entry key="port_spec_class" type="xstring" value="org.knime.core.node.port.pmml.PMMLPortObjectSpec"/>
+            <entry key="port_object_class" type="xstring" value="org.knime.core.node.port.pmml.PMMLPortObject"/>
+            <entry key="port_object_summary" type="xstring" value="PMML document with version 4.2 and models: ClusteringModel"/>
+            <entry key="port_spec_location" type="xstring" value="spec/spec.zip"/>
+            <entry key="port_object_location" type="xstring" value="object/portobject.zip"/>
+            <entry key="port_dir_location" type="xstring" value="port_3"/>
+        </config>
+    </config>
+    <config key="filestores">
+        <entry key="file_store_location" type="xstring" isnull="true" value=""/>
+        <entry key="file_store_id" type="xstring" value="8fa2ee11-7e60-4284-996a-de9badcb3908"/>
+    </config>
+</config>

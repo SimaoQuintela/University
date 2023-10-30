@@ -1,0 +1,36 @@
+!SESSION 2023-10-30 15:22:39.673 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.5
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_PT
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2023-10-30 15:24:23.781
+!MESSAGE An error occurred while uninstalling
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2023-10-30 15:24:23.781
+!MESSAGE session context was:(profile=KNIMEProfile, phase=org.eclipse.equinox.internal.p2.engine.phases.Uninstall, operand=[R]org.knime.features.product_root 5.1.1.v202309110912 --> null, action=org.eclipse.equinox.internal.p2.touchpoint.natives.actions.CleanupzipAction).
+!SUBENTRY 1 org.eclipse.equinox.p2.touchpoint.natives 4 0 2023-10-30 15:24:23.781
+!MESSAGE Backup of file C:\Program Files\KNIME\LICENSE.TXT failed.
+!STACK 0
+java.nio.file.AccessDeniedException: C:\Program Files\KNIME\LICENSE.TXT -> C:\Users\simao\AppData\Local\Temp\KNIMEProfile_c89c199e-f915-4880-9e73-38fd0feeb3e0\C\Program Files\KNIME\LICENSE.TXT
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at java.base/sun.nio.fs.WindowsFileCopy.move(Unknown Source)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.move(Unknown Source)
+	at java.base/java.nio.file.Files.move(Unknown Source)
+	at org.eclipse.equinox.internal.p2.touchpoint.natives.SimpleBackupStore.move(SimpleBackupStore.java:852)
+	at org.eclipse.equinox.internal.p2.touchpoint.natives.SimpleBackupStore.moveToBackup(SimpleBackupStore.java:594)
+	at org.eclipse.equinox.internal.p2.touchpoint.natives.SimpleBackupStore.backup(SimpleBackupStore.java:244)
+	at org.eclipse.equinox.internal.p2.touchpoint.natives.LazyBackupStore.backup(LazyBackupStore.java:38)
+	at org.eclipse.equinox.internal.p2.touchpoint.natives.actions.CleanupzipAction.cleanupzip(CleanupzipAction.java:90)
+	at org.eclipse.equinox.internal.p2.touchpoint.natives.actions.CleanupzipAction.execute(CleanupzipAction.java:34)
+	at org.eclipse.equinox.internal.p2.engine.ParameterizedProvisioningAction.execute(ParameterizedProvisioningAction.java:42)
+	at org.eclipse.equinox.internal.p2.engine.Phase.mainPerform(Phase.java:186)
+	at org.eclipse.equinox.internal.p2.engine.Phase.perform(Phase.java:99)
+	at org.eclipse.equinox.internal.p2.engine.PhaseSet.perform(PhaseSet.java:50)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:80)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:48)
+	at org.eclipse.equinox.p2.operations.ProvisioningSession.performProvisioningPlan(ProvisioningSession.java:181)
+	at org.eclipse.equinox.p2.operations.ProfileModificationJob.runModal(ProfileModificationJob.java:76)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:188)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

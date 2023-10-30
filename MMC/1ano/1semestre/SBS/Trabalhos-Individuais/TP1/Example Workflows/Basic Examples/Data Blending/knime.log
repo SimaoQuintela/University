@@ -1,0 +1,4 @@
+2023-07-12 09:12:04,739 : INFO  : KNIME-Database-Connection-Creator-2 :  : UrlDBConnectionController : SQLite Connector : 6:278 : Could not create connection to database using URL: jdbc:sqlite:C:\Users\verena.mayer\Breaking_knime\Example Workflows\TheData\Misc\WebActivity.sqlite and parameters: []. Exception: path to 'C:\Users\verena.mayer\Breaking_knime\Example Workflows\TheData\Misc\WebActivity.sqlite': 'C:\Users\verena.mayer' does not exist
+2023-07-12 09:12:18,186 : WARN  : comm-pool-thread-29 :  : Node : Excel Reader : 6:266 : The node configuration changed and the table spec will be recalculated during execution.
+2023-07-12 09:16:47,599 : WARN  : ModalContext :  : Node : Excel Reader : 4:266 : The node configuration changed and the table spec will be recalculated during execution.
+2023-07-12 09:16:47,602 : WARN  : ModalContext :  : Node : Excel Reader : 4:266 : The node configuration changed and the table spec will be recalculated during execution.

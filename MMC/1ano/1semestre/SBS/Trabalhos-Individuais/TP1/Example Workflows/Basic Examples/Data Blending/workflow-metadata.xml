@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow-metadata content-type="text/plain" xmlns="http://www.knime.org/core/node/workflow/metadata/v1.0">
+    <last-modified>2023-07-13T10:48:55.454+03:00</last-modified>
+    <description>Starting from different data sources this workflow shows how to blend data (extract value from multiple data sources) and how to make efficient ETL (Extract, Transform and Loading) with KNIME Analytics Platform.</description>
+    <tags>
+        <tag>Sources</tag>
+        <tag>SQLite</tag>
+        <tag>Data Blending</tag>
+        <tag>ETL</tag>
+    </tags>
+    <links>
+        <link href="http://www.knime.com/learning">KNIME's Learning page</link>
+    </links>
+</workflow-metadata>

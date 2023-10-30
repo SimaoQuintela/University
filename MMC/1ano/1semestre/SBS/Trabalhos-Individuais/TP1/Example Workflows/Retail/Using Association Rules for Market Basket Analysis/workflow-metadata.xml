@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow-metadata content-type="text/plain" xmlns="http://www.knime.org/core/node/workflow/metadata/v1.0">
+    <last-modified>2023-07-13T10:51:46.438+03:00</last-modified>
+    <description>This workflow takes pre-built association rules and applies them to a new data set.</description>
+    <tags>
+        <tag>retail</tag>
+        <tag>association rules</tag>
+        <tag>recommandation engine</tag>
+        <tag>market basket analysis</tag>
+        <tag>MBA</tag>
+        <tag>Apriori algorithm</tag>
+        <tag>Borgelt</tag>
+        <tag>data collection</tag>
+        <tag>Quickform</tag>
+        <tag>deployment</tag>
+    </tags>
+    <links>
+        <link href="https://www.knime.org/blog/market-basket-analysis-and-recommendation-engines">Market Basket Analysis and Recommendation Engines</link>
+        <link href="https://youtu.be/z8jbAm38yXs">Recommendation Engines</link>
+    </links>
+</workflow-metadata>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow-metadata content-type="text/plain" xmlns="http://www.knime.org/core/node/workflow/metadata/v1.0">
+    <last-modified>2023-07-13T10:53:09.266+03:00</last-modified>
+    <description>This workflow shows how to import text from a CSV file, convert it to documents, pre-process the documents and assign topics based on the LDA (Latent Dirichlet Allocation) algorithm, which performs unsupervised topic detection.</description>
+    <tags>
+        <tag>topic detection</tag>
+        <tag>text processing</tag>
+        <tag>NLP</tag>
+        <tag>lda</tag>
+    </tags>
+    <links>
+        <link href="https://youtu.be/rNxBpJXe_Qw">Topic Detection (LDA)</link>
+    </links>
+</workflow-metadata>

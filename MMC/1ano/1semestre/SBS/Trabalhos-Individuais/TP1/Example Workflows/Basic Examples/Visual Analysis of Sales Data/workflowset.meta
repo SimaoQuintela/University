@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This file is auto-generated and is overwritten each time the workflow is saved.
+    The metadata have moved to the `workflow-metadata.xml` file.-->
+<KNIMEMetaInfo nrOfElements="2" xmlns="http://www.knime.org/2.9/metainfo">
+    <element form="multiline" name="Comments" read-only="false">There has been no title set for this workflow's metadata.
+
+Workflow that is built according to the instructions on the "Build a workflow" page and in the KNIME Quickstart Guide. It shows possible steps in analyzing (sales) data:
+
+1. Data access - Reading a csv file
+2. Data preprocessing - Filtering columns and rows
+3. Data visualization - Analyzing the data over time and across groups
+
+URL: Build a workflow https://www.knime.com/getting-started
+URL: KNIME Quickstart Guide https://docs.knime.com/latest/analytics_platform_quickstart_guide/index.html
+
+TAGS: data access,row filtering,column filtering,data visualization,quickstart guide,beginner,getting started,first workflow</element>
+    <element form="text" name="Last Edited" read-only="true">2023-07-13 10:49:25 +0300</element>
+</KNIMEMetaInfo>

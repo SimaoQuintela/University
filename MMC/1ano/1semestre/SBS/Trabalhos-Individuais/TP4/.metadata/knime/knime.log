@@ -1,0 +1,852 @@
+2023-10-26 16:14:38,650 : WARN  : comm-pool-thread-1 :  : Node : CSV Reader : 3:1 : Please specify a file
+2023-10-26 16:14:39,837 : WARN  : comm-pool-thread-1 :  : Node : CSV Reader : 3:2 : Please specify a file
+2023-10-26 16:15:06,569 : ERROR : comm-pool-thread-1 :  : InitialDataService :  :  : {"internalError":{"typeName":"com.fasterxml.jackson.databind.JsonMappingException","message":"(was java.util.ConcurrentModificationException) (through reference chain: org.knime.core.webui.node.view.table.data.TableViewInitialDataImpl[\"dataTypes\"])","stackTrace":["com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:392)","com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:351)","com.fasterxml.jackson.databind.ser.std.StdSerializer.wrapAndThrow(StdSerializer.java:316)","com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:782)","com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)","com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480)","com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319)","com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4568)","com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3821)","org.knime.core.webui.node.dialog.defaultdialog.DefaultNodeSettingsSerializer.serialize(DefaultNodeSettingsSerializer.java:76)","org.knime.core.webui.data.InitialDataService.getInitialData(InitialDataService.java:115)","org.knime.core.webui.node.AbstractNodeUIManager.callInitialDataService(AbstractNodeUIManager.java:170)","org.knime.gateway.api.entity.NodeUIExtensionEnt.<init>(NodeUIExtensionEnt.java:118)","org.knime.gateway.api.entity.NodeUIExtensionEnt.<init>(NodeUIExtensionEnt.java:88)","org.knime.gateway.api.entity.PortViewEnt.<init>(PortViewEnt.java:67)","org.knime.gateway.impl.webui.service.DefaultPortService.getPortView(DefaultPortService.java:129)","org.knime.gateway.impl.webui.jsonrpc.service.JsonRpcPortServiceWrapper.getPortView(JsonRpcPortServiceWrapper.java:100)","java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)","java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)","java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)","java.base/java.lang.reflect.Method.invoke(Unknown Source)","com.googlecode.jsonrpc4j.JsonRpcBasicServer.invoke(JsonRpcBasicServer.java:478)","com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleObject(JsonRpcBasicServer.java:349)","com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleJsonNodeRequest(JsonRpcBasicServer.java:274)","com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleRequest(JsonRpcBasicServer.java:242)","org.knime.gateway.impl.jsonrpc.JsonRpcRequestHandler.handle(JsonRpcRequestHandler.java:104)","org.knime.ui.java.browser.lifecycle.Init.lambda$5(Init.java:243)","com.equo.comm.common.MessageHandler.processReceivedEventMessage(MessageHandler.java:131)","com.equo.comm.ee.provider.service.ChromiumService.receiveMessage(ChromiumService.java:98)","com.equo.comm.ee.provider.CommunicationManagerChromiumImpl.receiveMessage(CommunicationManagerChromiumImpl.java:48)","com.equo.chromium.swt.internal.spi.CommRouterHandler.handleRequest(CommRouterHandler.java:35)","com.equo.chromium.swt.internal.spi.CommRouterHandler.lambda$1(CommRouterHandler.java:53)","java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)","java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)","java.base/java.lang.Thread.run(Unknown Source)"]}}
+2023-10-26 16:16:18,235 : WARN  : comm-pool-thread-2 :  : Node : String Replacer : 3:3 : No column selected, using 'quality'.
+2023-10-26 16:16:31,195 : WARN  : comm-pool-thread-2 :  : Node : String Replacer : 3:4 : No column selected, using 'quality'.
+2023-10-26 16:18:36,409 : WARN  : KNIME-Worker-6-String To Number 3:3 :  : Node : String To Number : 3:3 : Problems in 1499 rows, first error: "=5" in cell ["Row0", column "quality", row 1] can not be transformed into a number
+2023-10-26 16:18:36,454 : WARN  : KNIME-Worker-6-String To Number 3:3 :  : Node : String To Number : 3:3 : Problems in 1499 rows, first error: "=5" in cell ["Row0", column "quality", row 1] can not be transformed into a number
+RowID  |   ..   | alcohol | quality
+-----------------------------------
+Row0   | ..     | 9.4     | =5     
+                           ^^^^^^^^
+For input string: "=5"
+2023-10-26 16:19:45,802 : WARN  : KNIME-Worker-7-String To Number 3:3 :  : Node : String To Number : 3:3 : Problems in 1499 rows, first error: "=5" in cell ["Row0", column "quality", row 1] can not be transformed into a number
+2023-10-26 16:19:45,803 : WARN  : KNIME-Worker-7-String To Number 3:3 :  : Node : String To Number : 3:3 : Problems in 1499 rows, first error: "=5" in cell ["Row0", column "quality", row 1] can not be transformed into a number
+RowID  |   ..   | alcohol | quality
+-----------------------------------
+Row0   | ..     | 9.4     | =5     
+                           ^^^^^^^^
+For input string: "=5"
+2023-10-26 16:21:15,465 : WARN  : comm-pool-thread-4 :  : Node : String Replacer : 3:4 : No column selected, using 'quality'.
+2023-10-26 16:21:30,661 : WARN  : KNIME-Worker-9-String To Number 3:3 :  : Node : String To Number : 3:3 : Problems in 1499 rows, first error: "=5" in cell ["Row0", column "quality", row 1] can not be transformed into a number
+2023-10-26 16:21:30,663 : WARN  : KNIME-Worker-9-String To Number 3:3 :  : Node : String To Number : 3:3 : Problems in 1499 rows, first error: "=5" in cell ["Row0", column "quality", row 1] can not be transformed into a number
+RowID  |   ..   | alcohol | quality
+-----------------------------------
+Row0   | ..     | 9.4     | =5     
+                           ^^^^^^^^
+For input string: "=5"
+2023-10-26 16:21:47,629 : WARN  : KNIME-Worker-11-String To Number 3:3 :  : Node : String To Number : 3:3 : Problems in 1499 rows, first error: "=5" in cell ["Row0", column "quality", row 1] can not be transformed into a number
+2023-10-26 16:21:47,631 : WARN  : KNIME-Worker-11-String To Number 3:3 :  : Node : String To Number : 3:3 : Problems in 1499 rows, first error: "=5" in cell ["Row0", column "quality", row 1] can not be transformed into a number
+RowID  |   ..   | alcohol | quality
+-----------------------------------
+Row0   | ..     | 9.4     | =5     
+                           ^^^^^^^^
+For input string: "=5"
+2023-10-26 16:22:22,568 : WARN  : main :  : WrappedNodeDialog : String Manipulation : 3:5 : failed to apply settings: No such column: quality (at line 1)
+org.knime.core.node.InvalidSettingsException: No such column: quality (at line 1)
+	at org.knime.ext.sun.nodes.script.expression.Expression.compile(Expression.java:582)
+	at org.knime.base.node.preproc.stringmanipulation.StringManipulationNodeDialog.saveSettingsTo(StringManipulationNodeDialog.java:417)
+	at org.knime.core.node.NodeDialogPane.internalSaveSettingsTo(NodeDialogPane.java:539)
+	at org.knime.core.node.NodeDialogPane$4.run(NodeDialogPane.java:778)
+	at org.knime.core.node.util.ViewUtils$3.run(ViewUtils.java:353)
+	at org.knime.core.node.util.ViewUtils$2.run(ViewUtils.java:155)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(Unknown Source)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.desktop/java.awt.EventQueue$4.run(Unknown Source)
+	at java.desktop/java.awt.EventQueue$4.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.desktop/java.awt.EventDispatchThread.run(Unknown Source)
+2023-10-26 16:22:26,240 : WARN  : comm-pool-thread-5 :  : Node : String Manipulation : 3:5 : No expression has been set.
+2023-10-26 16:22:29,095 : WARN  : comm-pool-thread-5 :  : Node : String Manipulation : 3:5 : No expression has been set.
+2023-10-26 16:22:30,094 : WARN  : KNIME-Worker-9-CSV Reader 3:1 :  : Node : String Manipulation : 3:5 : No expression has been set.
+2023-10-26 16:24:43,531 : WARN  : comm-pool-thread-5 :  : Node : Normalizer : 3:8 : Auto-configure: [0, 1] normalization on all numeric columns: "fixed acidity", "volatile acidity", "citric acid",  ... <9 more>
+2023-10-26 16:24:55,456 : WARN  : main :  : Node : Normalizer : 3:8 : No columns included - input stays unchanged.
+2023-10-26 16:28:58,440 : WARN  : comm-pool-thread-6 :  : Node : Color Manager : 3:13 : Selected column "citric acid [Binned]" with default nominal color mapping.
+2023-10-26 19:20:16,651 : WARN  : main :  : WrappedNodeDialog : Color Manager : 3:14:13 : failed to apply settings: No color settings for citric acid [Binned] available.
+org.knime.core.node.InvalidSettingsException: No color settings for citric acid [Binned] available.
+	at org.knime.base.node.viz.property.color.ColorManager2NodeDialogPane.saveSettingsTo(ColorManager2NodeDialogPane.java:414)
+	at org.knime.core.node.NodeDialogPane.internalSaveSettingsTo(NodeDialogPane.java:539)
+	at org.knime.core.node.NodeDialogPane$4.run(NodeDialogPane.java:778)
+	at org.knime.core.node.util.ViewUtils$3.run(ViewUtils.java:353)
+	at org.knime.core.node.util.ViewUtils$2.run(ViewUtils.java:155)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(Unknown Source)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.desktop/java.awt.EventQueue$4.run(Unknown Source)
+	at java.desktop/java.awt.EventQueue$4.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.desktop/java.awt.EventDispatchThread.run(Unknown Source)
+2023-10-26 19:21:48,700 : WARN  : main :  : Node : Color Manager : 3:15:13 : Column "citric acid [Binned]" not found.
+2023-10-26 19:21:49,460 : WARN  : main :  : Node : Color Manager : 3:15:13 : Column "citric acid [Binned]" not found.
+2023-10-26 19:21:51,256 : WARN  : comm-pool-thread-4 :  : Node : Color Manager : 3:15:13 : Column "citric acid [Binned]" not found.
+2023-10-26 19:21:52,090 : WARN  : KNIME-Worker-31-Normalizer 3:15:9 :  : Node : Color Manager : 3:15:13 : Column "citric acid [Binned]" not found.
+2023-10-26 19:21:52,097 : WARN  : KNIME-Worker-39-Auto-Binner 3:15:10 :  : Node : Color Manager : 3:15:13 : Column "citric acid [Binned]" not found.
+2023-10-26 19:21:52,118 : WARN  : KNIME-Worker-38-PCA 3:15:11 :  : Node : Color Manager : 3:15:13 : Column "citric acid [Binned]" not found.
+2023-10-26 19:22:59,963 : WARN  : main :  : Node : Color Manager : 3:14:13 : Column "citric acid [Binned]" not found.
+2023-10-26 19:23:02,539 : WARN  : main :  : Node : Color Manager : 3:14:13 : Column "citric acid [Binned]" not found.
+2023-10-26 19:23:04,023 : WARN  : KNIME-Worker-52-Auto-Binner 3:14:10 :  : Node : Color Manager : 3:14:13 : Column "citric acid [Binned]" not found.
+2023-10-26 19:23:04,028 : WARN  : KNIME-Worker-33-PCA 3:14:11 :  : Node : Color Manager : 3:14:13 : Column "citric acid [Binned]" not found.
+2023-10-26 19:26:50,820 : WARN  : comm-pool-thread-4 :  : Node : PCA : 3:15:11 : Please selected at least one column
+2023-10-29 17:47:28,973 : WARN  : KNIME-Worker-1-Table Creator 3:15:14 :  : Node : Table Creator : 3:15:14 : Node created an empty data table.
+2023-10-29 17:53:39,710 : WARN  : comm-pool-thread-7 :  : Node : Value Lookup : 3:15:15 : Select a lookup column from the data table
+2023-10-29 17:54:49,434 : WARN  : comm-pool-thread-7 :  : Node : Value Lookup : 3:15:15 : Select a lookup column from the data table
+2023-10-29 17:54:51,029 : WARN  : comm-pool-thread-7 :  : Node : Value Lookup : 3:15:15 : Select a lookup column from the data table
+2023-10-29 17:54:51,029 : WARN  : comm-pool-thread-7 :  : Node : Value Lookup : 3:15:15 : Select a lookup column from the data table
+2023-10-29 17:54:51,748 : WARN  : KNIME-Worker-26-Table Creator 3:15:14 :  : Node : Table Creator : 3:15:14 : Node created an empty data table.
+2023-10-29 17:54:51,749 : WARN  : KNIME-Worker-26-Table Creator 3:15:14 :  : Node : Value Lookup : 3:15:15 : Select a lookup column from the data table
+2023-10-29 17:54:51,773 : WARN  : KNIME-Worker-27-CSV Reader 3:15:1 :  : Node : Value Lookup : 3:15:15 : Select a lookup column from the data table
+2023-10-29 17:54:51,801 : WARN  : KNIME-Worker-29-String To Number 3:15:3 :  : Node : Value Lookup : 3:15:15 : Select a lookup column from the data table
+2023-10-29 17:54:51,848 : WARN  : KNIME-Worker-30-Normalizer 3:15:9 :  : Node : Value Lookup : 3:15:15 : Select a lookup column from the data table
+2023-10-29 17:54:51,860 : WARN  : KNIME-Worker-31-Auto-Binner 3:15:10 :  : Node : Value Lookup : 3:15:15 : Select a lookup column from the data table
+2023-10-29 17:56:16,869 : WARN  : comm-pool-thread-8 :  : Node : Value Lookup : 3:15:15 : Select a lookup column from the data table
+2023-10-29 18:15:30,362 : WARN  : KNIME-Worker-61-Table Creator 3:15:14 :  : Node : Table Creator : 3:15:14 : Node created an empty data table.
+2023-10-29 18:16:20,112 : WARN  : KNIME-Worker-67-Table Creator 3:15:14 :  : Node : Table Creator : 3:15:14 : Node created an empty data table.
+2023-10-29 18:26:14,540 : WARN  : comm-pool-thread-15 :  : Node : Value Lookup : 3:15:15 : No such column "citric acid"
+2023-10-29 18:28:54,527 : WARN  : main :  : Node : Value Lookup : 3:15:15 : No such column "citric acid"
+2023-10-29 18:28:54,950 : WARN  : main :  : Node : Value Lookup : 3:15:15 : No such column "citric acid"
+2023-10-29 18:31:03,727 : WARN  : main :  : Node : Value Lookup : 3:15:15 : No such column "citric acid"
+2023-10-29 18:31:04,118 : WARN  : main :  : Node : Value Lookup : 3:15:15 : No such column "citric acid"
+2023-10-29 18:31:39,700 : WARN  : KNIME-Worker-75-Table Creator 3:15:14 :  : Node : Table Creator : 3:15:14 : Node created an empty data table.
+2023-10-29 18:35:21,919 : WARN  : main :  : Node : Value Lookup : 3:15:15 : No such column "Low"
+2023-10-29 18:35:22,553 : WARN  : main :  : Node : Value Lookup : 3:15:15 : No such column "Low"
+2023-10-29 18:37:11,704 : WARN  : comm-pool-thread-22 :  : Node : Value Lookup : 3:15:15 : No such column "citric acid"
+2023-10-29 18:37:13,489 : WARN  : comm-pool-thread-22 :  : Node : Value Lookup : 3:15:15 : No such column "citric acid"
+2023-10-29 18:38:37,340 : WARN  : comm-pool-thread-22 :  : Node : PCA : 3:15:11 : Please selected at least one column
+2023-10-29 18:38:38,744 : WARN  : comm-pool-thread-22 :  : Node : PCA : 3:15:11 : Please selected at least one column
+2023-10-29 18:38:39,428 : WARN  : KNIME-Worker-78-Table Creator 3:15:14 :  : Node : Table Creator : 3:15:14 : Node created an empty data table.
+2023-10-29 18:38:39,499 : WARN  : KNIME-Worker-84-Value Lookup 3:15:15 :  : Node : Value Lookup : 3:15:15 : Node created an empty data table.
+2023-10-29 18:38:39,501 : WARN  : KNIME-Worker-84-Value Lookup 3:15:15 :  : Node : PCA : 3:15:11 : Please selected at least one column
+2023-10-29 18:39:34,963 : WARN  : main :  : ImportURI :  :  : Can't import object from URI 'Node created an empty data table.
+
+Value Lookup
+
+'. Not a valid URL nor a valid path.
+java.net.URISyntaxException: Illegal character in path at index 4: Node created an empty data table.
+
+Value Lookup
+
+
+	at java.base/java.net.URI$Parser.fail(Unknown Source)
+	at java.base/java.net.URI$Parser.checkChars(Unknown Source)
+	at java.base/java.net.URI$Parser.parseHierarchical(Unknown Source)
+	at java.base/java.net.URI$Parser.parse(Unknown Source)
+	at java.base/java.net.URI.<init>(Unknown Source)
+	at org.knime.ui.java.api.ImportURI.getEntityImport(ImportURI.java:152)
+	at org.knime.ui.java.api.ImportURI.importURIAtWorkflowCanvas(ImportURI.java:240)
+	at org.knime.ui.java.api.ImportAPI.importURIAtWorkflowCanvas(ImportAPI.java:123)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.knime.ui.java.api.DesktopAPI.lambda$0(DesktopAPI.java:128)
+	at org.knime.ui.java.browser.KnimeBrowserFunction.function(KnimeBrowserFunction.java:80)
+	at com.equo.chromium.swt.internal.Chromium$FunctionsResourceHandler.lambda$0(Chromium.java:359)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4029)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.knime.product.rcp.KNIMEApplication.start(KNIMEApplication.java:193)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+2023-10-29 18:41:19,553 : WARN  : main :  : Node : PCA : 3:15:11 : Please selected at least one column
+2023-10-29 18:41:21,807 : WARN  : main :  : Node : PCA : 3:15:11 : Please selected at least one column
+2023-10-29 18:41:23,350 : WARN  : KNIME-Worker-85-Table Creator 3:15:14 :  : Node : Table Creator : 3:15:14 : Node created an empty data table.
+2023-10-29 18:41:23,354 : WARN  : KNIME-Worker-86-Value Lookup 3:15:15 :  : Node : Value Lookup : 3:15:15 : Node created an empty data table.
+2023-10-29 18:41:23,356 : WARN  : KNIME-Worker-86-Value Lookup 3:15:15 :  : Node : PCA : 3:15:11 : Please selected at least one column
+2023-10-29 18:49:21,242 : WARN  : main :  : Node : PCA : 3:15:11 : Please selected at least one column
+2023-10-29 18:49:56,902 : WARN  : main :  : Node : PCA : 3:15:11 : Please selected at least one column
+2023-10-29 18:50:03,455 : WARN  : comm-pool-thread-26 :  : Node : PCA : 3:15:11 : Please selected at least one column
+2023-10-29 18:50:04,295 : WARN  : KNIME-Worker-87-Table Creator 3:15:14 :  : Node : PCA : 3:15:11 : Please selected at least one column
+2023-10-29 18:50:04,347 : WARN  : KNIME-Worker-93-Value Lookup 3:15:15 :  : Node : PCA : 3:15:11 : Please selected at least one column
+2023-10-29 18:52:52,120 : WARN  : comm-pool-thread-28 :  : Node : Value Lookup : 3:15:15 : No such column "Bins"
+2023-10-29 18:52:53,944 : WARN  : comm-pool-thread-28 :  : Node : Value Lookup : 3:15:15 : No such column "Bins"
+2023-10-29 18:53:19,710 : ERROR : comm-pool-thread-28 :  : Node : Value Lookup : 3:15:15 : Configure failed (IllegalArgumentException): Column not found: "fixed acidity"
+java.lang.IllegalArgumentException: Column not found: "fixed acidity"
+	at org.knime.core.data.DataTableSpec.columnsToIndices(DataTableSpec.java:248)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.createColumnRearranger(ValueLookupNodeModel.java:222)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:129)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:1)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:117)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:96)
+	at org.knime.core.node.NodeModel.configureModel(NodeModel.java:1099)
+	at org.knime.core.node.Node.invokeNodeModelConfigure(Node.java:1989)
+	at org.knime.core.node.Node.configure(Node.java:1926)
+	at org.knime.core.node.workflow.NativeNodeContainer.performConfigure(NativeNodeContainer.java:566)
+	at org.knime.core.node.workflow.SingleNodeContainer.callNodeConfigure(SingleNodeContainer.java:315)
+	at org.knime.core.node.workflow.SingleNodeContainer.configure(SingleNodeContainer.java:200)
+	at org.knime.core.node.workflow.WorkflowManager.configureSingleNodeContainer(WorkflowManager.java:6657)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndPortSuccessors(WorkflowManager.java:6816)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndSuccessors(WorkflowManager.java:6759)
+	at org.knime.core.node.workflow.WorkflowManager.loadNodeSettings(WorkflowManager.java:2183)
+	at org.knime.core.webui.node.dialog.ApplyData.applyData(ApplyData.java:157)
+	at org.knime.core.webui.data.ApplyDataService.applyData(ApplyDataService.java:137)
+	at org.knime.core.webui.node.AbstractNodeUIManager.callApplyDataService(AbstractNodeUIManager.java:252)
+	at org.knime.core.wizard.rpc.DefaultNodeService.callNodeDataService(DefaultNodeService.java:150)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.invoke(JsonRpcBasicServer.java:478)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleObject(JsonRpcBasicServer.java:349)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleJsonNodeRequest(JsonRpcBasicServer.java:274)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleRequest(JsonRpcBasicServer.java:242)
+	at org.knime.core.webui.data.rpc.json.impl.JsonRpcServer.handleRequest(JsonRpcServer.java:150)
+	at org.knime.core.wizard.rpc.JsonRpcFunction.call(JsonRpcFunction.java:176)
+	at com.equo.comm.common.MessageHandler.processReceivedEventMessage(MessageHandler.java:131)
+	at com.equo.comm.ee.provider.service.ChromiumService.receiveMessage(ChromiumService.java:98)
+	at com.equo.comm.ee.provider.CommunicationManagerChromiumImpl.receiveMessage(CommunicationManagerChromiumImpl.java:48)
+	at com.equo.chromium.swt.internal.spi.CommRouterHandler.handleRequest(CommRouterHandler.java:35)
+	at com.equo.chromium.swt.internal.spi.CommRouterHandler.lambda$1(CommRouterHandler.java:53)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+2023-10-29 18:53:21,501 : ERROR : comm-pool-thread-28 :  : Node : Value Lookup : 3:15:15 : Configure failed (IllegalArgumentException): Column not found: "fixed acidity"
+java.lang.IllegalArgumentException: Column not found: "fixed acidity"
+	at org.knime.core.data.DataTableSpec.columnsToIndices(DataTableSpec.java:248)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.createColumnRearranger(ValueLookupNodeModel.java:222)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:129)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:1)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:117)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:96)
+	at org.knime.core.node.NodeModel.configureModel(NodeModel.java:1099)
+	at org.knime.core.node.Node.invokeNodeModelConfigure(Node.java:1989)
+	at org.knime.core.node.Node.configure(Node.java:1926)
+	at org.knime.core.node.workflow.NativeNodeContainer.performConfigure(NativeNodeContainer.java:566)
+	at org.knime.core.node.workflow.SingleNodeContainer.callNodeConfigure(SingleNodeContainer.java:315)
+	at org.knime.core.node.workflow.SingleNodeContainer.configure(SingleNodeContainer.java:200)
+	at org.knime.core.node.workflow.WorkflowManager.configureSingleNodeContainer(WorkflowManager.java:6657)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndPortSuccessors(WorkflowManager.java:6816)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndSuccessors(WorkflowManager.java:6759)
+	at org.knime.core.node.workflow.WorkflowManager.resetAndConfigureNodeAndSuccessors(WorkflowManager.java:5437)
+	at org.knime.core.node.workflow.WorkflowManager.resetAndConfigureNode(WorkflowManager.java:5358)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(Unknown Source)
+	at java.base/java.util.HashMap$KeySpliterator.forEachRemaining(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(Unknown Source)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.forEach(Unknown Source)
+	at org.knime.gateway.impl.service.util.DefaultServiceUtil.reset(DefaultServiceUtil.java:310)
+	at org.knime.gateway.impl.service.util.DefaultServiceUtil.doChangeNodeStates(DefaultServiceUtil.java:287)
+	at org.knime.gateway.impl.service.util.DefaultServiceUtil.changeNodeStates(DefaultServiceUtil.java:259)
+	at org.knime.gateway.impl.webui.service.DefaultNodeService.changeNodeStates(DefaultNodeService.java:113)
+	at org.knime.gateway.impl.webui.jsonrpc.service.JsonRpcNodeServiceWrapper.changeNodeStates(JsonRpcNodeServiceWrapper.java:117)
+	at jdk.internal.reflect.GeneratedMethodAccessor155.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.invoke(JsonRpcBasicServer.java:478)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleObject(JsonRpcBasicServer.java:349)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleJsonNodeRequest(JsonRpcBasicServer.java:274)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleRequest(JsonRpcBasicServer.java:242)
+	at org.knime.gateway.impl.jsonrpc.JsonRpcRequestHandler.handle(JsonRpcRequestHandler.java:104)
+	at org.knime.ui.java.browser.lifecycle.Init.lambda$5(Init.java:243)
+	at com.equo.comm.common.MessageHandler.processReceivedEventMessage(MessageHandler.java:131)
+	at com.equo.comm.ee.provider.service.ChromiumService.receiveMessage(ChromiumService.java:98)
+	at com.equo.comm.ee.provider.CommunicationManagerChromiumImpl.receiveMessage(CommunicationManagerChromiumImpl.java:48)
+	at com.equo.chromium.swt.internal.spi.CommRouterHandler.handleRequest(CommRouterHandler.java:35)
+	at com.equo.chromium.swt.internal.spi.CommRouterHandler.lambda$1(CommRouterHandler.java:53)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+2023-10-29 18:53:21,503 : ERROR : comm-pool-thread-28 :  : Node : Value Lookup : 3:15:15 : Configure failed (IllegalArgumentException): Column not found: "fixed acidity"
+java.lang.IllegalArgumentException: Column not found: "fixed acidity"
+	at org.knime.core.data.DataTableSpec.columnsToIndices(DataTableSpec.java:248)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.createColumnRearranger(ValueLookupNodeModel.java:222)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:129)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:1)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:117)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:96)
+	at org.knime.core.node.NodeModel.configureModel(NodeModel.java:1099)
+	at org.knime.core.node.Node.invokeNodeModelConfigure(Node.java:1989)
+	at org.knime.core.node.Node.configure(Node.java:1926)
+	at org.knime.core.node.workflow.NativeNodeContainer.performConfigure(NativeNodeContainer.java:566)
+	at org.knime.core.node.workflow.SingleNodeContainer.callNodeConfigure(SingleNodeContainer.java:315)
+	at org.knime.core.node.workflow.SingleNodeContainer.configure(SingleNodeContainer.java:200)
+	at org.knime.core.node.workflow.WorkflowManager.configureSingleNodeContainer(WorkflowManager.java:6657)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndPortSuccessors(WorkflowManager.java:6816)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndSuccessors(WorkflowManager.java:6759)
+	at org.knime.core.node.workflow.WorkflowManager.resetAndConfigureNodeAndSuccessors(WorkflowManager.java:5437)
+	at org.knime.core.node.workflow.WorkflowManager.resetAndConfigureNode(WorkflowManager.java:5358)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(Unknown Source)
+	at java.base/java.util.HashMap$KeySpliterator.forEachRemaining(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(Unknown Source)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.forEach(Unknown Source)
+	at org.knime.gateway.impl.service.util.DefaultServiceUtil.reset(DefaultServiceUtil.java:310)
+	at org.knime.gateway.impl.service.util.DefaultServiceUtil.doChangeNodeStates(DefaultServiceUtil.java:287)
+	at org.knime.gateway.impl.service.util.DefaultServiceUtil.changeNodeStates(DefaultServiceUtil.java:259)
+	at org.knime.gateway.impl.webui.service.DefaultNodeService.changeNodeStates(DefaultNodeService.java:113)
+	at org.knime.gateway.impl.webui.jsonrpc.service.JsonRpcNodeServiceWrapper.changeNodeStates(JsonRpcNodeServiceWrapper.java:117)
+	at jdk.internal.reflect.GeneratedMethodAccessor155.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.invoke(JsonRpcBasicServer.java:478)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleObject(JsonRpcBasicServer.java:349)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleJsonNodeRequest(JsonRpcBasicServer.java:274)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleRequest(JsonRpcBasicServer.java:242)
+	at org.knime.gateway.impl.jsonrpc.JsonRpcRequestHandler.handle(JsonRpcRequestHandler.java:104)
+	at org.knime.ui.java.browser.lifecycle.Init.lambda$5(Init.java:243)
+	at com.equo.comm.common.MessageHandler.processReceivedEventMessage(MessageHandler.java:131)
+	at com.equo.comm.ee.provider.service.ChromiumService.receiveMessage(ChromiumService.java:98)
+	at com.equo.comm.ee.provider.CommunicationManagerChromiumImpl.receiveMessage(CommunicationManagerChromiumImpl.java:48)
+	at com.equo.chromium.swt.internal.spi.CommRouterHandler.handleRequest(CommRouterHandler.java:35)
+	at com.equo.chromium.swt.internal.spi.CommRouterHandler.lambda$1(CommRouterHandler.java:53)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+2023-10-29 18:53:22,117 : ERROR : KNIME-Worker-110-Table Creator 3:15:14 :  : Node : Value Lookup : 3:15:15 : Configure failed (IllegalArgumentException): Column not found: "fixed acidity"
+java.lang.IllegalArgumentException: Column not found: "fixed acidity"
+	at org.knime.core.data.DataTableSpec.columnsToIndices(DataTableSpec.java:248)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.createColumnRearranger(ValueLookupNodeModel.java:222)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:129)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:1)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:117)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:96)
+	at org.knime.core.node.NodeModel.configureModel(NodeModel.java:1099)
+	at org.knime.core.node.Node.invokeNodeModelConfigure(Node.java:1989)
+	at org.knime.core.node.Node.configure(Node.java:1926)
+	at org.knime.core.node.workflow.NativeNodeContainer.performConfigure(NativeNodeContainer.java:566)
+	at org.knime.core.node.workflow.SingleNodeContainer.callNodeConfigure(SingleNodeContainer.java:315)
+	at org.knime.core.node.workflow.SingleNodeContainer.configure(SingleNodeContainer.java:207)
+	at org.knime.core.node.workflow.WorkflowManager.configureSingleNodeContainer(WorkflowManager.java:6657)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndPortSuccessors(WorkflowManager.java:6816)
+	at org.knime.core.node.workflow.WorkflowManager.doAfterExecution(WorkflowManager.java:3671)
+	at org.knime.core.node.workflow.NodeContainer.notifyParentExecuteFinished(NodeContainer.java:689)
+	at org.knime.core.node.workflow.NodeExecutionJob.internalRun(NodeExecutionJob.java:238)
+	at org.knime.core.node.workflow.NodeExecutionJob.run(NodeExecutionJob.java:117)
+	at org.knime.core.util.ThreadUtils$RunnableWithContextImpl.runWithContext(ThreadUtils.java:367)
+	at org.knime.core.util.ThreadUtils$RunnableWithContext.run(ThreadUtils.java:221)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.knime.core.util.ThreadPool$MyFuture.run(ThreadPool.java:123)
+	at org.knime.core.util.ThreadPool$Worker.run(ThreadPool.java:246)
+2023-10-29 18:53:22,131 : ERROR : KNIME-Worker-107-CSV Reader 3:15:1 :  : Node : Value Lookup : 3:15:15 : Configure failed (IllegalArgumentException): Column not found: "fixed acidity"
+java.lang.IllegalArgumentException: Column not found: "fixed acidity"
+	at org.knime.core.data.DataTableSpec.columnsToIndices(DataTableSpec.java:248)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.createColumnRearranger(ValueLookupNodeModel.java:222)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:129)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:1)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:117)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:96)
+	at org.knime.core.node.NodeModel.configureModel(NodeModel.java:1099)
+	at org.knime.core.node.Node.invokeNodeModelConfigure(Node.java:1989)
+	at org.knime.core.node.Node.configure(Node.java:1926)
+	at org.knime.core.node.workflow.NativeNodeContainer.performConfigure(NativeNodeContainer.java:566)
+	at org.knime.core.node.workflow.SingleNodeContainer.callNodeConfigure(SingleNodeContainer.java:315)
+	at org.knime.core.node.workflow.SingleNodeContainer.configure(SingleNodeContainer.java:207)
+	at org.knime.core.node.workflow.WorkflowManager.configureSingleNodeContainer(WorkflowManager.java:6657)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndPortSuccessors(WorkflowManager.java:6816)
+	at org.knime.core.node.workflow.WorkflowManager.doAfterExecution(WorkflowManager.java:3671)
+	at org.knime.core.node.workflow.NodeContainer.notifyParentExecuteFinished(NodeContainer.java:689)
+	at org.knime.core.node.workflow.NodeExecutionJob.internalRun(NodeExecutionJob.java:238)
+	at org.knime.core.node.workflow.NodeExecutionJob.run(NodeExecutionJob.java:117)
+	at org.knime.core.util.ThreadUtils$RunnableWithContextImpl.runWithContext(ThreadUtils.java:367)
+	at org.knime.core.util.ThreadUtils$RunnableWithContext.run(ThreadUtils.java:221)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.knime.core.util.ThreadPool$MyFuture.run(ThreadPool.java:123)
+	at org.knime.core.util.ThreadPool$Worker.run(ThreadPool.java:246)
+2023-10-29 18:53:22,149 : ERROR : KNIME-Worker-94-String To Number 3:15:3 :  : Node : Value Lookup : 3:15:15 : Configure failed (IllegalArgumentException): Column not found: "fixed acidity"
+java.lang.IllegalArgumentException: Column not found: "fixed acidity"
+	at org.knime.core.data.DataTableSpec.columnsToIndices(DataTableSpec.java:248)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.createColumnRearranger(ValueLookupNodeModel.java:222)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:129)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:1)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:117)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:96)
+	at org.knime.core.node.NodeModel.configureModel(NodeModel.java:1099)
+	at org.knime.core.node.Node.invokeNodeModelConfigure(Node.java:1989)
+	at org.knime.core.node.Node.configure(Node.java:1926)
+	at org.knime.core.node.workflow.NativeNodeContainer.performConfigure(NativeNodeContainer.java:566)
+	at org.knime.core.node.workflow.SingleNodeContainer.callNodeConfigure(SingleNodeContainer.java:315)
+	at org.knime.core.node.workflow.SingleNodeContainer.configure(SingleNodeContainer.java:207)
+	at org.knime.core.node.workflow.WorkflowManager.configureSingleNodeContainer(WorkflowManager.java:6657)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndPortSuccessors(WorkflowManager.java:6816)
+	at org.knime.core.node.workflow.WorkflowManager.doAfterExecution(WorkflowManager.java:3671)
+	at org.knime.core.node.workflow.NodeContainer.notifyParentExecuteFinished(NodeContainer.java:689)
+	at org.knime.core.node.workflow.NodeExecutionJob.internalRun(NodeExecutionJob.java:238)
+	at org.knime.core.node.workflow.NodeExecutionJob.run(NodeExecutionJob.java:117)
+	at org.knime.core.util.ThreadUtils$RunnableWithContextImpl.runWithContext(ThreadUtils.java:367)
+	at org.knime.core.util.ThreadUtils$RunnableWithContext.run(ThreadUtils.java:221)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.knime.core.util.ThreadPool$MyFuture.run(ThreadPool.java:123)
+	at org.knime.core.util.ThreadPool$Worker.run(ThreadPool.java:246)
+2023-10-29 18:53:22,165 : ERROR : KNIME-Worker-106-Normalizer 3:15:9 :  : Node : Value Lookup : 3:15:15 : Configure failed (IllegalArgumentException): Column not found: "fixed acidity"
+java.lang.IllegalArgumentException: Column not found: "fixed acidity"
+	at org.knime.core.data.DataTableSpec.columnsToIndices(DataTableSpec.java:248)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.createColumnRearranger(ValueLookupNodeModel.java:222)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:129)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:1)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:117)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:96)
+	at org.knime.core.node.NodeModel.configureModel(NodeModel.java:1099)
+	at org.knime.core.node.Node.invokeNodeModelConfigure(Node.java:1989)
+	at org.knime.core.node.Node.configure(Node.java:1926)
+	at org.knime.core.node.workflow.NativeNodeContainer.performConfigure(NativeNodeContainer.java:566)
+	at org.knime.core.node.workflow.SingleNodeContainer.callNodeConfigure(SingleNodeContainer.java:315)
+	at org.knime.core.node.workflow.SingleNodeContainer.configure(SingleNodeContainer.java:207)
+	at org.knime.core.node.workflow.WorkflowManager.configureSingleNodeContainer(WorkflowManager.java:6657)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndPortSuccessors(WorkflowManager.java:6816)
+	at org.knime.core.node.workflow.WorkflowManager.doAfterExecution(WorkflowManager.java:3671)
+	at org.knime.core.node.workflow.NodeContainer.notifyParentExecuteFinished(NodeContainer.java:689)
+	at org.knime.core.node.workflow.NodeExecutionJob.internalRun(NodeExecutionJob.java:238)
+	at org.knime.core.node.workflow.NodeExecutionJob.run(NodeExecutionJob.java:117)
+	at org.knime.core.util.ThreadUtils$RunnableWithContextImpl.runWithContext(ThreadUtils.java:367)
+	at org.knime.core.util.ThreadUtils$RunnableWithContext.run(ThreadUtils.java:221)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.knime.core.util.ThreadPool$MyFuture.run(ThreadPool.java:123)
+	at org.knime.core.util.ThreadPool$Worker.run(ThreadPool.java:246)
+2023-10-29 18:53:22,174 : ERROR : KNIME-Worker-121-Auto-Binner 3:15:10 :  : Node : Value Lookup : 3:15:15 : Configure failed (IllegalArgumentException): Column not found: "fixed acidity"
+java.lang.IllegalArgumentException: Column not found: "fixed acidity"
+	at org.knime.core.data.DataTableSpec.columnsToIndices(DataTableSpec.java:248)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.createColumnRearranger(ValueLookupNodeModel.java:222)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:129)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:1)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:117)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:96)
+	at org.knime.core.node.NodeModel.configureModel(NodeModel.java:1099)
+	at org.knime.core.node.Node.invokeNodeModelConfigure(Node.java:1989)
+	at org.knime.core.node.Node.configure(Node.java:1926)
+	at org.knime.core.node.workflow.NativeNodeContainer.performConfigure(NativeNodeContainer.java:566)
+	at org.knime.core.node.workflow.SingleNodeContainer.callNodeConfigure(SingleNodeContainer.java:315)
+	at org.knime.core.node.workflow.SingleNodeContainer.configure(SingleNodeContainer.java:207)
+	at org.knime.core.node.workflow.WorkflowManager.configureSingleNodeContainer(WorkflowManager.java:6657)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndPortSuccessors(WorkflowManager.java:6816)
+	at org.knime.core.node.workflow.WorkflowManager.doAfterExecution(WorkflowManager.java:3671)
+	at org.knime.core.node.workflow.NodeContainer.notifyParentExecuteFinished(NodeContainer.java:689)
+	at org.knime.core.node.workflow.NodeExecutionJob.internalRun(NodeExecutionJob.java:238)
+	at org.knime.core.node.workflow.NodeExecutionJob.run(NodeExecutionJob.java:117)
+	at org.knime.core.util.ThreadUtils$RunnableWithContextImpl.runWithContext(ThreadUtils.java:367)
+	at org.knime.core.util.ThreadUtils$RunnableWithContext.run(ThreadUtils.java:221)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.knime.core.util.ThreadPool$MyFuture.run(ThreadPool.java:123)
+	at org.knime.core.util.ThreadPool$Worker.run(ThreadPool.java:246)
+2023-10-29 18:53:47,749 : ERROR : comm-pool-thread-28 :  : Node : Value Lookup : 3:15:15 : Configure failed (IllegalArgumentException): Column not found: "volatile acidity"
+java.lang.IllegalArgumentException: Column not found: "volatile acidity"
+	at org.knime.core.data.DataTableSpec.columnsToIndices(DataTableSpec.java:248)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.createColumnRearranger(ValueLookupNodeModel.java:222)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:129)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:1)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:117)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:96)
+	at org.knime.core.node.NodeModel.configureModel(NodeModel.java:1099)
+	at org.knime.core.node.Node.invokeNodeModelConfigure(Node.java:1989)
+	at org.knime.core.node.Node.configure(Node.java:1926)
+	at org.knime.core.node.workflow.NativeNodeContainer.performConfigure(NativeNodeContainer.java:566)
+	at org.knime.core.node.workflow.SingleNodeContainer.callNodeConfigure(SingleNodeContainer.java:315)
+	at org.knime.core.node.workflow.SingleNodeContainer.configure(SingleNodeContainer.java:200)
+	at org.knime.core.node.workflow.WorkflowManager.configureSingleNodeContainer(WorkflowManager.java:6657)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndPortSuccessors(WorkflowManager.java:6816)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndSuccessors(WorkflowManager.java:6759)
+	at org.knime.core.node.workflow.WorkflowManager.loadNodeSettings(WorkflowManager.java:2183)
+	at org.knime.core.webui.node.dialog.ApplyData.applyData(ApplyData.java:157)
+	at org.knime.core.webui.data.ApplyDataService.applyData(ApplyDataService.java:137)
+	at org.knime.core.webui.node.AbstractNodeUIManager.callApplyDataService(AbstractNodeUIManager.java:252)
+	at org.knime.core.wizard.rpc.DefaultNodeService.callNodeDataService(DefaultNodeService.java:150)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.invoke(JsonRpcBasicServer.java:478)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleObject(JsonRpcBasicServer.java:349)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleJsonNodeRequest(JsonRpcBasicServer.java:274)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleRequest(JsonRpcBasicServer.java:242)
+	at org.knime.core.webui.data.rpc.json.impl.JsonRpcServer.handleRequest(JsonRpcServer.java:150)
+	at org.knime.core.wizard.rpc.JsonRpcFunction.call(JsonRpcFunction.java:176)
+	at com.equo.comm.common.MessageHandler.processReceivedEventMessage(MessageHandler.java:131)
+	at com.equo.comm.ee.provider.service.ChromiumService.receiveMessage(ChromiumService.java:98)
+	at com.equo.comm.ee.provider.CommunicationManagerChromiumImpl.receiveMessage(CommunicationManagerChromiumImpl.java:48)
+	at com.equo.chromium.swt.internal.spi.CommRouterHandler.handleRequest(CommRouterHandler.java:35)
+	at com.equo.chromium.swt.internal.spi.CommRouterHandler.lambda$1(CommRouterHandler.java:53)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+2023-10-29 18:53:49,026 : ERROR : comm-pool-thread-28 :  : Node : Value Lookup : 3:15:15 : Configure failed (IllegalArgumentException): Column not found: "volatile acidity"
+java.lang.IllegalArgumentException: Column not found: "volatile acidity"
+	at org.knime.core.data.DataTableSpec.columnsToIndices(DataTableSpec.java:248)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.createColumnRearranger(ValueLookupNodeModel.java:222)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:129)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:1)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:117)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:96)
+	at org.knime.core.node.NodeModel.configureModel(NodeModel.java:1099)
+	at org.knime.core.node.Node.invokeNodeModelConfigure(Node.java:1989)
+	at org.knime.core.node.Node.configure(Node.java:1926)
+	at org.knime.core.node.workflow.NativeNodeContainer.performConfigure(NativeNodeContainer.java:566)
+	at org.knime.core.node.workflow.SingleNodeContainer.callNodeConfigure(SingleNodeContainer.java:315)
+	at org.knime.core.node.workflow.SingleNodeContainer.configure(SingleNodeContainer.java:200)
+	at org.knime.core.node.workflow.WorkflowManager.configureSingleNodeContainer(WorkflowManager.java:6657)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndPortSuccessors(WorkflowManager.java:6816)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndSuccessors(WorkflowManager.java:6759)
+	at org.knime.core.node.workflow.WorkflowManager.resetAndConfigureNodeAndSuccessors(WorkflowManager.java:5437)
+	at org.knime.core.node.workflow.WorkflowManager.resetAndConfigureNode(WorkflowManager.java:5358)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(Unknown Source)
+	at java.base/java.util.HashMap$KeySpliterator.forEachRemaining(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(Unknown Source)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.forEach(Unknown Source)
+	at org.knime.gateway.impl.service.util.DefaultServiceUtil.reset(DefaultServiceUtil.java:310)
+	at org.knime.gateway.impl.service.util.DefaultServiceUtil.doChangeNodeStates(DefaultServiceUtil.java:287)
+	at org.knime.gateway.impl.service.util.DefaultServiceUtil.changeNodeStates(DefaultServiceUtil.java:259)
+	at org.knime.gateway.impl.webui.service.DefaultNodeService.changeNodeStates(DefaultNodeService.java:113)
+	at org.knime.gateway.impl.webui.jsonrpc.service.JsonRpcNodeServiceWrapper.changeNodeStates(JsonRpcNodeServiceWrapper.java:117)
+	at jdk.internal.reflect.GeneratedMethodAccessor155.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.invoke(JsonRpcBasicServer.java:478)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleObject(JsonRpcBasicServer.java:349)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleJsonNodeRequest(JsonRpcBasicServer.java:274)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleRequest(JsonRpcBasicServer.java:242)
+	at org.knime.gateway.impl.jsonrpc.JsonRpcRequestHandler.handle(JsonRpcRequestHandler.java:104)
+	at org.knime.ui.java.browser.lifecycle.Init.lambda$5(Init.java:243)
+	at com.equo.comm.common.MessageHandler.processReceivedEventMessage(MessageHandler.java:131)
+	at com.equo.comm.ee.provider.service.ChromiumService.receiveMessage(ChromiumService.java:98)
+	at com.equo.comm.ee.provider.CommunicationManagerChromiumImpl.receiveMessage(CommunicationManagerChromiumImpl.java:48)
+	at com.equo.chromium.swt.internal.spi.CommRouterHandler.handleRequest(CommRouterHandler.java:35)
+	at com.equo.chromium.swt.internal.spi.CommRouterHandler.lambda$1(CommRouterHandler.java:53)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+2023-10-29 18:53:49,027 : ERROR : comm-pool-thread-28 :  : Node : Value Lookup : 3:15:15 : Configure failed (IllegalArgumentException): Column not found: "volatile acidity"
+java.lang.IllegalArgumentException: Column not found: "volatile acidity"
+	at org.knime.core.data.DataTableSpec.columnsToIndices(DataTableSpec.java:248)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.createColumnRearranger(ValueLookupNodeModel.java:222)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:129)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:1)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:117)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:96)
+	at org.knime.core.node.NodeModel.configureModel(NodeModel.java:1099)
+	at org.knime.core.node.Node.invokeNodeModelConfigure(Node.java:1989)
+	at org.knime.core.node.Node.configure(Node.java:1926)
+	at org.knime.core.node.workflow.NativeNodeContainer.performConfigure(NativeNodeContainer.java:566)
+	at org.knime.core.node.workflow.SingleNodeContainer.callNodeConfigure(SingleNodeContainer.java:315)
+	at org.knime.core.node.workflow.SingleNodeContainer.configure(SingleNodeContainer.java:200)
+	at org.knime.core.node.workflow.WorkflowManager.configureSingleNodeContainer(WorkflowManager.java:6657)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndPortSuccessors(WorkflowManager.java:6816)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndSuccessors(WorkflowManager.java:6759)
+	at org.knime.core.node.workflow.WorkflowManager.resetAndConfigureNodeAndSuccessors(WorkflowManager.java:5437)
+	at org.knime.core.node.workflow.WorkflowManager.resetAndConfigureNode(WorkflowManager.java:5358)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(Unknown Source)
+	at java.base/java.util.HashMap$KeySpliterator.forEachRemaining(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(Unknown Source)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.forEach(Unknown Source)
+	at org.knime.gateway.impl.service.util.DefaultServiceUtil.reset(DefaultServiceUtil.java:310)
+	at org.knime.gateway.impl.service.util.DefaultServiceUtil.doChangeNodeStates(DefaultServiceUtil.java:287)
+	at org.knime.gateway.impl.service.util.DefaultServiceUtil.changeNodeStates(DefaultServiceUtil.java:259)
+	at org.knime.gateway.impl.webui.service.DefaultNodeService.changeNodeStates(DefaultNodeService.java:113)
+	at org.knime.gateway.impl.webui.jsonrpc.service.JsonRpcNodeServiceWrapper.changeNodeStates(JsonRpcNodeServiceWrapper.java:117)
+	at jdk.internal.reflect.GeneratedMethodAccessor155.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.invoke(JsonRpcBasicServer.java:478)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleObject(JsonRpcBasicServer.java:349)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleJsonNodeRequest(JsonRpcBasicServer.java:274)
+	at com.googlecode.jsonrpc4j.JsonRpcBasicServer.handleRequest(JsonRpcBasicServer.java:242)
+	at org.knime.gateway.impl.jsonrpc.JsonRpcRequestHandler.handle(JsonRpcRequestHandler.java:104)
+	at org.knime.ui.java.browser.lifecycle.Init.lambda$5(Init.java:243)
+	at com.equo.comm.common.MessageHandler.processReceivedEventMessage(MessageHandler.java:131)
+	at com.equo.comm.ee.provider.service.ChromiumService.receiveMessage(ChromiumService.java:98)
+	at com.equo.comm.ee.provider.CommunicationManagerChromiumImpl.receiveMessage(CommunicationManagerChromiumImpl.java:48)
+	at com.equo.chromium.swt.internal.spi.CommRouterHandler.handleRequest(CommRouterHandler.java:35)
+	at com.equo.chromium.swt.internal.spi.CommRouterHandler.lambda$1(CommRouterHandler.java:53)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+2023-10-29 18:53:49,898 : ERROR : KNIME-Worker-115-Table Creator 3:15:14 :  : Node : Value Lookup : 3:15:15 : Configure failed (IllegalArgumentException): Column not found: "volatile acidity"
+java.lang.IllegalArgumentException: Column not found: "volatile acidity"
+	at org.knime.core.data.DataTableSpec.columnsToIndices(DataTableSpec.java:248)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.createColumnRearranger(ValueLookupNodeModel.java:222)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:129)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:1)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:117)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:96)
+	at org.knime.core.node.NodeModel.configureModel(NodeModel.java:1099)
+	at org.knime.core.node.Node.invokeNodeModelConfigure(Node.java:1989)
+	at org.knime.core.node.Node.configure(Node.java:1926)
+	at org.knime.core.node.workflow.NativeNodeContainer.performConfigure(NativeNodeContainer.java:566)
+	at org.knime.core.node.workflow.SingleNodeContainer.callNodeConfigure(SingleNodeContainer.java:315)
+	at org.knime.core.node.workflow.SingleNodeContainer.configure(SingleNodeContainer.java:207)
+	at org.knime.core.node.workflow.WorkflowManager.configureSingleNodeContainer(WorkflowManager.java:6657)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndPortSuccessors(WorkflowManager.java:6816)
+	at org.knime.core.node.workflow.WorkflowManager.doAfterExecution(WorkflowManager.java:3671)
+	at org.knime.core.node.workflow.NodeContainer.notifyParentExecuteFinished(NodeContainer.java:689)
+	at org.knime.core.node.workflow.NodeExecutionJob.internalRun(NodeExecutionJob.java:238)
+	at org.knime.core.node.workflow.NodeExecutionJob.run(NodeExecutionJob.java:117)
+	at org.knime.core.util.ThreadUtils$RunnableWithContextImpl.runWithContext(ThreadUtils.java:367)
+	at org.knime.core.util.ThreadUtils$RunnableWithContext.run(ThreadUtils.java:221)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.knime.core.util.ThreadPool$MyFuture.run(ThreadPool.java:123)
+	at org.knime.core.util.ThreadPool$Worker.run(ThreadPool.java:246)
+2023-10-29 18:53:49,906 : ERROR : KNIME-Worker-120-CSV Reader 3:15:1 :  : Node : Value Lookup : 3:15:15 : Configure failed (IllegalArgumentException): Column not found: "volatile acidity"
+java.lang.IllegalArgumentException: Column not found: "volatile acidity"
+	at org.knime.core.data.DataTableSpec.columnsToIndices(DataTableSpec.java:248)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.createColumnRearranger(ValueLookupNodeModel.java:222)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:129)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:1)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:117)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:96)
+	at org.knime.core.node.NodeModel.configureModel(NodeModel.java:1099)
+	at org.knime.core.node.Node.invokeNodeModelConfigure(Node.java:1989)
+	at org.knime.core.node.Node.configure(Node.java:1926)
+	at org.knime.core.node.workflow.NativeNodeContainer.performConfigure(NativeNodeContainer.java:566)
+	at org.knime.core.node.workflow.SingleNodeContainer.callNodeConfigure(SingleNodeContainer.java:315)
+	at org.knime.core.node.workflow.SingleNodeContainer.configure(SingleNodeContainer.java:207)
+	at org.knime.core.node.workflow.WorkflowManager.configureSingleNodeContainer(WorkflowManager.java:6657)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndPortSuccessors(WorkflowManager.java:6816)
+	at org.knime.core.node.workflow.WorkflowManager.doAfterExecution(WorkflowManager.java:3671)
+	at org.knime.core.node.workflow.NodeContainer.notifyParentExecuteFinished(NodeContainer.java:689)
+	at org.knime.core.node.workflow.NodeExecutionJob.internalRun(NodeExecutionJob.java:238)
+	at org.knime.core.node.workflow.NodeExecutionJob.run(NodeExecutionJob.java:117)
+	at org.knime.core.util.ThreadUtils$RunnableWithContextImpl.runWithContext(ThreadUtils.java:367)
+	at org.knime.core.util.ThreadUtils$RunnableWithContext.run(ThreadUtils.java:221)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.knime.core.util.ThreadPool$MyFuture.run(ThreadPool.java:123)
+	at org.knime.core.util.ThreadPool$Worker.run(ThreadPool.java:246)
+2023-10-29 18:53:49,920 : ERROR : KNIME-Worker-99-String To Number 3:15:3 :  : Node : Value Lookup : 3:15:15 : Configure failed (IllegalArgumentException): Column not found: "volatile acidity"
+java.lang.IllegalArgumentException: Column not found: "volatile acidity"
+	at org.knime.core.data.DataTableSpec.columnsToIndices(DataTableSpec.java:248)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.createColumnRearranger(ValueLookupNodeModel.java:222)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:129)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:1)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:117)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:96)
+	at org.knime.core.node.NodeModel.configureModel(NodeModel.java:1099)
+	at org.knime.core.node.Node.invokeNodeModelConfigure(Node.java:1989)
+	at org.knime.core.node.Node.configure(Node.java:1926)
+	at org.knime.core.node.workflow.NativeNodeContainer.performConfigure(NativeNodeContainer.java:566)
+	at org.knime.core.node.workflow.SingleNodeContainer.callNodeConfigure(SingleNodeContainer.java:315)
+	at org.knime.core.node.workflow.SingleNodeContainer.configure(SingleNodeContainer.java:207)
+	at org.knime.core.node.workflow.WorkflowManager.configureSingleNodeContainer(WorkflowManager.java:6657)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndPortSuccessors(WorkflowManager.java:6816)
+	at org.knime.core.node.workflow.WorkflowManager.doAfterExecution(WorkflowManager.java:3671)
+	at org.knime.core.node.workflow.NodeContainer.notifyParentExecuteFinished(NodeContainer.java:689)
+	at org.knime.core.node.workflow.NodeExecutionJob.internalRun(NodeExecutionJob.java:238)
+	at org.knime.core.node.workflow.NodeExecutionJob.run(NodeExecutionJob.java:117)
+	at org.knime.core.util.ThreadUtils$RunnableWithContextImpl.runWithContext(ThreadUtils.java:367)
+	at org.knime.core.util.ThreadUtils$RunnableWithContext.run(ThreadUtils.java:221)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.knime.core.util.ThreadPool$MyFuture.run(ThreadPool.java:123)
+	at org.knime.core.util.ThreadPool$Worker.run(ThreadPool.java:246)
+2023-10-29 18:53:49,933 : ERROR : KNIME-Worker-100-Normalizer 3:15:9 :  : Node : Value Lookup : 3:15:15 : Configure failed (IllegalArgumentException): Column not found: "volatile acidity"
+java.lang.IllegalArgumentException: Column not found: "volatile acidity"
+	at org.knime.core.data.DataTableSpec.columnsToIndices(DataTableSpec.java:248)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.createColumnRearranger(ValueLookupNodeModel.java:222)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:129)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:1)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:117)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:96)
+	at org.knime.core.node.NodeModel.configureModel(NodeModel.java:1099)
+	at org.knime.core.node.Node.invokeNodeModelConfigure(Node.java:1989)
+	at org.knime.core.node.Node.configure(Node.java:1926)
+	at org.knime.core.node.workflow.NativeNodeContainer.performConfigure(NativeNodeContainer.java:566)
+	at org.knime.core.node.workflow.SingleNodeContainer.callNodeConfigure(SingleNodeContainer.java:315)
+	at org.knime.core.node.workflow.SingleNodeContainer.configure(SingleNodeContainer.java:207)
+	at org.knime.core.node.workflow.WorkflowManager.configureSingleNodeContainer(WorkflowManager.java:6657)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndPortSuccessors(WorkflowManager.java:6816)
+	at org.knime.core.node.workflow.WorkflowManager.doAfterExecution(WorkflowManager.java:3671)
+	at org.knime.core.node.workflow.NodeContainer.notifyParentExecuteFinished(NodeContainer.java:689)
+	at org.knime.core.node.workflow.NodeExecutionJob.internalRun(NodeExecutionJob.java:238)
+	at org.knime.core.node.workflow.NodeExecutionJob.run(NodeExecutionJob.java:117)
+	at org.knime.core.util.ThreadUtils$RunnableWithContextImpl.runWithContext(ThreadUtils.java:367)
+	at org.knime.core.util.ThreadUtils$RunnableWithContext.run(ThreadUtils.java:221)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.knime.core.util.ThreadPool$MyFuture.run(ThreadPool.java:123)
+	at org.knime.core.util.ThreadPool$Worker.run(ThreadPool.java:246)
+2023-10-29 18:53:49,941 : ERROR : KNIME-Worker-113-Auto-Binner 3:15:10 :  : Node : Value Lookup : 3:15:15 : Configure failed (IllegalArgumentException): Column not found: "volatile acidity"
+java.lang.IllegalArgumentException: Column not found: "volatile acidity"
+	at org.knime.core.data.DataTableSpec.columnsToIndices(DataTableSpec.java:248)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.createColumnRearranger(ValueLookupNodeModel.java:222)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:129)
+	at org.knime.base.node.preproc.valuelookup.ValueLookupNodeModel.configure(ValueLookupNodeModel.java:1)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:117)
+	at org.knime.core.webui.node.impl.WebUINodeModel.configure(WebUINodeModel.java:96)
+	at org.knime.core.node.NodeModel.configureModel(NodeModel.java:1099)
+	at org.knime.core.node.Node.invokeNodeModelConfigure(Node.java:1989)
+	at org.knime.core.node.Node.configure(Node.java:1926)
+	at org.knime.core.node.workflow.NativeNodeContainer.performConfigure(NativeNodeContainer.java:566)
+	at org.knime.core.node.workflow.SingleNodeContainer.callNodeConfigure(SingleNodeContainer.java:315)
+	at org.knime.core.node.workflow.SingleNodeContainer.configure(SingleNodeContainer.java:207)
+	at org.knime.core.node.workflow.WorkflowManager.configureSingleNodeContainer(WorkflowManager.java:6657)
+	at org.knime.core.node.workflow.WorkflowManager.configureNodeAndPortSuccessors(WorkflowManager.java:6816)
+	at org.knime.core.node.workflow.WorkflowManager.doAfterExecution(WorkflowManager.java:3671)
+	at org.knime.core.node.workflow.NodeContainer.notifyParentExecuteFinished(NodeContainer.java:689)
+	at org.knime.core.node.workflow.NodeExecutionJob.internalRun(NodeExecutionJob.java:238)
+	at org.knime.core.node.workflow.NodeExecutionJob.run(NodeExecutionJob.java:117)
+	at org.knime.core.util.ThreadUtils$RunnableWithContextImpl.runWithContext(ThreadUtils.java:367)
+	at org.knime.core.util.ThreadUtils$RunnableWithContext.run(ThreadUtils.java:221)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.knime.core.util.ThreadPool$MyFuture.run(ThreadPool.java:123)
+	at org.knime.core.util.ThreadPool$Worker.run(ThreadPool.java:246)
+2023-10-29 18:58:50,103 : WARN  : comm-pool-thread-31 :  : Node : Row Filter : 3:15:16 : No row filter specified
+2023-10-29 19:05:21,449 : WARN  : comm-pool-thread-35 :  : Node : Value Lookup : 3:14:15 : Select a lookup column from the data table
+2023-10-29 19:09:45,580 : WARN  : comm-pool-thread-37 :  : Node : Color Manager : 3:18 : Selected column "Cluster" with default nominal color mapping.
+2023-10-29 19:09:54,199 : WARN  : comm-pool-thread-35 :  : Node : Shape Manager : 3:19 : No column selected.
+2023-10-29 19:10:07,515 : WARN  : main :  : Node : Shape Manager : 3:19 : No column selected.
+2023-10-29 19:10:10,842 : WARN  : main :  : Node : Shape Manager : 3:19 : No column selected.
+2023-10-29 19:10:19,787 : WARN  : comm-pool-thread-35 :  : Node : Color Manager : 3:15:13 : Column "Citric Accid" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 14:59:02,358 : WARN  : comm-pool-thread-16 :  : Node : Color Manager : 3:15:13 : Column "Citric Accid" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 14:59:13,642 : WARN  : main :  : ImportURI :  :  : Can't import object from URI 'Ler e tratar os dados de teste de forma a que, com base no modelo desenvolvido nos passos
+anteriores, seja atribuído um cluster a cada registo deste ficheiro;'. Not a valid URL nor a valid path.
+java.net.URISyntaxException: Illegal character in path at index 3: Ler e tratar os dados de teste de forma a que, com base no modelo desenvolvido nos passos
+anteriores, seja atribuído um cluster a cada registo deste ficheiro;
+	at java.base/java.net.URI$Parser.fail(Unknown Source)
+	at java.base/java.net.URI$Parser.checkChars(Unknown Source)
+	at java.base/java.net.URI$Parser.parseHierarchical(Unknown Source)
+	at java.base/java.net.URI$Parser.parse(Unknown Source)
+	at java.base/java.net.URI.<init>(Unknown Source)
+	at org.knime.ui.java.api.ImportURI.getEntityImport(ImportURI.java:152)
+	at org.knime.ui.java.api.ImportURI.importURIAtWorkflowCanvas(ImportURI.java:240)
+	at org.knime.ui.java.api.ImportAPI.importURIAtWorkflowCanvas(ImportAPI.java:123)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.knime.ui.java.api.DesktopAPI.lambda$0(DesktopAPI.java:128)
+	at org.knime.ui.java.browser.KnimeBrowserFunction.function(KnimeBrowserFunction.java:80)
+	at com.equo.chromium.swt.internal.Chromium$FunctionsResourceHandler.lambda$0(Chromium.java:359)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4029)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.knime.product.rcp.KNIMEApplication.start(KNIMEApplication.java:193)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+2023-10-30 14:59:14,429 : WARN  : comm-pool-thread-17 :  : Node : Color Manager : 3:15:13 : Column "Citric Accid" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 15:02:00,352 : WARN  : comm-pool-thread-19 :  : Node : CSV Writer : 3:22 : Please specify a file
+2023-10-30 15:43:25,039 : WARN  : comm-pool-thread-7 :  : Node : k-Medoids : 3:21 : Configuration Missing.
+2023-10-30 15:43:50,461 : WARN  : comm-pool-thread-7 :  : Node : Fuzzy c-Means : 3:22 : List of columns to use has been set automatically, please check it in the node configuration.
+2023-10-30 15:43:54,891 : WARN  : comm-pool-thread-7 :  : Node : Shape Manager : 3:19 : Column Cluster not found.
+2023-10-30 15:44:11,717 : WARN  : comm-pool-thread-7 :  : Node : Color Manager : 3:15:13 : Column "Citric Accid" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 15:44:11,718 : WARN  : comm-pool-thread-7 :  : Node : Shape Manager : 3:19 : Column Cluster not found.
+2023-10-30 15:44:32,289 : WARN  : main :  : Node : Shape Manager : 3:19 : Column Cluster not found.
+2023-10-30 15:44:32,916 : WARN  : main :  : Node : Shape Manager : 3:19 : Column Cluster not found.
+2023-10-30 15:44:34,171 : WARN  : KNIME-Worker-6-Table Creator 3:15:14 :  : Node : Shape Manager : 3:19 : Column Cluster not found.
+2023-10-30 15:44:34,483 : WARN  : KNIME-Worker-5-Normalizer 3:15:9 :  : Node : Shape Manager : 3:19 : Column Cluster not found.
+2023-10-30 15:44:34,683 : WARN  : KNIME-Worker-4-PCA 3:15:11 :  : Node : Shape Manager : 3:19 : Column Cluster not found.
+2023-10-30 15:44:34,910 : WARN  : KNIME-Worker-11-Fuzzy c-Means 3:22 :  : Node : Shape Manager : 3:19 : Column Cluster not found.
+2023-10-30 15:44:34,914 : WARN  : KNIME-Worker-30-Color Manager 3:18 :  : Node : Shape Manager : 3:19 : Column Cluster not found.
+2023-10-30 15:55:24,449 : WARN  : comm-pool-thread-10 :  : Node : Color Manager : 3:18 : Column "Winner Cluster" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 15:55:45,572 : WARN  : comm-pool-thread-10 :  : Node : Color Manager : 3:18 : Column "Winner Cluster" not found.
+2023-10-30 15:55:57,005 : WARN  : main :  : Node : Color Manager : 3:18 : Column "Winner Cluster" not found.
+2023-10-30 15:55:57,814 : WARN  : main :  : Node : Color Manager : 3:18 : Column "Winner Cluster" not found.
+2023-10-30 15:55:59,145 : WARN  : KNIME-Worker-31-Hierarchical Clustering 3:23 :  : Node : Color Manager : 3:18 : Column "Winner Cluster" not found.
+2023-10-30 15:56:04,763 : WARN  : main :  : Node : Shape Manager : 3:19 : Column Winner Cluster not found.
+2023-10-30 15:56:05,710 : WARN  : main :  : Node : Shape Manager : 3:19 : Column Winner Cluster not found.
+2023-10-30 15:56:42,317 : WARN  : comm-pool-thread-9 :  : Node : Color Manager : 3:18 : Column "Cluster" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 15:57:43,771 : WARN  : comm-pool-thread-9 :  : Node : Color Manager : 3:18 : Column "Cluster" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 15:58:12,962 : WARN  : main :  : Node : Color Manager : 3:18 : Column "Cluster" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 15:58:14,111 : WARN  : main :  : Node : Color Manager : 3:18 : Column "Cluster" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 15:58:24,270 : WARN  : main :  : Node : Color Manager : 3:18 : Column "Cluster" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 15:58:25,602 : WARN  : main :  : Node : Color Manager : 3:18 : Column "Cluster" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 15:58:36,060 : WARN  : main :  : Node : Color Manager : 3:18 : Column "Cluster" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 15:58:36,588 : WARN  : main :  : Node : Color Manager : 3:18 : Column "Cluster" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 15:59:37,716 : WARN  : comm-pool-thread-11 :  : Node : CSV Writer : 3:21 : Please specify a file
+2023-10-30 15:59:53,517 : ERROR : KNIME-Worker-60-CSV Writer 3:21 :  : Node : CSV Writer : 3:21 : Execute failed: Output file 'C:\University\MMCC\1ano\1semestre\SBS\Trabalhos-Individuais\Semana7\clusters.csv' exists and must not be overwritten due to user settings.
+java.io.IOException: Output file 'C:\University\MMCC\1ano\1semestre\SBS\Trabalhos-Individuais\Semana7\clusters.csv' exists and must not be overwritten due to user settings.
+	at org.knime.base.node.io.filehandling.csv.writer.CSVWriter2NodeModel.createOutputStream(CSVWriter2NodeModel.java:217)
+	at org.knime.base.node.io.filehandling.csv.writer.CSVWriter2NodeModel.writeToFile(CSVWriter2NodeModel.java:167)
+	at org.knime.base.node.io.filehandling.csv.writer.CSVWriter2NodeModel.execute(CSVWriter2NodeModel.java:147)
+	at org.knime.base.node.io.filehandling.csv.writer.CSVWriter2NodeModel.execute(CSVWriter2NodeModel.java:1)
+	at org.knime.core.node.NodeModel.executeModel(NodeModel.java:558)
+	at org.knime.core.node.Node.invokeFullyNodeModelExecute(Node.java:1274)
+	at org.knime.core.node.Node.execute(Node.java:1036)
+	at org.knime.core.node.workflow.NativeNodeContainer.performExecuteNode(NativeNodeContainer.java:595)
+	at org.knime.core.node.exec.LocalNodeExecutionJob.mainExecute(LocalNodeExecutionJob.java:98)
+	at org.knime.core.node.workflow.NodeExecutionJob.internalRun(NodeExecutionJob.java:201)
+	at org.knime.core.node.workflow.NodeExecutionJob.run(NodeExecutionJob.java:117)
+	at org.knime.core.util.ThreadUtils$RunnableWithContextImpl.runWithContext(ThreadUtils.java:367)
+	at org.knime.core.util.ThreadUtils$RunnableWithContext.run(ThreadUtils.java:221)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.knime.core.util.ThreadPool$MyFuture.run(ThreadPool.java:123)
+	at org.knime.core.util.ThreadPool$Worker.run(ThreadPool.java:246)
+Caused by: java.nio.file.FileAlreadyExistsException: C:\University\MMCC\1ano\1semestre\SBS\Trabalhos-Individuais\Semana7\clusters.csv
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+	at org.knime.filehandling.core.fs.local.fs.LocalFileSystemProvider.newByteChannel(LocalFileSystemProvider.java:148)
+	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(Unknown Source)
+	at java.base/java.nio.file.Files.newOutputStream(Unknown Source)
+	at org.knime.filehandling.core.connections.FSFiles.newOutputStream(FSFiles.java:139)
+	at org.knime.base.node.io.filehandling.csv.writer.CSVWriter2NodeModel.createOutputStream(CSVWriter2NodeModel.java:214)
+	... 16 more
+2023-10-30 16:03:18,947 : WARN  : comm-pool-thread-13 :  : Node : CSV Writer : 3:21 : Please specify a file
+2023-10-30 16:08:29,253 : WARN  : comm-pool-thread-14 :  : Node : Color Manager : 3:15:13 : Column "Citric Accid" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 16:08:41,573 : WARN  : comm-pool-thread-14 :  : Node : Color Manager : 3:15:13 : Column "Citric Accid" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 16:09:42,374 : WARN  : comm-pool-thread-14 :  : Node : Color Manager : 3:15:13 : Column "Citric Accid" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 16:18:37,027 : WARN  : comm-pool-thread-18 :  : Node : Color Manager : 3:18 : Column "Cluster" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 16:18:42,084 : WARN  : main :  : Node : Color Manager : 3:18 : Column "Cluster" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 16:18:42,475 : WARN  : main :  : Node : Color Manager : 3:18 : Column "Cluster" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 16:19:51,307 : WARN  : comm-pool-thread-18 :  : Node : Color Manager : 3:18 : Column "Cluster" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 16:20:10,591 : WARN  : comm-pool-thread-18 :  : Node : Color Manager : 3:18 : Column "Cluster" has no nominal values set: execute predecessor or add Binner.
+2023-10-30 16:23:58,193 : WARN  : main :  : Node : k-Means : 3:16 : Errors overwriting node settings with flow variables: Unknown variable "4"
+2023-10-30 16:23:59,627 : WARN  : main :  : Node : k-Means : 3:16 : Errors overwriting node settings with flow variables: Unknown variable "4"
+2023-10-30 16:24:02,453 : WARN  : KNIME-Worker-140-PCA 3:15:11 :  : Node : k-Means : 3:16 : Errors overwriting node settings with flow variables: Unknown variable "4"
+2023-10-30 16:55:02,337 : ERROR : Clear OSGi configuration :  : InvokeUpdateAction :  :  : Could not clean OSGi configuration area: C:\Users\simao\.eclipse\903338280_win32_win32_x86_64\configuration\org.eclipse.osgi\129\0\.cp\os\win32\x86_64\localfile_1_0_0.dll

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+    <entry key="node_file" type="xstring" value="settings.xml"/>
+    <config key="flow_stack"/>
+    <config key="internal_node_subsettings">
+        <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+    </config>
+    <config key="model">
+        <entry key="generateImage" type="xboolean" value="false"/>
+        <entry key="width" type="xint" value="800"/>
+        <entry key="height" type="xint" value="600"/>
+    </config>
+    <config key="view">
+        <config key="xAxisColumn">
+            <entry key="selected" type="xstring" value="PCA dimension 0"/>
+            <config key="compatibleTypes_Internals">
+                <entry key="array-size" type="xint" value="6"/>
+                <entry key="0" type="xstring" value="org.knime.core.data.DoubleValue"/>
+                <entry key="1" type="xstring" value="org.knime.core.data.DataValue"/>
+                <entry key="2" type="xstring" value="org.knime.core.data.ComplexNumberValue"/>
+                <entry key="3" type="xstring" value="org.knime.core.data.FuzzyNumberValue"/>
+                <entry key="4" type="xstring" value="org.knime.core.data.FuzzyIntervalValue"/>
+                <entry key="5" type="xstring" value="org.knime.core.data.BoundedValue"/>
+            </config>
+        </config>
+        <config key="yAxisColumn">
+            <entry key="selected" type="xstring" value="PCA dimension 1"/>
+            <config key="compatibleTypes_Internals">
+                <entry key="array-size" type="xint" value="6"/>
+                <entry key="0" type="xstring" value="org.knime.core.data.DoubleValue"/>
+                <entry key="1" type="xstring" value="org.knime.core.data.DataValue"/>
+                <entry key="2" type="xstring" value="org.knime.core.data.ComplexNumberValue"/>
+                <entry key="3" type="xstring" value="org.knime.core.data.FuzzyNumberValue"/>
+                <entry key="4" type="xstring" value="org.knime.core.data.FuzzyIntervalValue"/>
+                <entry key="5" type="xstring" value="org.knime.core.data.BoundedValue"/>
+            </config>
+        </config>
+        <config key="colorColumn">
+            <entry key="selected" type="xstring" value="Cluster"/>
+            <config key="compatibleTypes_Internals"/>
+        </config>
+        <entry key="maxRows" type="xint" value="2500"/>
+        <entry key="title" type="xstring" value="Scatter Plot"/>
+        <entry key="axisExtentMethod" type="xstring" value="AUTO"/>
+        <config key="manualAxisLimits">
+            <entry key="xAxisManualMin" type="xdouble" value="0.0"/>
+            <entry key="xAxisManualMax" type="xdouble" value="100.0"/>
+            <entry key="yAxisManualMin" type="xdouble" value="0.0"/>
+            <entry key="yAxisManualMax" type="xdouble" value="100.0"/>
+        </config>
+        <entry key="xAxisLabel" type="xstring" value=""/>
+        <entry key="xAxisScale" type="xstring" value="VALUE"/>
+        <entry key="yAxisLabel" type="xstring" value=""/>
+        <entry key="yAxisScale" type="xstring" value="VALUE"/>
+        <entry key="dataPointSize" type="xint" value="10"/>
+        <entry key="allowImageDownload" type="xboolean" value="true"/>
+        <entry key="enableDataZoom" type="xboolean" value="true"/>
+        <entry key="showTooltip" type="xboolean" value="true"/>
+        <entry key="publishSelection" type="xboolean" value="true"/>
+        <entry key="subscribeToSelection" type="xboolean" value="true"/>
+        <config key="referenceLines"/>
+        <entry key="enableAnimation" type="xboolean" value="true"/>
+    </config>
+    <config key="view_variables">
+        <entry key="version" type="xstring" value="V_2019_09_13"/>
+        <config key="tree">
+            <config key="title">
+                <entry key="used_variable" type="xstring" value="Scatter Plot Cluster"/>
+                <entry key="exposed_variable" type="xstring" isnull="true" value=""/>
+            </config>
+        </config>
+    </config>
+    <entry key="customDescription" type="xstring" isnull="true" value=""/>
+    <entry key="state" type="xstring" value="EXECUTED"/>
+    <entry key="factory" type="xstring" value="org.knime.base.views.node.scatterplot.ScatterPlotNodeFactory"/>
+    <entry key="node-name" type="xstring" value="Scatter Plot"/>
+    <entry key="node-bundle-name" type="xstring" value="KNIME Views"/>
+    <entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.base.views"/>
+    <entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+    <entry key="node-bundle-version" type="xstring" value="5.1.1.v202308221556"/>
+    <entry key="node-feature-name" type="xstring" value="KNIME Views"/>
+    <entry key="node-feature-symbolic-name" type="xstring" value="org.knime.features.base.views.feature.group"/>
+    <entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+    <entry key="node-feature-version" type="xstring" value="5.1.1.v202308221556"/>
+    <config key="factory_settings"/>
+    <config key="node_creation_config">
+        <config key="Input Table"/>
+        <config key="Output Image"/>
+    </config>
+    <entry key="name" type="xstring" value="Scatter Plot"/>
+    <entry key="hasContent" type="xboolean" value="true"/>
+    <entry key="isInactive" type="xboolean" value="false"/>
+    <config key="ports"/>
+    <config key="internalObjects">
+        <entry key="location" type="xstring" value="internalTables"/>
+        <config key="content">
+            <config key="object_0">
+                <entry key="index" type="xint" value="0"/>
+                <entry key="type" type="xstring" value="table"/>
+                <entry key="table_dir_location" type="xstring" value="object_0"/>
+            </config>
+        </config>
+    </config>
+    <config key="filestores">
+        <entry key="file_store_location" type="xstring" isnull="true" value=""/>
+        <entry key="file_store_id" type="xstring" value="44e97e15-6a79-46b5-a3e7-856b7473bc3e"/>
+    </config>
+</config>

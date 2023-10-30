@@ -1,0 +1,1319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.24" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.9.0.v202203150031</property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <data-sources>
+        <oda-data-source extensionID="com.knime.oda.data.source" name="Using Association Rules for Market Basket Analysis(2)" id="21"/>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="com.knime.oda.data.set" name="Recommendation" id="22">
+            <text-property name="displayName">Recommendation</text-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Row ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">RuleId</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">AntecedentsTotalPrice</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">AntecedentsNames</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">RuleSupport</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">RelativeRuleSupport%</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">AntecedentsItems</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">RecommendedItem</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">RuleConfidence%</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">RuleLift%</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">RuleLift</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">PriceRecommendedProduct</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">RecommendedProduct</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">RuleRevenue</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">price current cart</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Using Association Rules for Market Basket Analysis(2)</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Row ID</property>
+                    <property name="nativeName">Row ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">RuleId</property>
+                    <property name="nativeName">RuleId</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">AntecedentsTotalPrice</property>
+                    <property name="nativeName">AntecedentsTotalPrice</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">AntecedentsNames</property>
+                    <property name="nativeName">AntecedentsNames</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">RuleSupport</property>
+                    <property name="nativeName">RuleSupport</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">RelativeRuleSupport%</property>
+                    <property name="nativeName">RelativeRuleSupport%</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">AntecedentsItems</property>
+                    <property name="nativeName">AntecedentsItems</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">RecommendedItem</property>
+                    <property name="nativeName">RecommendedItem</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">RuleConfidence%</property>
+                    <property name="nativeName">RuleConfidence%</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">RuleLift%</property>
+                    <property name="nativeName">RuleLift%</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">RuleLift</property>
+                    <property name="nativeName">RuleLift</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)</property>
+                    <property name="nativeName">Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">PriceRecommendedProduct</property>
+                    <property name="nativeName">PriceRecommendedProduct</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">RecommendedProduct</property>
+                    <property name="nativeName">RecommendedProduct</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">RuleRevenue</property>
+                    <property name="nativeName">RuleRevenue</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">price current cart</property>
+                    <property name="nativeName">price current cart</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[112]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="com.knime.oda.data.set" name="Recommendation 2" id="23">
+            <text-property name="displayName">Recommendation 2</text-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Row ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">RuleId</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">AntecedentsTotalPrice</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">AntecedentsNames</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">RuleSupport</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">RelativeRuleSupport%</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">AntecedentsItems</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">RecommendedItem</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">RuleConfidence%</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">RuleLift%</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">RuleLift</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">PriceRecommendedProduct</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">RecommendedProduct</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">RuleRevenue</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">price current cart</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Using Association Rules for Market Basket Analysis(2)</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Row ID</property>
+                    <property name="nativeName">Row ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">RuleId</property>
+                    <property name="nativeName">RuleId</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">AntecedentsTotalPrice</property>
+                    <property name="nativeName">AntecedentsTotalPrice</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">AntecedentsNames</property>
+                    <property name="nativeName">AntecedentsNames</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">RuleSupport</property>
+                    <property name="nativeName">RuleSupport</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">RelativeRuleSupport%</property>
+                    <property name="nativeName">RelativeRuleSupport%</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">AntecedentsItems</property>
+                    <property name="nativeName">AntecedentsItems</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">RecommendedItem</property>
+                    <property name="nativeName">RecommendedItem</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">RuleConfidence%</property>
+                    <property name="nativeName">RuleConfidence%</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">RuleLift%</property>
+                    <property name="nativeName">RuleLift%</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">RuleLift</property>
+                    <property name="nativeName">RuleLift</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)</property>
+                    <property name="nativeName">Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">PriceRecommendedProduct</property>
+                    <property name="nativeName">PriceRecommendedProduct</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">RecommendedProduct</property>
+                    <property name="nativeName">RecommendedProduct</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">RuleRevenue</property>
+                    <property name="nativeName">RuleRevenue</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">price current cart</property>
+                    <property name="nativeName">price current cart</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[128]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">"Verdana"</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="topMargin">0.25in</property>
+            <property name="leftMargin">0.25in</property>
+            <property name="bottomMargin">0.25in</property>
+            <property name="rightMargin">0.25in</property>
+            <page-footer>
+                <grid id="33">
+                    <property name="height">1.1666666666666667in</property>
+                    <column id="34">
+                        <property name="width">40%</property>
+                    </column>
+                    <column id="35">
+                        <property name="width">30%</property>
+                    </column>
+                    <column id="36">
+                        <property name="width">30%</property>
+                    </column>
+                    <row id="37">
+                        <property name="color">#3E3A39</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopColor">#7D7D7D</property>
+                        <property name="borderTopStyle">solid</property>
+                        <cell id="38">
+                            <property name="backgroundPositionY">center</property>
+                            <property name="textAlign">center</property>
+                            <property name="verticalAlign">middle</property>
+                            <text id="45">
+                                <property name="backgroundPositionY">center</property>
+                                <property name="fontFamily">"Arial"</property>
+                                <property name="fontSize">12pt</property>
+                                <property name="textAlign">left</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[Created with KNIME Analytics Platform]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="39">
+                            <property name="verticalAlign">middle</property>
+                            <text id="47">
+                                <property name="fontFamily">"Arial"</property>
+                                <property name="fontSize">12pt</property>
+                                <property name="marginTop">0pt</property>
+                                <property name="textAlign">center</property>
+                                <property name="verticalAlign">middle</property>
+                                <property name="contentType">html</property>
+                                <text-property name="content"><![CDATA[www.knime.com]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="40">
+                            <property name="textAlign">right</property>
+                            <property name="verticalAlign">middle</property>
+                            <image id="50">
+                                <property name="marginTop">-50px</property>
+                                <property name="marginBottom">-50px</property>
+                                <property name="height">150px</property>
+                                <property name="width">150px</property>
+                                <property name="source">embed</property>
+                                <property name="imageName">knime_logo_birt_svg.svg</property>
+                            </image>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="24">
+            <property name="fontSize">36pt</property>
+            <property name="fontWeight">bold</property>
+            <property name="color">blue</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">Basket Analysis Report</text-property>
+        </label>
+        <label id="25"/>
+        <label id="56"/>
+        <text id="57">
+            <property name="fontFamily">fantasy</property>
+            <property name="fontSize">14pt</property>
+            <property name="fontStyle">italic</property>
+            <property name="dataSet">Recommendation</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Row ID</property>
+                    <text-property name="displayName">Row ID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Row ID"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleId</property>
+                    <text-property name="displayName">RuleId</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleId"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">AntecedentsTotalPrice</property>
+                    <text-property name="displayName">AntecedentsTotalPrice</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AntecedentsTotalPrice"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">AntecedentsNames</property>
+                    <text-property name="displayName">AntecedentsNames</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AntecedentsNames"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleSupport</property>
+                    <text-property name="displayName">RuleSupport</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleSupport"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">RelativeRuleSupport%</property>
+                    <text-property name="displayName">RelativeRuleSupport%</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RelativeRuleSupport%"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">AntecedentsItems</property>
+                    <text-property name="displayName">AntecedentsItems</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AntecedentsItems"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RecommendedItem</property>
+                    <text-property name="displayName">RecommendedItem</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RecommendedItem"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleConfidence%</property>
+                    <text-property name="displayName">RuleConfidence%</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleConfidence%"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleLift%</property>
+                    <text-property name="displayName">RuleLift%</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleLift%"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleLift</property>
+                    <text-property name="displayName">RuleLift</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleLift"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)</property>
+                    <text-property name="displayName">Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">PriceRecommendedProduct</property>
+                    <text-property name="displayName">PriceRecommendedProduct</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["PriceRecommendedProduct"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">RecommendedProduct</property>
+                    <text-property name="displayName">RecommendedProduct</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RecommendedProduct"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleRevenue</property>
+                    <text-property name="displayName">RuleRevenue</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleRevenue"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">price current cart</property>
+                    <text-property name="displayName">price current cart</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["price current cart"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[<H1><font color="blue">
+Welcome to our Supermarket Chain!</font>
+</H1>]]></text-property>
+        </text>
+        <table id="67">
+            <property name="dataSet">Recommendation</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">RecommendedProduct</property>
+                    <text-property name="displayName">RecommendedProduct</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RecommendedProduct"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="76"/>
+            <header>
+                <row id="68">
+                    <cell id="69">
+                        <label id="70">
+                            <text-property name="text">RecommendedProduct</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="71">
+                    <cell id="72">
+                        <property name="verticalAlign">bottom</property>
+                        <data id="73">
+                            <property name="resultSetColumn">RecommendedProduct</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="74">
+                    <cell id="75"/>
+                </row>
+            </footer>
+        </table>
+        <label id="26"/>
+        <table id="46">
+            <property name="dataSet">Recommendation</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Row ID</property>
+                    <text-property name="displayName">Row ID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Row ID"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleId</property>
+                    <text-property name="displayName">RuleId</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleId"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">AntecedentsTotalPrice</property>
+                    <text-property name="displayName">AntecedentsTotalPrice</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AntecedentsTotalPrice"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">AntecedentsNames</property>
+                    <text-property name="displayName">AntecedentsNames</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AntecedentsNames"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleSupport</property>
+                    <text-property name="displayName">RuleSupport</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleSupport"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">RelativeRuleSupport%</property>
+                    <text-property name="displayName">RelativeRuleSupport%</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RelativeRuleSupport%"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">AntecedentsItems</property>
+                    <text-property name="displayName">AntecedentsItems</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AntecedentsItems"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RecommendedItem</property>
+                    <text-property name="displayName">RecommendedItem</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RecommendedItem"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleConfidence%</property>
+                    <text-property name="displayName">RuleConfidence%</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleConfidence%"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleLift%</property>
+                    <text-property name="displayName">RuleLift%</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleLift%"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleLift</property>
+                    <text-property name="displayName">RuleLift</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleLift"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)</property>
+                    <text-property name="displayName">Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">PriceRecommendedProduct</property>
+                    <text-property name="displayName">PriceRecommendedProduct</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["PriceRecommendedProduct"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">RecommendedProduct</property>
+                    <text-property name="displayName">RecommendedProduct</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RecommendedProduct"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleRevenue</property>
+                    <text-property name="displayName">RuleRevenue</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleRevenue"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">price current cart</property>
+                    <text-property name="displayName">price current cart</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["price current cart"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <column id="55"/>
+            <header>
+                <row id="58">
+                    <cell id="48">
+                        <label id="49">
+                            <text-property name="text">RecommendedProduct</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="59">
+                    <cell id="51">
+                        <data id="52">
+                            <property name="resultSetColumn">RecommendedProduct</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="53">
+                    <cell id="54"/>
+                </row>
+            </footer>
+        </table>
+        <text id="60">
+            <property name="fontSize">14pt</property>
+            <property name="dataSet">Recommendation</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Row ID</property>
+                    <text-property name="displayName">Row ID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Row ID"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleId</property>
+                    <text-property name="displayName">RuleId</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleId"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">AntecedentsTotalPrice</property>
+                    <text-property name="displayName">AntecedentsTotalPrice</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AntecedentsTotalPrice"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">AntecedentsNames</property>
+                    <text-property name="displayName">AntecedentsNames</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AntecedentsNames"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleSupport</property>
+                    <text-property name="displayName">RuleSupport</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleSupport"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">RelativeRuleSupport%</property>
+                    <text-property name="displayName">RelativeRuleSupport%</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RelativeRuleSupport%"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">AntecedentsItems</property>
+                    <text-property name="displayName">AntecedentsItems</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AntecedentsItems"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RecommendedItem</property>
+                    <text-property name="displayName">RecommendedItem</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RecommendedItem"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleConfidence%</property>
+                    <text-property name="displayName">RuleConfidence%</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleConfidence%"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleLift%</property>
+                    <text-property name="displayName">RuleLift%</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleLift%"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleLift</property>
+                    <text-property name="displayName">RuleLift</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleLift"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)</property>
+                    <text-property name="displayName">Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">PriceRecommendedProduct</property>
+                    <text-property name="displayName">PriceRecommendedProduct</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["PriceRecommendedProduct"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">RecommendedProduct</property>
+                    <text-property name="displayName">RecommendedProduct</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RecommendedProduct"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleRevenue</property>
+                    <text-property name="displayName">RuleRevenue</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleRevenue"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">price current cart</property>
+                    <text-property name="displayName">price current cart</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["price current cart"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[<P/>
+The total price for your current shopping cart is <B><VALUE-OF>row["price current cart"]</VALUE-OF></B>$!
+<P/>]]></text-property>
+        </text>
+        <label id="61"/>
+        <label id="62">
+            <property name="backgroundColor">navy</property>
+            <property name="fontSize">14pt</property>
+            <property name="fontWeight">bold</property>
+            <property name="color">white</property>
+            <property name="borderBottomColor">#000000</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderTopColor">#000000</property>
+            <property name="borderTopStyle">solid</property>
+            <text-property name="text">Purchase Advices</text-property>
+        </label>
+        <label id="63"/>
+        <text id="64">
+            <property name="fontSize">14pt</property>
+            <property name="dataSet">Recommendation</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Row ID</property>
+                    <text-property name="displayName">Row ID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Row ID"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleId</property>
+                    <text-property name="displayName">RuleId</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleId"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">AntecedentsTotalPrice</property>
+                    <text-property name="displayName">AntecedentsTotalPrice</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AntecedentsTotalPrice"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">AntecedentsNames</property>
+                    <text-property name="displayName">AntecedentsNames</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AntecedentsNames"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleSupport</property>
+                    <text-property name="displayName">RuleSupport</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleSupport"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">RelativeRuleSupport%</property>
+                    <text-property name="displayName">RelativeRuleSupport%</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RelativeRuleSupport%"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">AntecedentsItems</property>
+                    <text-property name="displayName">AntecedentsItems</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AntecedentsItems"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RecommendedItem</property>
+                    <text-property name="displayName">RecommendedItem</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RecommendedItem"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleConfidence%</property>
+                    <text-property name="displayName">RuleConfidence%</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleConfidence%"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleLift%</property>
+                    <text-property name="displayName">RuleLift%</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleLift%"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleLift</property>
+                    <text-property name="displayName">RuleLift</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleLift"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)</property>
+                    <text-property name="displayName">Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">PriceRecommendedProduct</property>
+                    <text-property name="displayName">PriceRecommendedProduct</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["PriceRecommendedProduct"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">RecommendedProduct</property>
+                    <text-property name="displayName">RecommendedProduct</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RecommendedProduct"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleRevenue</property>
+                    <text-property name="displayName">RuleRevenue</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleRevenue"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">price current cart</property>
+                    <text-property name="displayName">price current cart</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["price current cart"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[1. Try our <font color="red" size="5"> <B> <VALUE-OF>row["RecommendedProduct"]</VALUE-OF></B> </font>! 
+<P>
+Today's price for <VALUE-OF>row["RecommendedProduct"]</VALUE-OF> is just <VALUE-OF>row["PriceRecommendedProduct"]</VALUE-OF>$!
+</P>
+<P>
+... and if you like our  <font color="blue" size="5"><B> <VALUE-OF>row["AntecedentsNames"]</VALUE-OF> </B></font>, we are sure you will also enjoy the <font color="red" size="5"> <B> <VALUE-OF>row["RecommendedProduct"]</VALUE-OF></B> </font>! </P>]]></text-property>
+        </text>
+        <label id="65">
+            <property name="borderBottomColor">#000000</property>
+            <property name="borderBottomStyle">solid</property>
+        </label>
+        <label id="30"/>
+        <text id="42">
+            <property name="fontSize">14pt</property>
+            <property name="dataSet">Recommendation 2</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Row ID</property>
+                    <text-property name="displayName">Row ID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Row ID"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleId</property>
+                    <text-property name="displayName">RuleId</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleId"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">AntecedentsTotalPrice</property>
+                    <text-property name="displayName">AntecedentsTotalPrice</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AntecedentsTotalPrice"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">AntecedentsNames</property>
+                    <text-property name="displayName">AntecedentsNames</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AntecedentsNames"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleSupport</property>
+                    <text-property name="displayName">RuleSupport</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleSupport"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">RelativeRuleSupport%</property>
+                    <text-property name="displayName">RelativeRuleSupport%</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RelativeRuleSupport%"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">AntecedentsItems</property>
+                    <text-property name="displayName">AntecedentsItems</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AntecedentsItems"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RecommendedItem</property>
+                    <text-property name="displayName">RecommendedItem</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RecommendedItem"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleConfidence%</property>
+                    <text-property name="displayName">RuleConfidence%</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleConfidence%"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleLift%</property>
+                    <text-property name="displayName">RuleLift%</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleLift%"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleLift</property>
+                    <text-property name="displayName">RuleLift</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleLift"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)</property>
+                    <text-property name="displayName">Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Concatenate(Antecedent (#1))=Concatenate(AntecedentsItems)"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">PriceRecommendedProduct</property>
+                    <text-property name="displayName">PriceRecommendedProduct</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["PriceRecommendedProduct"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">RecommendedProduct</property>
+                    <text-property name="displayName">RecommendedProduct</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RecommendedProduct"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RuleRevenue</property>
+                    <text-property name="displayName">RuleRevenue</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RuleRevenue"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">price current cart</property>
+                    <text-property name="displayName">price current cart</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["price current cart"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[2. Try our <font color="red" size="5"> <B> <VALUE-OF>row["RecommendedProduct"]</VALUE-OF></B> </font>! 
+<P>
+Today's price for <VALUE-OF>row["RecommendedProduct"]</VALUE-OF> is just <VALUE-OF>row["PriceRecommendedProduct"]</VALUE-OF>$!
+</P>
+<P>
+... and if you like our  <font color="blue" size="5"><B> <VALUE-OF>row["AntecedentsNames"]</VALUE-OF> </B></font>, we are sure you will also enjoy the <font color="red" size="5"> <B> <VALUE-OF>row["RecommendedProduct"]</VALUE-OF></B> </font>! </P>]]></text-property>
+        </text>
+        <label id="31">
+            <property name="borderBottomColor">#000000</property>
+            <property name="borderBottomStyle">solid</property>
+        </label>
+        <label id="44"/>
+        <label id="66"/>
+    </body>
+    <list-property name="images">
+        <structure>
+            <property name="name">knime_logo_birt_svg.svg</property>
+            <property name="type">image/svg+xml</property>
+            <property name="data">
+                PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0g
+                R2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4yLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNW
+                RyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4KCjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJs
+                Lm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5v
+                cmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRh
+                eC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJo
+                dHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9k
+                aS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxuczppbmtzY2FwZT0iaHR0
+                cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgdmVyc2lvbj0iMS4xIgog
+                ICBpZD0iTGF5ZXJfMSIKICAgeD0iMTYwcHgiCiAgIHk9IjEyMHB4IgogICB2aWV3Qm94PSIwIDAgNTA0
+                IDE2MiIKICAgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTA0IDE2MjsiCiAgIHhtbDpz
+                cGFjZT0iZGVmYXVsdCIKICAgc29kaXBvZGk6ZG9jbmFtZT0ibG9nbzIuc3ZnIgogICBpbmtzY2FwZTp2
+                ZXJzaW9uPSIwLjkyLjMgKDI0MDU1NDYsIDIwMTgtMDMtMTEpIj4KICA8bWV0YWRhdGEKICAgICBpZD0i
+                bWV0YWRhdGE2NyI+CiAgICA8cmRmOlJERj4KICAgICAgPGNjOldvcmsKICAgICAgICAgcmRmOmFib3V0
+                PSIiPgogICAgICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgICAgIDxk
+                Yzp0eXBlCiAgICAgICAgICAgcmRmOnJlc291cmNlPSJodHRwOi8vcHVybC5vcmcvZGMvZGNtaXR5cGUv
+                U3RpbGxJbWFnZSIgLz4KICAgICAgPC9jYzpXb3JrPgogICAgPC9yZGY6UkRGPgogIDwvbWV0YWRhdGE+
+                CiAgPGRlZnMKICAgICBpZD0iZGVmczY1IiAvPgogIDxzb2RpcG9kaTpuYW1lZHZpZXcKICAgICBwYWdl
+                Y29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgICAgYm9yZGVyb3BhY2l0
+                eT0iMSIKICAgICBvYmplY3R0b2xlcmFuY2U9IjEwIgogICAgIGdyaWR0b2xlcmFuY2U9IjEwIgogICAg
+                IGd1aWRldG9sZXJhbmNlPSIxMCIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMCIKICAgICBpbmtz
+                Y2FwZTpwYWdlc2hhZG93PSIyIgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTkyMCIKICAgICBp
+                bmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE2IgogICAgIGlkPSJuYW1lZHZpZXc2MyIKICAgICBzaG93
+                Z3JpZD0iZmFsc2UiCiAgICAgaW5rc2NhcGU6em9vbT0iMC43MDIzODA5NSIKICAgICBpbmtzY2FwZTpj
+                eD0iMjYwLjU0MjM3IgogICAgIGlua3NjYXBlOmN5PSI4MSIKICAgICBpbmtzY2FwZTp3aW5kb3cteD0i
+                MCIKICAgICBpbmtzY2FwZTp3aW5kb3cteT0iMjciCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXpl
+                ZD0iMSIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJMYXllcl8xIiAvPgogIDxzdHlsZQogICAg
+                IHR5cGU9InRleHQvY3NzIgogICAgIGlkPSJzdHlsZTIiPgoJLnN0MHtmaWxsOiNGRkQ0MDA7fQoJLnN0
+                MXtmaWxsOiM3Nzc4N0I7fQo8L3N0eWxlPgogIDxnCiAgICAgaWQ9Imc0Njc1Ij4KICAgIDxwYXRoCiAg
+                ICAgICBjbGFzcz0ic3QwIgogICAgICAgZD0iTSA5MS40LDIyLjMgMjIuMywxNDEuOSBIIDE2MC40IFog
+                TSA3NS43LDEyNy43IFYgODIgbCAxLjQsLTYuMyAzOS41LDIyLjggNC44LDQuNCAtMzkuNSwyMi44IHog
+                bSAyLC01NC43IDEuOSwtOC42IDI4LjMsMjYgeiBtIC00LjYsNTUuNSAtOC40LDIuNiA4LjQsLTM3LjUg
+                eiBtIDUwLjMsLTIzLjggNi41LDUuOSAtMzYuNiwxMS41IHogbSAtNDIuNiwtNDMuNiAyLjcsLTcuMiAz
+                MiwzOS4xIHogbSAtMTkuNiw3MC42IC03LjYsMS4yIDE3LjksLTQ3LjMgeiBtIDcwLjksLTE4LjMgNC45
+                LDUuOSAtNDkuOSw4LjIgeiBtIC00Ny41LC02NC4zIDIuOCwtNS44IDM0LjIsNTEgeiBtIC0zNS43LDg1
+                LjMgLTYuNCwwLjQgMjcuMSwtNTUuMSB6IG0gOTEuNywtMTEuNyAzLjYsNS4zIC02MS4zLDQuMSB6IE0g
+                MTI1LjgsOTIuNCA4OC44LDM3LjIgOTEuNCwzMi43IFogTSA2NS44LDc3IDM2LjUsMTM2LjcgaCAtNS4y
+                IHogbSAxNi43LDU5LjcgNjYuNCwtNC41IDIuNiw0LjUgeiIKICAgICAgIGlkPSJwYXRoNCIKICAgICAg
+                IGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmlsbDojZmZkNDAw
+                IiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEiCiAgICAgICBkPSJtIDE5My40LDQ2LjEgYyAw
+                LDUuNyAtMy4zLDkuMyAtOC42LDkuMyAtNS4yLDAgLTguNiwtMy42IC04LjYsLTkuMiAwLC01LjcgMy41
+                LC05LjIgOC44LC05LjIgNSwwIDguNCwzLjYgOC40LDkuMSB6IG0gLTE0LjUsMCBjIDAsNC4zIDIuMyw3
+                LjIgNS45LDcuMiAzLjUsMCA1LjgsLTIuOSA1LjgsLTcuMSAwLC00LjQgLTIuMywtNy4yIC01LjgsLTcu
+                MiAtMy41LDAgLTUuOSwyLjkgLTUuOSw3LjEgeiIKICAgICAgIGlkPSJwYXRoNiIKICAgICAgIGlua3Nj
+                YXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmlsbDojM2UzYTM5O2ZpbGwt
+                b3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEiCiAgICAgICBkPSJtIDE5Ny40
+                LDQ1LjkgYyAwLC0xLjQgMCwtMi44IC0wLjEsLTMuOCBoIDIuMyBjIDAuMSwwLjUgMC4xLDEuNCAwLjEs
+                Mi4xIGggMC4xIGMgMSwtMS42IDIuNSwtMi40IDQuNSwtMi40IDMuMywwIDUuNiwyLjcgNS42LDYuNiAw
+                LDQuMSAtMi4zLDcgLTUuNiw3IC0yLDAgLTMuNiwtMS4xIC00LjQsLTIuNSBoIC0wLjEgYyAwLjEsMC41
+                IDAuMSwyLjQgMC4xLDMuMiB2IDQuMyBoIC0yLjQgViA0NS45IFogbSAyLjQsMi43IGMgMCwyLjYgMS43
+                LDQuOCAzLjgsNC44IDIuMiwwIDMuNiwtMi4xIDMuNiwtNC44IDAsLTIuOSAtMS40LC00LjggLTMuNiwt
+                NC44IC0yLjEsMCAtMy44LDIuMSAtMy44LDQuOCB6IgogICAgICAgaWQ9InBhdGg4IgogICAgICAgaW5r
+                c2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICAgIHN0eWxlPSJmaWxsOiMzZTNhMzk7Zmls
+                bC1vcGFjaXR5OjEiIC8+CiAgICA8cGF0aAogICAgICAgY2xhc3M9InN0MSIKICAgICAgIGQ9Im0gMjE1
+                LjIsNDkuMiBjIDAuMSwyLjYgMS45LDQuMiA0LjUsNC4yIDEuNSwwIDIuNiwtMC40IDMuOCwtMSBsIDAu
+                MSwyLjIgYyAtMS4yLDAuNSAtMi41LDAuOCAtNCwwLjggLTQuMywwIC02LjgsLTIuNiAtNi44LC02Ljkg
+                MCwtNC4xIDIuNSwtNi43IDYuMiwtNi43IDMuNCwwIDUuNiwyLjEgNS42LDYuNCAwLDAuMyAwLDAuNyAt
+                MC4xLDAuOSBoIC05LjMgeiBtIDYuOSwtMS45IGMgMCwtMi41IC0xLjQsLTMuNyAtMy4zLC0zLjcgLTEu
+                OSwwIC0zLjQsMS40IC0zLjYsMy43IHoiCiAgICAgICBpZD0icGF0aDEwIgogICAgICAgaW5rc2NhcGU6
+                Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICAgIHN0eWxlPSJmaWxsOiMzZTNhMzk7ZmlsbC1vcGFj
+                aXR5OjEiIC8+CiAgICA8cGF0aAogICAgICAgY2xhc3M9InN0MSIKICAgICAgIGQ9Im0gMjMwLjYsNDQu
+                MiBjIDEsLTEuNSAyLjQsLTIuNCA0LjMsLTIuNCAzLjcsMCA0LjgsMi40IDQuOCw1LjkgdiA3LjQgaCAt
+                Mi40IHYgLTYuNCBjIDAsLTIuNSAtMC4zLC00LjkgLTMsLTQuOSAtMS4zLDAgLTIuNCwwLjcgLTMuMSwx
+                LjkgLTAuNCwwLjcgLTAuNiwxLjcgLTAuNiwzLjIgdiA2LjIgaCAtMi40IHYgLTkuMiBjIDAsLTEuNCAw
+                LC0yLjggLTAuMSwtMy44IGggMi40IGMgMCwwLjUgMCwxLjQgMC4xLDIuMSB6IgogICAgICAgaWQ9InBh
+                dGgxMiIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0i
+                ZmlsbDojM2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEi
+                CiAgICAgICBkPSJtIDI1OC4yLDM3LjkgYyAtMC40LC0wLjEgLTAuOSwtMC4yIC0xLjIsLTAuMiAtMS42
+                LDAgLTIuMiwwLjkgLTIuMiwzLjIgdiAxLjMgaCAzLjUgdiAxLjkgaCAtMy41IHYgMTEgaCAtMi40IHYg
+                LTExIGggLTMuMSB2IC0xLjkgaCAzLjEgViA0MSBjIDAsLTMuMSAxLjEsLTUuMiA0LjIsLTUuMiAwLjYs
+                MCAxLjEsMC4xIDEuOCwwLjIgeiIKICAgICAgIGlkPSJwYXRoMTQiCiAgICAgICBpbmtzY2FwZTpjb25u
+                ZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgc3R5bGU9ImZpbGw6IzNlM2EzOTtmaWxsLW9wYWNpdHk6
+                MSIgLz4KICAgIDxwYXRoCiAgICAgICBjbGFzcz0ic3QxIgogICAgICAgZD0ibSAyNzMuNCw0OC42IGMg
+                MCw0IC0yLjgsNi43IC02LjcsNi43IC0zLjgsMCAtNi43LC0yLjggLTYuNywtNi43IDAsLTQuMSAyLjgs
+                LTYuOSA2LjgsLTYuOSAzLjgsMC4xIDYuNiwyLjkgNi42LDYuOSB6IG0gLTEwLjgsMCBjIDAsMi45IDEu
+                Nyw0LjcgNC4yLDQuNyAyLjQsMCA0LjEsLTEuOSA0LjEsLTQuNyAwLC0yLjkgLTEuNywtNC45IC00LjIs
+                LTQuOSAtMi40LDAuMSAtNC4xLDIuMSAtNC4xLDQuOSB6IgogICAgICAgaWQ9InBhdGgxNiIKICAgICAg
+                IGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmlsbDojM2UzYTM5
+                O2ZpbGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEiCiAgICAgICBkPSJt
+                IDI3OS40LDQ0LjMgYyAwLjcsLTEuNSAyLC0yLjUgMy42LC0yLjUgMC41LDAgMC45LDAuMSAxLjIsMC4y
+                IHYgMi4zIGMgLTAuMywtMC4xIC0wLjcsLTAuMiAtMS4zLC0wLjIgLTIuMiwwIC0zLjYsMS45IC0zLjYs
+                NS4yIHYgNS45IEggMjc3IFYgNDYgYyAwLC0xLjQgMCwtMi44IC0wLjEsLTMuOCBoIDIuNCBjIDAsMC41
+                IDAuMSwxLjQgMC4xLDIuMSB6IgogICAgICAgaWQ9InBhdGgxOCIKICAgICAgIGlua3NjYXBlOmNvbm5l
+                Y3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmlsbDojM2UzYTM5O2ZpbGwtb3BhY2l0eTox
+                IiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEiCiAgICAgICBkPSJtIDI5Ni44LDU1LjEgaCAt
+                Mi42IFYgMzcuMyBoIDIuNiB6IgogICAgICAgaWQ9InBhdGgyMCIKICAgICAgIGlua3NjYXBlOmNvbm5l
+                Y3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmlsbDojM2UzYTM5O2ZpbGwtb3BhY2l0eTox
+                IiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEiCiAgICAgICBkPSJtIDMwNC4xLDQ0LjIgYyAx
+                LC0xLjUgMi40LC0yLjQgNC4zLC0yLjQgMy43LDAgNC44LDIuNCA0LjgsNS45IHYgNy40IGggLTIuNCB2
+                IC02LjQgYyAwLC0yLjUgLTAuMywtNC45IC0zLC00LjkgLTEuMywwIC0yLjQsMC43IC0zLjEsMS45IC0w
+                LjQsMC43IC0wLjYsMS43IC0wLjYsMy4yIHYgNi4yIGggLTIuNCB2IC05LjIgYyAwLC0xLjQgMCwtMi44
+                IC0wLjEsLTMuOCBoIDIuNCBjIDAsMC41IDAsMS40IDAuMSwyLjEgeiIKICAgICAgIGlkPSJwYXRoMjIi
+                CiAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgc3R5bGU9ImZpbGw6
+                IzNlM2EzOTtmaWxsLW9wYWNpdHk6MSIgLz4KICAgIDxwYXRoCiAgICAgICBjbGFzcz0ic3QxIgogICAg
+                ICAgZD0ibSAzMjAsNDQuMiBjIDEsLTEuNSAyLjQsLTIuNCA0LjMsLTIuNCAzLjcsMCA0LjgsMi40IDQu
+                OCw1LjkgdiA3LjQgaCAtMi40IHYgLTYuNCBjIDAsLTIuNSAtMC4zLC00LjkgLTMsLTQuOSAtMS4zLDAg
+                LTIuNCwwLjcgLTMuMSwxLjkgLTAuNCwwLjcgLTAuNiwxLjcgLTAuNiwzLjIgdiA2LjIgaCAtMi40IHYg
+                LTkuMiBjIDAsLTEuNCAwLC0yLjggLTAuMSwtMy44IGggMi40IGMgMCwwLjUgMCwxLjQgMC4xLDIuMSB6
+                IgogICAgICAgaWQ9InBhdGgyNCIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAi
+                CiAgICAgICBzdHlsZT0iZmlsbDojM2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAg
+                ICAgIGNsYXNzPSJzdDEiCiAgICAgICBkPSJtIDM0Ni4xLDQ4LjYgYyAwLDQgLTIuOCw2LjcgLTYuNyw2
+                LjcgLTMuOCwwIC02LjcsLTIuOCAtNi43LC02LjcgMCwtNC4xIDIuOCwtNi45IDYuOCwtNi45IDMuOCww
+                LjEgNi42LDIuOSA2LjYsNi45IHogbSAtMTAuOCwwIGMgMCwyLjkgMS43LDQuNyA0LjIsNC43IDIuNCww
+                IDQuMSwtMS45IDQuMSwtNC43IDAsLTIuOSAtMS43LC00LjkgLTQuMiwtNC45IC0yLjQsMC4xIC00LjEs
+                Mi4xIC00LjEsNC45IHoiCiAgICAgICBpZD0icGF0aDI2IgogICAgICAgaW5rc2NhcGU6Y29ubmVjdG9y
+                LWN1cnZhdHVyZT0iMCIKICAgICAgIHN0eWxlPSJmaWxsOiMzZTNhMzk7ZmlsbC1vcGFjaXR5OjEiIC8+
+                CiAgICA8cGF0aAogICAgICAgY2xhc3M9InN0MSIKICAgICAgIGQ9Im0gMzUyLjgsNTAgYyAwLjMsMC44
+                IDAuNywyLjIgMC45LDMuMSBoIDAuMSBjIDAuMywtMC45IDAuNywtMi40IDEsLTMuMSBsIDIuNywtNy45
+                IGggMi40IGwgLTQuOCwxMyBoIC0yLjkgbCAtNC43LC0xMyBoIDIuNiB6IgogICAgICAgaWQ9InBhdGgy
+                OCIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmls
+                bDojM2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEiCiAg
+                ICAgICBkPSJtIDM2Mi44LDQyLjkgYyAxLjIsLTAuNyAyLjgsLTEuMSA0LjMsLTEuMSAzLjgsMCA1LjIs
+                Mi4yIDUuMiw1LjEgMCwxLjcgLTAuMSwzLjcgLTAuMSw0LjIgMCwxLjQgMC4xLDMgMC4yLDMuOSBoIC0y
+                LjIgYyAwLC0wLjIgLTAuMSwtMC43IC0wLjEsLTEuMSAwLC0wLjMgMCwtMC44IDAuMSwtMS4xIGggLTAu
+                MSBjIC0wLjksMS42IC0yLjMsMi40IC00LjMsMi40IC0yLjgsMCAtNC41LC0xLjUgLTQuNSwtMy45IDAs
+                LTIuNyAyLjQsLTQuMiA2LjgsLTQuMiAwLjUsMCAxLjMsMCAxLjgsMC4xIHYgLTAuMSBjIDAsLTIuMiAt
+                MS4xLC0zLjMgLTMuMywtMy4zIC0xLjMsMCAtMi43LDAuNSAtMy44LDEuMiB6IG0gNS45LDUuOSBjIC0z
+                LjIsMCAtNC44LDAuOCAtNC44LDIuNSAwLDEuMyAxLDIgMi41LDIgMS41LDAgMi43LC0wLjcgMy4yLC0x
+                LjkgMC4zLC0wLjYgMC40LC0xLjQgMC40LC0yLjYgLTAuMiwwLjEgLTAuNywwIC0xLjMsMCB6IgogICAg
+                ICAgaWQ9InBhdGgzMCIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAg
+                ICBzdHlsZT0iZmlsbDojM2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIGNs
+                YXNzPSJzdDEiCiAgICAgICBkPSJtIDM4MC4yLDQyLjEgaCAzLjUgViA0NCBoIC0zLjUgdiA1LjcgYyAw
+                LDIuMSAwLjMsMy41IDIuMiwzLjUgMC41LDAgMC45LC0wLjEgMS40LC0wLjMgbCAwLjEsMS45IGMgLTAu
+                NiwwLjIgLTEuMywwLjQgLTIuMSwwLjQgLTMuMywwIC00LjEsLTIgLTQuMSwtNC44IFYgNDQgaCAtMyB2
+                IC0xLjkgaCAzIFYgMzkgbCAyLjQsLTAuOCB2IDMuOSB6IgogICAgICAgaWQ9InBhdGgzMiIKICAgICAg
+                IGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmlsbDojM2UzYTM5
+                O2ZpbGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEiCiAgICAgICBkPSJt
+                IDM4OS41LDM5LjcgaCAtMi43IFYgMzcgaCAyLjcgeiBtIC0wLjEsMTUuNCBIIDM4NyB2IC0xMyBoIDIu
+                NCB6IgogICAgICAgaWQ9InBhdGgzNCIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9
+                IjAiCiAgICAgICBzdHlsZT0iZmlsbDojM2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgK
+                ICAgICAgIGNsYXNzPSJzdDEiCiAgICAgICBkPSJtIDQwNi40LDQ4LjYgYyAwLDQgLTIuOCw2LjcgLTYu
+                Nyw2LjcgLTMuOCwwIC02LjcsLTIuOCAtNi43LC02LjcgMCwtNC4xIDIuOCwtNi45IDYuOCwtNi45IDMu
+                OCwwLjEgNi42LDIuOSA2LjYsNi45IHogbSAtMTAuOCwwIGMgMCwyLjkgMS43LDQuNyA0LjIsNC43IDIu
+                NCwwIDQuMSwtMS45IDQuMSwtNC43IDAsLTIuOSAtMS43LC00LjkgLTQuMiwtNC45IC0yLjQsMC4xIC00
+                LjEsMi4xIC00LjEsNC45IHoiCiAgICAgICBpZD0icGF0aDM2IgogICAgICAgaW5rc2NhcGU6Y29ubmVj
+                dG9yLWN1cnZhdHVyZT0iMCIKICAgICAgIHN0eWxlPSJmaWxsOiMzZTNhMzk7ZmlsbC1vcGFjaXR5OjEi
+                IC8+CiAgICA8cGF0aAogICAgICAgY2xhc3M9InN0MSIKICAgICAgIGQ9Im0gNDEyLjQsNDQuMiBjIDEs
+                LTEuNSAyLjQsLTIuNCA0LjMsLTIuNCAzLjcsMCA0LjgsMi40IDQuOCw1LjkgdiA3LjQgaCAtMi40IHYg
+                LTYuNCBjIDAsLTIuNSAtMC4zLC00LjkgLTMsLTQuOSAtMS4zLDAgLTIuNCwwLjcgLTMuMSwxLjkgLTAu
+                NCwwLjcgLTAuNiwxLjcgLTAuNiwzLjIgdiA2LjIgSCA0MTAgdiAtOS4yIGMgMCwtMS40IDAsLTIuOCAt
+                MC4xLC0zLjggaCAyLjQgYyAwLDAuNSAwLDEuNCAwLjEsMi4xIHoiCiAgICAgICBpZD0icGF0aDM4Igog
+                ICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICAgIHN0eWxlPSJmaWxsOiMz
+                ZTNhMzk7ZmlsbC1vcGFjaXR5OjEiIC8+CiAgICA8cGF0aAogICAgICAgY2xhc3M9InN0MSIKICAgICAg
+                IGQ9Ik0gMTg5LjUsNzMuMyBWIDEwNSBoIDAuMyBMIDIxNSw3My4zIGggMTUgbCAtMjUuNSwzMi4zIDMz
+                LjEsMzYuMyBoIC0xNyBsIC0zMS4xLC0zMy43IHYgMzMuNyBIIDE3Ni4yIFYgNzMuMyBaIgogICAgICAg
+                aWQ9InBhdGg0MiIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBz
+                dHlsZT0iZmlsbDojM2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNz
+                PSJzdDEiCiAgICAgICBkPSJtIDI1NS44LDczLjMgNDAuOCw0Ny45IFYgNzMuMyBoIDEzIHYgNjguNiBo
+                IC0xMS40IGwgLTQxLC00OC43IHYgNDguNyBoIC0xMyBWIDczLjMgWiIKICAgICAgIGlkPSJwYXRoNDQi
+                CiAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgc3R5bGU9ImZpbGw6
+                IzNlM2EzOTtmaWxsLW9wYWNpdHk6MSIgLz4KICAgIDxwYXRoCiAgICAgICBjbGFzcz0ic3QxIgogICAg
+                ICAgZD0ibSAzMzcuOCw3My4zIHYgNjguNiBIIDMyNC41IFYgNzMuMyBaIgogICAgICAgaWQ9InBhdGg0
+                NiIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmls
+                bDojM2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEiCiAg
+                ICAgICBkPSJtIDM2NC42LDczLjMgMjIuNiwyNy4xIDIyLjUsLTI3LjEgaCAxMS44IHYgNjguNiBIIDQw
+                OC4yIFYgOTMuNyBoIC0wLjQgTCAzODgsMTE3LjkgaCAtMS45IEwgMzY2LjMsOTMuNyBIIDM2NiB2IDQ4
+                LjIgSCAzNTIuNyBWIDczLjMgWiIKICAgICAgIGlkPSJwYXRoNDgiCiAgICAgICBpbmtzY2FwZTpjb25u
+                ZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgc3R5bGU9ImZpbGw6IzNlM2EzOTtmaWxsLW9wYWNpdHk6
+                MSIgLz4KICAgIDxwYXRoCiAgICAgICBjbGFzcz0ic3QxIgogICAgICAgZD0ibSA0ODAuNyw3My4zIHYg
+                MTAuNCBoIC0zMS4xIHYgMTggaCAyOS44IHYgMTAuNCBoIC0yOS44IHYgMTkuNSBoIDMxLjggViAxNDIg
+                SCA0MzYuMyBWIDczLjMgWiIKICAgICAgIGlkPSJwYXRoNTAiCiAgICAgICBpbmtzY2FwZTpjb25uZWN0
+                b3ItY3VydmF0dXJlPSIwIgogICAgICAgc3R5bGU9ImZpbGw6IzNlM2EzOTtmaWxsLW9wYWNpdHk6MSIg
+                Lz4KICA8L2c+Cjwvc3ZnPgo=
+</property>
+        </structure>
+    </list-property>
+</report>

@@ -1,0 +1,3 @@
+C:\University\MMCC\1ano\1semestre\SBS\Trabalhos-Individuais\Semana7\clusters.csv
+C:\University\MMCC\1ano\1semestre\SBS\Trabalhos-Individuais\Semana7\winequality_test.csv
+C:\University\MMCC\1ano\1semestre\SBS\Trabalhos-Individuais\Semana7\winequality_learning.csv

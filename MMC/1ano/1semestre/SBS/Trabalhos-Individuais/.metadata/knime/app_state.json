@@ -1,0 +1,12 @@
+{
+  "version" : "5.1.1.v202309110912",
+  "projects" : [ {
+    "name" : "TP3",
+    "active" : true,
+    "origin" : {
+      "providerId" : "local",
+      "spaceId" : "local",
+      "relativePath" : "TP3"
+    }
+  } ]
+}

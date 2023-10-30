@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow-metadata content-type="text/plain" xmlns="http://www.knime.org/core/node/workflow/metadata/v1.0">
+    <last-modified>2023-07-13T10:49:08.167+03:00</last-modified>
+    <description>This workflow shows how to work with spreadsheets that come in a non-standard format using KNIME Analytics Platform. The aim is to clean up and rearrange a spreadsheet in a non-standard format and then apply a row aggregation. We demonstrate this by finding the number of male and female athletes born in January 2000 using the Olympic Athlete Bio file.</description>
+    <tags>
+        <tag>spreadsheet</tag>
+        <tag>aggregation</tag>
+        <tag>data wrangling</tag>
+    </tags>
+</workflow-metadata>
