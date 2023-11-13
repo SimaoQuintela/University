@@ -32,7 +32,7 @@
 
 | 3<sup>rd</sup> year - 2<sup>nd</sup> semester | | |
 | --- | :---: | :---: |
-| Interação e Concorrência | - | [Project](https://github.com/SimaoQuintela/University/tree/main/3ano/IC-Project) |
+| Interação e Concorrência | [Exercises](https://github.com/SimaoQuintela/University/tree/main/3ano/IC) | [Project](https://github.com/SimaoQuintela/University/tree/main/3ano/IC-Project) |
 | Programação Concorrente | [Exercises](https://github.com/SimaoQuintela/University/tree/main/3ano/PC-Praticas) | [Project](https://giphy.com/gifs/news-francis-collins-LRyVDM2yBYYPhSVTQ9) |
 | Computação Gráfica | [Exercises](https://giphy.com/gifs/news-francis-collins-LRyVDM2yBYYPhSVTQ9) | [Project](https://giphy.com/gifs/news-francis-collins-LRyVDM2yBYYPhSVTQ9)
 | Projeto Final | - | [Project](https://giphy.com/gifs/news-francis-collins-LRyVDM2yBYYPhSVTQ9) |
