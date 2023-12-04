@@ -1,0 +1,4 @@
+2023-07-12 09:14:04,358 : WARN  : ModalContext :  : Node : GroupBy : 14:131:122 : No grouping column included. Aggregate complete table.
+2023-07-12 09:14:04,360 : WARN  : ModalContext :  : Node : GroupBy : 14:131:122 : No grouping column included. Aggregate complete table.
+2023-07-12 09:16:03,997 : WARN  : ModalContext :  : Node : GroupBy : 3:131:122 : No grouping column included. Aggregate complete table.
+2023-07-12 09:16:03,999 : WARN  : ModalContext :  : Node : GroupBy : 3:131:122 : No grouping column included. Aggregate complete table.

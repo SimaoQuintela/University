@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This file is auto-generated and is overwritten each time the workflow is saved.
+    The metadata have moved to the `workflow-metadata.xml` file.-->
+<KNIMEMetaInfo nrOfElements="2" xmlns="http://www.knime.org/2.9/metainfo">
+    <element form="multiline" name="Comments" read-only="false">There has been no title set for this workflow's metadata.
+
+This workflow takes pre-built association rules and applies them to a new data set.
+
+URL: Market Basket Analysis and Recommendation Engines https://www.knime.org/blog/market-basket-analysis-and-recommendation-engines
+URL: Recommendation Engines https://youtu.be/z8jbAm38yXs
+
+TAGS: retail,association rules,recommandation engine,market basket analysis,MBA,Apriori algorithm,Borgelt,data collection,Quickform,deployment</element>
+    <element form="text" name="Last Edited" read-only="true">2023-07-13 10:51:46 +0300</element>
+</KNIMEMetaInfo>

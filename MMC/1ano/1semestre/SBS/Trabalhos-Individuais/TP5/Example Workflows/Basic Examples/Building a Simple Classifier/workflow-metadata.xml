@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow-metadata content-type="text/plain" xmlns="http://www.knime.org/core/node/workflow/metadata/v1.0">
+    <last-modified>2023-07-13T10:45:02.608+03:00</last-modified>
+    <description>From adult data set (census data) predict income group from demographic attributes.</description>
+    <tags>
+        <tag>model training</tag>
+        <tag>classification</tag>
+        <tag>training</tag>
+        <tag>testing</tag>
+    </tags>
+    <links>
+        <link href="https://www.knime.com/learning">KNIME's Learning page</link>
+    </links>
+</workflow-metadata>

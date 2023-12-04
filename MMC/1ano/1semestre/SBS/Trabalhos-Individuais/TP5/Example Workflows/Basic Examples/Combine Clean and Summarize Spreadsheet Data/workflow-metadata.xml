@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow-metadata content-type="text/plain" xmlns="http://www.knime.org/core/node/workflow/metadata/v1.0">
+    <last-modified>2023-07-13T10:45:26.593+03:00</last-modified>
+    <description>In this workflow, you'll read, combine, clean, and summarize data from multiple Excel sheets. You'll calculate the total volume of furniture when moving from one apartment to another.</description>
+    <tags>
+        <tag>Excel</tag>
+        <tag>Spreadsheet</tag>
+        <tag>data wrangling</tag>
+    </tags>
+</workflow-metadata>

@@ -1,0 +1,3 @@
+2023-07-12 09:13:27,773 : WARN  : ModalContext :  : Node : Excel Reader : 12:149 : The node configuration changed and the table spec will be recalculated during execution.
+2023-07-12 09:17:07,895 : WARN  : ModalContext :  : Node : Excel Reader : 4:149 : The node configuration changed and the table spec will be recalculated during execution.
+2023-07-12 09:17:07,896 : WARN  : ModalContext :  : Node : Excel Reader : 4:149 : The node configuration changed and the table spec will be recalculated during execution.

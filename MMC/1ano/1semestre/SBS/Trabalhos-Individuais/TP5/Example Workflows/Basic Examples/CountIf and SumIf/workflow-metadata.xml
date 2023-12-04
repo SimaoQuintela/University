@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow-metadata content-type="text/plain" xmlns="http://www.knime.org/core/node/workflow/metadata/v1.0">
+    <last-modified>2023-07-13T10:48:41.918+03:00</last-modified>
+    <description>This workflow shows how to perform a SumIf and a CountIf function in KNIME Analytics Platform. Of course, there are different ways to get this done using KNIME. In the following example, we show you one of the possible ones.</description>
+    <tags>
+        <tag>spreadsheet</tag>
+        <tag>aggregation</tag>
+        <tag>data wrangling</tag>
+    </tags>
+</workflow-metadata>

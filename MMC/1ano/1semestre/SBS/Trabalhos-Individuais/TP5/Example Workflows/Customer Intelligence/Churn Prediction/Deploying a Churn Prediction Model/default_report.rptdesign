@@ -1,0 +1,1804 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.7.0.v201706222054</property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <data-sources>
+        <oda-data-source extensionID="com.knime.oda.data.source" name="Deploying a Churn Prediction Model(2)" id="21"/>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="com.knime.oda.data.set" name="Produce" id="22">
+            <text-property name="displayName">Produce</text-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Row ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Day Mins</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Eve Mins</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Night Mins</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Intl Mins</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">CustServ Calls</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">Day Calls</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">Day Charge</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">Eve Calls</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">Eve Charge</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">Night Calls</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">Night Charge</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">Intl Calls</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">Intl Charge</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">Area Code</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">Phone</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">Account Length</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">Int'l Plan</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">VMail Plan</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">State</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">Prediction (Churn)</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Deploying a Churn Prediction Model(2)</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Row ID</property>
+                    <property name="nativeName">Row ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Day Mins</property>
+                    <property name="nativeName">Day Mins</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">Eve Mins</property>
+                    <property name="nativeName">Eve Mins</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">Night Mins</property>
+                    <property name="nativeName">Night Mins</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">Intl Mins</property>
+                    <property name="nativeName">Intl Mins</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">CustServ Calls</property>
+                    <property name="nativeName">CustServ Calls</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">Day Calls</property>
+                    <property name="nativeName">Day Calls</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">Day Charge</property>
+                    <property name="nativeName">Day Charge</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">Eve Calls</property>
+                    <property name="nativeName">Eve Calls</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">Eve Charge</property>
+                    <property name="nativeName">Eve Charge</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">Night Calls</property>
+                    <property name="nativeName">Night Calls</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">Night Charge</property>
+                    <property name="nativeName">Night Charge</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">Intl Calls</property>
+                    <property name="nativeName">Intl Calls</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">Intl Charge</property>
+                    <property name="nativeName">Intl Charge</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">Area Code</property>
+                    <property name="nativeName">Area Code</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">Phone</property>
+                    <property name="nativeName">Phone</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">Account Length</property>
+                    <property name="nativeName">Account Length</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">Int'l Plan</property>
+                    <property name="nativeName">Int'l Plan</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">VMail Plan</property>
+                    <property name="nativeName">VMail Plan</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">State</property>
+                    <property name="nativeName">State</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">Prediction (Churn)</property>
+                    <property name="nativeName">Prediction (Churn)</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[108]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">"Verdana"</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="orientation">landscape</property>
+            <property name="topMargin">0.25in</property>
+            <property name="leftMargin">0.25in</property>
+            <property name="bottomMargin">0.25in</property>
+            <property name="rightMargin">0.25in</property>
+            <page-footer>
+                <grid id="33">
+                    <property name="height">1.1666666666666667in</property>
+                    <column id="34">
+                        <property name="width">40%</property>
+                    </column>
+                    <column id="35">
+                        <property name="width">30%</property>
+                    </column>
+                    <column id="36">
+                        <property name="width">30%</property>
+                    </column>
+                    <row id="37">
+                        <property name="color">#3E3A39</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopColor">#7D7D7D</property>
+                        <property name="borderTopStyle">solid</property>
+                        <cell id="38">
+                            <property name="backgroundPositionY">center</property>
+                            <property name="textAlign">center</property>
+                            <property name="verticalAlign">middle</property>
+                            <text id="45">
+                                <property name="backgroundPositionY">center</property>
+                                <property name="fontFamily">"Arial"</property>
+                                <property name="fontSize">12pt</property>
+                                <property name="textAlign">left</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[Created with KNIME Analytics Platform]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="39">
+                            <property name="verticalAlign">middle</property>
+                            <text id="47">
+                                <property name="fontFamily">"Arial"</property>
+                                <property name="fontSize">12pt</property>
+                                <property name="marginTop">0pt</property>
+                                <property name="textAlign">center</property>
+                                <property name="verticalAlign">middle</property>
+                                <property name="contentType">html</property>
+                                <text-property name="content"><![CDATA[www.knime.com]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="40">
+                            <property name="textAlign">right</property>
+                            <property name="verticalAlign">middle</property>
+                            <image id="50">
+                                <property name="marginTop">-50px</property>
+                                <property name="marginBottom">-50px</property>
+                                <property name="height">150px</property>
+                                <property name="width">150px</property>
+                                <property name="source">embed</property>
+                                <property name="imageName">knime_logo_birt_svg.svg</property>
+                            </image>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="94">
+            <column id="95"/>
+            <row id="96">
+                <cell id="97">
+                    <label id="93">
+                        <property name="fontSize">14pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">center</property>
+                        <text-property name="text">Churn Prediction</text-property>
+                    </label>
+                </cell>
+            </row>
+        </grid>
+        <label id="98"/>
+        <label id="106"/>
+        <grid id="286">
+            <property name="textAlign">left</property>
+            <property name="width">50%</property>
+            <column id="310">
+                <property name="width">3.2083333333333335in</property>
+            </column>
+            <column id="287">
+                <property name="width">3.1145833333333335in</property>
+            </column>
+            <column id="288">
+                <property name="width">4.291666666666667in</property>
+            </column>
+            <column id="289">
+                <property name="width">1.2916666666666667in</property>
+            </column>
+            <row id="290">
+                <cell id="307"/>
+                <cell id="291"/>
+                <cell id="292">
+                    <label id="303">
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">center</property>
+                        <text-property name="text"></text-property>
+                    </label>
+                </cell>
+                <cell id="293"/>
+            </row>
+            <row id="294">
+                <cell id="308"/>
+                <cell id="295">
+                    <label id="304"/>
+                    <label id="305"/>
+                    <label id="306"/>
+                    <table id="351">
+                        <property name="dataSet">Produce</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">Prediction (Churn)</property>
+                                <text-property name="displayName">Prediction (Churn)</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Prediction (Churn)"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Area Code</property>
+                                <text-property name="displayName">Area Code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Area Code"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Phone</property>
+                                <text-property name="displayName">Phone</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Phone"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <column id="361"/>
+                        <column id="362"/>
+                        <header>
+                            <row id="352">
+                                <cell id="353">
+                                    <text id="363">
+                                        <property name="contentType">html</property>
+                                        <text-property name="content"><![CDATA[<B>Area Code</B>
+
+]]></text-property>
+                                    </text>
+                                </cell>
+                                <cell id="354">
+                                    <data id="367">
+                                        <property name="resultSetColumn">Area Code</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="355">
+                                <cell id="356">
+                                    <text id="364">
+                                        <property name="contentType">html</property>
+                                        <text-property name="content"><![CDATA[<B>Tel. num</B>
+
+]]></text-property>
+                                    </text>
+                                </cell>
+                                <cell id="357">
+                                    <data id="368">
+                                        <property name="resultSetColumn">Phone</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                        <footer>
+                            <row id="358">
+                                <cell id="359">
+                                    <text id="365">
+                                        <property name="contentType">html</property>
+                                        <text-property name="content"><![CDATA[<B>Prediction (Churn)</B>
+
+]]></text-property>
+                                    </text>
+                                </cell>
+                                <cell id="360">
+                                    <data id="366">
+                                        <property name="resultSetColumn">Prediction (Churn)</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+                <cell id="296">
+                    <property name="textAlign">center</property>
+                    <extended-item extensionName="Chart" id="302">
+                        <xml-property name="xmlRepresentation"><![CDATA[<model:DialChart xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:data="http://www.birt.eclipse.org/ChartModelData" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
+  <Version>2.6.1</Version>
+  <Type>Meter Chart</Type>
+  <SubType>Standard Meter Chart</SubType>
+  <Block>
+    <Children xsi:type="layout:TitleBlock">
+      <Bounds>
+        <Left>0.0</Left>
+        <Top>0.0</Top>
+        <Width>0.0</Width>
+        <Height>0.0</Height>
+      </Bounds>
+      <Insets>
+        <Top>3.0</Top>
+        <Left>3.0</Left>
+        <Bottom>3.0</Bottom>
+        <Right>3.0</Right>
+      </Insets>
+      <Row>-1</Row>
+      <Column>-1</Column>
+      <Rowspan>-1</Rowspan>
+      <Columnspan>-1</Columnspan>
+      <Outline>
+        <Style>Solid</Style>
+        <Thickness>1</Thickness>
+        <Color>
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>0</Green>
+          <Blue>0</Blue>
+        </Color>
+        <Visible>false</Visible>
+      </Outline>
+      <Visible>false</Visible>
+      <Label>
+        <Caption>
+          <Value>Churn Score [0-1]</Value>
+          <Font>
+            <Size>10.0</Size>
+            <Bold>true</Bold>
+            <Alignment>
+              <horizontalAlignment>Center</horizontalAlignment>
+              <verticalAlignment>Center</verticalAlignment>
+            </Alignment>
+          </Font>
+        </Caption>
+        <Background xsi:type="attribute:ColorDefinition">
+          <Transparency>0</Transparency>
+          <Red>255</Red>
+          <Green>255</Green>
+          <Blue>255</Blue>
+        </Background>
+        <Outline>
+          <Style>Solid</Style>
+          <Thickness>1</Thickness>
+          <Color>
+            <Transparency>255</Transparency>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>0</Blue>
+          </Color>
+        </Outline>
+        <Insets>
+          <Top>0.0</Top>
+          <Left>2.0</Left>
+          <Bottom>0.0</Bottom>
+          <Right>3.0</Right>
+        </Insets>
+        <Visible>true</Visible>
+      </Label>
+    </Children>
+    <Children xsi:type="layout:Plot">
+      <Bounds>
+        <Left>0.0</Left>
+        <Top>0.0</Top>
+        <Width>0.0</Width>
+        <Height>0.0</Height>
+      </Bounds>
+      <Insets>
+        <Top>3.0</Top>
+        <Left>3.0</Left>
+        <Bottom>3.0</Bottom>
+        <Right>3.0</Right>
+      </Insets>
+      <Row>-1</Row>
+      <Column>-1</Column>
+      <Rowspan>-1</Rowspan>
+      <Columnspan>-1</Columnspan>
+      <Outline>
+        <Style>Solid</Style>
+        <Thickness>1</Thickness>
+        <Color>
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>0</Green>
+          <Blue>0</Blue>
+        </Color>
+        <Visible>false</Visible>
+      </Outline>
+      <Background xsi:type="attribute:ColorDefinition">
+        <Transparency>0</Transparency>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+      </Background>
+      <Visible>true</Visible>
+      <HorizontalSpacing>5</HorizontalSpacing>
+      <VerticalSpacing>5</VerticalSpacing>
+      <ClientArea>
+        <Outline>
+          <Style>Solid</Style>
+          <Thickness>0</Thickness>
+          <Color>
+            <Transparency>255</Transparency>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>0</Blue>
+          </Color>
+          <Visible>false</Visible>
+        </Outline>
+        <Insets>
+          <Top>0.0</Top>
+          <Left>0.0</Left>
+          <Bottom>0.0</Bottom>
+          <Right>0.0</Right>
+        </Insets>
+      </ClientArea>
+    </Children>
+    <Children xsi:type="layout:Legend">
+      <Bounds>
+        <Left>0.0</Left>
+        <Top>0.0</Top>
+        <Width>0.0</Width>
+        <Height>0.0</Height>
+      </Bounds>
+      <Insets>
+        <Top>3.0</Top>
+        <Left>3.0</Left>
+        <Bottom>3.0</Bottom>
+        <Right>3.0</Right>
+      </Insets>
+      <Row>-1</Row>
+      <Column>-1</Column>
+      <Rowspan>-1</Rowspan>
+      <Columnspan>-1</Columnspan>
+      <Outline>
+        <Style>Solid</Style>
+        <Thickness>1</Thickness>
+        <Color>
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>0</Green>
+          <Blue>0</Blue>
+        </Color>
+        <Visible>false</Visible>
+      </Outline>
+      <Visible>true</Visible>
+      <ClientArea>
+        <Outline>
+          <Style>Solid</Style>
+          <Thickness>0</Thickness>
+          <Color>
+            <Transparency>255</Transparency>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>0</Blue>
+          </Color>
+          <Visible>false</Visible>
+        </Outline>
+        <Insets>
+          <Top>2.0</Top>
+          <Left>2.0</Left>
+          <Bottom>2.0</Bottom>
+          <Right>2.0</Right>
+        </Insets>
+      </ClientArea>
+      <Text>
+        <Value></Value>
+        <Font>
+          <Alignment/>
+        </Font>
+      </Text>
+      <Orientation>Vertical</Orientation>
+      <Direction>Top_Bottom</Direction>
+      <Separator>
+        <Style>Solid</Style>
+        <Thickness>1</Thickness>
+        <Color>
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>0</Green>
+          <Blue>0</Blue>
+        </Color>
+        <Visible>true</Visible>
+      </Separator>
+      <Position>Right</Position>
+      <ItemType>Series</ItemType>
+      <Title>
+        <Caption>
+          <Value></Value>
+          <Font>
+            <Alignment/>
+          </Font>
+        </Caption>
+        <Background xsi:type="attribute:ColorDefinition">
+          <Transparency>0</Transparency>
+          <Red>255</Red>
+          <Green>255</Green>
+          <Blue>255</Blue>
+        </Background>
+        <Outline>
+          <Style>Solid</Style>
+          <Thickness>1</Thickness>
+          <Color>
+            <Transparency>255</Transparency>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>0</Blue>
+          </Color>
+          <Visible>false</Visible>
+        </Outline>
+        <Insets>
+          <Top>0.0</Top>
+          <Left>2.0</Left>
+          <Bottom>0.0</Bottom>
+          <Right>3.0</Right>
+        </Insets>
+        <Visible>false</Visible>
+      </Title>
+      <TitlePosition>Above</TitlePosition>
+      <ShowValue>true</ShowValue>
+    </Children>
+    <Bounds>
+      <Left>0.0</Left>
+      <Top>0.0</Top>
+      <Width>212.0</Width>
+      <Height>130.0</Height>
+    </Bounds>
+    <Insets>
+      <Top>3.0</Top>
+      <Left>3.0</Left>
+      <Bottom>3.0</Bottom>
+      <Right>3.0</Right>
+    </Insets>
+    <Row>-1</Row>
+    <Column>-1</Column>
+    <Rowspan>-1</Rowspan>
+    <Columnspan>-1</Columnspan>
+    <Outline>
+      <Style>Solid</Style>
+      <Thickness>1</Thickness>
+      <Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>0</Green>
+        <Blue>0</Blue>
+      </Color>
+      <Visible>false</Visible>
+    </Outline>
+    <Visible>true</Visible>
+  </Block>
+  <Dimension>Two_Dimensional</Dimension>
+  <Units>Points</Units>
+  <SeriesThickness>10.0</SeriesThickness>
+  <GridColumnCount>0</GridColumnCount>
+  <ExtendedProperties>
+    <Name>enable.area.alt</Name>
+    <Value>false</Value>
+  </ExtendedProperties>
+  <SampleData>
+    <BaseSampleData>
+      <DataSetRepresentation>'A','B','C','D','E'</DataSetRepresentation>
+    </BaseSampleData>
+    <OrthogonalSampleData>
+      <DataSetRepresentation>6,4,12,8,10</DataSetRepresentation>
+      <SeriesDefinitionIndex>0</SeriesDefinitionIndex>
+    </OrthogonalSampleData>
+  </SampleData>
+  <Interactivity/>
+  <EmptyMessage>
+    <Caption>
+      <Value>This chart contains no data.</Value>
+      <Font>
+        <Alignment>
+          <horizontalAlignment>Center</horizontalAlignment>
+          <verticalAlignment>Center</verticalAlignment>
+        </Alignment>
+      </Font>
+    </Caption>
+    <Background xsi:type="attribute:ColorDefinition">
+      <Transparency>64</Transparency>
+      <Red>127</Red>
+      <Green>127</Green>
+      <Blue>127</Blue>
+    </Background>
+    <Outline>
+      <Color>
+        <Transparency>128</Transparency>
+        <Red>127</Red>
+        <Green>127</Green>
+        <Blue>127</Blue>
+      </Color>
+      <Visible>true</Visible>
+    </Outline>
+    <Insets>
+      <Top>10.0</Top>
+      <Left>10.0</Left>
+      <Bottom>10.0</Bottom>
+      <Right>10.0</Right>
+    </Insets>
+    <Visible>false</Visible>
+  </EmptyMessage>
+  <SeriesDefinitions>
+    <Query>
+      <Definition></Definition>
+    </Query>
+    <SeriesPalette>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>0</Green>
+        <Blue>0</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>242</Red>
+        <Green>88</Green>
+        <Blue>106</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>232</Red>
+        <Green>172</Green>
+        <Blue>57</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>255</Green>
+        <Blue>128</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>64</Red>
+        <Green>128</Green>
+        <Blue>128</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>128</Green>
+        <Blue>192</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>170</Red>
+        <Green>85</Green>
+        <Blue>85</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>128</Green>
+        <Blue>0</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>192</Red>
+        <Green>192</Green>
+        <Blue>192</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>128</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>192</Green>
+        <Blue>128</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>7</Red>
+        <Green>146</Green>
+        <Blue>94</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>128</Green>
+        <Blue>255</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>128</Green>
+        <Blue>192</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>128</Green>
+        <Blue>128</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>128</Green>
+        <Blue>192</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>128</Green>
+        <Blue>192</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>0</Green>
+        <Blue>255</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>64</Green>
+        <Blue>64</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>128</Green>
+        <Blue>64</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>80</Red>
+        <Green>240</Green>
+        <Blue>120</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>64</Green>
+        <Blue>128</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>0</Green>
+        <Blue>64</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>0</Green>
+        <Blue>128</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>128</Green>
+        <Blue>64</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>128</Green>
+        <Blue>128</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>128</Green>
+        <Blue>255</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>64</Green>
+        <Blue>0</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>0</Green>
+        <Blue>0</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>128</Green>
+        <Blue>0</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+      </Entries>
+    </SeriesPalette>
+    <SeriesDefinitions>
+      <Query>
+        <Definition></Definition>
+      </Query>
+      <SeriesPalette>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>0</Green>
+          <Blue>0</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>242</Red>
+          <Green>88</Green>
+          <Blue>106</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>232</Red>
+          <Green>172</Green>
+          <Blue>57</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>255</Green>
+          <Blue>128</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>64</Red>
+          <Green>128</Green>
+          <Blue>128</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>128</Green>
+          <Blue>192</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>170</Red>
+          <Green>85</Green>
+          <Blue>85</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>128</Green>
+          <Blue>0</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>192</Red>
+          <Green>192</Green>
+          <Blue>192</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>255</Green>
+          <Blue>128</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>192</Green>
+          <Blue>128</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>7</Red>
+          <Green>146</Green>
+          <Blue>94</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>128</Green>
+          <Blue>255</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>128</Green>
+          <Blue>192</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>255</Green>
+          <Blue>255</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>128</Green>
+          <Blue>128</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>128</Green>
+          <Blue>192</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>128</Green>
+          <Blue>192</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>0</Green>
+          <Blue>255</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>64</Green>
+          <Blue>64</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>128</Green>
+          <Blue>64</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>80</Red>
+          <Green>240</Green>
+          <Blue>120</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>64</Green>
+          <Blue>128</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>0</Green>
+          <Blue>64</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>0</Green>
+          <Blue>128</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>128</Green>
+          <Blue>64</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>128</Green>
+          <Blue>128</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>128</Green>
+          <Blue>255</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>64</Green>
+          <Blue>0</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>0</Green>
+          <Blue>0</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>255</Green>
+          <Blue>255</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>128</Green>
+          <Blue>0</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>255</Green>
+          <Blue>255</Blue>
+        </Entries>
+      </SeriesPalette>
+      <Series xsi:type="type:DialSeries">
+        <Visible>true</Visible>
+        <Label>
+          <Caption>
+            <Value></Value>
+            <Font>
+              <Alignment/>
+            </Font>
+          </Caption>
+          <Background xsi:type="attribute:ColorDefinition">
+            <Transparency>0</Transparency>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+          </Background>
+          <Outline>
+            <Style>Solid</Style>
+            <Thickness>1</Thickness>
+            <Color>
+              <Transparency>255</Transparency>
+              <Red>0</Red>
+              <Green>0</Green>
+              <Blue>0</Blue>
+            </Color>
+            <Visible>false</Visible>
+          </Outline>
+          <Insets>
+            <Top>0.0</Top>
+            <Left>2.0</Left>
+            <Bottom>0.0</Bottom>
+            <Right>3.0</Right>
+          </Insets>
+          <Visible>false</Visible>
+        </Label>
+        <DataDefinition>
+          <Definition>row[&quot;Prediction (Churn)&quot;]</Definition>
+          <Grouping>
+            <GroupType>Text</GroupType>
+            <AggregateExpression>Sum</AggregateExpression>
+          </Grouping>
+        </DataDefinition>
+        <SeriesIdentifier>Churn Score</SeriesIdentifier>
+        <DataPoint>
+          <Components>
+            <Type>Orthogonal_Value</Type>
+          </Components>
+          <Separator>, </Separator>
+        </DataPoint>
+        <LabelPosition>Outside</LabelPosition>
+        <Stacked>false</Stacked>
+        <Triggers>
+          <Condition>onmouseover</Condition>
+          <Action>
+            <Type>Show_Tooltip</Type>
+            <Value xsi:type="attribute:TooltipValue">
+              <Text></Text>
+              <Delay>200</Delay>
+            </Value>
+          </Action>
+        </Triggers>
+        <Dial>
+          <LineAttributes>
+            <Style>Solid</Style>
+            <Thickness>1</Thickness>
+            <Color>
+              <Transparency>255</Transparency>
+              <Red>0</Red>
+              <Green>0</Green>
+              <Blue>0</Blue>
+            </Color>
+            <Visible>true</Visible>
+          </LineAttributes>
+          <Fill xsi:type="attribute:Gradient">
+            <StartColor>
+              <Transparency>255</Transparency>
+              <Red>51</Red>
+              <Green>102</Green>
+              <Blue>255</Blue>
+            </StartColor>
+            <EndColor>
+              <Transparency>255</Transparency>
+              <Red>255</Red>
+              <Green>96</Green>
+              <Blue>18</Blue>
+            </EndColor>
+          </Fill>
+          <MajorGrid>
+            <LineAttributes>
+              <Style>Solid</Style>
+              <Thickness>1</Thickness>
+              <Color>
+                <Transparency>255</Transparency>
+                <Red>196</Red>
+                <Green>196</Green>
+                <Blue>196</Blue>
+              </Color>
+              <Visible>true</Visible>
+            </LineAttributes>
+            <TickStyle>Below</TickStyle>
+            <TickAttributes>
+              <Style>Solid</Style>
+              <Thickness>1</Thickness>
+              <Color>
+                <Transparency>255</Transparency>
+                <Red>196</Red>
+                <Green>196</Green>
+                <Blue>196</Blue>
+              </Color>
+              <Visible>true</Visible>
+            </TickAttributes>
+          </MajorGrid>
+          <MinorGrid>
+            <LineAttributes>
+              <Style>Solid</Style>
+              <Thickness>1</Thickness>
+              <Color>
+                <Transparency>255</Transparency>
+                <Red>225</Red>
+                <Green>225</Green>
+                <Blue>225</Blue>
+              </Color>
+              <Visible>false</Visible>
+            </LineAttributes>
+            <TickStyle>Below</TickStyle>
+            <TickAttributes>
+              <Style>Solid</Style>
+              <Thickness>1</Thickness>
+              <Color>
+                <Transparency>255</Transparency>
+                <Red>225</Red>
+                <Green>225</Green>
+                <Blue>225</Blue>
+              </Color>
+              <Visible>false</Visible>
+            </TickAttributes>
+          </MinorGrid>
+          <Scale>
+            <Min xsi:type="data:NumberDataElement">
+              <Value>0.0</Value>
+            </Min>
+            <Max xsi:type="data:NumberDataElement">
+              <Value>1.0</Value>
+            </Max>
+            <MinorGridsPerUnit>5</MinorGridsPerUnit>
+          </Scale>
+          <Label>
+            <Caption>
+              <Value></Value>
+              <Font>
+                <Alignment/>
+              </Font>
+            </Caption>
+            <Background xsi:type="attribute:ColorDefinition">
+              <Transparency>0</Transparency>
+              <Red>255</Red>
+              <Green>255</Green>
+              <Blue>255</Blue>
+            </Background>
+            <Outline>
+              <Style>Solid</Style>
+              <Thickness>1</Thickness>
+              <Color>
+                <Transparency>255</Transparency>
+                <Red>0</Red>
+                <Green>0</Green>
+                <Blue>0</Blue>
+              </Color>
+            </Outline>
+            <Insets>
+              <Top>0.0</Top>
+              <Left>2.0</Left>
+              <Bottom>0.0</Bottom>
+              <Right>3.0</Right>
+            </Insets>
+            <Visible>true</Visible>
+          </Label>
+        </Dial>
+        <Needle>
+          <LineAttributes>
+            <Style>Solid</Style>
+            <Thickness>4</Thickness>
+            <Color>
+              <Transparency>255</Transparency>
+              <Red>0</Red>
+              <Green>0</Green>
+              <Blue>0</Blue>
+            </Color>
+            <Visible>true</Visible>
+          </LineAttributes>
+          <Decorator>Circle</Decorator>
+        </Needle>
+      </Series>
+      <Grouping>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </SeriesDefinitions>
+    <Series>
+      <Visible>true</Visible>
+      <Label>
+        <Caption>
+          <Value></Value>
+          <Font>
+            <Alignment/>
+          </Font>
+        </Caption>
+        <Background xsi:type="attribute:ColorDefinition">
+          <Transparency>0</Transparency>
+          <Red>255</Red>
+          <Green>255</Green>
+          <Blue>255</Blue>
+        </Background>
+        <Outline>
+          <Style>Solid</Style>
+          <Thickness>1</Thickness>
+          <Color>
+            <Transparency>255</Transparency>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>0</Blue>
+          </Color>
+          <Visible>false</Visible>
+        </Outline>
+        <Insets>
+          <Top>0.0</Top>
+          <Left>2.0</Left>
+          <Bottom>0.0</Bottom>
+          <Right>3.0</Right>
+        </Insets>
+        <Visible>false</Visible>
+      </Label>
+      <DataDefinition>
+        <Definition>row[&quot;Account Length&quot;]</Definition>
+      </DataDefinition>
+      <SeriesIdentifier></SeriesIdentifier>
+      <DataPoint>
+        <Components>
+          <Type>Orthogonal_Value</Type>
+        </Components>
+        <Separator>, </Separator>
+      </DataPoint>
+      <LabelPosition>Outside</LabelPosition>
+      <Stacked>false</Stacked>
+    </Series>
+    <Grouping>
+      <Enabled>true</Enabled>
+      <GroupType>Numeric</GroupType>
+      <AggregateExpression>Sum</AggregateExpression>
+    </Grouping>
+  </SeriesDefinitions>
+  <DialSuperimposition>false</DialSuperimposition>
+</model:DialChart>
+]]></xml-property>
+                        <property name="outputFormat">SVG</property>
+                        <property name="inheritColumns">true</property>
+                        <property name="height">1.9166666666666667in</property>
+                        <property name="width">4.135416666666667in</property>
+                        <property name="dataSet">Produce</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">Row ID</property>
+                                <text-property name="displayName">Row ID</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Row ID"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Day Mins</property>
+                                <text-property name="displayName">Day Mins</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Day Mins"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Eve Mins</property>
+                                <text-property name="displayName">Eve Mins</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Eve Mins"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Night Mins</property>
+                                <text-property name="displayName">Night Mins</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Night Mins"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Intl Mins</property>
+                                <text-property name="displayName">Intl Mins</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Intl Mins"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">CustServ Calls</property>
+                                <text-property name="displayName">CustServ Calls</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["CustServ Calls"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Day Calls</property>
+                                <text-property name="displayName">Day Calls</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Day Calls"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Day Charge</property>
+                                <text-property name="displayName">Day Charge</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Day Charge"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Eve Calls</property>
+                                <text-property name="displayName">Eve Calls</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Eve Calls"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Eve Charge</property>
+                                <text-property name="displayName">Eve Charge</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Eve Charge"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Night Calls</property>
+                                <text-property name="displayName">Night Calls</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Night Calls"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Night Charge</property>
+                                <text-property name="displayName">Night Charge</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Night Charge"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Intl Calls</property>
+                                <text-property name="displayName">Intl Calls</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Intl Calls"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Intl Charge</property>
+                                <text-property name="displayName">Intl Charge</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Intl Charge"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Area Code</property>
+                                <text-property name="displayName">Area Code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Area Code"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Phone</property>
+                                <text-property name="displayName">Phone</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Phone"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Account Length</property>
+                                <text-property name="displayName">Account Length</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Account Length"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Int'l Plan</property>
+                                <text-property name="displayName">Int'l Plan</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Int'l Plan"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">VMail Plan</property>
+                                <text-property name="displayName">VMail Plan</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["VMail Plan"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">State</property>
+                                <text-property name="displayName">State</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["State"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Prediction (Churn)</property>
+                                <text-property name="displayName">Prediction (Churn)</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Prediction (Churn)"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                    </extended-item>
+                </cell>
+                <cell id="297"/>
+            </row>
+            <row id="298">
+                <cell id="309"/>
+                <cell id="299"/>
+                <cell id="300"/>
+                <cell id="301"/>
+            </row>
+        </grid>
+    </body>
+    <list-property name="images">
+        <structure>
+            <property name="name">knime_logo_birt_svg.svg</property>
+            <property name="type">image/svg+xml</property>
+            <property name="data">
+                PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjwh                                
+				LS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4yLjEsIFNWRyBFeHBvcnQgUGx1Zy1J                                
+				biAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4KCjxzdmcKICAgeG1sbnM6ZGM9Imh0                                
+				dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0                                
+				aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkv                                
+				MDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAw                                
+				MC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c29k                                
+				aXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRk                                
+				IgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9p                                
+				bmtzY2FwZSIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0iTGF5ZXJfMSIKICAgeD0iMTYwcHgiCiAg                                
+				IHk9IjEyMHB4IgogICB2aWV3Qm94PSIwIDAgNTA0IDE2MiIKICAgc3R5bGU9ImVuYWJsZS1iYWNr                                
+				Z3JvdW5kOm5ldyAwIDAgNTA0IDE2MjsiCiAgIHhtbDpzcGFjZT0iZGVmYXVsdCIKICAgc29kaXBv                                
+				ZGk6ZG9jbmFtZT0ibG9nbzIuc3ZnIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIwLjkyLjMgKDI0MDU1                                
+				NDYsIDIwMTgtMDMtMTEpIj4KICA8bWV0YWRhdGEKICAgICBpZD0ibWV0YWRhdGE2NyI+CiAgICA8                                
+				cmRmOlJERj4KICAgICAgPGNjOldvcmsKICAgICAgICAgcmRmOmFib3V0PSIiPgogICAgICAgIDxk                                
+				Yzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgICAgIDxkYzp0eXBlCiAgICAg                                
+				ICAgICAgcmRmOnJlc291cmNlPSJodHRwOi8vcHVybC5vcmcvZGMvZGNtaXR5cGUvU3RpbGxJbWFn                                
+				ZSIgLz4KICAgICAgPC9jYzpXb3JrPgogICAgPC9yZGY6UkRGPgogIDwvbWV0YWRhdGE+CiAgPGRl                                
+				ZnMKICAgICBpZD0iZGVmczY1IiAvPgogIDxzb2RpcG9kaTpuYW1lZHZpZXcKICAgICBwYWdlY29s                                
+				b3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgICAgYm9yZGVyb3BhY2l0                                
+				eT0iMSIKICAgICBvYmplY3R0b2xlcmFuY2U9IjEwIgogICAgIGdyaWR0b2xlcmFuY2U9IjEwIgog                                
+				ICAgIGd1aWRldG9sZXJhbmNlPSIxMCIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMCIKICAg                                
+				ICBpbmtzY2FwZTpwYWdlc2hhZG93PSIyIgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTky                                
+				MCIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE2IgogICAgIGlkPSJuYW1lZHZpZXc2                                
+				MyIKICAgICBzaG93Z3JpZD0iZmFsc2UiCiAgICAgaW5rc2NhcGU6em9vbT0iMC43MDIzODA5NSIK                                
+				ICAgICBpbmtzY2FwZTpjeD0iMjYwLjU0MjM3IgogICAgIGlua3NjYXBlOmN5PSI4MSIKICAgICBp                                
+				bmtzY2FwZTp3aW5kb3cteD0iMCIKICAgICBpbmtzY2FwZTp3aW5kb3cteT0iMjciCiAgICAgaW5r                                
+				c2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJM                                
+				YXllcl8xIiAvPgogIDxzdHlsZQogICAgIHR5cGU9InRleHQvY3NzIgogICAgIGlkPSJzdHlsZTIi                                
+				PgoJLnN0MHtmaWxsOiNGRkQ0MDA7fQoJLnN0MXtmaWxsOiM3Nzc4N0I7fQo8L3N0eWxlPgogIDxn                                
+				CiAgICAgaWQ9Imc0Njc1Ij4KICAgIDxwYXRoCiAgICAgICBjbGFzcz0ic3QwIgogICAgICAgZD0i                                
+				TSA5MS40LDIyLjMgMjIuMywxNDEuOSBIIDE2MC40IFogTSA3NS43LDEyNy43IFYgODIgbCAxLjQs                                
+				LTYuMyAzOS41LDIyLjggNC44LDQuNCAtMzkuNSwyMi44IHogbSAyLC01NC43IDEuOSwtOC42IDI4                                
+				LjMsMjYgeiBtIC00LjYsNTUuNSAtOC40LDIuNiA4LjQsLTM3LjUgeiBtIDUwLjMsLTIzLjggNi41                                
+				LDUuOSAtMzYuNiwxMS41IHogbSAtNDIuNiwtNDMuNiAyLjcsLTcuMiAzMiwzOS4xIHogbSAtMTku                                
+				Niw3MC42IC03LjYsMS4yIDE3LjksLTQ3LjMgeiBtIDcwLjksLTE4LjMgNC45LDUuOSAtNDkuOSw4                                
+				LjIgeiBtIC00Ny41LC02NC4zIDIuOCwtNS44IDM0LjIsNTEgeiBtIC0zNS43LDg1LjMgLTYuNCww                                
+				LjQgMjcuMSwtNTUuMSB6IG0gOTEuNywtMTEuNyAzLjYsNS4zIC02MS4zLDQuMSB6IE0gMTI1Ljgs                                
+				OTIuNCA4OC44LDM3LjIgOTEuNCwzMi43IFogTSA2NS44LDc3IDM2LjUsMTM2LjcgaCAtNS4yIHog                                
+				bSAxNi43LDU5LjcgNjYuNCwtNC41IDIuNiw0LjUgeiIKICAgICAgIGlkPSJwYXRoNCIKICAgICAg                                
+				IGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmlsbDojZmZk                                
+				NDAwIiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEiCiAgICAgICBkPSJtIDE5My40LDQ2                                
+				LjEgYyAwLDUuNyAtMy4zLDkuMyAtOC42LDkuMyAtNS4yLDAgLTguNiwtMy42IC04LjYsLTkuMiAw                                
+				LC01LjcgMy41LC05LjIgOC44LC05LjIgNSwwIDguNCwzLjYgOC40LDkuMSB6IG0gLTE0LjUsMCBj                                
+				IDAsNC4zIDIuMyw3LjIgNS45LDcuMiAzLjUsMCA1LjgsLTIuOSA1LjgsLTcuMSAwLC00LjQgLTIu                                
+				MywtNy4yIC01LjgsLTcuMiAtMy41LDAgLTUuOSwyLjkgLTUuOSw3LjEgeiIKICAgICAgIGlkPSJw                                
+				YXRoNiIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzdHls                                
+				ZT0iZmlsbDojM2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNz                                
+				PSJzdDEiCiAgICAgICBkPSJtIDE5Ny40LDQ1LjkgYyAwLC0xLjQgMCwtMi44IC0wLjEsLTMuOCBo                                
+				IDIuMyBjIDAuMSwwLjUgMC4xLDEuNCAwLjEsMi4xIGggMC4xIGMgMSwtMS42IDIuNSwtMi40IDQu                                
+				NSwtMi40IDMuMywwIDUuNiwyLjcgNS42LDYuNiAwLDQuMSAtMi4zLDcgLTUuNiw3IC0yLDAgLTMu                                
+				NiwtMS4xIC00LjQsLTIuNSBoIC0wLjEgYyAwLjEsMC41IDAuMSwyLjQgMC4xLDMuMiB2IDQuMyBo                                
+				IC0yLjQgViA0NS45IFogbSAyLjQsMi43IGMgMCwyLjYgMS43LDQuOCAzLjgsNC44IDIuMiwwIDMu                                
+				NiwtMi4xIDMuNiwtNC44IDAsLTIuOSAtMS40LC00LjggLTMuNiwtNC44IC0yLjEsMCAtMy44LDIu                                
+				MSAtMy44LDQuOCB6IgogICAgICAgaWQ9InBhdGg4IgogICAgICAgaW5rc2NhcGU6Y29ubmVjdG9y                                
+				LWN1cnZhdHVyZT0iMCIKICAgICAgIHN0eWxlPSJmaWxsOiMzZTNhMzk7ZmlsbC1vcGFjaXR5OjEi                                
+				IC8+CiAgICA8cGF0aAogICAgICAgY2xhc3M9InN0MSIKICAgICAgIGQ9Im0gMjE1LjIsNDkuMiBj                                
+				IDAuMSwyLjYgMS45LDQuMiA0LjUsNC4yIDEuNSwwIDIuNiwtMC40IDMuOCwtMSBsIDAuMSwyLjIg                                
+				YyAtMS4yLDAuNSAtMi41LDAuOCAtNCwwLjggLTQuMywwIC02LjgsLTIuNiAtNi44LC02LjkgMCwt                                
+				NC4xIDIuNSwtNi43IDYuMiwtNi43IDMuNCwwIDUuNiwyLjEgNS42LDYuNCAwLDAuMyAwLDAuNyAt                                
+				MC4xLDAuOSBoIC05LjMgeiBtIDYuOSwtMS45IGMgMCwtMi41IC0xLjQsLTMuNyAtMy4zLC0zLjcg                                
+				LTEuOSwwIC0zLjQsMS40IC0zLjYsMy43IHoiCiAgICAgICBpZD0icGF0aDEwIgogICAgICAgaW5r                                
+				c2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICAgIHN0eWxlPSJmaWxsOiMzZTNhMzk7                                
+				ZmlsbC1vcGFjaXR5OjEiIC8+CiAgICA8cGF0aAogICAgICAgY2xhc3M9InN0MSIKICAgICAgIGQ9                                
+				Im0gMjMwLjYsNDQuMiBjIDEsLTEuNSAyLjQsLTIuNCA0LjMsLTIuNCAzLjcsMCA0LjgsMi40IDQu                                
+				OCw1LjkgdiA3LjQgaCAtMi40IHYgLTYuNCBjIDAsLTIuNSAtMC4zLC00LjkgLTMsLTQuOSAtMS4z                                
+				LDAgLTIuNCwwLjcgLTMuMSwxLjkgLTAuNCwwLjcgLTAuNiwxLjcgLTAuNiwzLjIgdiA2LjIgaCAt                                
+				Mi40IHYgLTkuMiBjIDAsLTEuNCAwLC0yLjggLTAuMSwtMy44IGggMi40IGMgMCwwLjUgMCwxLjQg                                
+				MC4xLDIuMSB6IgogICAgICAgaWQ9InBhdGgxMiIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1j                                
+				dXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmlsbDojM2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAv                                
+				PgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEiCiAgICAgICBkPSJtIDI1OC4yLDM3LjkgYyAt                                
+				MC40LC0wLjEgLTAuOSwtMC4yIC0xLjIsLTAuMiAtMS42LDAgLTIuMiwwLjkgLTIuMiwzLjIgdiAx                                
+				LjMgaCAzLjUgdiAxLjkgaCAtMy41IHYgMTEgaCAtMi40IHYgLTExIGggLTMuMSB2IC0xLjkgaCAz                                
+				LjEgViA0MSBjIDAsLTMuMSAxLjEsLTUuMiA0LjIsLTUuMiAwLjYsMCAxLjEsMC4xIDEuOCwwLjIg                                
+				eiIKICAgICAgIGlkPSJwYXRoMTQiCiAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJl                                
+				PSIwIgogICAgICAgc3R5bGU9ImZpbGw6IzNlM2EzOTtmaWxsLW9wYWNpdHk6MSIgLz4KICAgIDxw                                
+				YXRoCiAgICAgICBjbGFzcz0ic3QxIgogICAgICAgZD0ibSAyNzMuNCw0OC42IGMgMCw0IC0yLjgs                                
+				Ni43IC02LjcsNi43IC0zLjgsMCAtNi43LC0yLjggLTYuNywtNi43IDAsLTQuMSAyLjgsLTYuOSA2                                
+				LjgsLTYuOSAzLjgsMC4xIDYuNiwyLjkgNi42LDYuOSB6IG0gLTEwLjgsMCBjIDAsMi45IDEuNyw0                                
+				LjcgNC4yLDQuNyAyLjQsMCA0LjEsLTEuOSA0LjEsLTQuNyAwLC0yLjkgLTEuNywtNC45IC00LjIs                                
+				LTQuOSAtMi40LDAuMSAtNC4xLDIuMSAtNC4xLDQuOSB6IgogICAgICAgaWQ9InBhdGgxNiIKICAg                                
+				ICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmlsbDoj                                
+				M2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEiCiAg                                
+				ICAgICBkPSJtIDI3OS40LDQ0LjMgYyAwLjcsLTEuNSAyLC0yLjUgMy42LC0yLjUgMC41LDAgMC45                                
+				LDAuMSAxLjIsMC4yIHYgMi4zIGMgLTAuMywtMC4xIC0wLjcsLTAuMiAtMS4zLC0wLjIgLTIuMiww                                
+				IC0zLjYsMS45IC0zLjYsNS4yIHYgNS45IEggMjc3IFYgNDYgYyAwLC0xLjQgMCwtMi44IC0wLjEs                                
+				LTMuOCBoIDIuNCBjIDAsMC41IDAuMSwxLjQgMC4xLDIuMSB6IgogICAgICAgaWQ9InBhdGgxOCIK                                
+				ICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmls                                
+				bDojM2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEi                                
+				CiAgICAgICBkPSJtIDI5Ni44LDU1LjEgaCAtMi42IFYgMzcuMyBoIDIuNiB6IgogICAgICAgaWQ9                                
+				InBhdGgyMCIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBz                                
+				dHlsZT0iZmlsbDojM2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIGNs                                
+				YXNzPSJzdDEiCiAgICAgICBkPSJtIDMwNC4xLDQ0LjIgYyAxLC0xLjUgMi40LC0yLjQgNC4zLC0y                                
+				LjQgMy43LDAgNC44LDIuNCA0LjgsNS45IHYgNy40IGggLTIuNCB2IC02LjQgYyAwLC0yLjUgLTAu                                
+				MywtNC45IC0zLC00LjkgLTEuMywwIC0yLjQsMC43IC0zLjEsMS45IC0wLjQsMC43IC0wLjYsMS43                                
+				IC0wLjYsMy4yIHYgNi4yIGggLTIuNCB2IC05LjIgYyAwLC0xLjQgMCwtMi44IC0wLjEsLTMuOCBo                                
+				IDIuNCBjIDAsMC41IDAsMS40IDAuMSwyLjEgeiIKICAgICAgIGlkPSJwYXRoMjIiCiAgICAgICBp                                
+				bmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgc3R5bGU9ImZpbGw6IzNlM2Ez                                
+				OTtmaWxsLW9wYWNpdHk6MSIgLz4KICAgIDxwYXRoCiAgICAgICBjbGFzcz0ic3QxIgogICAgICAg                                
+				ZD0ibSAzMjAsNDQuMiBjIDEsLTEuNSAyLjQsLTIuNCA0LjMsLTIuNCAzLjcsMCA0LjgsMi40IDQu                                
+				OCw1LjkgdiA3LjQgaCAtMi40IHYgLTYuNCBjIDAsLTIuNSAtMC4zLC00LjkgLTMsLTQuOSAtMS4z                                
+				LDAgLTIuNCwwLjcgLTMuMSwxLjkgLTAuNCwwLjcgLTAuNiwxLjcgLTAuNiwzLjIgdiA2LjIgaCAt                                
+				Mi40IHYgLTkuMiBjIDAsLTEuNCAwLC0yLjggLTAuMSwtMy44IGggMi40IGMgMCwwLjUgMCwxLjQg                                
+				MC4xLDIuMSB6IgogICAgICAgaWQ9InBhdGgyNCIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1j                                
+				dXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmlsbDojM2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAv                                
+				PgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEiCiAgICAgICBkPSJtIDM0Ni4xLDQ4LjYgYyAw                                
+				LDQgLTIuOCw2LjcgLTYuNyw2LjcgLTMuOCwwIC02LjcsLTIuOCAtNi43LC02LjcgMCwtNC4xIDIu                                
+				OCwtNi45IDYuOCwtNi45IDMuOCwwLjEgNi42LDIuOSA2LjYsNi45IHogbSAtMTAuOCwwIGMgMCwy                                
+				LjkgMS43LDQuNyA0LjIsNC43IDIuNCwwIDQuMSwtMS45IDQuMSwtNC43IDAsLTIuOSAtMS43LC00                                
+				LjkgLTQuMiwtNC45IC0yLjQsMC4xIC00LjEsMi4xIC00LjEsNC45IHoiCiAgICAgICBpZD0icGF0                                
+				aDI2IgogICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICAgIHN0eWxl                                
+				PSJmaWxsOiMzZTNhMzk7ZmlsbC1vcGFjaXR5OjEiIC8+CiAgICA8cGF0aAogICAgICAgY2xhc3M9                                
+				InN0MSIKICAgICAgIGQ9Im0gMzUyLjgsNTAgYyAwLjMsMC44IDAuNywyLjIgMC45LDMuMSBoIDAu                                
+				MSBjIDAuMywtMC45IDAuNywtMi40IDEsLTMuMSBsIDIuNywtNy45IGggMi40IGwgLTQuOCwxMyBo                                
+				IC0yLjkgbCAtNC43LC0xMyBoIDIuNiB6IgogICAgICAgaWQ9InBhdGgyOCIKICAgICAgIGlua3Nj                                
+				YXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmlsbDojM2UzYTM5O2Zp                                
+				bGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEiCiAgICAgICBkPSJt                                
+				IDM2Mi44LDQyLjkgYyAxLjIsLTAuNyAyLjgsLTEuMSA0LjMsLTEuMSAzLjgsMCA1LjIsMi4yIDUu                                
+				Miw1LjEgMCwxLjcgLTAuMSwzLjcgLTAuMSw0LjIgMCwxLjQgMC4xLDMgMC4yLDMuOSBoIC0yLjIg                                
+				YyAwLC0wLjIgLTAuMSwtMC43IC0wLjEsLTEuMSAwLC0wLjMgMCwtMC44IDAuMSwtMS4xIGggLTAu                                
+				MSBjIC0wLjksMS42IC0yLjMsMi40IC00LjMsMi40IC0yLjgsMCAtNC41LC0xLjUgLTQuNSwtMy45                                
+				IDAsLTIuNyAyLjQsLTQuMiA2LjgsLTQuMiAwLjUsMCAxLjMsMCAxLjgsMC4xIHYgLTAuMSBjIDAs                                
+				LTIuMiAtMS4xLC0zLjMgLTMuMywtMy4zIC0xLjMsMCAtMi43LDAuNSAtMy44LDEuMiB6IG0gNS45                                
+				LDUuOSBjIC0zLjIsMCAtNC44LDAuOCAtNC44LDIuNSAwLDEuMyAxLDIgMi41LDIgMS41LDAgMi43                                
+				LC0wLjcgMy4yLC0xLjkgMC4zLC0wLjYgMC40LC0xLjQgMC40LC0yLjYgLTAuMiwwLjEgLTAuNyww                                
+				IC0xLjMsMCB6IgogICAgICAgaWQ9InBhdGgzMCIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1j                                
+				dXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmlsbDojM2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAv                                
+				PgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEiCiAgICAgICBkPSJtIDM4MC4yLDQyLjEgaCAz                                
+				LjUgViA0NCBoIC0zLjUgdiA1LjcgYyAwLDIuMSAwLjMsMy41IDIuMiwzLjUgMC41LDAgMC45LC0w                                
+				LjEgMS40LC0wLjMgbCAwLjEsMS45IGMgLTAuNiwwLjIgLTEuMywwLjQgLTIuMSwwLjQgLTMuMyww                                
+				IC00LjEsLTIgLTQuMSwtNC44IFYgNDQgaCAtMyB2IC0xLjkgaCAzIFYgMzkgbCAyLjQsLTAuOCB2                                
+				IDMuOSB6IgogICAgICAgaWQ9InBhdGgzMiIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2                                
+				YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmlsbDojM2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAvPgog                                
+				ICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEiCiAgICAgICBkPSJtIDM4OS41LDM5LjcgaCAtMi43                                
+				IFYgMzcgaCAyLjcgeiBtIC0wLjEsMTUuNCBIIDM4NyB2IC0xMyBoIDIuNCB6IgogICAgICAgaWQ9                                
+				InBhdGgzNCIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBz                                
+				dHlsZT0iZmlsbDojM2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIGNs                                
+				YXNzPSJzdDEiCiAgICAgICBkPSJtIDQwNi40LDQ4LjYgYyAwLDQgLTIuOCw2LjcgLTYuNyw2Ljcg                                
+				LTMuOCwwIC02LjcsLTIuOCAtNi43LC02LjcgMCwtNC4xIDIuOCwtNi45IDYuOCwtNi45IDMuOCww                                
+				LjEgNi42LDIuOSA2LjYsNi45IHogbSAtMTAuOCwwIGMgMCwyLjkgMS43LDQuNyA0LjIsNC43IDIu                                
+				NCwwIDQuMSwtMS45IDQuMSwtNC43IDAsLTIuOSAtMS43LC00LjkgLTQuMiwtNC45IC0yLjQsMC4x                                
+				IC00LjEsMi4xIC00LjEsNC45IHoiCiAgICAgICBpZD0icGF0aDM2IgogICAgICAgaW5rc2NhcGU6                                
+				Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICAgIHN0eWxlPSJmaWxsOiMzZTNhMzk7ZmlsbC1v                                
+				cGFjaXR5OjEiIC8+CiAgICA8cGF0aAogICAgICAgY2xhc3M9InN0MSIKICAgICAgIGQ9Im0gNDEy                                
+				LjQsNDQuMiBjIDEsLTEuNSAyLjQsLTIuNCA0LjMsLTIuNCAzLjcsMCA0LjgsMi40IDQuOCw1Ljkg                                
+				diA3LjQgaCAtMi40IHYgLTYuNCBjIDAsLTIuNSAtMC4zLC00LjkgLTMsLTQuOSAtMS4zLDAgLTIu                                
+				NCwwLjcgLTMuMSwxLjkgLTAuNCwwLjcgLTAuNiwxLjcgLTAuNiwzLjIgdiA2LjIgSCA0MTAgdiAt                                
+				OS4yIGMgMCwtMS40IDAsLTIuOCAtMC4xLC0zLjggaCAyLjQgYyAwLDAuNSAwLDEuNCAwLjEsMi4x                                
+				IHoiCiAgICAgICBpZD0icGF0aDM4IgogICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVy                                
+				ZT0iMCIKICAgICAgIHN0eWxlPSJmaWxsOiMzZTNhMzk7ZmlsbC1vcGFjaXR5OjEiIC8+CiAgICA8                                
+				cGF0aAogICAgICAgY2xhc3M9InN0MSIKICAgICAgIGQ9Ik0gMTg5LjUsNzMuMyBWIDEwNSBoIDAu                                
+				MyBMIDIxNSw3My4zIGggMTUgbCAtMjUuNSwzMi4zIDMzLjEsMzYuMyBoIC0xNyBsIC0zMS4xLC0z                                
+				My43IHYgMzMuNyBIIDE3Ni4yIFYgNzMuMyBaIgogICAgICAgaWQ9InBhdGg0MiIKICAgICAgIGlu                                
+				a3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0iZmlsbDojM2UzYTM5                                
+				O2ZpbGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJzdDEiCiAgICAgICBk                                
+				PSJtIDI1NS44LDczLjMgNDAuOCw0Ny45IFYgNzMuMyBoIDEzIHYgNjguNiBoIC0xMS40IGwgLTQx                                
+				LC00OC43IHYgNDguNyBoIC0xMyBWIDczLjMgWiIKICAgICAgIGlkPSJwYXRoNDQiCiAgICAgICBp                                
+				bmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgc3R5bGU9ImZpbGw6IzNlM2Ez                                
+				OTtmaWxsLW9wYWNpdHk6MSIgLz4KICAgIDxwYXRoCiAgICAgICBjbGFzcz0ic3QxIgogICAgICAg                                
+				ZD0ibSAzMzcuOCw3My4zIHYgNjguNiBIIDMyNC41IFYgNzMuMyBaIgogICAgICAgaWQ9InBhdGg0                                
+				NiIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzdHlsZT0i                                
+				ZmlsbDojM2UzYTM5O2ZpbGwtb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIGNsYXNzPSJz                                
+				dDEiCiAgICAgICBkPSJtIDM2NC42LDczLjMgMjIuNiwyNy4xIDIyLjUsLTI3LjEgaCAxMS44IHYg                                
+				NjguNiBIIDQwOC4yIFYgOTMuNyBoIC0wLjQgTCAzODgsMTE3LjkgaCAtMS45IEwgMzY2LjMsOTMu                                
+				NyBIIDM2NiB2IDQ4LjIgSCAzNTIuNyBWIDczLjMgWiIKICAgICAgIGlkPSJwYXRoNDgiCiAgICAg                                
+				ICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgc3R5bGU9ImZpbGw6IzNl                                
+				M2EzOTtmaWxsLW9wYWNpdHk6MSIgLz4KICAgIDxwYXRoCiAgICAgICBjbGFzcz0ic3QxIgogICAg                                
+				ICAgZD0ibSA0ODAuNyw3My4zIHYgMTAuNCBoIC0zMS4xIHYgMTggaCAyOS44IHYgMTAuNCBoIC0y                                
+				OS44IHYgMTkuNSBoIDMxLjggViAxNDIgSCA0MzYuMyBWIDczLjMgWiIKICAgICAgIGlkPSJwYXRo                                
+				NTAiCiAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgc3R5bGU9                                
+				ImZpbGw6IzNlM2EzOTtmaWxsLW9wYWNpdHk6MSIgLz4KICA8L2c+Cjwvc3ZnPgo=
+</property>
+        </structure>
+    </list-property>
+</report>

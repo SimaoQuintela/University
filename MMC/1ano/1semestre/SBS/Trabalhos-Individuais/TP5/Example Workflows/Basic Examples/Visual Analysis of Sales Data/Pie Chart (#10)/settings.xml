@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+    <entry key="node_file" type="xstring" value="settings.xml"/>
+    <config key="flow_stack"/>
+    <config key="internal_node_subsettings">
+        <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+    </config>
+    <config key="model">
+        <entry key="aggregationMethod" type="xstring" value="SUM"/>
+        <config key="categoryColumn">
+            <entry key="json-type_Internals" type="xstring" value="OBJECT"/>
+            <config key="compatibleTypes">
+                <entry key="array-size" type="xint" value="3"/>
+                <entry key="0" type="xstring" value="org.knime.core.data.StringValue"/>
+                <entry key="1" type="xstring" value="org.knime.core.data.DataValue"/>
+                <entry key="2" type="xstring" value="org.knime.core.data.NominalValue"/>
+            </config>
+            <entry key="selected" type="xstring" value="country"/>
+        </config>
+        <config key="frequencyColumn">
+            <entry key="json-type_Internals" type="xstring" value="OBJECT"/>
+            <config key="compatibleTypes">
+                <entry key="array-size" type="xint" value="8"/>
+                <entry key="0" type="xstring" value="org.knime.core.data.IntValue"/>
+                <entry key="1" type="xstring" value="org.knime.core.data.DataValue"/>
+                <entry key="2" type="xstring" value="org.knime.core.data.LongValue"/>
+                <entry key="3" type="xstring" value="org.knime.core.data.DoubleValue"/>
+                <entry key="4" type="xstring" value="org.knime.core.data.ComplexNumberValue"/>
+                <entry key="5" type="xstring" value="org.knime.core.data.FuzzyNumberValue"/>
+                <entry key="6" type="xstring" value="org.knime.core.data.FuzzyIntervalValue"/>
+                <entry key="7" type="xstring" value="org.knime.core.data.BoundedValue"/>
+            </config>
+            <entry key="selected" type="xstring" value="amount"/>
+        </config>
+        <entry key="generateImage" type="xboolean" value="false"/>
+        <entry key="height" type="xint" value="600"/>
+        <entry key="width" type="xint" value="800"/>
+    </config>
+    <config key="view">
+        <entry key="aggregateSmallCategories" type="xboolean" value="true"/>
+        <entry key="aggregateSmallCategoriesThreshold" type="xdouble" value="3.0"/>
+        <entry key="allowImageDownload" type="xboolean" value="true"/>
+        <entry key="donutChart" type="xboolean" value="false"/>
+        <entry key="enableAnimation" type="xboolean" value="true"/>
+        <entry key="holeSize" type="xint" value="60"/>
+        <entry key="labelContent" type="xstring" value="CAT"/>
+        <entry key="labelPosition" type="xstring" value="OUT"/>
+        <entry key="labelValueFormat" type="xstring" value="ABS"/>
+        <entry key="pieSize" type="xint" value="50"/>
+        <entry key="publishSelection" type="xboolean" value="true"/>
+        <entry key="showLabels" type="xboolean" value="true"/>
+        <entry key="showLegend" type="xboolean" value="false"/>
+        <entry key="showTooltip" type="xboolean" value="true"/>
+        <entry key="smallCategoriesLabel" type="xstring" value="Other"/>
+        <entry key="sortCategoriesBy" type="xstring" value="SIZE"/>
+        <entry key="subscribeToSelection" type="xboolean" value="true"/>
+        <entry key="title" type="xstring" value="Pie Chart"/>
+        <entry key="tooltipValueFormat" type="xstring" value="ABSPROP"/>
+    </config>
+    <entry key="customDescription" type="xstring" isnull="true" value=""/>
+    <entry key="state" type="xstring" value="CONFIGURED"/>
+    <entry key="factory" type="xstring" value="org.knime.base.views.node.piechart.PieChartNodeFactory"/>
+    <entry key="node-name" type="xstring" value="Pie Chart"/>
+    <entry key="node-bundle-name" type="xstring" value="KNIME Views"/>
+    <entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.base.views"/>
+    <entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+    <entry key="node-bundle-version" type="xstring" value="5.1.0.v202307101930"/>
+    <entry key="node-feature-name" type="xstring" value="KNIME Views"/>
+    <entry key="node-feature-symbolic-name" type="xstring" value="org.knime.features.base.views.feature.group"/>
+    <entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+    <entry key="node-feature-version" type="xstring" value="5.1.0.v202307101930"/>
+    <config key="factory_settings"/>
+    <config key="node_creation_config">
+        <config key="Input Table"/>
+        <config key="Output Image"/>
+    </config>
+    <entry key="name" type="xstring" value="Pie Chart"/>
+    <entry key="hasContent" type="xboolean" value="false"/>
+    <entry key="isInactive" type="xboolean" value="false"/>
+    <config key="ports"/>
+    <config key="filestores">
+        <entry key="file_store_location" type="xstring" isnull="true" value=""/>
+        <entry key="file_store_id" type="xstring" isnull="true" value=""/>
+    </config>
+</config>
